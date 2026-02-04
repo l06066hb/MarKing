@@ -1,0 +1,45 @@
+# 基本信息
+title: MarKing - 专业 Markdown 编辑器
+description: 现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业
+lang: zh-CN
+baseurl: ""  # 使用自定义域名时必须为空
+url: "https://markingmd.com"  # 自定义域名
+
+# GitHub Pages 设置
+theme: null  # 使用自定义 HTML
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO 优化
+author: MarKing Team
+logo: /docs/icon-512.png
+
+social:
+  name: MarKing
+  links:
+    - https://github.com/l06066hb/MarKing
+
+# 网站元数据
+tagline: Be the King of Markdown
+keywords: Markdown编辑器, 文档编辑器, 跨平台编辑器, DOCX导出, PDF导出, 技术文档, 写作工具
+
+# 排除文件（不发布到 GitHub Pages）
+exclude:
+  - scripts/
+  - .github/
+  - README.md
+  - CHANGELOG.md
+  - LICENSE
+  - SECURITY.md
+  - SUPPORT.md
+  - FEATURES.md
+  - INSTALL.md
+  - QUICK_START.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - "*.md"
+
+# 仅包含 docs 文件夹
+include:
+  - docs/

@@ -1,0 +1,2276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MarKing - Professional cross-platform Markdown editor for efficient and professional document creation. Real-time preview, smart completion, visual table editor, DOCX/PDF export.">
+    <parameter name="keywords"
+        content="Markdown editor, document editor, cross-platform editor, DOCX export, PDF export, technical documentation, writing tool">
+        <parameter name="author" content="MarKing">
+
+            <!-- Open Graph -->
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="MarKing - Professional Markdown Editor">
+            <meta property="og:description"
+                content="Modern cross-platform Markdown editor for efficient and professional document creation">
+            <meta property="og:image" content="icon-512.png">
+
+            <title>MarKing - Professional Markdown Editor | Be the King of Markdown</title>
+
+            <!-- Preload app icon -->
+            <link rel="icon" type="image/png" href="icon-128.png">
+
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                :root {
+                    /* 主色调 */
+                    --primary: #3b82f6;
+                    --primary-dark: #2563eb;
+                    --primary-light: #60a5fa;
+                    --secondary: #8b5cf6;
+                    --secondary-dark: #7c3aed;
+                    --accent: #06b6d4;
+                    --success: #10b981;
+
+                    /* 功能卡片主题色 - 差异化配色 */
+                    --card-1-from: #3b82f6;
+                    --card-1-to: #6366f1;
+                    --card-2-from: #06b6d4;
+                    --card-2-to: #14b8a6;
+                    --card-3-from: #8b5cf6;
+                    --card-3-to: #a78bfa;
+                    --card-4-from: #ec4899;
+                    --card-4-to: #f472b6;
+                    --card-5-from: #f59e0b;
+                    --card-5-to: #fb923c;
+                    --card-6-from: #10b981;
+                    --card-6-to: #34d399;
+
+                    /* 新增强调色 */
+                    --accent-cyan: #06b6d4;
+                    --accent-emerald: #10b981;
+                    --accent-amber: #f59e0b;
+                    --accent-rose: #f43f5e;
+                    --accent-violet: #8b5cf6;
+
+                    /* 文本颜色 */
+                    --text: #0f172a;
+                    --text-secondary: #475569;
+                    --text-muted: #64748b;
+                    --text-light: #94a3b8;
+
+                    /* 背景颜色 */
+                    --bg: #ffffff;
+                    --bg-secondary: #f8fafc;
+                    --bg-tertiary: #f1f5f9;
+
+                    /* 边框颜色 */
+                    --border: #e2e8f0;
+                    --border-light: #f1f5f9;
+
+                    /* 玻璃态效果 - 增强版 */
+                    --glass-bg: rgba(255, 255, 255, 0.7);
+                    --glass-border: rgba(255, 255, 255, 0.18);
+                    --glass-strong: rgba(255, 255, 255, 0.85);
+                    --glass-medium: rgba(255, 255, 255, 0.7);
+                    --glass-light: rgba(255, 255, 255, 0.5);
+                    --glass-subtle: rgba(255, 255, 255, 0.3);
+
+                    /* 阴影系统 - 双层阴影 */
+                    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+                    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+                    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+                    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+
+                    /* 彩色阴影 */
+                    --shadow-primary: 0 10px 40px -10px rgba(59, 130, 246, 0.4);
+                    --shadow-secondary: 0 10px 40px -10px rgba(139, 92, 246, 0.4);
+                    --shadow-cyan: 0 10px 40px -10px rgba(6, 182, 212, 0.4);
+                    --shadow-rose: 0 10px 40px -10px rgba(236, 72, 153, 0.4);
+                    --shadow-amber: 0 10px 40px -10px rgba(245, 158, 11, 0.4);
+                    --shadow-emerald: 0 10px 40px -10px rgba(16, 185, 129, 0.4);
+
+                    /* 渐变组合 - 增强版 */
+                    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                    --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+                    --gradient-feature: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                    --gradient-cta: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                    --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+                    --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+                    --gradient-cool: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+                    --gradient-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+                    /* 自然弹性缓动 */
+                    --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+                    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+                }
+
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+                    line-height: 1.6;
+                    color: var(--text);
+                    background: var(--gradient-bg);
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+
+                /* Header */
+                header {
+                    background: var(--glass-bg);
+                    backdrop-filter: blur(20px) saturate(180%);
+                    -webkit-backdrop-filter: blur(20px) saturate(180%);
+                    border-bottom: 1px solid var(--glass-border);
+                    padding: 1rem 0;
+                    position: sticky;
+                    top: 0;
+                    z-index: 100;
+                    box-shadow: var(--shadow-sm);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                header.scrolled {
+                    background: rgba(255, 255, 255, 0.95);
+                    box-shadow: var(--shadow);
+                }
+
+                nav {
+                    max-width: 1280px;
+                    margin: 0 auto;
+                    padding: 0 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .logo {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    color: var(--text);
+                    text-decoration: none;
+                    transition: transform 0.2s ease;
+                }
+
+                .logo:hover {
+                    transform: translateY(-1px);
+                }
+
+                .logo-icon {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 8px;
+                    box-shadow: var(--shadow-sm);
+                    transition: all 0.2s ease;
+                }
+
+                .logo:hover .logo-icon {
+                    box-shadow: var(--shadow);
+                }
+
+                .nav-links {
+                    display: flex;
+                    gap: 2rem;
+                    list-style: none;
+                    align-items: center;
+                }
+
+                .nav-links a {
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 0.9375rem;
+                    transition: color 0.2s ease;
+                    position: relative;
+                }
+
+                .nav-links a::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--gradient-primary);
+                    transition: width 0.2s ease;
+                }
+
+                .nav-links a:hover {
+                    color: var(--primary);
+                }
+
+                .nav-links a:hover::after {
+                    width: 100%;
+                }
+
+                .nav-cta {
+                    background: var(--primary);
+                    color: white !important;
+                    padding: 0.625rem 1.25rem;
+                    border-radius: 0.625rem;
+                    font-weight: 600;
+                    box-shadow: var(--shadow-sm);
+                    transition: all 0.2s ease;
+                }
+
+                .nav-cta::after {
+                    display: none;
+                }
+
+                .nav-cta:hover {
+                    background: var(--primary-dark);
+                    transform: translateY(-1px);
+                    box-shadow: var(--shadow);
+                }
+
+                /* Hero */
+                .hero {
+                    background: linear-gradient(180deg, #fafbff 0%, #f0f4ff 40%, #e8f0fe 100%);
+                    padding: 8rem 2rem 10rem;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                /* 噪点纹理叠加 - 增加质感 */
+                .hero::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                    opacity: 0.02;
+                    z-index: 1;
+                    pointer-events: none;
+                }
+
+                /* 流动光斑容器 */
+                .hero-orbs {
+                    position: absolute;
+                    inset: 0;
+                    overflow: hidden;
+                    z-index: 0;
+                }
+
+                .hero-orb {
+                    position: absolute;
+                    border-radius: 50%;
+                    filter: blur(60px);
+                    opacity: 0.7;
+                    will-change: transform;
+                }
+
+                .hero-orb-1 {
+                    width: 700px;
+                    height: 700px;
+                    background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, transparent 60%);
+                    top: -25%;
+                    left: -15%;
+                    animation: orb-float-1 15s ease-in-out infinite;
+                }
+
+                .hero-orb-2 {
+                    width: 600px;
+                    height: 600px;
+                    background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, transparent 60%);
+                    top: 20%;
+                    right: -20%;
+                    animation: orb-float-2 18s ease-in-out infinite;
+                }
+
+                .hero-orb-3 {
+                    width: 500px;
+                    height: 500px;
+                    background: radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, transparent 60%);
+                    bottom: -15%;
+                    left: 25%;
+                    animation: orb-float-3 12s ease-in-out infinite;
+                }
+
+                .hero-orb-4 {
+                    width: 400px;
+                    height: 400px;
+                    background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, transparent 60%);
+                    top: 45%;
+                    left: 5%;
+                    animation: orb-float-4 16s ease-in-out infinite;
+                }
+
+                @keyframes orb-float-1 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    33% {
+                        transform: translate(120px, 60px) scale(1.15);
+                    }
+
+                    66% {
+                        transform: translate(-60px, 100px) scale(0.9);
+                    }
+                }
+
+                @keyframes orb-float-2 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    33% {
+                        transform: translate(-100px, 80px) scale(0.85);
+                    }
+
+                    66% {
+                        transform: translate(80px, -80px) scale(1.1);
+                    }
+                }
+
+                @keyframes orb-float-3 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    50% {
+                        transform: translate(150px, -80px) scale(1.15);
+                    }
+                }
+
+                @keyframes orb-float-4 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    50% {
+                        transform: translate(-120px, 60px) scale(1.1);
+                    }
+                }
+
+                @keyframes float {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) rotate(0deg);
+                    }
+
+                    33% {
+                        transform: translate(30px, -30px) rotate(5deg);
+                    }
+
+                    66% {
+                        transform: translate(-20px, 20px) rotate(-5deg);
+                    }
+                }
+
+                .hero-content {
+                    max-width: 1280px;
+                    margin: 0 auto;
+                    text-align: center;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .hero-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.625rem;
+                    background: var(--glass-bg);
+                    backdrop-filter: blur(10px);
+                    padding: 0.625rem 1.25rem;
+                    border-radius: 2rem;
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    color: var(--primary);
+                    margin-bottom: 2.5rem;
+                    box-shadow: var(--shadow-sm);
+                    border: 1px solid var(--glass-border);
+                    transition: all 0.3s ease;
+                }
+
+                .hero-badge:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow);
+                }
+
+                .badge-icon {
+                    width: 16px;
+                    height: 16px;
+                    background: var(--gradient-primary);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    animation: pulse 2s ease-in-out infinite;
+                }
+
+                @keyframes pulse {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        opacity: 0.8;
+                        transform: scale(1.1);
+                    }
+                }
+
+                .hero h1 {
+                    font-size: 4.5rem;
+                    font-weight: 800;
+                    margin-bottom: 1.5rem;
+                    color: var(--text);
+                    line-height: 1.1;
+                    letter-spacing: -0.02em;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                }
+
+                .hero-gradient {
+                    background: var(--gradient-primary);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    display: inline-block;
+                    position: relative;
+                }
+
+                .hero-gradient::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: -1;
+                    background: var(--gradient-primary);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    filter: blur(20px);
+                    opacity: 0.5;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.375rem;
+                    color: var(--text-secondary);
+                    margin-bottom: 3rem;
+                    max-width: 720px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    line-height: 1.8;
+                    font-weight: 400;
+                }
+
+                .cta-buttons {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+
+                .btn {
+                    padding: 1rem 2rem;
+                    border-radius: 0.875rem;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    transition: all 0.3s var(--ease-out-expo);
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.625rem;
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                /* 按钮光泽层 */
+                .btn::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg,
+                            transparent,
+                            rgba(255, 255, 255, 0.2),
+                            transparent);
+                    transition: left 0.5s ease;
+                }
+
+                .btn:hover::before {
+                    left: 100%;
+                }
+
+                /* 按钮波纹效果 */
+                .btn::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.4);
+                    transform: translate(-50%, -50%);
+                    transition: width 0.5s ease, height 0.5s ease;
+                }
+
+                .btn:active::after {
+                    width: 400px;
+                    height: 400px;
+                }
+
+                .btn-icon {
+                    width: 20px;
+                    height: 20px;
+                    transition: transform 0.3s var(--ease-spring);
+                }
+
+                .btn:hover .btn-icon {
+                    transform: translateX(3px);
+                }
+
+                .btn-primary {
+                    background: linear-gradient(135deg, #4f8ff7 0%, #7c3aed 50%, #ec4899 100%);
+                    background-size: 200% 200%;
+                    color: white;
+                    box-shadow:
+                        var(--shadow-md),
+                        0 0 0 0 rgba(99, 102, 241, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                    animation: gradient-shift 4s ease infinite, shadow-pulse 2.5s ease-in-out infinite;
+                }
+
+                @keyframes gradient-shift {
+
+                    0%,
+                    100% {
+                        background-position: 0% 50%;
+                    }
+
+                    50% {
+                        background-position: 100% 50%;
+                    }
+                }
+
+                @keyframes shadow-pulse {
+
+                    0%,
+                    100% {
+                        box-shadow:
+                            var(--shadow-md),
+                            0 0 0 0 rgba(99, 102, 241, 0.4),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                    }
+
+                    50% {
+                        box-shadow:
+                            var(--shadow-lg),
+                            0 0 0 10px rgba(99, 102, 241, 0),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                    }
+                }
+
+                .btn-primary:hover {
+                    transform: translateY(-3px) scale(1.02);
+                    box-shadow:
+                        var(--shadow-xl),
+                        0 15px 40px -10px rgba(99, 102, 241, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                    animation: none;
+                }
+
+                .btn-secondary {
+                    background: rgba(255, 255, 255, 0.8);
+                    backdrop-filter: blur(10px);
+                    color: var(--text);
+                    border: 1.5px solid var(--border);
+                    box-shadow: var(--shadow-sm);
+                }
+
+                .btn-secondary:hover {
+                    background: white;
+                    border-color: var(--primary);
+                    color: var(--primary);
+                    transform: translateY(-3px);
+                    box-shadow: var(--shadow-md), var(--shadow-primary);
+                }
+
+                /* Features */
+                .features {
+                    max-width: 1280px;
+                    margin: 8rem auto;
+                    padding: 0 2rem;
+                }
+
+                .section-header {
+                    text-align: center;
+                    margin-bottom: 5rem;
+                }
+
+                .section-badge {
+                    display: inline-block;
+                    background: var(--bg-tertiary);
+                    color: var(--primary);
+                    padding: 0.5rem 1rem;
+                    border-radius: 2rem;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    margin-bottom: 1.25rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+
+                .section-title {
+                    font-size: 3rem;
+                    font-weight: 800;
+                    margin-bottom: 1.25rem;
+                    color: var(--text);
+                    letter-spacing: -0.02em;
+                    line-height: 1.2;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+                }
+
+                .section-subtitle {
+                    font-size: 1.125rem;
+                    color: var(--text-secondary);
+                    max-width: 640px;
+                    margin: 0 auto;
+                    line-height: 1.8;
+                    font-weight: 400;
+                }
+
+                .feature-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                    gap: 2rem;
+                }
+
+                .feature-card {
+                    background: white;
+                    padding: 2.5rem;
+                    border-radius: 1.25rem;
+                    border: 1px solid var(--border-light);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                    transform-style: preserve-3d;
+                }
+
+                /* 渐变边框效果 */
+                .feature-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: var(--gradient-primary);
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease;
+                }
+
+                /* 渐变边框动画 */
+                .feature-card::after {
+                    content: '';
+                    position: absolute;
+                    inset: -2px;
+                    background: var(--gradient-primary);
+                    border-radius: inherit;
+                    opacity: 0;
+                    z-index: -1;
+                    transition: opacity 0.4s ease;
+                    animation: gradient-rotate 3s linear infinite paused;
+                }
+
+                @keyframes gradient-rotate {
+                    0% {
+                        filter: hue-rotate(0deg);
+                    }
+
+                    100% {
+                        filter: hue-rotate(360deg);
+                    }
+                }
+
+                /* 3D 悬停效果 */
+                .feature-card:hover {
+                    transform: translateY(-12px) rotateX(2deg);
+                    box-shadow: var(--shadow-xl);
+                    border-color: transparent;
+                }
+
+                .feature-card:hover::before {
+                    transform: scaleX(1);
+                }
+
+                .feature-card:hover::after {
+                    opacity: 0.15;
+                    animation-play-state: running;
+                }
+
+                /* 光晕跟随效果 */
+                .feature-card {
+                    --mouse-x: 50%;
+                    --mouse-y: 50%;
+                }
+
+                .feature-card:hover {
+                    background:
+                        radial-gradient(circle at var(--mouse-x) var(--mouse-y),
+                            rgba(59, 130, 246, 0.05) 0%,
+                            transparent 50%),
+                        white;
+                }
+
+                .feature-icon {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    background: var(--gradient-primary);
+                    border-radius: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 1.5rem;
+                    box-shadow: var(--shadow);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                }
+
+                /* 图标光晕效果 */
+                .feature-icon::before {
+                    content: '';
+                    position: absolute;
+                    inset: -8px;
+                    background: var(--gradient-primary);
+                    border-radius: inherit;
+                    opacity: 0;
+                    filter: blur(20px);
+                    transition: opacity 0.4s ease;
+                }
+
+                .feature-card:hover .feature-icon {
+                    transform: scale(1.15) rotate(5deg);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .feature-card:hover .feature-icon::before {
+                    opacity: 0.4;
+                }
+
+                .feature-icon svg {
+                    width: 1.75rem;
+                    height: 1.75rem;
+                    color: white;
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .feature-card:hover .feature-icon svg {
+                    transform: scale(1.1);
+                }
+
+                .feature-card h3 {
+                    font-size: 1.375rem;
+                    font-weight: 700;
+                    margin-bottom: 0.875rem;
+                    color: var(--text);
+                    letter-spacing: -0.01em;
+                    line-height: 1.3;
+                    transition: color 0.3s ease;
+                }
+
+                .feature-card:hover h3 {
+                    color: var(--primary);
+                }
+
+                .feature-card p {
+                    color: var(--text-secondary);
+                    line-height: 1.75;
+                    font-size: 0.9375rem;
+                    font-weight: 400;
+                }
+
+                /* 功能卡片差异化配色 - 每张卡片独特主题 */
+                .feature-card:nth-child(1) .feature-icon {
+                    background: linear-gradient(135deg, var(--card-1-from), var(--card-1-to));
+                }
+
+                .feature-card:nth-child(1):hover {
+                    box-shadow: var(--shadow-lg), var(--shadow-primary);
+                }
+
+                .feature-card:nth-child(1)::before {
+                    background: linear-gradient(135deg, var(--card-1-from), var(--card-1-to));
+                }
+
+                .feature-card:nth-child(1):hover h3 {
+                    color: var(--card-1-from);
+                }
+
+                .feature-card:nth-child(2) .feature-icon {
+                    background: linear-gradient(135deg, var(--card-2-from), var(--card-2-to));
+                }
+
+                .feature-card:nth-child(2):hover {
+                    box-shadow: var(--shadow-lg), var(--shadow-cyan);
+                }
+
+                .feature-card:nth-child(2)::before {
+                    background: linear-gradient(135deg, var(--card-2-from), var(--card-2-to));
+                }
+
+                .feature-card:nth-child(2):hover h3 {
+                    color: var(--card-2-from);
+                }
+
+                .feature-card:nth-child(3) .feature-icon {
+                    background: linear-gradient(135deg, var(--card-3-from), var(--card-3-to));
+                }
+
+                .feature-card:nth-child(3):hover {
+                    box-shadow: var(--shadow-lg), var(--shadow-secondary);
+                }
+
+                .feature-card:nth-child(3)::before {
+                    background: linear-gradient(135deg, var(--card-3-from), var(--card-3-to));
+                }
+
+                .feature-card:nth-child(3):hover h3 {
+                    color: var(--card-3-from);
+                }
+
+                .feature-card:nth-child(4) .feature-icon {
+                    background: linear-gradient(135deg, var(--card-4-from), var(--card-4-to));
+                }
+
+                .feature-card:nth-child(4):hover {
+                    box-shadow: var(--shadow-lg), var(--shadow-rose);
+                }
+
+                .feature-card:nth-child(4)::before {
+                    background: linear-gradient(135deg, var(--card-4-from), var(--card-4-to));
+                }
+
+                .feature-card:nth-child(4):hover h3 {
+                    color: var(--card-4-from);
+                }
+
+                .feature-card:nth-child(5) .feature-icon {
+                    background: linear-gradient(135deg, var(--card-5-from), var(--card-5-to));
+                }
+
+                .feature-card:nth-child(5):hover {
+                    box-shadow: var(--shadow-lg), var(--shadow-amber);
+                }
+
+                .feature-card:nth-child(5)::before {
+                    background: linear-gradient(135deg, var(--card-5-from), var(--card-5-to));
+                }
+
+                .feature-card:nth-child(5):hover h3 {
+                    color: var(--card-5-from);
+                }
+
+                .feature-card:nth-child(6) .feature-icon {
+                    background: linear-gradient(135deg, var(--card-6-from), var(--card-6-to));
+                }
+
+                .feature-card:nth-child(6):hover {
+                    box-shadow: var(--shadow-lg), var(--shadow-emerald);
+                }
+
+                .feature-card:nth-child(6)::before {
+                    background: linear-gradient(135deg, var(--card-6-from), var(--card-6-to));
+                }
+
+                .feature-card:nth-child(6):hover h3 {
+                    color: var(--card-6-from);
+                }
+
+                /* Screenshots */
+                .screenshots {
+                    background: linear-gradient(180deg, var(--bg-secondary) 0%, #e8f0fe 50%, var(--bg-secondary) 100%);
+                    padding: 8rem 2rem;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                /* 截图区域装饰背景 */
+                .screenshots::before {
+                    content: '';
+                    position: absolute;
+                    top: 20%;
+                    left: -20%;
+                    width: 60%;
+                    height: 60%;
+                    background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+                    border-radius: 50%;
+                    filter: blur(60px);
+                }
+
+                .screenshots::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 10%;
+                    right: -10%;
+                    width: 50%;
+                    height: 50%;
+                    background: radial-gradient(circle, rgba(236, 72, 153, 0.06) 0%, transparent 70%);
+                    border-radius: 50%;
+                    filter: blur(60px);
+                }
+
+                .screenshot-container {
+                    max-width: 1280px;
+                    margin: 0 auto;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                /* 轮播组件样式 - 设备框架效果 */
+                .screenshot-carousel {
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 1.25rem;
+                    background: linear-gradient(180deg, #1e1e1e 0%, #2d2d2d 100%);
+                    box-shadow:
+                        0 50px 100px -20px rgba(0, 0, 0, 0.3),
+                        0 30px 60px -30px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                    margin-top: 3rem;
+                    padding-top: 2.5rem;
+                }
+
+                /* 设备框架顶部装饰 */
+                .screenshot-carousel::before {
+                    content: '';
+                    position: absolute;
+                    top: 0.875rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    gap: 0.5rem;
+                    width: 80px;
+                    height: 12px;
+                    background:
+                        radial-gradient(circle at 12px 6px, #ff5f57 5px, transparent 5px),
+                        radial-gradient(circle at 40px 6px, #febc2e 5px, transparent 5px),
+                        radial-gradient(circle at 68px 6px, #28c840 5px, transparent 5px);
+                }
+
+                .carousel-track {
+                    display: flex;
+                    transition: transform 0.7s var(--ease-out-expo);
+                }
+
+                .screenshot-item {
+                    min-width: 100%;
+                    position: relative;
+                    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+                    padding: 1.5rem 1.5rem 8rem 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .screenshot-item img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 0.5rem;
+                    box-shadow:
+                        0 20px 60px -15px rgba(0, 0, 0, 0.2),
+                        0 0 0 1px rgba(0, 0, 0, 0.05);
+                }
+
+                /* 截图说明文字 */
+                .screenshot-caption {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    padding: 2rem 3rem;
+                    text-align: center;
+                    border-top: 1px solid var(--border-light);
+                }
+
+                .screenshot-caption h4 {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: var(--text);
+                    margin-bottom: 0.5rem;
+                }
+
+                .screenshot-caption p {
+                    font-size: 0.9375rem;
+                    color: var(--text-secondary);
+                    margin: 0;
+                }
+
+                /* 轮播控制按钮 */
+                .carousel-controls {
+                    position: absolute;
+                    bottom: 6rem;
+                    /* 调整到说明文字上方 */
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    z-index: 10;
+                }
+
+                .carousel-btn {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: var(--glass-strong);
+                    backdrop-filter: blur(20px);
+                    border: 1px solid var(--glass-border);
+                    color: var(--text);
+                    font-size: 1.25rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: var(--shadow);
+                }
+
+                .carousel-btn:hover {
+                    background: white;
+                    transform: scale(1.1);
+                    box-shadow: var(--shadow-md);
+                }
+
+                .carousel-btn:active {
+                    transform: scale(0.95);
+                }
+
+                /* 指示器圆点 */
+                .carousel-dots {
+                    display: flex;
+                    gap: 0.5rem;
+                }
+
+                .carousel-dot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .carousel-dot.active {
+                    background: var(--primary);
+                    width: 32px;
+                    border-radius: 5px;
+                }
+
+                .carousel-dot:hover {
+                    background: var(--primary);
+                    opacity: 0.7;
+                }
+
+                /* 占位符样式（保留用于无截图时显示）*/
+                .screenshot-placeholder {
+                    background: white;
+                    border-radius: 1.5rem;
+                    padding: 5rem 3rem;
+                    text-align: center;
+                    border: 2px dashed var(--border);
+                    box-shadow: var(--shadow-sm);
+                    transition: all 0.3s ease;
+                }
+
+                .screenshot-placeholder:hover {
+                    border-color: var(--primary);
+                    box-shadow: var(--shadow);
+                }
+
+                .screenshot-placeholder-icon {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto 1.5rem;
+                    background: var(--bg-tertiary);
+                    border-radius: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .screenshot-placeholder-icon svg {
+                    width: 40px;
+                    height: 40px;
+                    color: var(--text-muted);
+                }
+
+                .screenshot-placeholder h3 {
+                    color: var(--text-secondary);
+                    margin-bottom: 0.75rem;
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                }
+
+                .screenshot-placeholder p {
+                    color: var(--text-muted);
+                    font-size: 0.9375rem;
+                }
+
+                /* Download */
+                .download {
+                    max-width: 1280px;
+                    margin: 8rem auto;
+                    padding: 0 2rem;
+                }
+
+                .platform-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 2rem;
+                    margin-top: 3.5rem;
+                }
+
+                .platform-card {
+                    background: white;
+                    padding: 3rem 2.5rem;
+                    border-radius: 1.25rem;
+                    border: 1px solid var(--border-light);
+                    text-align: center;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .platform-card.platform-coming-soon {
+                    opacity: 0.7;
+                    cursor: default;
+                }
+
+                .coming-soon-badge {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    background: var(--gradient-primary);
+                    color: white;
+                    padding: 0.375rem 0.75rem;
+                    border-radius: 1rem;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    z-index: 2;
+                    box-shadow: var(--shadow-sm);
+                }
+
+                .platform-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: var(--gradient-primary);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .platform-card:hover {
+                    border-color: transparent;
+                    transform: translateY(-8px);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .platform-card.platform-coming-soon:hover {
+                    transform: none;
+                    box-shadow: none;
+                    border-color: var(--border-light);
+                }
+
+                .platform-card:hover::before {
+                    opacity: 0.03;
+                }
+
+                .platform-icon {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto 1.5rem;
+                    background: var(--bg-tertiary);
+                    border-radius: 1.25rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .platform-card:hover .platform-icon {
+                    background: var(--gradient-primary);
+                    transform: scale(1.1);
+                }
+
+                .platform-icon svg {
+                    width: 40px;
+                    height: 40px;
+                    color: var(--text);
+                    transition: color 0.3s ease;
+                }
+
+                .platform-card:hover .platform-icon svg {
+                    color: white;
+                }
+
+                .platform-card h3 {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .platform-version {
+                    color: var(--text-muted);
+                    margin-bottom: 2rem;
+                    font-size: 0.875rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .platform-card .btn {
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .download-note {
+                    text-align: center;
+                    margin-top: 3.5rem;
+                    padding: 2rem;
+                    background: var(--bg-tertiary);
+                    border-radius: 1rem;
+                }
+
+                .download-note p {
+                    color: var(--text-muted);
+                    font-size: 0.9375rem;
+                    margin: 0;
+                }
+
+                /* Sponsor */
+                .sponsor {
+                    background: var(--bg-secondary);
+                    padding: 8rem 2rem;
+                    position: relative;
+                }
+
+                .sponsor-container {
+                    max-width: 1280px;
+                    margin: 0 auto;
+                }
+
+                .sponsor-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 2rem;
+                    margin-top: 3.5rem;
+                }
+
+                .sponsor-card {
+                    background: white;
+                    padding: 3rem 2rem;
+                    border-radius: 1.25rem;
+                    border: 1px solid var(--border-light);
+                    text-align: center;
+                    text-decoration: none;
+                    color: var(--text);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .sponsor-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: var(--gradient-primary);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .sponsor-card:hover {
+                    border-color: transparent;
+                    transform: translateY(-8px);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .sponsor-card:hover::before {
+                    opacity: 0.03;
+                }
+
+                .sponsor-icon {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto 1.5rem;
+                    border-radius: 1.25rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    z-index: 1;
+                    color: white;
+                }
+
+                .sponsor-card:hover .sponsor-icon {
+                    transform: scale(1.1) rotate(-5deg);
+                    box-shadow: var(--shadow-md);
+                }
+
+                .sponsor-card h3 {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin-bottom: 0.75rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .sponsor-card p {
+                    color: var(--text-muted);
+                    font-size: 0.9375rem;
+                    line-height: 1.6;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .sponsor-note {
+                    text-align: center;
+                    margin-top: 3.5rem;
+                    padding: 2rem;
+                    background: white;
+                    border-radius: 1rem;
+                    border: 1px solid var(--border-light);
+                }
+
+                .sponsor-note p {
+                    color: var(--text-muted);
+                    font-size: 0.9375rem;
+                    margin: 0;
+                }
+
+                /* Footer */
+                footer {
+                    background: var(--text);
+                    color: white;
+                    padding: 5rem 2rem 2.5rem;
+                }
+
+                .footer-content {
+                    max-width: 1280px;
+                    margin: 0 auto;
+                }
+
+                .footer-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    gap: 3.5rem;
+                    margin-bottom: 3.5rem;
+                }
+
+                .footer-section h4 {
+                    font-size: 1.125rem;
+                    margin-bottom: 1.25rem;
+                    font-weight: 600;
+                }
+
+                .footer-links {
+                    list-style: none;
+                }
+
+                .footer-links li {
+                    margin-bottom: 0.875rem;
+                }
+
+                .footer-links a {
+                    color: rgba(255, 255, 255, 0.7);
+                    text-decoration: none;
+                    transition: all 0.2s ease;
+                    display: inline-block;
+                }
+
+                .footer-links a:hover {
+                    color: white;
+                    transform: translateX(4px);
+                }
+
+                .footer-bottom {
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    padding-top: 2.5rem;
+                    text-align: center;
+                    color: rgba(255, 255, 255, 0.6);
+                }
+
+                .footer-bottom p {
+                    margin: 0.5rem 0;
+                    font-size: 0.9375rem;
+                }
+
+                /* Responsive */
+                @media (max-width: 768px) {
+                    .hero {
+                        padding: 5rem 1.5rem 6rem;
+                    }
+
+                    .hero h1 {
+                        font-size: 2.75rem;
+                    }
+
+                    .hero-subtitle {
+                        font-size: 1.125rem;
+                    }
+
+                    .section-title {
+                        font-size: 2.25rem;
+                    }
+
+                    .nav-links {
+                        display: none;
+                    }
+
+                    .feature-grid,
+                    .platform-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .features,
+                    .download {
+                        margin: 5rem auto;
+                    }
+
+                    .screenshots {
+                        padding: 5rem 1.5rem;
+                    }
+
+                    /* 移动端轮播控制优化 */
+                    .carousel-controls {
+                        bottom: 1rem;
+                    }
+
+                    .carousel-btn {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    .carousel-dots {
+                        gap: 0.375rem;
+                    }
+
+                    .carousel-dot {
+                        width: 8px;
+                        height: 8px;
+                    }
+
+                    .carousel-dot.active {
+                        width: 24px;
+                    }
+
+                    /* 移动端卡片优化 */
+                    .feature-card,
+                    .platform-card {
+                        padding: 2rem 1.5rem;
+                    }
+
+                    /* 返回顶部按钮移动端位置 */
+                    .back-to-top {
+                        bottom: 1.5rem;
+                        right: 1.5rem;
+                        width: 44px;
+                        height: 44px;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .hero h1 {
+                        font-size: 2.25rem;
+                    }
+
+                    .hero-subtitle {
+                        font-size: 1rem;
+                    }
+
+                    .section-title {
+                        font-size: 2rem;
+                    }
+
+                    .btn {
+                        width: 100%;
+                        justify-content: center;
+                        padding: 0.875rem 1.5rem;
+                    }
+
+                    .cta-buttons {
+                        flex-direction: column;
+                        width: 100%;
+                    }
+
+                    /* 截图说明文字移动端优化 */
+                    .screenshot-caption {
+                        bottom: 1rem;
+                        left: 1rem;
+                        right: 1rem;
+                        padding: 1rem;
+                    }
+
+                    .screenshot-caption h4 {
+                        font-size: 1rem;
+                    }
+
+                    .screenshot-caption p {
+                        font-size: 0.875rem;
+                    }
+
+
+                }
+
+                /* 平板端优化 */
+                @media (min-width: 769px) and (max-width: 1024px) {
+
+                    .feature-grid,
+                    .platform-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                /* Animations */
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                .fade-in-up {
+                    animation: fadeInUp 0.6s ease-out;
+                }
+
+                /* 性能优化：使用 will-change 提示浏览器 */
+                .feature-card,
+                .platform-card,
+                .sponsor-card {
+                    will-change: transform;
+                }
+
+                .feature-card:hover,
+                .platform-card:hover,
+                .sponsor-card:hover {
+                    will-change: transform, box-shadow;
+                }
+
+                /* 图片懒加载优化 */
+                img[loading="lazy"] {
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                img[loading="lazy"].loaded {
+                    opacity: 1;
+                }
+
+                /* 减少动画偏好设置支持 */
+                @media (prefers-reduced-motion: reduce) {
+
+                    *,
+                    *::before,
+                    *::after {
+                        animation-duration: 0.01ms !important;
+                        animation-iteration-count: 1 !important;
+                        transition-duration: 0.01ms !important;
+                    }
+
+                    .scroll-progress,
+                    .back-to-top {
+                        transition: none;
+                    }
+                }
+
+                /* Smooth scrolling */
+                html {
+                    scroll-behavior: smooth;
+                }
+
+                /* 滚动进度指示器 */
+                .scroll-progress {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    height: 4px;
+                    background: var(--gradient-primary);
+                    transform-origin: left;
+                    z-index: 1000;
+                    transition: transform 0.1s ease;
+                    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+                }
+
+                /* 返回顶部按钮 */
+                .back-to-top {
+                    position: fixed;
+                    bottom: 2rem;
+                    right: 2rem;
+                    width: 48px;
+                    height: 48px;
+                    background: var(--gradient-primary);
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: var(--shadow-lg);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                    z-index: 999;
+                }
+
+                .back-to-top.visible {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .back-to-top:hover {
+                    transform: translateY(-4px);
+                    box-shadow: var(--shadow-xl);
+                }
+
+                .back-to-top:active {
+                    transform: translateY(-2px);
+                }
+
+                /* Smooth scrolling */
+
+                /* Selection */
+                ::selection {
+                    background: var(--primary);
+                    color: white;
+                }
+
+                ::-moz-selection {
+                    background: var(--primary);
+                    color: white;
+                }
+            </style>
+</head>
+
+<body>
+    <!-- 滚动进度指示器 -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="header" role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="#" class="logo" aria-label="MarKing Home">
+                <img src="icon-128.png" alt="MarKing Logo" class="logo-icon">
+                <span>MarKing</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="../INSTALL.md">Installation</a></li>
+                <li><a href="../CHANGELOG.md">Changelog</a></li>
+                <li><a href="index.html" class="lang-switch" aria-label="Switch to Chinese">中文</a></li>
+                <li><a href="https://github.com/l06066hb/MarKing/issues" class="nav-cta">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="main" aria-labelledby="hero-title">
+        <!-- Floating orbs background -->
+        <div class="hero-orbs" aria-hidden="true">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-orb hero-orb-4"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" role="status" aria-label="Version information">
+                <span class="badge-icon" aria-hidden="true"></span>
+                <span>v1.0.7 Now Available</span>
+            </div>
+            <h1 id="hero-title">
+                <span class="hero-gradient">MarKing</span><br>
+                Professional Markdown Editor
+            </h1>
+            <p class="hero-subtitle">
+                Modern cross-platform document creation tool for efficient and professional technical writing.<br>
+                Real-time preview, smart completion, visual table editor, professional document export.
+            </p>
+            <div class="cta-buttons" role="group" aria-label="Main actions">
+                <a href="#download" class="btn btn-primary" aria-label="Download MarKing now">
+                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span>Download Now</span>
+                </a>
+                <a href="../FEATURES.md" class="btn btn-secondary" aria-label="View complete feature list">
+                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span>View Features</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features" aria-labelledby="features-title">
+        <div class="section-header">
+            <span class="section-badge">Core Features</span>
+            <h2 id="features-title" class="section-title">Built for Professional Writing</h2>
+            <p class="section-subtitle">
+                Powerful editing features, smart assistance tools, and professional export capabilities for all document
+                creation needs
+            </p>
+        </div>
+        <div class="feature-grid" role="list">
+            <article class="feature-card" role="listitem">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                </div>
+                <h3>Professional Editing</h3>
+                <p>Monaco Editor from VS Code, real-time preview, 67+ code snippets, smart completion, one-click
+                    formatting</p>
+            </article>
+            <article class="feature-card" role="listitem">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3>Visual Table Editor</h3>
+                <p>Edit Markdown tables like Excel, with drag-and-drop, quick fill, and smart formatting</p>
+            </article>
+            <article class="feature-card" role="listitem">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3>Professional Export</h3>
+                <p>DOCX template system, high-quality PDF output, static HTML pages for all publishing needs</p>
+            </article>
+            <article class="feature-card" role="listitem">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    </svg>
+                </div>
+                <h3>Beautiful Themes</h3>
+                <p>12 preview themes, light/dark mode, modern UI, elegant scrollbars, premium visual experience</p>
+            </article>
+            <article class="feature-card" role="listitem">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                    </svg>
+                </div>
+                <h3>Smart Document Management</h3>
+                <p>Multi-vault support, global search, auto-save, version snapshots, data backup, worry-free management
+                </p>
+            </article>
+            <article class="feature-card" role="listitem">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3>Excellent Performance</h3>
+                <p>Built with Tauri, fast startup, low memory usage, smooth operation, cross-platform support</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" aria-labelledby="screenshots-title">
+        <div class="screenshot-container">
+            <div class="section-header">
+                <span class="section-badge">Interface Preview</span>
+                <h2 id="screenshots-title" class="section-title">Modern Design</h2>
+                <p class="section-subtitle">
+                    Clean and elegant interface, smooth interaction, focused on content creation
+                </p>
+            </div>
+
+            <!-- 截图轮播组件 -->
+            <div class="screenshot-carousel" role="region" aria-label="Product screenshots carousel" aria-live="polite">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Screenshot 1: Main Interface -->
+                    <div class="screenshot-item active">
+                        <img src="screenshot-main-interface-en.png?v=1"
+                            alt="MarKing Main Interface - Professional Markdown Editing Environment">
+                        <div class="screenshot-caption">
+                            <h4>Professional Editing Environment</h4>
+                            <p>Monaco Editor + Real-time preview, dual-pane layout for efficient creation</p>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot 2: Editor Close-up -->
+                    <div class="screenshot-item">
+                        <img src="screenshot-editor-features-en.png?v=1"
+                            alt="MarKing Editor Close-up - Smart Completion and Code Snippets">
+                        <div class="screenshot-caption">
+                            <h4>Powerful Editing Features</h4>
+                            <p>67+ code snippets, smart completion, one-click formatting</p>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot 3: Table Editor -->
+                    <div class="screenshot-item">
+                        <img src="screenshot-table-editor-en.png?v=1"
+                            alt="MarKing Table Editor - Visual Markdown Table Editing">
+                        <div class="screenshot-caption">
+                            <h4>Table Editor</h4>
+                            <p>Visual editing of Markdown tables with drag-and-drop and quick fill support</p>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot 4: Export Features -->
+                    <div class="screenshot-item">
+                        <img src="screenshot-export-function-en.png?v=1"
+                            alt="MarKing Export Features - Multi-format Professional Document Export">
+                        <div class="screenshot-caption">
+                            <h4>Multi-format Export</h4>
+                            <p>Professional template system, high-quality DOCX/PDF output</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="carousel-dot active" data-index="0"></span>
+                        <span class="carousel-dot" data-index="1"></span>
+                        <span class="carousel-dot" data-index="2"></span>
+                        <span class="carousel-dot" data-index="3"></span>
+                    </div>
+                    <button class="carousel-btn" id="nextBtn" aria-label="Next slide">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="section-header">
+            <span class="section-badge">Download Now</span>
+            <h2 class="section-title">All Major Platforms Supported</h2>
+            <p class="section-subtitle">
+                Choose your platform and start your efficient document creation journey
+            </p>
+        </div>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <div class="platform-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                    </svg>
+                </div>
+                <h3>Windows</h3>
+                <p class="platform-version">v1.0.7 | Windows 10+</p>
+                <a href="https://github.com/l06066hb/MarKing/releases/latest" class="btn btn-primary">
+                    Download Installer
+                </a>
+            </div>
+            <div class="platform-card platform-coming-soon">
+                <div class="coming-soon-badge">Coming Soon</div>
+                <div class="platform-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                </div>
+                <h3>macOS</h3>
+                <p class="platform-version">macOS 10.15+</p>
+                <button class="btn btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    Coming Soon
+                </button>
+            </div>
+            <div class="platform-card platform-coming-soon">
+                <div class="coming-soon-badge">Coming Soon</div>
+                <div class="platform-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.84-.415 1.917-.415 2.998 0 1.031.125 2.119.45 3.146.6 1.698 1.81 3.328 3.545 4.467 1.735 1.14 4.005 1.529 6.082 1.529 2.082 0 4.358-.389 6.087-1.529 1.74-1.139 2.945-2.769 3.545-4.467.325-1.027.45-2.115.45-3.146 0-1.081-.137-2.158-.415-2.998-.589-1.771-1.831-3.47-2.715-4.521-.75-1.067-.975-1.928-1.05-3.02-.066-1.491 1.055-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-.48 1.029c3.645.305 2.579 4.216 2.641 5.79.082 1.335.375 2.355 1.215 3.563.915 1.084 2.147 2.794 2.694 4.451.247.748.375 1.749.375 2.665 0 .916-.128 1.917-.375 2.665-.547 1.657-1.779 3.367-2.694 4.451-.84 1.208-1.133 2.228-1.215 3.563-.062 1.574.996 5.485-2.641 5.79-3.645-.305-2.579-4.216-2.641-5.79-.082-1.335-.375-2.355-1.215-3.563-.915-1.084-2.147-2.794-2.694-4.451-.247-.748-.375-1.749-.375-2.665 0-.916.128-1.917.375-2.665.547-1.657 1.779-3.367 2.694-4.451.84-1.208 1.133-2.228 1.215-3.563.062-1.574-.996-5.485 2.641-5.79z" />
+                    </svg>
+                </div>
+                <h3>Linux</h3>
+                <p class="platform-version">Major Distributions</p>
+                <button class="btn btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    Coming Soon
+                </button>
+            </div>
+        </div>
+        <div class="download-note">
+            <p>
+                Ready to Use • Continuous Updates • Professional Support
+            </p>
+        </div>
+    </section>
+
+    <!-- Sponsor Section -->
+    <section class="sponsor">
+        <div class="sponsor-container">
+            <div class="section-header">
+                <span class="section-badge">Support Project</span>
+                <h2 class="section-title">💖 Sponsor MarKing</h2>
+                <p class="section-subtitle">
+                    If MarKing helps you, please consider sponsoring the development<br>
+                    Your support drives continuous updates
+                </p>
+            </div>
+            <div class="sponsor-grid">
+                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card">
+                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3>Afdian</h3>
+                    <p>For Chinese Users<br>WeChat/Alipay Supported</p>
+                </a>
+                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card">
+                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>Ko-fi</h3>
+                    <p>For International Users<br>Credit Card/PayPal Supported</p>
+                </a>
+                <!-- <a href="https://github.com/sponsors/l06066hb" target="_blank" class="sponsor-card">
+                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #24292e 0%, #0d1117 100%);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <h3>GitHub Sponsors</h3>
+                    <p>For Developers<br>Integrated with GitHub</p>
+                </a> -->
+            </div>
+            <div class="sponsor-note">
+                <p>
+                    💡 All sponsorships support project development and maintenance • Thank you to every supporter
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="../CHANGELOG.md">Changelog</a></li>
+                        <li><a href="../FEATURES.md">Full Feature List</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul class="footer-links">
+                        <li><a href="../INSTALL.md">Installation Guide</a></li>
+                        <li><a href="../README.md">User Guide</a></li>
+                        <li><a href="../README.md#-快速开始">Quick Start</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/l06066hb/MarKing/issues">Issue Tracker</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing/discussions">Feature Requests</a></li>
+                        <li><a href="../LICENSE">License</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/l06066hb/MarKing">GitHub</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing/releases">Releases</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2026 MarKing. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem;">Be the King of Markdown 👑</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header 滚动效果
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // ========== 滚动进度指示器 ==========
+        const scrollProgress = document.getElementById('scrollProgress');
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.pageYOffset / windowHeight) * 100;
+            if (scrollProgress) {
+                scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
+            }
+        });
+
+        // ========== 返回顶部按钮 ==========
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 滚动动画 - Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // 添加延迟以创建交错效果
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.feature-card, .platform-card, .sponsor-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // 预加载图标
+        window.addEventListener('load', () => {
+            const logoIcon = document.querySelector('.logo-icon');
+            if (logoIcon) {
+                logoIcon.style.opacity = '1';
+            }
+        });
+
+        // ========== 截图轮播功能 ==========
+        (function () {
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+
+            if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+            const items = track.querySelectorAll('.screenshot-item');
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            let currentIndex = 0;
+            let autoPlayInterval;
+
+            // 更新轮播位置
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // 更新 active 状态
+                items.forEach((item, index) => {
+                    item.classList.toggle('active', index === currentIndex);
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // 下一张
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            }
+
+            // 上一张
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                updateCarousel();
+            }
+
+            // 跳转到指定索引
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            // 开始自动播放
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000); // 每5秒切换
+            }
+
+            // 停止自动播放
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+
+            // 事件监听
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay(); // 重新开始自动播放
+            });
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            });
+
+            // 圆点点击
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopAutoPlay();
+                    startAutoPlay();
+                });
+            });
+
+            // 鼠标悬停时暂停自动播放
+            track.addEventListener('mouseenter', stopAutoPlay);
+            track.addEventListener('mouseleave', startAutoPlay);
+
+            // 键盘导航
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    stopAutoPlay();
+                    startAutoPlay();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    stopAutoPlay();
+                    startAutoPlay();
+                }
+            });
+
+            // 启动自动播放
+            startAutoPlay();
+        })();
+
+        // ========== 功能卡片光晕跟随效果 ==========
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+    </script>
+</body>
+
+</html>

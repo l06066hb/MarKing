@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 使用文档
+    url: https://github.com/l06066hb/MarKing/blob/main/README.md
+    about: 查看完整的使用文档和功能介绍
+  - name: 💬 讨论区
+    url: https://github.com/l06066hb/MarKing/discussions
+    about: 提问、讨论和分享使用经验
+  - name: 🔧 故障排查
+    url: https://github.com/l06066hb/MarKing/blob/main/docs/TROUBLESHOOTING.md
+    about: 查看常见问题的解决方案
