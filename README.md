@@ -2,6 +2,12 @@
 
 <div align="center">
 
+[English](./README_EN.md) | 简体中文
+
+</div>
+
+<div align="center">
+
 ![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.10-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
