@@ -1,8 +1,8 @@
-# MarKing - Professional Markdown Editor
+﻿# MarKing - Professional Markdown Editor
 
 \u003cdiv align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.8-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.10-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -21,17 +21,23 @@ Modern cross-platform Markdown editor for efficient and professional document cr
 
 ---
 
+## 📸 Application Preview
+
+![MarKing Main Interface](docs/screenshot-main-interface-en.png)
+
+---
+
 ## 📥 Download
 
-> 💡 **Current Version**: v1.0.8 | **System Requirements**: Windows 10 (64-bit) or higher
+> 💡 **Current Version**: v1.0.10 | **System Requirements**: Windows 10 (64-bit) or higher
 
 ### Windows
 
-- **[MarKing_1.0.8_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI Installer
+- **[MarKing_1.0.10_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI Installer
   - Automatic installation
   - Desktop shortcut creation
   - Silent installation support
-- **[MarKing_1.0.8_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS Installer
+- **[MarKing_1.0.10_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS Installer
   - User-friendly installation wizard
   - Complete system integration
   - Traditional installation experience
@@ -190,9 +196,9 @@ This software is proprietary and protected by copyright law and international tr
 
 See [LICENSE](LICENSE) file for details.
 
-### Trademark Notice
+### Disclaimer
 
-MarKing™ is a registered trademark. Unauthorized use for commercial purposes or implying official endorsement is prohibited.
+MarKing is the name of this software. Unauthorized use for commercial purposes or implying official endorsement is prohibited.
 
 ---
 
@@ -241,7 +247,7 @@ If MarKing helps you, please consider sponsoring development. Your support drive
 
 **Be the King of Markdown!** 👑✍️
 
-MarKing v1.0.8 | Making Document Creation More Efficient
+MarKing v1.0.10 | Making Document Creation More Efficient
 
 [⬆️ Back to Top](#marKing---professional-markdown-editor)
 
