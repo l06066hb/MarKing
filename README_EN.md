@@ -23,7 +23,7 @@ Modern cross-platform Markdown editor for efficient and professional document cr
 
 [Download](#-download) • [Features](#-core-features) • [Documentation](docs/FAQ.md) • [Changelog](CHANGELOG.md) • [Feedback](https://github.com/l06066hb/MarKing/issues)
 
-\u003c/div>
+</div>
 
 ---
 
@@ -249,12 +249,12 @@ If MarKing helps you, please consider sponsoring development. Your support drive
 
 ---
 
-\u003cdiv align="center">
+<div align="center">
 
 **Be the King of Markdown!** 👑✍️
 
 MarKing v1.0.10 | Making Document Creation More Efficient
 
-[⬆️ Back to Top](#marKing---professional-markdown-editor)
+[⬆️ Back to Top](#marking---professional-markdown-editor)
 
-\u003c/div>
+</div>
