@@ -1,6 +1,12 @@
 ﻿# MarKing - Professional Markdown Editor
 
-\u003cdiv align="center">
+<div align="center">
+
+English | [简体中文](./README.md)
+
+</div>
+
+<div align="center">
 
 ![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.10-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
