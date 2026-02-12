@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -8,12 +8,23 @@
     <meta name="keywords" content="Markdown编辑器, 文档编辑器, 跨平台编辑器, DOCX导出, PDF导出, 技术文档, 写作工具">
     <meta name="author" content="MarKing">
     <meta name="theme-color" content="#3b82f6">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://l06066hb.github.io/MarKing/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="MarKing - 专业 Markdown 编辑器">
     <meta property="og:description" content="现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业">
-    <meta property="og:image" content="icon-512.png">
+    <meta property="og:image" content="https://l06066hb.github.io/MarKing/icon-512.png">
+    <meta property="og:url" content="https://l06066hb.github.io/MarKing/">
+    <meta property="og:site_name" content="MarKing">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MarKing - 专业 Markdown 编辑器">
+    <meta name="twitter:description" content="现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业">
+    <meta name="twitter:image" content="https://l06066hb.github.io/MarKing/icon-512.png">
 
     <title>MarKing - 专业 Markdown 编辑器 | Be the King of Markdown</title>
 
@@ -228,6 +239,33 @@
             background: var(--primary-dark);
             transform: translateY(-1px);
             box-shadow: var(--shadow);
+        }
+
+        /* 移动端汉堡菜单 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .mobile-menu-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 菜单图标样式 */
+        .mobile-menu-btn .menu-icon,
+        .mobile-menu-btn .close-icon {
+            transition: all 0.3s ease;
         }
 
         /* Hero */
@@ -611,10 +649,84 @@
             box-shadow: var(--shadow-md), var(--shadow-primary);
         }
 
+        /* GitHub 统计栏样式 */
+        .github-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            background: var(--glass-strong);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1);
+            color: var(--secondary);
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .github-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.25rem;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Features */
         .features {
             max-width: 1280px;
-            margin: 8rem auto;
+            margin: 8rem auto 6rem;
             padding: 0 2rem;
         }
 
@@ -903,10 +1015,628 @@
             color: var(--card-6-from);
         }
 
+        /* 信任标识栏 - 优化版:渐变分隔条设计 */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(139, 92, 246, 0.03) 100%);
+            border-radius: 1.25rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+        }
+        
+        /* 顶部装饰线 */
+        .trust-badges::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .trust-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .trust-badge:hover .trust-icon {
+            transform: scale(1.1);
+            color: var(--secondary);
+        }
+
+        .trust-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+        }
+
+        .trust-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .trust-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .trust-badges {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .trust-badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Use Cases Section - 极致精致版 v4.0 */
+        .use-cases {
+            background: linear-gradient(180deg, #ffffff 0%, #fafbff 50%, #ffffff 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 背景装饰 */
+        .use-cases::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .use-cases::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .use-cases-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-case-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-top: 3.5rem;
+            position: relative;
+        }
+
+        .use-case-row:first-of-type {
+            margin-top: 3rem;
+        }
+
+        /* 反向布局 */
+        .use-case-row.reverse {
+            direction: rtl;
+        }
+
+        .use-case-row.reverse > * {
+            direction: ltr;
+        }
+
+        /* 视觉卡片 - 极致精致 */
+        .use-case-visual {
+            position: relative;
+        }
+
+        .visual-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+            border-radius: 1.5rem;
+            padding: 2.25rem 1.75rem;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px -10px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .use-case-row:hover .visual-card {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 20px 50px -15px rgba(0, 0, 0, 0.12);
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        /* 渐变背景装饰 */
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            transition: opacity 0.4s ease;
+            border-radius: inherit;
+        }
+
+        .visual-code::before {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+        }
+
+        .visual-academic::before {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+        }
+
+        .visual-creator::before {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+        }
+
+        .visual-manager::before {
+            background: linear-gradient(135deg, #06b6d4 0%, #14b8a6 100%);
+        }
+
+        .use-case-row:hover .visual-card::before {
+            opacity: 0.08;
+        }
+
+        /* 极致精致图标 - 带渐变背景 */
+        .visual-icon {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            border-radius: 1.125rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 8px 24px -8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        /* 图标渐变背景 - 每个场景独特配色 */
+        .visual-code .visual-icon {
+            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+        }
+
+        .visual-academic .visual-icon {
+            background: linear-gradient(135deg, #ede9fe 0%, #f3e8ff 100%);
+        }
+
+        .visual-creator .visual-icon {
+            background: linear-gradient(135deg, #fce7f3 0%, #fae8ff 100%);
+        }
+
+        .visual-manager .visual-icon {
+            background: linear-gradient(135deg, #cffafe 0%, #ccfbf1 100%);
+        }
+
+        .visual-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke-width: 1.5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .visual-code .visual-icon svg {
+            color: #3b82f6;
+        }
+
+        .visual-academic .visual-icon svg {
+            color: #8b5cf6;
+        }
+
+        .visual-creator .visual-icon svg {
+            color: #ec4899;
+        }
+
+        .visual-manager .visual-icon svg {
+            color: #06b6d4;
+        }
+
+        .use-case-row:hover .visual-icon {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                0 12px 32px -12px rgba(0, 0, 0, 0.12);
+        }
+
+        .use-case-row:hover .visual-icon svg {
+            transform: rotate(-5deg);
+        }
+
+        /* 精美装饰元素 - 更紧凑精致 */
+        .visual-decoration {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        /* 代码行 - 闪光动画 */
+        .code-line {
+            height: 7px;
+            background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 50%, #e2e8f0 100%);
+            border-radius: 3.5px;
+            margin-bottom: 7px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.35), transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .code-line.short {
+            width: 55%;
+        }
+
+        .code-line.medium {
+            width: 75%;
+        }
+
+        /* 公式 - 更优雅明显 */
+        .formula-line {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #8b5cf6;
+            text-align: center;
+            margin: 0.625rem 0;
+            opacity: 0.45;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.02em;
+        }
+
+        /* 数据标签 */
+        .data-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 0.5rem;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* 文档页面 - 更真实细节 */
+        .doc-page {
+            width: 100%;
+            height: 130px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doc-page::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            height: 4px;
+            background: linear-gradient(90deg, #ec4899 0%, #f472b6 100%);
+            border-radius: 2px;
+        }
+
+        .doc-page::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 10px;
+            right: 35%;
+            height: 2.5px;
+            background: #e2e8f0;
+            border-radius: 2px;
+        }
+
+        .doc-page.small {
+            height: 95px;
+            width: 65%;
+            margin-left: auto;
+        }
+
+        /* 图表 - 渐变动态效果 */
+        .chart-bar {
+            width: 44px;
+            background: linear-gradient(180deg, #06b6d4 0%, #14b8a6 100%);
+            border-radius: 6px 6px 0 0;
+            display: inline-block;
+            margin: 0 5px;
+            opacity: 0.28;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .chart-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent);
+            border-radius: 6px 6px 0 0;
+        }
+
+        .use-case-row:hover .chart-bar {
+            opacity: 0.55;
+            transform: translateY(-6px);
+        }
+
+        .use-case-row:hover .chart-bar:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .use-case-row:hover .chart-bar:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .use-case-row:hover .chart-bar:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+
+        /* 内容区域 - 紧凑精致 */
+        .use-case-content {
+            position: relative;
+        }
+
+        .use-case-content h3 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .use-case-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .use-case-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+
+        .use-case-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+        }
+
+        .use-case-features li:hover {
+            color: var(--text);
+            transform: translateX(3px);
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--primary);
+            stroke-width: 2.5;
+            margin-top: 1px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .use-case-row {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .use-case-row.reverse {
+                direction: ltr;
+            }
+
+            .visual-card {
+                min-height: 210px;
+                padding: 2rem 1.5rem;
+            }
+
+            .visual-icon {
+                width: 68px;
+                height: 68px;
+            }
+
+            .visual-icon svg {
+                width: 34px;
+                height: 34px;
+            }
+
+            .visual-decoration {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .use-cases {
+                padding: 4rem 0;
+            }
+
+            .use-case-row {
+                margin-top: 3rem;
+                gap: 2rem;
+            }
+
+            .use-case-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .use-case-desc {
+                font-size: 0.9375rem;
+            }
+
+            .visual-card {
+                min-height: 190px;
+                padding: 1.75rem 1.25rem;
+            }
+
+            .visual-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .visual-icon svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .visual-decoration {
+                max-width: 170px;
+            }
+
+            .code-line {
+                height: 6px;
+                margin-bottom: 6px;
+            }
+
+            .doc-page {
+                height: 100px;
+            }
+
+            .doc-page.small {
+                height: 70px;
+            }
+
+            .chart-bar {
+                width: 36px;
+                margin: 0 4px;
+            }
+
+            .formula-line {
+                font-size: 1.125rem;
+            }
+        }            .doc-page {
+                height: 100px;
+            }
+
+            .doc-page.small {
+                height: 70px;
+            }
+
+            .chart-bar {
+                width: 36px;
+                margin: 0 4px;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .use-case-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .use-cases {
+                margin: 6rem auto;
+            }
+
+            .use-case-item {
+                padding: 2rem 1.5rem;
+            }
+            
+            .use-case-icon-wrapper {
+                width: 64px;
+                height: 64px;
+            }
+            
+            .use-case-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .use-case-content h3 {
+                font-size: 1.25rem;
+            }
+        }
+
         /* Screenshots */
         .screenshots {
             background: linear-gradient(180deg, var(--bg-secondary) 0%, #e8f0fe 50%, var(--bg-secondary) 100%);
-            padding: 8rem 2rem;
+            padding: 6rem 2rem 8rem;
             position: relative;
             overflow: hidden;
         }
@@ -1288,6 +2018,58 @@
             max-width: 1280px;
             margin: 0 auto;
         }
+        
+        /* 赞助用途说明样式 */
+        .sponsor-purposes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            margin-top: 3.5rem;
+        }
+        
+        .purpose-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .purpose-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+        
+        .purpose-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--primary);
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .purpose-card:hover .purpose-icon {
+            transform: scale(1.1);
+            color: var(--secondary);
+        }
+        
+        .purpose-card h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .purpose-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
 
         .sponsor-grid {
             display: grid;
@@ -1459,11 +2241,90 @@
 
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                z-index: 99;
+                gap: 0;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                animation: slideDown 0.3s ease forwards;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .nav-links li {
+                width: 100%;
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            
+            .nav-links.active li {
+                animation: slideInLeft 0.3s ease forwards;
+            }
+            
+            /* 为每个菜单项添加延迟，创建交错效果 */
+            .nav-links.active li:nth-child(1) { animation-delay: 0.05s; }
+            .nav-links.active li:nth-child(2) { animation-delay: 0.1s; }
+            .nav-links.active li:nth-child(3) { animation-delay: 0.15s; }
+            .nav-links.active li:nth-child(4) { animation-delay: 0.2s; }
+            .nav-links.active li:nth-child(5) { animation-delay: 0.25s; }
+            .nav-links.active li:nth-child(6) { animation-delay: 0.3s; }
+            
+            @keyframes slideInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                transition: all 0.2s ease;
+            }
+            
+            .nav-links a:hover {
+                background: var(--bg-tertiary);
+                transform: translateX(4px);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
 
             .feature-grid,
             .platform-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .sponsor-purposes {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .features,
@@ -1688,6 +2549,44 @@
             background: var(--primary);
             color: white;
         }
+
+        /* 键盘导航焦点样式 */
+        *:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* 为交互元素添加更明显的焦点样式 */
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        /* 卡片元素的焦点样式 */
+        .feature-card:focus,
+        .platform-card:focus,
+        .sponsor-card:focus,
+        .use-case-row:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        /* 移除默认焦点样式但保留键盘导航可见性 */
+        *:focus:not(:focus-visible) {
+            outline: none;
+            box-shadow: none;
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
     </style>
 </head>
 
@@ -1702,7 +2601,7 @@
                 <img src="icon-128.png" alt="MarKing Logo" class="logo-icon">
                 <span>MarKing</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks" role="navigation">
                 <li><a href="#features">功能特性</a></li>
                 <li><a href="#download">立即下载</a></li>
                 <li><a href="../INSTALL.md">安装指南</a></li>
@@ -1710,6 +2609,16 @@
                 <li><a href="index-en.html" class="lang-switch" aria-label="切换到英文">English</a></li>
                 <li><a href="https://github.com/l06066hb/MarKing/issues" class="nav-cta">问题反馈</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navLinks">
+                <!-- Menu 图标 (Heroicons - Bars3) -->
+                <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <!-- Close 图标 (Heroicons - XMark) -->
+                <svg class="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -1743,13 +2652,37 @@
                     </svg>
                     <span>立即下载</span>
                 </a>
-                <a href="../FEATURES.md" class="btn btn-secondary" aria-label="查看完整功能列表">
+                <a href="#features" class="btn btn-secondary" aria-label="了解功能特性">
                     <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                     </svg>
-                    <span>查看功能</span>
+                    <span>了解功能</span>
                 </a>
+            </div>
+            
+            <!-- GitHub 统计栏 -->
+            <div class="github-stats" role="region" aria-label="GitHub 统计数据">
+                <div class="stat-card">
+                    <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                    </svg>
+                    <div class="stat-content">
+                        <div class="stat-value" id="github-stars">-</div>
+                        <div class="stat-label">GitHub Stars</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    <div class="stat-content">
+                        <div class="stat-value" id="total-downloads">-</div>
+                        <div class="stat-label">总下载量</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1757,64 +2690,67 @@
     <!-- Features Section -->
     <section id="features" class="features" aria-labelledby="features-title">
         <div class="section-header">
-            <span class="section-badge">核心功能</span>
-            <h2 id="features-title" class="section-title">为专业写作而生</h2>
+            <span class="section-badge">为什么选择 MarKing</span>
+            <h2 id="features-title" class="section-title">专业文档创作的完整解决方案</h2>
             <p class="section-subtitle">
-                集成强大的编辑功能、智能辅助工具和专业导出能力，满足各类文档创作需求
+                强大功能 × 极致体验 × 安全可靠，让文档创作更高效、更专业
             </p>
         </div>
         <div class="feature-grid" role="list">
-            <article class="feature-card" role="listitem">
+            <!-- 第一行 -->
+            <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                 </div>
-                <h3>专业编辑体验</h3>
-                <p>VS Code 同款 Monaco 编辑器，实时预览，67+ 代码片段，智能补全，一键格式化</p>
+                <h3>专业编辑器</h3>
+                <p>Monaco 编辑器 + 实时预览，67+ 代码片段，智能补全，语法高亮，一键格式化</p>
             </article>
-            <article class="feature-card" role="listitem">
+            <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <h3>表格可视化编辑</h3>
-                <p>像 Excel 一样编辑 Markdown 表格，支持拖拽调整、快速填充、智能格式化</p>
+                <h3>表格可视化</h3>
+                <p>像 Excel 一样编辑表格，拖拽调整、快速填充、智能格式化，告别手写语法</p>
             </article>
-            <article class="feature-card" role="listitem">
+            <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <h3>专业文档导出</h3>
-                <p>DOCX 专业模板系统，PDF 高质量输出，HTML 静态页面，满足各种发布需求</p>
+                <h3>专业导出</h3>
+                <p>DOCX 模板系统，PDF 高质量输出，HTML 静态页面，满足学术、技术、商业需求</p>
             </article>
-            <article class="feature-card" role="listitem">
+            
+            <!-- 第二行 -->
+            <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                     </svg>
                 </div>
-                <h3>精美预览主题</h3>
+                <h3>精美主题</h3>
                 <p>12 种预览主题，亮色/暗色模式，现代化 UI，优雅滚动条，视觉体验一流</p>
             </article>
-            <article class="feature-card" role="listitem">
+            <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                     </svg>
                 </div>
-                <h3>智能文档管理</h3>
-                <p>多库支持，全局搜索，自动保存，版本快照，数据备份，文档管理无忧</p>
+                <h3>智能管理</h3>
+                <p>多库支持，全局搜索，自动保存，版本快照，数据备份，文档管理井井有条</p>
             </article>
-            <article class="feature-card" role="listitem">
+            <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1822,7 +2758,233 @@
                     </svg>
                 </div>
                 <h3>性能卓越</h3>
-                <p>基于 Tauri 构建，启动快速，内存占用低，流畅运行，跨平台支持</p>
+                <p>基于 Tauri 构建，启动秒开，内存占用低。大文件流畅编辑，跨平台完美支持</p>
+            </article>
+        </div>
+        
+        <!-- 信任标识栏 -->
+        <div class="trust-badges" role="list">
+            <div class="trust-badge" role="listitem">
+                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>
+                <div class="trust-text">
+                    <span class="trust-title">开箱即用</span>
+                    <span class="trust-desc">零配置，下载即用</span>
+                </div>
+            </div>
+            <div class="trust-badge" role="listitem">
+                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+                <div class="trust-text">
+                    <span class="trust-title">数据安全</span>
+                    <span class="trust-desc">本地存储，完全离线</span>
+                </div>
+            </div>
+            <div class="trust-badge" role="listitem">
+                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+                <div class="trust-text">
+                    <span class="trust-title">持续更新</span>
+                    <span class="trust-desc">活跃开发，快速响应</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section - 交替式布局 -->
+    <section class="use-cases" aria-labelledby="use-cases-title">
+        <div class="use-cases-container">
+            <div class="section-header">
+                <span class="section-badge">使用场景</span>
+                <h2 id="use-cases-title" class="section-title">适合各类创作者</h2>
+                <p class="section-subtitle">
+                    无论你是开发者、学生、创作者还是产品经理，MarKing 都能满足你的需求
+                </p>
+            </div>
+            
+            <!-- 开发者 - 左图右文 -->
+            <article class="use-case-row" role="listitem">
+                <div class="use-case-visual">
+                    <div class="visual-card visual-code">
+                        <div class="visual-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                            </svg>
+                        </div>
+                        <div class="visual-decoration">
+                            <div class="code-line"></div>
+                            <div class="code-line short"></div>
+                            <div class="code-line"></div>
+                            <div class="code-line medium"></div>
+                            <div class="code-line short"></div>
+                            <div class="code-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>开发者</h3>
+                    <p class="use-case-desc">专为技术文档和代码管理设计</p>
+                    <ul class="use-case-features">
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>技术文档编写：API 文档、架构设计、开发日志</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>代码片段管理：支持 100+ 编程语言语法高亮</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>项目 README：快速生成专业的项目说明文档</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+            <!-- 学生 & 研究者 - 右图左文 -->
+            <article class="use-case-row reverse" role="listitem">
+                <div class="use-case-visual">
+                    <div class="visual-card visual-academic">
+                        <div class="visual-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                            </svg>
+                        </div>
+                        <div class="visual-decoration">
+                            <div class="formula-line">∫ f(x)dx</div>
+                            <div class="formula-line">Σ x²</div>
+                            <div class="formula-line">√(a² + b²)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>学生 & 研究者</h3>
+                    <p class="use-case-desc">学术写作和研究笔记的理想工具</p>
+                    <ul class="use-case-features">
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>学术论文：支持公式编辑，导出符合期刊要求的 DOCX</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>课程笔记：实时预览，表格可视化编辑</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>毕业设计：完整的文档管理和版本控制</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+            <!-- 内容创作者 - 左图右文 -->
+            <article class="use-case-row" role="listitem">
+                <div class="use-case-visual">
+                    <div class="visual-card visual-creator">
+                        <div class="visual-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                        </div>
+                        <div class="visual-decoration">
+                            <div class="doc-page"></div>
+                            <div class="doc-page small"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>内容创作者</h3>
+                    <p class="use-case-desc">博客、教程、电子书创作的最佳伙伴</p>
+                    <ul class="use-case-features">
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>博客文章：Markdown 写作，一键导出 HTML</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>电子书创作：章节管理，多格式导出</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>教程制作：代码高亮，截图插入，专业排版</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+            <!-- 产品 & 项目经理 - 右图左文 -->
+            <article class="use-case-row reverse" role="listitem">
+                <div class="use-case-visual">
+                    <div class="visual-card visual-manager">
+                        <div class="visual-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                            </svg>
+                        </div>
+                        <div class="visual-decoration">
+                            <div style="display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 100px;">
+                                <div class="chart-bar" style="height: 55%;"></div>
+                                <div class="chart-bar" style="height: 75%;"></div>
+                                <div class="chart-bar" style="height: 40%;"></div>
+                                <div class="chart-bar" style="height: 85%;"></div>
+                                <div class="chart-bar" style="height: 50%;"></div>
+                            </div>
+                            <div class="data-label">数据可视化</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-content">
+                    <h3>产品 & 项目经理</h3>
+                    <p class="use-case-desc">需求文档和项目管理的高效解决方案</p>
+                    <ul class="use-case-features">
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>需求文档：表格编辑，流程图支持</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>会议纪要：快速记录，自动保存</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>项目报告：专业模板，高质量 PDF 输出</span>
+                        </li>
+                    </ul>
+                </div>
             </article>
         </div>
     </section>
@@ -1953,11 +3115,6 @@
                 </button>
             </div>
         </div>
-        <div class="download-note">
-            <p>
-                开箱即用 • 持续更新 • 专业支持
-            </p>
-        </div>
     </section>
 
     <!-- Sponsor Section -->
@@ -1965,12 +3122,53 @@
         <div class="sponsor-container">
             <div class="section-header">
                 <span class="section-badge">支持项目</span>
-                <h2 class="section-title">💖 赞助 MarKing</h2>
+                <h2 class="section-title">💖 支持 MarKing 持续发展</h2>
                 <p class="section-subtitle">
-                    如果 MarKing 对你有帮助，请考虑赞助支持开发<br>
-                    你的支持是项目持续更新的动力
+                    如果 MarKing 为你的工作带来了价值，<br>
+                    请考虑赞助支持项目的持续开发和维护：
                 </p>
             </div>
+            
+            <!-- 赞助用途说明 -->
+            <div class="sponsor-purposes">
+                <div class="purpose-card">
+                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                    </svg>
+                    <h4>持续开发</h4>
+                    <p>新功能开发和性能优化</p>
+                </div>
+                <div class="purpose-card">
+                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 002.248-2.354M12 12.75a2.25 2.25 0 01-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 00-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 01.4-2.253M12 8.25a2.25 2.25 0 00-2.248 2.146M12 8.25a2.25 2.25 0 012.248 2.146M8.683 5a6.032 6.032 0 01-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0115.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 00-.575-1.752M4.921 6a24.048 24.048 0 00-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 01-5.223 1.082" />
+                    </svg>
+                    <h4>Bug 修复</h4>
+                    <p>快速响应和问题解决</p>
+                </div>
+                <div class="purpose-card">
+                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                    <h4>文档完善</h4>
+                    <p>详细的使用指南和教程</p>
+                </div>
+                <div class="purpose-card">
+                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008z" />
+                    </svg>
+                    <h4>服务器维护</h4>
+                    <p>稳定的下载和更新服务</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem;">
+                你的每一份支持，都将直接用于让 MarKing 变得更好。
+            </p>
+            
             <div class="sponsor-grid">
                 <a href="https://afdian.com/a/l06066hb" target="_blank" class="sponsor-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
@@ -2062,6 +3260,136 @@
     </button>
 
     <script>
+        // ========== GitHub 统计数据获取 ==========
+        async function fetchGitHubStats() {
+            const CACHE_KEY = 'github_stats_cache';
+            const CACHE_DURATION = 5 * 60 * 1000; // 5 分钟
+            
+            // 检查缓存
+            const cached = sessionStorage.getItem(CACHE_KEY);
+            if (cached) {
+                try {
+                    const { data, timestamp } = JSON.parse(cached);
+                    if (Date.now() - timestamp < CACHE_DURATION) {
+                        updateStatsUI(data);
+                        return;
+                    }
+                } catch (e) {
+                    // 缓存解析失败，继续获取新数据
+                }
+            }
+            
+            try {
+                // 获取仓库信息(Stars)
+                const repoResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing');
+                if (!repoResponse.ok) {
+                    throw new Error(`HTTP ${repoResponse.status}`);
+                }
+                const repoData = await repoResponse.json();
+                
+                // 获取发布版本（下载量）
+                const releasesResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing/releases');
+                if (!releasesResponse.ok) {
+                    throw new Error(`HTTP ${releasesResponse.status}`);
+                }
+                const releases = await releasesResponse.json();
+                
+                // 计算总下载量
+                let totalDownloads = 0;
+                releases.forEach(release => {
+                    if (release.assets) {
+                        release.assets.forEach(asset => {
+                            totalDownloads += asset.download_count || 0;
+                        });
+                    }
+                });
+                
+                const data = {
+                    stars: repoData.stargazers_count || 0,
+                    downloads: totalDownloads
+                };
+                
+                // 缓存数据
+                sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+                    data,
+                    timestamp: Date.now()
+                }));
+                
+                updateStatsUI(data);
+            } catch (error) {
+                console.error('Failed to fetch GitHub stats:', error);
+                // 降级处理：显示占位符
+                const starsElement = document.getElementById('github-stars');
+                const downloadsElement = document.getElementById('total-downloads');
+                if (starsElement) starsElement.textContent = '-';
+                if (downloadsElement) downloadsElement.textContent = '-';
+            }
+        }
+        
+        // 更新统计数据 UI
+        function updateStatsUI(data) {
+            const starsElement = document.getElementById('github-stars');
+            const downloadsElement = document.getElementById('total-downloads');
+            
+            if (starsElement && data.stars !== undefined) {
+                starsElement.textContent = data.stars.toLocaleString();
+            }
+            
+            if (downloadsElement && data.downloads !== undefined) {
+                downloadsElement.textContent = data.downloads.toLocaleString();
+            }
+        }
+
+        // 页面加载时获取数据
+        window.addEventListener('load', fetchGitHubStats);
+
+        // ========== 移动端菜单切换 ==========
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const menuIcon = mobileMenuBtn?.querySelector('.menu-icon');
+        const closeIcon = mobileMenuBtn?.querySelector('.close-icon');
+        
+        if (mobileMenuBtn && navLinks && menuIcon && closeIcon) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isActive = navLinks.classList.toggle('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isActive);
+                
+                // 更新 aria-label 以反映当前状态
+                mobileMenuBtn.setAttribute('aria-label', isActive ? '关闭导航菜单' : '打开导航菜单');
+                
+                // 切换图标显示
+                if (isActive) {
+                    menuIcon.style.display = 'none';
+                    closeIcon.style.display = 'block';
+                } else {
+                    menuIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                }
+            });
+            
+            // 点击菜单项后关闭菜单
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.setAttribute('aria-label', '打开导航菜单');
+                    menuIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                });
+            });
+            
+            // 点击外部关闭菜单
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.setAttribute('aria-label', '打开导航菜单');
+                    menuIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                }
+            });
+        }
+
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
