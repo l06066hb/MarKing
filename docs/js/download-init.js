@@ -9,7 +9,7 @@
 
     // 从全局配置读取，如果没有则使用默认值
     const CONFIG = window.MARKING_DOWNLOAD_CONFIG || {
-        apiEndpoint: 'https://marking-download-api.l06066hb.workers.dev',
+        apiEndpoint: 'https://api.markingmd.com',
         githubOwner: 'l06066hb',
         githubRepo: 'MarKing',
         debug: false,

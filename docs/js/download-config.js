@@ -3,8 +3,8 @@
  */
 
 window.MARKING_DOWNLOAD_CONFIG = {
-    // Cloudflare Workers API 端点
-    apiEndpoint: 'https://marking-download-api.l06066hb.workers.dev',
+    // Cloudflare Workers API 端点（使用自定义域名解决中国大陆访问问题）
+    apiEndpoint: 'https://api.markingmd.com',
     
     // GitHub 仓库配置
     githubOwner: 'l06066hb',

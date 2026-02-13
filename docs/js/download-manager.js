@@ -13,8 +13,8 @@ class DownloadManager {
     constructor(config = {}) {
         // 配置项
         this.config = {
-            // Cloudflare Workers API 端点（需要在部署后更新）
-            apiEndpoint: config.apiEndpoint || 'https://your-worker.workers.dev',
+            // Cloudflare Workers API 端点（使用自定义域名）
+            apiEndpoint: config.apiEndpoint || 'https://api.markingmd.com',
             // GitHub 仓库信息
             githubOwner: config.githubOwner || 'l06066hb',
             githubRepo: config.githubRepo || 'MarKing',
