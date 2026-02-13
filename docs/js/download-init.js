@@ -13,7 +13,7 @@
         githubOwner: 'l06066hb',
         githubRepo: 'MarKing',
         debug: false,
-        downloadButtonSelector: '.btn-primary, [href="#download"]',
+        downloadButtonSelector: '.platform-card .btn-primary',
         statsContainerSelector: '.github-stats',
         enableToast: true
     };
