@@ -3955,6 +3955,22 @@
         });
     </script>
 
+    <!-- Smart Download System Configuration -->
+    <script>
+        // Configure download system
+        window.MARKING_DOWNLOAD_CONFIG = {
+            apiEndpoint: 'https://marking-download-api.l06066hb.workers.dev',
+            githubOwner: 'l06066hb',
+            githubRepo: 'MarKing',
+            debug: true,  // Enable debug mode
+            downloadButtonSelector: '.platform-card .btn-primary',
+            statsContainerSelector: '.github-stats',
+            enableToast: true
+        };
+        
+        console.log('[MarKing] Download system configuration:', window.MARKING_DOWNLOAD_CONFIG);
+    </script>
+
     <!-- Smart Download System -->
     <script src="js/download-manager.js"></script>
     <script src="js/download-ui.js"></script>
