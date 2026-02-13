@@ -3604,6 +3604,22 @@
         });
     </script>
 
+    <!-- 智能下载系统配置 -->
+    <script>
+        // 配置下载系统
+        window.MARKING_DOWNLOAD_CONFIG = {
+            apiEndpoint: 'https://marking-download-api.l06066hb.workers.dev',
+            githubOwner: 'l06066hb',
+            githubRepo: 'MarKing',
+            debug: true,  // 开启调试模式
+            downloadButtonSelector: '.platform-card .btn-primary',
+            statsContainerSelector: '.github-stats',
+            enableToast: true
+        };
+        
+        console.log('[MarKing] 下载系统配置:', window.MARKING_DOWNLOAD_CONFIG);
+    </script>
+
     <!-- 智能下载系统 -->
     <script src="js/download-manager.js"></script>
     <script src="js/download-ui.js"></script>
