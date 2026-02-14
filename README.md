@@ -8,7 +8,7 @@
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.10-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.11-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -35,15 +35,15 @@
 
 ## 📥 下载
 
-> 💡 **当前版本**：v1.0.10 | **系统要求**：Windows 10 (64-bit) 或更高版本
+> 💡 **当前版本**：v1.0.11 | **系统要求**：Windows 10 (64-bit) 或更高版本
 
 ### Windows
 
-- **[MarKing_1.0.10_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI 安装器
+- **[MarKing_1.0.11_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI 安装器
   - 自动安装到系统
   - 创建桌面快捷方式
   - 支持静默安装
-- **[MarKing_1.0.10_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS 安装器
+- **[MarKing_1.0.11_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS 安装器
   - 友好的安装向导
   - 系统集成完整
   - 传统安装体验
@@ -253,7 +253,7 @@ MarKing 为本软件的名称。未经授权，不得用于商业用途或暗示
 
 **Be the King of Markdown!** 👑✍️
 
-MarKing v1.0.10 | 让文档创作更高效
+MarKing v1.0.11 | 让文档创作更高效
 
 [⬆️ 回到顶部](#marKing---专业-markdown-编辑器)
 
