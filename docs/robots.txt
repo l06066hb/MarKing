@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# 禁止爬取临时文件和隐藏目录
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /structured-data-*.html
+
+# Sitemap 位置
+Sitemap: https://markingmd.com/sitemap.xml
