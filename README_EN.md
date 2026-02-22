@@ -29,7 +29,7 @@ Modern cross-platform Markdown editor for efficient and professional document cr
 
 ## 📸 Application Preview
 
-![MarKing Main Interface](docs/screenshot-main-interface-en.png)
+![MarKing Main Interface](docs/marking-markdown-editor-main-interface-en.png)
 
 ---
 

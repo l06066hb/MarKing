@@ -29,7 +29,7 @@
 
 ## 📸 应用预览
 
-![MarKing 主界面](docs/screenshot-main-interface.png)
+![MarKing 主界面](docs/marking-markdown-editor-main-interface.png)
 
 ---
 
