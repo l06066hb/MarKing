@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://l06066hb.github.io/MarKing/">
 
-     <!-- 站长工具验证 -->
+    <!-- 站长工具验证 -->
     <meta name="google-site-verification" content="3QEg1uC_xXJB0t_RLh__ct6Yqu9lhkqu-3tIe4CtVZY" />
     <meta name="baidu-site-verification" content="codeva-oybvH7wAT3" />
 
@@ -726,11 +726,11 @@
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            
+
             .stat-card {
                 padding: 1.25rem;
             }
-            
+
             .stat-value {
                 font-size: 1.5rem;
             }
@@ -1041,7 +1041,7 @@
             border: 1px solid rgba(59, 130, 246, 0.1);
             position: relative;
         }
-        
+
         /* 顶部装饰线 */
         .trust-badges::before {
             content: '';
@@ -1105,7 +1105,7 @@
                 gap: 1.5rem;
                 padding: 2rem 1.5rem;
             }
-            
+
             .trust-badge {
                 width: 100%;
                 justify-content: center;
@@ -1171,7 +1171,7 @@
             direction: rtl;
         }
 
-        .use-case-row.reverse > * {
+        .use-case-row.reverse>* {
             direction: ltr;
         }
 
@@ -1184,7 +1184,7 @@
             background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
             border-radius: 1.5rem;
             padding: 2.25rem 1.75rem;
-            box-shadow: 
+            box-shadow:
                 0 1px 3px rgba(0, 0, 0, 0.05),
                 0 10px 40px -10px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(226, 232, 240, 0.8);
@@ -1200,7 +1200,7 @@
 
         .use-case-row:hover .visual-card {
             transform: translateY(-4px);
-            box-shadow: 
+            box-shadow:
                 0 4px 6px rgba(0, 0, 0, 0.05),
                 0 20px 50px -15px rgba(0, 0, 0, 0.12);
             border-color: rgba(99, 102, 241, 0.2);
@@ -1247,7 +1247,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 
+            box-shadow:
                 0 2px 8px rgba(0, 0, 0, 0.04),
                 0 8px 24px -8px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1298,7 +1298,7 @@
 
         .use-case-row:hover .visual-icon {
             transform: translateY(-4px) scale(1.05);
-            box-shadow: 
+            box-shadow:
                 0 4px 12px rgba(0, 0, 0, 0.06),
                 0 12px 32px -12px rgba(0, 0, 0, 0.12);
         }
@@ -1340,6 +1340,7 @@
             0% {
                 left: -100%;
             }
+
             100% {
                 left: 100%;
             }
@@ -1600,18 +1601,20 @@
             .formula-line {
                 font-size: 1.125rem;
             }
-        }            .doc-page {
-                height: 100px;
-            }
+        }
 
-            .doc-page.small {
-                height: 70px;
-            }
+        .doc-page {
+            height: 100px;
+        }
 
-            .chart-bar {
-                width: 36px;
-                margin: 0 4px;
-            }
+        .doc-page.small {
+            height: 70px;
+        }
+
+        .chart-bar {
+            width: 36px;
+            margin: 0 4px;
+        }
         }
 
         /* 响应式设计 */
@@ -1630,12 +1633,12 @@
             .use-case-item {
                 padding: 2rem 1.5rem;
             }
-            
+
             .use-case-icon-wrapper {
                 width: 64px;
                 height: 64px;
             }
-            
+
             .use-case-icon {
                 width: 32px;
                 height: 32px;
@@ -2031,7 +2034,7 @@
             max-width: 1280px;
             margin: 0 auto;
         }
-        
+
         /* 赞助用途说明样式 */
         .sponsor-purposes {
             display: grid;
@@ -2040,7 +2043,7 @@
             margin-bottom: 2rem;
             margin-top: 3.5rem;
         }
-        
+
         .purpose-card {
             background: white;
             padding: 2rem 1.5rem;
@@ -2050,13 +2053,13 @@
             transition: all 0.3s ease;
             cursor: default;
         }
-        
+
         .purpose-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
             border-color: var(--primary);
         }
-        
+
         .purpose-icon {
             width: 48px;
             height: 48px;
@@ -2064,19 +2067,19 @@
             margin: 0 auto 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .purpose-card:hover .purpose-icon {
             transform: scale(1.1);
             color: var(--secondary);
         }
-        
+
         .purpose-card h4 {
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--text);
         }
-        
+
         .purpose-card p {
             font-size: 0.875rem;
             color: var(--text-secondary);
@@ -2268,64 +2271,83 @@
                 transform: translateY(-10px);
                 transition: opacity 0.3s ease, transform 0.3s ease;
             }
-            
+
             .nav-links.active {
                 display: flex;
                 animation: slideDown 0.3s ease forwards;
             }
-            
+
             @keyframes slideDown {
                 from {
                     opacity: 0;
                     transform: translateY(-10px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateY(0);
                 }
             }
-            
+
             .nav-links li {
                 width: 100%;
                 opacity: 0;
                 transform: translateX(-20px);
             }
-            
+
             .nav-links.active li {
                 animation: slideInLeft 0.3s ease forwards;
             }
-            
+
             /* 为每个菜单项添加延迟，创建交错效果 */
-            .nav-links.active li:nth-child(1) { animation-delay: 0.05s; }
-            .nav-links.active li:nth-child(2) { animation-delay: 0.1s; }
-            .nav-links.active li:nth-child(3) { animation-delay: 0.15s; }
-            .nav-links.active li:nth-child(4) { animation-delay: 0.2s; }
-            .nav-links.active li:nth-child(5) { animation-delay: 0.25s; }
-            .nav-links.active li:nth-child(6) { animation-delay: 0.3s; }
-            
+            .nav-links.active li:nth-child(1) {
+                animation-delay: 0.05s;
+            }
+
+            .nav-links.active li:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            .nav-links.active li:nth-child(3) {
+                animation-delay: 0.15s;
+            }
+
+            .nav-links.active li:nth-child(4) {
+                animation-delay: 0.2s;
+            }
+
+            .nav-links.active li:nth-child(5) {
+                animation-delay: 0.25s;
+            }
+
+            .nav-links.active li:nth-child(6) {
+                animation-delay: 0.3s;
+            }
+
             @keyframes slideInLeft {
                 from {
                     opacity: 0;
                     transform: translateX(-20px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateX(0);
                 }
             }
-            
+
             .nav-links a {
                 display: block;
                 padding: 1rem;
                 border-radius: 0.5rem;
                 transition: all 0.2s ease;
             }
-            
+
             .nav-links a:hover {
                 background: var(--bg-tertiary);
                 transform: translateX(4px);
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
@@ -2334,7 +2356,7 @@
             .platform-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .sponsor-purposes {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -2616,23 +2638,29 @@
             </a>
             <ul class="nav-links" id="navLinks" role="navigation">
                 <li><a href="#features">功能特性</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">更新日志</a></li>
+                <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                        rel="noopener noreferrer">更新日志</a></li>
                 <li><a href="./index-en.html" class="lang-switch" aria-label="切换到英文">English</a></li>
                 <li><a href="https://github.com/l06066hb/MarKing/issues" class="nav-cta">问题反馈</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" aria-label="访问 GitHub 仓库">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a></li>
+                <li><a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer"
+                        aria-label="访问 GitHub 仓库">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navLinks">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false"
+                aria-controls="navLinks">
                 <!-- Menu 图标 (Heroicons - Bars3) -->
-                <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
                 <!-- Close 图标 (Heroicons - XMark) -->
-                <svg class="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                <svg class="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    style="display: none;" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </nav>
@@ -2650,7 +2678,7 @@
         <div class="hero-content">
             <div class="hero-badge" role="status" aria-label="版本信息">
                 <span class="badge-icon" aria-hidden="true"></span>
-                <span>v1.0.11 现已发布</span>
+                <span>v1.1.0 现已发布</span>
             </div>
             <h1 id="hero-title">
                 <span class="hero-gradient">MarKing</span><br>
@@ -2676,7 +2704,7 @@
                     <span>了解功能</span>
                 </a>
             </div>
-            
+
             <!-- GitHub 统计栏 - 暂时隐藏,等数据积累后再展示 -->
             <!-- 
             <div class="github-stats" role="region" aria-label="GitHub 统计数据">
@@ -2723,8 +2751,8 @@
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                 </div>
-                <h3>专业编辑器</h3>
-                <p>Monaco 编辑器 + 实时预览，67+ 代码片段，智能补全，语法高亮，一键格式化</p>
+                <h3>原生级专业编辑器</h3>
+                <p>Monaco核心强劲驱动。融入精致毛玻璃与物理级微交互的极简工具栏，超 70+ 代码片段，尽享行云流水的写作快感。</p>
             </article>
             <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
@@ -2746,7 +2774,7 @@
                 <h3>专业导出</h3>
                 <p>DOCX 模板系统，PDF 高质量输出，HTML 静态页面，满足学术、技术、商业需求</p>
             </article>
-            
+
             <!-- 第二行 -->
             <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
@@ -2755,8 +2783,8 @@
                             d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                     </svg>
                 </div>
-                <h3>精美主题</h3>
-                <p>12 种预览主题，亮色/暗色模式，现代化 UI，优雅滚动条，视觉体验一流</p>
+                <h3>桌面原生级美学</h3>
+                <p>12px 完美无边框过渡，全方位高密度极简排版，搭配精心调配的 18 套深色/浅色预置主题，带来极致沉浸体验。</p>
             </article>
             <article class="feature-card" role="listitem" tabindex="0">
                 <div class="feature-icon" aria-hidden="true">
@@ -2779,7 +2807,7 @@
                 <p>基于 Tauri 构建，启动秒开，内存占用低。大文件流畅编辑，跨平台完美支持</p>
             </article>
         </div>
-        
+
         <!-- 信任标识栏 -->
         <div class="trust-badges" role="list">
             <div class="trust-badge" role="listitem">
@@ -2825,7 +2853,7 @@
                     无论你是开发者、学生、创作者还是产品经理，MarKing 都能满足你的需求
                 </p>
             </div>
-            
+
             <!-- 开发者 - 左图右文 -->
             <article class="use-case-row" role="listitem">
                 <div class="use-case-visual">
@@ -2852,26 +2880,29 @@
                     <ul class="use-case-features">
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>技术文档编写：API 文档、架构设计、开发日志</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>代码片段管理：支持 100+ 编程语言语法高亮</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>项目 README：快速生成专业的项目说明文档</span>
                         </li>
                     </ul>
                 </div>
             </article>
-            
+
             <!-- 学生 & 研究者 - 右图左文 -->
             <article class="use-case-row reverse" role="listitem">
                 <div class="use-case-visual">
@@ -2895,26 +2926,29 @@
                     <ul class="use-case-features">
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>学术论文：支持公式编辑，导出符合期刊要求的 DOCX</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>课程笔记：实时预览，表格可视化编辑</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>毕业设计：完整的文档管理和版本控制</span>
                         </li>
                     </ul>
                 </div>
             </article>
-            
+
             <!-- 内容创作者 - 左图右文 -->
             <article class="use-case-row" role="listitem">
                 <div class="use-case-visual">
@@ -2937,26 +2971,29 @@
                     <ul class="use-case-features">
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>博客文章：Markdown 写作，一键导出 HTML</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>电子书创作：章节管理，多格式导出</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>教程制作：代码高亮，截图插入，专业排版</span>
                         </li>
                     </ul>
                 </div>
             </article>
-            
+
             <!-- 产品 & 项目经理 - 右图左文 -->
             <article class="use-case-row reverse" role="listitem">
                 <div class="use-case-visual">
@@ -2968,7 +3005,8 @@
                             </svg>
                         </div>
                         <div class="visual-decoration">
-                            <div style="display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 100px;">
+                            <div
+                                style="display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 100px;">
                                 <div class="chart-bar" style="height: 55%;"></div>
                                 <div class="chart-bar" style="height: 75%;"></div>
                                 <div class="chart-bar" style="height: 40%;"></div>
@@ -2985,19 +3023,22 @@
                     <ul class="use-case-features">
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>需求文档：表格编辑，流程图支持</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>会议纪要：快速记录，自动保存</span>
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
                             </svg>
                             <span>项目报告：专业模板，高质量 PDF 输出</span>
                         </li>
@@ -3099,7 +3140,7 @@
                     </svg>
                 </div>
                 <h3>Windows</h3>
-                <p class="platform-version">v1.0.11 | Windows 10+</p>
+                <p class="platform-version">v1.1.0 | Windows 10+</p>
                 <a href="https://github.com/l06066hb/MarKing/releases/latest" class="btn btn-primary">
                     下载安装器
                 </a>
@@ -3146,7 +3187,7 @@
                     请考虑赞助支持项目的持续开发和维护：
                 </p>
             </div>
-            
+
             <!-- 赞助用途说明 -->
             <div class="sponsor-purposes">
                 <div class="purpose-card">
@@ -3182,11 +3223,11 @@
                     <p>稳定的下载和更新服务</p>
                 </div>
             </div>
-            
+
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem;">
                 你的每一份支持，都将直接用于让 MarKing 变得更好。
             </p>
-            
+
             <div class="sponsor-grid">
                 <a href="https://afdian.com/a/l06066hb" target="_blank" class="sponsor-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
@@ -3234,27 +3275,33 @@
                     <h4>产品</h4>
                     <ul class="footer-links">
                         <li><a href="#features">功能特性</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">更新日志</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                                rel="noopener noreferrer">更新日志</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>文档</h4>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing#readme" target="_blank" rel="noopener noreferrer">使用文档</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing#readme" target="_blank"
+                                rel="noopener noreferrer">使用文档</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>支持</h4>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing/issues" target="_blank" rel="noopener noreferrer">问题反馈</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">许可证</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing/issues" target="_blank"
+                                rel="noopener noreferrer">问题反馈</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/LICENSE" target="_blank"
+                                rel="noopener noreferrer">许可证</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>关于</h4>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/releases" target="_blank" rel="noopener noreferrer">发布页面</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing" target="_blank"
+                                rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
+                                rel="noopener noreferrer">发布页面</a></li>
                     </ul>
                 </div>
             </div>
@@ -3277,7 +3324,7 @@
         async function fetchGitHubStats() {
             const CACHE_KEY = 'github_stats_cache';
             const CACHE_DURATION = 5 * 60 * 1000; // 5 分钟
-            
+
             // 检查缓存
             const cached = sessionStorage.getItem(CACHE_KEY);
             if (cached) {
@@ -3291,7 +3338,7 @@
                     // 缓存解析失败，继续获取新数据
                 }
             }
-            
+
             try {
                 // 获取仓库信息(Stars)
                 const repoResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing');
@@ -3299,14 +3346,14 @@
                     throw new Error(`HTTP ${repoResponse.status}`);
                 }
                 const repoData = await repoResponse.json();
-                
+
                 // 获取发布版本（下载量）
                 const releasesResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing/releases');
                 if (!releasesResponse.ok) {
                     throw new Error(`HTTP ${releasesResponse.status}`);
                 }
                 const releases = await releasesResponse.json();
-                
+
                 // 计算总下载量
                 let totalDownloads = 0;
                 releases.forEach(release => {
@@ -3316,18 +3363,18 @@
                         });
                     }
                 });
-                
+
                 const data = {
                     stars: repoData.stargazers_count || 0,
                     downloads: totalDownloads
                 };
-                
+
                 // 缓存数据
                 sessionStorage.setItem(CACHE_KEY, JSON.stringify({
                     data,
                     timestamp: Date.now()
                 }));
-                
+
                 updateStatsUI(data);
             } catch (error) {
                 console.error('Failed to fetch GitHub stats:', error);
@@ -3338,16 +3385,16 @@
                 if (downloadsElement) downloadsElement.textContent = '-';
             }
         }
-        
+
         // 更新统计数据 UI
         function updateStatsUI(data) {
             const starsElement = document.getElementById('github-stars');
             const downloadsElement = document.getElementById('total-downloads');
-            
+
             if (starsElement && data.stars !== undefined) {
                 starsElement.textContent = data.stars.toLocaleString();
             }
-            
+
             if (downloadsElement && data.downloads !== undefined) {
                 downloadsElement.textContent = data.downloads.toLocaleString();
             }
@@ -3361,15 +3408,15 @@
         const navLinks = document.getElementById('navLinks');
         const menuIcon = mobileMenuBtn?.querySelector('.menu-icon');
         const closeIcon = mobileMenuBtn?.querySelector('.close-icon');
-        
+
         if (mobileMenuBtn && navLinks && menuIcon && closeIcon) {
-            mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.addEventListener('click', function () {
                 const isActive = navLinks.classList.toggle('active');
                 mobileMenuBtn.setAttribute('aria-expanded', isActive);
-                
+
                 // 更新 aria-label 以反映当前状态
                 mobileMenuBtn.setAttribute('aria-label', isActive ? '关闭导航菜单' : '打开导航菜单');
-                
+
                 // 切换图标显示
                 if (isActive) {
                     menuIcon.style.display = 'none';
@@ -3379,7 +3426,7 @@
                     closeIcon.style.display = 'none';
                 }
             });
-            
+
             // 点击菜单项后关闭菜单
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -3390,7 +3437,7 @@
                     closeIcon.style.display = 'none';
                 });
             });
-            
+
             // 点击外部关闭菜单
             document.addEventListener('click', (e) => {
                 if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
@@ -3620,7 +3667,7 @@
             statsContainerSelector: '.github-stats',
             enableToast: true
         };
-        
+
         console.log('[MarKing] 下载系统配置:', window.MARKING_DOWNLOAD_CONFIG);
     </script>
 
