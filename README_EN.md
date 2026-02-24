@@ -8,7 +8,7 @@ English | [简体中文](./README.md)
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.11-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.0-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -19,7 +19,7 @@ English | [简体中文](./README.md)
 
 **Be the King of Markdown** 👑
 
-Modern cross-platform Markdown editor for efficient and professional document creation
+**A modern, native-grade desktop Markdown editor built on minimalist aesthetics.**
 
 [Download](#-download) • [Features](#-core-features) • [Documentation](docs/FAQ.md) • [Changelog](CHANGELOG.md) • [Feedback](https://github.com/l06066hb/MarKing/issues)
 
@@ -35,15 +35,15 @@ Modern cross-platform Markdown editor for efficient and professional document cr
 
 ## 📥 Download
 
-> 💡 **Current Version**: v1.0.11 | **System Requirements**: Windows 10 (64-bit) or higher
+> 💡 **Current Version**: v1.1.0 | **System Requirements**: Windows 10 (64-bit) or higher
 
 ### Windows
 
-- **[MarKing_1.0.11_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI Installer
+- **[MarKing_1.1.0_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI Installer
   - Automatic installation
   - Desktop shortcut creation
   - Silent installation support
-- **[MarKing_1.0.11_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS Installer
+- **[MarKing_1.1.0_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS Installer
   - User-friendly installation wizard
   - Complete system integration
   - Traditional installation experience
@@ -62,13 +62,19 @@ Linux version is under testing. Stay tuned.
 
 ## ✨ Core Features
 
-### 📝 Professional Editing
+### 💎 Desktop Native Aesthetics
 
-- **Monaco Editor** - Same core as VS Code, professional-grade editing experience
-- **Real-time Preview** - WYSIWYG Markdown rendering with bidirectional scroll sync
-- **Smart Completion** - 67+ built-in code snippets, Tab to expand
-- **Syntax Highlighting** - Support for multiple programming languages
-- **One-click Formatting** - Shift+Alt+F to auto-format documents
+- **Borderless Immersive Experience** - Perfect 12px edge transitions, eliminating unnecessary borders for a natural, native app feel
+- **18 Exquisite Themes** - Carefully crafted dark and light core preset themes delivering top-tier visual enjoyment
+- **Ultra-dense Minimalist Typography** - Reject looseness with extremely compact view spacing, mirroring the professional feel of native IDEs
+- **Restrained Physical Micro-interactions** - Seamless blending of transparency hover and glassmorphism backgrounds for satisfying, crisp clicks
+
+### 📝 Professional Editing Experience
+
+- **Monaco Core Driven** - Top-tier performance for smoothly editing ultra-large documents
+- **Real-time Sync Preview** - Gorgeous WYSIWYG rendering with precise bidirectional scroll tracking
+- **Omni-scenario Smart Completion** - Over 70 core document block snippets to keep your flow uninterrupted
+- **Omnipotent Quick Formatting** - Instantly regularize all basic syntax with a satisfying formatting shortcut
 
 ### 🎯 Innovative Features
 
@@ -253,7 +259,7 @@ If MarKing helps you, please consider sponsoring development. Your support drive
 
 **Be the King of Markdown!** 👑✍️
 
-MarKing v1.0.11 | Making Document Creation More Efficient
+MarKing v1.1.0 | Making Document Creation More Efficient
 
 [⬆️ Back to Top](#marking---professional-markdown-editor)
 

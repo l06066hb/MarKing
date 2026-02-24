@@ -1,6 +1,7 @@
 # 基本信息
 title: MarKing - 专业 Markdown 编辑器
 description: 现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业
+version: 1.1.0
 lang: zh-CN
 baseurl: ""  # 使用自定义域名时必须为空
 url: "https://markingmd.com"  # 自定义域名

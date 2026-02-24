@@ -8,7 +8,7 @@
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.0.11-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.0-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -19,7 +19,7 @@
 
 **Be the King of Markdown** 👑
 
-现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业
+**基于极简美学构筑的现代化、原生级桌面 Markdown 编辑器。**
 
 [下载安装](#-下载) • [功能特性](#-核心功能) • [使用文档](docs/FAQ.md) • [更新日志](CHANGELOG.md) • [问题反馈](https://github.com/l06066hb/MarKing/issues)
 
@@ -35,15 +35,15 @@
 
 ## 📥 下载
 
-> 💡 **当前版本**：v1.0.11 | **系统要求**：Windows 10 (64-bit) 或更高版本
+> 💡 **当前版本**：v1.1.0 | **系统要求**：Windows 10 (64-bit) 或更高版本
 
 ### Windows
 
-- **[MarKing_1.0.11_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI 安装器
+- **[MarKing_1.1.0_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI 安装器
   - 自动安装到系统
   - 创建桌面快捷方式
   - 支持静默安装
-- **[MarKing_1.0.11_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS 安装器
+- **[MarKing_1.1.0_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS 安装器
   - 友好的安装向导
   - 系统集成完整
   - 传统安装体验
@@ -62,13 +62,19 @@ Linux 版本正在测试中，敬请期待。
 
 ## ✨ 核心功能
 
+### 💎 桌面原生级极简美学
+
+- **原生级无边沉浸体验** - 12px完美边缘过渡，告别多余外框，犹如原生应用般浑然天成
+- **18种精妙主题** - 搭配精心调配的深色/浅色核心预置主题，带来顶级视觉享受
+- **高密度极简微缩排版** - 拒绝松散，视图间距极其紧凑，对标原生 IDE 的专业感
+- **克制的物理级微交互** - 透明度悬停与毛玻璃背景完美交融，让每次点击清脆悦目
+
 ### 📝 专业编辑体验
 
-- **Monaco 编辑器** - VS Code 同款编辑器内核，专业级代码编辑体验
-- **实时预览** - 所见即所得的 Markdown 渲染，双向滚动同步
-- **智能补全** - 67+ 内置代码片段，输入触发词 + Tab 快速插入
-- **语法高亮** - 支持多种编程语言，代码展示更清晰
-- **一键格式化** - Shift+Alt+F 自动规范文档格式
+- **Monaco内核强力驱动** - 顶级性能加持，流畅编辑数万字超大文档
+- **实时同步预览** - 所见即所得的高颜值渲染，精准的双向滚动跟随
+- **全场景智能补全** - 超 70 种核心文档块快捷补全，让思考不被打扰
+- **全能一键排版** - 瞬间治愈强迫症的快捷键格式化，规范所有基础语法
 
 ### 🎯 创新功能
 
@@ -253,7 +259,7 @@ MarKing 为本软件的名称。未经授权，不得用于商业用途或暗示
 
 **Be the King of Markdown!** 👑✍️
 
-MarKing v1.0.11 | 让文档创作更高效
+MarKing v1.1.0 | 让文档创作更高效
 
 [⬆️ 回到顶部](#marKing---专业-markdown-编辑器)
 

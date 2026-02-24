@@ -1,19 +1,42 @@
-# 操作系统文件
+# ============================================
+# GitHub Pages 仓库 - 只提交网站运行必要文件
+# ============================================
+
+# 构建和维护工具 - 本地使用,不提交
+scripts/
+package.json
+package-lock.json
+node_modules/
+
+# 开发规范和设计文档 - 本地开发使用
+.kiro/
+
+# 辅助文档 - 仅供本地参考
+检查报告.md
+IMPROVEMENT_CHECKLIST.md
+DEPLOYMENT_GUIDE.md
+
+# 生成的临时文件 - 已集成到 HTML 中,不需要单独文件
+docs/structured-data-zh.html
+docs/structured-data-en.html
+
+# 本地开发文档
+docs/js/README.md
+
+# 备份文件
+*.bak
+*.backup
+
+# 临时文件
+*.tmp
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# 编辑器文件
+# IDE 配置
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# 临时文件
-*.tmp
-*.bak
+# 日志文件
 *.log
-
-# 不需要上传的文件
-README_RELEASE.md
