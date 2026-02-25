@@ -25,6 +25,26 @@
       <image:loc>https://markingmd.com/marking-export-docx-pdf-feature-en.png?v=1</image:loc>
       <image:caption>MarKing Export Features - Multi-format Professional Document Export</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
+      <image:caption>MarKing Eye Care Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-rose-pink-en.png</image:loc>
+      <image:caption>MarKing Rose Pink Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-ocean-blue-en.png</image:loc>
+      <image:caption>MarKing Ocean Blue Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-sepia-yellow-en.png</image:loc>
+      <image:caption>MarKing Sepia Yellow Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-neon-cyber-en.png</image:loc>
+      <image:caption>MarKing Neon Cyber Theme</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://markingmd.com/index-redirect.html</loc>
@@ -56,6 +76,26 @@
     <image:image>
       <image:loc>https://markingmd.com/marking-export-docx-pdf-feature.png?v=1</image:loc>
       <image:caption>MarKing 导出功能 - 多格式专业文档导出</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-eye-care.png</image:loc>
+      <image:caption>MarKing 护眼柔光主题</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-rose-pink.png</image:loc>
+      <image:caption>MarKing 玫瑰粉红主题</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-ocean-blue.png</image:loc>
+      <image:caption>MarKing 静谧深海主题</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-sepia-yellow.png</image:loc>
+      <image:caption>MarKing 复古旧纸主题</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-neon-cyber.png</image:loc>
+      <image:caption>MarKing 霓虹赛博主题</image:caption>
     </image:image>
   </url>
   <url>
