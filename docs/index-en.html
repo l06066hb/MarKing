@@ -3521,6 +3521,207 @@
         </div>
     </section>
 
+    <!-- Theme Showcase Section -->
+    <section id="themes" class="theme-showcase" aria-labelledby="themes-title">
+        <style>
+            .theme-showcase {
+                background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+                padding-bottom: 8rem;
+                position: relative;
+            }
+
+            .theme-gallery {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: 1.5rem;
+                margin-top: 4rem;
+            }
+
+            .theme-item {
+                position: relative;
+                border-radius: 0.5rem;
+                /* Tighter 8px corners to match native window edges and prevent clipping */
+                overflow: hidden;
+                box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                background: var(--bg-tertiary);
+                border: 1px solid var(--border-light);
+                cursor: default;
+                aspect-ratio: 16/10;
+            }
+
+            .theme-item.tall {
+                aspect-ratio: auto;
+                height: 100%;
+            }
+
+            .theme-item:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+                border-color: var(--primary);
+                z-index: 10;
+            }
+
+            .theme-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top center;
+                display: block;
+                transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .theme-item:hover .theme-img {
+                transform: scale(1.05);
+            }
+
+            .theme-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 100%);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 2rem;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
+            }
+
+            .theme-item:hover .theme-overlay {
+                opacity: 1;
+            }
+
+            .theme-title {
+                color: #fff;
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-bottom: 0.25rem;
+                transform: translateY(15px);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .theme-desc {
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.9375rem;
+                margin: 0;
+                transform: translateY(15px);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                transition-delay: 0.05s;
+            }
+
+            .theme-item:hover .theme-title,
+            .theme-item:hover .theme-desc {
+                transform: translateY(0);
+            }
+
+            /* Grid layout specifics */
+            .t-large {
+                grid-column: span 8;
+            }
+
+            .t-small {
+                grid-column: span 4;
+            }
+
+            .t-half {
+                grid-column: span 6;
+            }
+
+            @media (max-width: 1024px) {
+
+                .t-large,
+                .t-half {
+                    grid-column: span 12;
+                }
+
+                .t-small {
+                    grid-column: span 6;
+                    aspect-ratio: 16/11;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .t-small {
+                    grid-column: span 12;
+                }
+
+                .theme-gallery {
+                    gap: 1rem;
+                }
+            }
+        </style>
+        <div class="theme-container" style="max-width: 1280px; margin: 0 auto; padding: 2rem 2rem 2rem;">
+            <div class="section-header">
+                <span class="section-badge"
+                    style="background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);">Desktop Native
+                    Aesthetics</span>
+                <h2 id="themes-title" class="section-title">18 Exquisite Themes, Tangible Quality</h2>
+                <p class="section-subtitle">
+                    Say goodbye to monotonous interfaces. From minimalist purity to cyberpunk, every theme is
+                    pixel-perfected.<br>Combined with underlying glassmorphism and lighting effects, it creates a true
+                    retina-grade immersive writing experience.
+                </p>
+            </div>
+
+            <div class="theme-gallery">
+                <!-- Row 1: Classic Main Themes -->
+                <div class="theme-item t-large" tabindex="0">
+                    <img src="marking-theme-eye-care-en.png" alt="Eye Care Theme" class="theme-img">
+                    <div class="theme-overlay">
+                        <h4 class="theme-title">Eye Care</h4>
+                        <p class="theme-desc">A mild and comfortable warm tone, designed for a sustainable, eye-friendly
+                            writing experience.</p>
+                    </div>
+                </div>
+                <div class="theme-item t-small" tabindex="0">
+                    <img src="marking-theme-rose-pink-en.png" alt="Rose Pink Theme" class="theme-img">
+                    <div class="theme-overlay">
+                        <h4 class="theme-title">Rose Pink</h4>
+                        <p class="theme-desc">A gentle and elegant pink tone, bringing a cozy and inspiring creative
+                            atmosphere.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Colorful & Personality -->
+                <div class="theme-item t-small" tabindex="0">
+                    <img src="marking-theme-ocean-blue-en.png" alt="Ocean Blue Theme" class="theme-img">
+                    <div class="theme-overlay">
+                        <h4 class="theme-title">Ocean Blue</h4>
+                        <p class="theme-desc">A rational deep blue tone, perfectly suited for rigorous professional
+                            document creation.</p>
+                    </div>
+                </div>
+                <div class="theme-item t-small" tabindex="0">
+                    <img src="marking-theme-sepia-yellow-en.png" alt="Sepia Yellow Theme" class="theme-img">
+                    <div class="theme-overlay">
+                        <h4 class="theme-title">Sepia Yellow</h4>
+                        <p class="theme-desc">A vintage warm tone resembling old paper, offering the gentlest comfort
+                            for creation.</p>
+                    </div>
+                </div>
+                <div class="theme-item t-small" tabindex="0">
+                    <img src="marking-theme-neon-cyber-en.png" alt="Neon Cyber Theme" class="theme-img">
+                    <div class="theme-overlay">
+                        <h4 class="theme-title">Neon Cyber</h4>
+                        <p class="theme-desc">High-contrast cyberpunk neon, exploding with absolute visual tension.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <p
+                    style="color: var(--text-muted); font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Supports automatic switching between system light/dark modes for perfect performance day and night.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Download Section -->
     <section id="download" class="download">
         <div class="section-header">
