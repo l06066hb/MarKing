@@ -19,9 +19,11 @@
 
 **Be the King of Markdown** 👑
 
-**基于极简美学构筑的现代化、原生级桌面 Markdown 编辑器。**
+**致力于打造极致纯粹的跨平台 Markdown 创作环境。**
 
-[下载安装](#-下载) • [功能特性](#-核心功能) • [使用文档](docs/FAQ.md) • [更新日志](CHANGELOG.md) • [问题反馈](https://github.com/l06066hb/MarKing/issues)
+凭借内置的 **可视化表格编辑引擎** 与 **高保真排版导出（DOCX/PDF）** 能力，完美填补技术探索与商务交付之间的缝隙，带给您原生 IDE 般的流畅敲击快感。
+
+[⬇️ 下载安装](#-下载) • [✨ 核心功能](#-核心功能) • [📖 使用文档](docs/FAQ.md) • [🔄 更新日志](CHANGELOG.md) • [💬 社区反馈](https://github.com/l06066hb/MarKing/issues)
 
 </div>
 
@@ -35,20 +37,17 @@
 
 ## 📥 下载
 
-> 💡 **当前版本**：v1.1.0 | **系统要求**：Windows 10 (64-bit) 或更高版本
+> 💡 **系统要求**：Windows 10 (64-bit) 或更高版本
 
-### Windows
+### 🪟 Windows (推荐)
 
-- **[MarKing_1.1.0_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI 安装器
-  - 自动安装到系统
-  - 创建桌面快捷方式
-  - 支持静默安装
-- **[MarKing_1.1.0_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS 安装器
-  - 友好的安装向导
-  - 系统集成完整
-  - 传统安装体验
+获取最新稳定版，享受开箱即用的原生级编辑体验。
 
-> **系统要求**：Windows 10 (64-bit) 或更高版本
+- 📦 **[下载 Windows 稳定版 (MSI & EXE) ➔](https://github.com/l06066hb/MarKing/releases/latest)** 
+  - 提供 `MSI 安装器` (支持静默安装与企业部署)
+  - 提供标准 `Setup.exe 安装向导` (包含完整系统集成与资源管理器右键菜单)
+
+> 💡 *提示：前往 Release 页面后，请展开 "Assets" 列表下载适合您系统的安装包。*
 
 ### macOS（即将推出）
 
@@ -84,6 +83,9 @@ Linux 版本正在测试中，敬请期待。
   - 添加/删除行列、设置对齐
   - 完整快捷键支持（Tab/Enter/Esc）
 
+  *可视化表格操作演示：*
+  ![可视化表格编辑器](docs/marking-visual-table-editor.png)
+
 - **智能粘贴** - 简化工作流程，提升效率
   - 截图粘贴：Ctrl+V 自动保存并插入
   - 文件粘贴：复制图片文件后自动处理
@@ -96,21 +98,24 @@ Linux 版本正在测试中，敬请期待。
 
 ### 📦 强大导出
 
-- **DOCX 专业模板** - 10+ 配置项，满足各种文档需求
+- **DOCX 专业模板** `(当前功能 Beta 内测中，敬请期待)` - 10+ 配置项，满足各种文档需求
   - 3 个精心设计的预设模板（技术文档、商务报告、通用模板）
   - 无限自定义模板
   - 封面、目录、页眉页脚完整支持
   - 字体、间距、样式精细控制
+
+  *所见即所得的专业 PDF 与 DOCX 导出：*
+  ![专业导出功能](docs/marking-export-docx-pdf-feature.png)
 
 - **PDF 高质量输出** - 基于 Pandoc 引擎，专业级输出质量
 - **HTML 静态页面** - 完整样式保留，可直接在浏览器打开
 
 ### 🎨 美观易用
 
-- **12 种预览主题** - 从简约到炫酷，总有一款适合你
-  - Gradient、Glassmorphism、Cyberpunk、Minimalist
-  - Nature、Ocean、Sunset、Forest、Desert
-  - Arctic、Volcano、Galaxy
+- **18 种精妙主题** - 从护眼素雅到极客赛博，总有一款完美适配你的桌面风格
+  - Classic Midnight、Cool Black、Sepia Yellow、Eye Care、GitHub Style、Dracula Night
+  - Indigo Purple、Ocean Blue、Forest Green、Rose Pink、Sunset Orange、Monochrome
+  - Neon Cyber、Coral Reef、Lavender Dream、Warm Autumn、Cool Winter、Soft Midnight
   
 - **亮色/暗色模式** - 全局主题切换，护眼舒适
 - **现代化 UI** - Material Design 风格，流畅的交互动画
@@ -244,14 +249,16 @@ MarKing 为本软件的名称。未经授权，不得用于商业用途或暗示
 
 ---
 
-## 💖 支持项目
+## 💎 可持续发展与赞助 (Backers)
 
-如果 MarKing 对你有帮助，请考虑赞助支持开发。你的支持是项目持续更新的动力！
+如果您认可 MarKing 的产品哲学，并希望它能保持长期的纯净无广告体验以及持续的迭代，考虑成为我们的 Backer 吧！
 
-- ☕ **[爱发电](https://afdian.com/a/l06066hb)** - 国内用户推荐，支持微信/支付宝
-- 🌍 **[Ko-fi](https://ko-fi.com/l06066hb)** - 国际用户推荐，支持信用卡/PayPal
+您的每一份支持都将作为“基石”，直接用于维持基础服务器/官网开销、代码签名证书以及核心底层引擎的研发。
 
-> 💡 所有赞助将用于项目开发和维护 • 感谢每一位支持者
+- ⚡ **[爱发电 (Afdian.net) ➔](https://afdian.com/a/l06066hb)** - 国内用户推荐（支持微信/支付宝）
+- 🌍 **[Ko-fi ➔](https://ko-fi.com/l06066hb)** - 国际用户推荐（支持 Visa/PayPal）
+
+> 💡 *在浩瀚的开源世界里存活不易，感谢每一份为信仰充值的力量！如果你觉得项目不错，也请在右上角点亮 ⭐️ Star，这是对独立开发者最大的肯定。*
 
 ---
 

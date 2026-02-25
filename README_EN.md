@@ -19,9 +19,11 @@ English | [简体中文](./README.md)
 
 **Be the King of Markdown** 👑
 
-**A modern, native-grade desktop Markdown editor built on minimalist aesthetics.**
+**Crafting the ultimate pure, cross-platform Markdown editing environment.**
 
-[Download](#-download) • [Features](#-core-features) • [Documentation](docs/FAQ.md) • [Changelog](CHANGELOG_EN.md) • [Feedback](https://github.com/l06066hb/MarKing/issues)
+Empowered by a built-in **Visual Table Engine** and **High-fidelity Export (DOCX/PDF)**, MarKing bridges the gap between deep technical ideation and professional business delivery, bringing you native IDE-level fluency.
+
+[⬇️ Download](#-download) • [✨ Features](#-core-features) • [📖 Documentation](docs/FAQ.md) • [🔄 Changelog](CHANGELOG_EN.md) • [💬 Community](https://github.com/l06066hb/MarKing/issues)
 
 </div>
 
@@ -35,20 +37,17 @@ English | [简体中文](./README.md)
 
 ## 📥 Download
 
-> 💡 **Current Version**: v1.1.0 | **System Requirements**: Windows 10 (64-bit) or higher
+> 💡 **System Requirements**: Windows 10 (64-bit) or higher
 
-### Windows
+### 🪟 Windows (Recommended)
 
-- **[MarKing_1.1.0_x64_en-US.msi](https://github.com/l06066hb/MarKing/releases/latest)** - MSI Installer
-  - Automatic installation
-  - Desktop shortcut creation
-  - Silent installation support
-- **[MarKing_1.1.0_x64-setup.exe](https://github.com/l06066hb/MarKing/releases/latest)** - NSIS Installer
-  - User-friendly installation wizard
-  - Complete system integration
-  - Traditional installation experience
+Get the latest stable release and enjoy an out-of-the-box native editing experience.
 
-> **System Requirements**: Windows 10 (64-bit) or higher
+- 📦 **[Download Windows Stable Release (MSI & EXE) ➔](https://github.com/l06066hb/MarKing/releases/latest)** 
+  - Provides `MSI Installer` (Supports silent install & enterprise deployment)
+  - Provides `Setup.exe Wizard` (Full system integration with context menu support)
+
+> 💡 *Note: Upon visiting the Release page, please expand the "Assets" dropdown to download the appropriate installer for your system.*
 
 ### macOS (Coming Soon)
 
@@ -84,6 +83,9 @@ Linux version is under testing. Stay tuned.
   - Add/delete rows and columns, set alignment
   - Complete keyboard shortcut support (Tab/Enter/Esc)
 
+  *Visual Table Editor in action:*
+  ![Visual Table Editor](docs/marking-visual-table-editor-en.png)
+
 - **Smart Paste** - Streamline your workflow
   - Screenshot paste: Ctrl+V auto-saves and inserts
   - File paste: Auto-processes copied image files
@@ -96,21 +98,24 @@ Linux version is under testing. Stay tuned.
 
 ### 📦 Powerful Export
 
-- **DOCX Professional Templates** - 10+ configuration options
+- **DOCX Professional Templates** `(Beta Testing - Coming Soon)` - 10+ configuration options
   - 3 carefully designed preset templates (Technical, Business, General)
   - Unlimited custom templates
   - Complete cover, table of contents, header/footer support
   - Fine control of fonts, spacing, and styles
+
+  *Professional PDF & DOCX Export:*
+  ![Export Features](docs/marking-export-docx-pdf-feature-en.png)
 
 - **High-quality PDF Output** - Based on Pandoc engine
 - **HTML Static Pages** - Complete style preservation, browser-ready
 
 ### 🎨 Beautiful & Easy to Use
 
-- **12 Preview Themes** - From minimalist to stunning
-  - Gradient, Glassmorphism, Cyberpunk, Minimalist
-  - Nature, Ocean, Sunset, Forest, Desert
-  - Arctic, Volcano, Galaxy
+- **18 Exquisite Themes** - From minimalist eye-care to cyberpunk, perfectly matching your desktop vibes
+  - Classic Midnight, Cool Black, Sepia Yellow, Eye Care, GitHub Style, Dracula Night
+  - Indigo Purple, Ocean Blue, Forest Green, Rose Pink, Sunset Orange, Monochrome
+  - Neon Cyber, Coral Reef, Lavender Dream, Warm Autumn, Cool Winter, Soft Midnight
   
 - **Light/Dark Mode** - Global theme switching, eye-friendly
 - **Modern UI** - Material Design style, smooth animations
@@ -244,14 +249,16 @@ We provide multiple support channels to help you solve problems:
 
 ---
 
-## 💖 Support the Project
+## 💎 Sustaining the Project & Backers
 
-If MarKing helps you, please consider sponsoring development. Your support drives continuous updates!
+If you resonate with MarKing's product philosophy and wish to see it maintain its ad-free, pure text-editing experience alongside continuous R&D, consider becoming a Backer!
 
-- ☕ **[Afdian](https://afdian.com/a/l06066hb)** - For Chinese users, supports WeChat/Alipay
-- 🌍 **[Ko-fi](https://ko-fi.com/l06066hb)** - For international users, supports Credit Card/PayPal
+Your direct support serves as the foundational pillar—funding infrastructure costs, code signing certificates, and the development of our core engine.
 
-> 💡 All sponsorships support project development and maintenance • Thank you to every supporter
+- 🌍 **[Ko-fi ➔](https://ko-fi.com/l06066hb)** - Global Backers (Visa/PayPal supported)
+- ⚡ **[Afdian.net ➔](https://afdian.com/a/l06066hb)** - Domestic/CN Backers (WeChat/Alipay supported)
+
+> 💡 *Surviving as an independent desktop tool is a massive challenge. We deeply appreciate every contribution! If you find this project valuable, please consider giving us a ⭐️ Star at the top right—it's the greatest encouragement for an indie developer.*
 
 ---
 
