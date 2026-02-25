@@ -21,7 +21,7 @@ English | [简体中文](./README.md)
 
 **A modern, native-grade desktop Markdown editor built on minimalist aesthetics.**
 
-[Download](#-download) • [Features](#-core-features) • [Documentation](docs/FAQ.md) • [Changelog](CHANGELOG.md) • [Feedback](https://github.com/l06066hb/MarKing/issues)
+[Download](#-download) • [Features](#-core-features) • [Documentation](docs/FAQ.md) • [Changelog](CHANGELOG_EN.md) • [Feedback](https://github.com/l06066hb/MarKing/issues)
 
 </div>
 
