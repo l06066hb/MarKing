@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://markingmd.com/index-en.html</loc>
-    <lastmod>2026-02-22T13:08:25.514Z</lastmod>
+    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -24,6 +24,18 @@
     <image:image>
       <image:loc>https://markingmd.com/marking-export-docx-pdf-feature-en.png?v=1</image:loc>
       <image:caption>MarKing Export Features - Multi-format Professional Document Export</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-mermaid-diagram-assistant-en.png?v=1</image:loc>
+      <image:caption>MarKing Mermaid Diagram Assistant - Assists in Writing Complex Diagrams</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-smart-backup-system-en.png?v=1</image:loc>
+      <image:caption>MarKing Smart Backup System - Flexible Backup Scope Selection</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-multi-vault-management-en.png?v=1</image:loc>
+      <image:caption>MarKing Multi-vault Management - Independent Project Management</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
@@ -54,7 +66,7 @@
   </url>
   <url>
     <loc>https://markingmd.com/index.html</loc>
-    <lastmod>2026-02-22T13:05:39.159Z</lastmod>
+    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -76,6 +88,18 @@
     <image:image>
       <image:loc>https://markingmd.com/marking-export-docx-pdf-feature.png?v=1</image:loc>
       <image:caption>MarKing 导出功能 - 多格式专业文档导出</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-mermaid-diagram-assistant.png?v=1</image:loc>
+      <image:caption>MarKing Mermaid 图表编写助手 - 辅助编写复杂图表</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-smart-backup-system.png?v=1</image:loc>
+      <image:caption>MarKing 智能备份系统 - 灵活的备份范围选择</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-multi-vault-management.png?v=1</image:loc>
+      <image:caption>MarKing 多库管理 - 独立管理不同项目</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care.png</image:loc>
@@ -100,13 +124,13 @@
   </url>
   <url>
     <loc>https://markingmd.com/structured-data-en.html</loc>
-    <lastmod>2026-02-22T12:58:13.909Z</lastmod>
+    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markingmd.com/structured-data-zh.html</loc>
-    <lastmod>2026-02-22T12:58:13.907Z</lastmod>
+    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

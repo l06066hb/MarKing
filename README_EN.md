@@ -8,7 +8,7 @@ English | [简体中文](./README.md)
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.0-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.1-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -73,6 +73,7 @@ Linux version is under testing. Stay tuned.
 - **Monaco Core Driven** - Top-tier performance for smoothly editing ultra-large documents
 - **Real-time Sync Preview** - Gorgeous WYSIWYG rendering with precise bidirectional scroll tracking
 - **Omni-scenario Smart Completion** - Over 70 core document block snippets to keep your flow uninterrupted
+- **Mermaid Diagram Assistant** - Assists in writing flowcharts, sequence diagrams, and Gantt charts with syntax hints and templates
 - **Omnipotent Quick Formatting** - Instantly regularize all basic syntax with a satisfying formatting shortcut
 
 ### 🎯 Innovative Features
@@ -125,9 +126,10 @@ Linux version is under testing. Stay tuned.
 
 - **Multi-vault Support** - Independently manage different projects
 - **Global Search** - Rust parallel processing, millisecond response
+- **Smart Backup System** - Upgraded backup interface with flexible backup scope selection (manual/auto backup) for enhanced data security and control
 - **Auto-save** - 2-second debounce, never lose data
 - **Version Snapshots** - Auto-save last 10 versions, restore anytime
-- **Data Backup** - One-click backup and restore, ZIP compression
+- **Enhanced Attachment Management** - Support for images, audio, video and other multimedia attachments with optimized drag-and-drop upload experience and unified resource storage structure for easier multimedia content management
 
 ### 🌍 International Support
 
