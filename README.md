@@ -8,7 +8,7 @@
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.0-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.1-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -73,6 +73,7 @@ Linux 版本正在测试中，敬请期待。
 - **Monaco内核强力驱动** - 顶级性能加持，流畅编辑数万字超大文档
 - **实时同步预览** - 所见即所得的高颜值渲染，精准的双向滚动跟随
 - **全场景智能补全** - 超 70 种核心文档块快捷补全，让思考不被打扰
+- **Mermaid 图表编写助手** - 辅助编写流程图、时序图、甘特图等复杂图表,提供语法提示和常用模板
 - **全能一键排版** - 瞬间治愈强迫症的快捷键格式化，规范所有基础语法
 
 ### 🎯 创新功能
@@ -125,9 +126,10 @@ Linux 版本正在测试中，敬请期待。
 
 - **多库支持** - 独立管理不同项目，数据库按库隔离
 - **全局搜索** - Rust 并行处理，高性能全文检索，毫秒级响应
+- **智能备份系统** - 全新升级的备份界面，支持灵活的备份范围选择（手动/自动备份），让数据更安全可控
 - **自动保存** - 2 秒防抖，编辑后自动保存，永不丢失数据
 - **版本快照** - 自动保存最近 10 个版本，随时恢复历史
-- **数据备份** - 一键备份恢复，ZIP 压缩节省空间
+- **完善的附件管理** - 支持图片、音频、视频等多媒体附件，优化的拖拽上传体验，统一的资源存储结构，让多媒体内容管理更轻松
 
 ### 🌍 国际化支持
 
@@ -207,7 +209,7 @@ Linux 版本正在测试中，敬请期待。
 
 ## 📄 版权声明
 
-Copyright © 2024-2026 MarKing. All rights reserved.
+Copyright © 2025-2026 MarKing. All rights reserved.
 
 本软件为专有软件，受版权法和国际条约保护。未经授权，不得复制、修改、分发或反向工程。
 

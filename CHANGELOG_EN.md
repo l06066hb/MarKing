@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.1.1] - 2026-03-06
+
+### 🐛 Bug Fixes
+
+- **Editor Functions Fixed**: Resolved issues where code snippets and list features failed under certain conditions
+- **Language Switching Optimized**: Fixed UI elements not updating properly after language switch
+- **Image Paste Improved**: Enhanced stability of clipboard image pasting
+- **Link Function Fixed**: Resolved Markdown link functionality issues
+
+### ✨ Feature Enhancements
+
+- **Backup System Upgraded**: Brand new backup interface and logic with flexible backup scope selection for better data security
+- **File Management Enhanced**: Improved file status monitoring with smarter change detection
+- **Attachment Handling Refined**: Optimized upload and drag-drop experience for images, audio, and video
+- **Editing Tools Expanded**: Added multiple useful Markdown editing tools, including Mermaid diagram assistant
+- **Table Editor Optimized**: Enhanced visual table editor user experience
+- **Snapshot System Improved**: Optimized document snapshot storage and preview functionality
+
+### 🎨 UI Improvements
+
+- **Visual Polish**: Refined application border radius for a more polished look
+- **Toolbar Fixed**: Resolved toolbar overlap issues when expanded
+- **Update Experience**: Beautified application update notification interface
+
+---
+
 ## [1.1.0] - 2026-02-25
 
 ### ✨ UI & Experience Upgrades
