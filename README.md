@@ -1,4 +1,4 @@
-﻿# MarKing - 专业 Markdown 编辑器
+# MarKing - 专业 Markdown 编辑器
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.1-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.2-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -19,9 +19,9 @@
 
 **Be the King of Markdown** 👑
 
-**致力于打造极致纯粹的跨平台 Markdown 创作环境。**
+**致力于打造极致纯粹、极具桌面原生质感的现代化跨平台 Markdown 创作环境。**
 
-凭借内置的 **可视化表格编辑引擎** 与 **高保真排版导出（DOCX/PDF）** 能力，完美填补技术探索与商务交付之间的缝隙，带给您原生 IDE 般的流畅敲击快感。
+凭借革命性的 **内联表格编辑引擎 (Inline Toolbar)** 与 **高保真专业排版导出 (DOCX/PDF)** 能力，辅以 **毫秒级极速响应的纯净底座**，我们完美填补了技术文档创作与商务格式交付之间的缝隙，带给您如同殿堂级 IDE 般沉浸、丝滑的敲击快感。
 
 [⬇️ 下载安装](#-下载) • [✨ 核心功能](#-核心功能) • [📖 使用文档](docs/FAQ.md) • [🔄 更新日志](CHANGELOG.md) • [💬 社区反馈](https://github.com/l06066hb/MarKing/issues)
 

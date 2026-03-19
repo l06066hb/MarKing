@@ -1,6 +1,21 @@
 # Changelog
 
-## [1.1.1] - 2026-03-06
+## [1.1.2] - 2026-03-19
+
+### 🚀 Architecture & Core Evolution
+- **Core Engine Overhaul**: Fully upgraded the underlying architecture, unlocking superior performance ceilings, noticeably faster response times, and rock-solid system stability.
+- **Standalone Lite Mode**: Implemented a standalone, single-page Lite mode for unindexed external files, streamlining fast-reading scenarios. Added native "Open in File Explorer" and "Copy Absolute Path" quick actions.
+
+### ✨ Editor & Table Experience 
+- **Inline Table Toolbar**: Say goodbye to clunky floating windows and right-click menus! Text formatting, cell alignment, and row/column management are now elegantly integrated right above your cursor via an instantaneous, minimalist Inline Toolbar.
+- **Preview Enhancements**: Added a toggle for custom long-screen (full-width) display in the right-hand preview panel, satisfying hardcore developers' dense-reading habits.
+
+### 🎨 UI & Interactive Polish
+- **Dialogs Remastered**: Completely redesigned the core "Delete Document" and "Move Document" confirmation panels. Injected top-layer Portal rendering, customized danger-red neumorphic highlights, and exquisite card-type drop shadows.
+- **Badge Logic**: Beautifully optimized the badge calculation and visual rendering logic for the Recent and Favorite lists.
+- **Visual Overhaul**: Brought glassmorphism and transition animations to the document rename input modal.
+
+---## [1.1.1] - 2026-03-06
 
 ### 🐛 Bug Fixes
 

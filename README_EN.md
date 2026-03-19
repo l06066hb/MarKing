@@ -1,4 +1,4 @@
-﻿# MarKing - Professional Markdown Editor
+# MarKing - Professional Markdown Editor
 
 <div align="center">
 
@@ -8,7 +8,7 @@ English | [简体中文](./README.md)
 
 <div align="center">
 
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.1-blue?style=for-the-badge)
+![MarKing Logo](https://img.shields.io/badge/MarKing-v1.1.2-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010+-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
 
@@ -19,9 +19,9 @@ English | [简体中文](./README.md)
 
 **Be the King of Markdown** 👑
 
-**Crafting the ultimate pure, cross-platform Markdown editing environment.**
+**Crafting the ultimate pure, native-feeling, and ultra-modern cross-platform Markdown editing environment.**
 
-Empowered by a built-in **Visual Table Engine** and **High-fidelity Export (DOCX/PDF)**, MarKing bridges the gap between deep technical ideation and professional business delivery, bringing you native IDE-level fluency.
+Empowered by a revolutionary **Inline Table Editing Engine** and **High-fidelity Professional Export (DOCX/PDF)** capabilities—backed by a lightning-fast native core—MarKing seamlessly bridges the gap between deep technical ideation and professional business delivery. It brings you a sublime, immersive typing flow previously reserved only for top-tier IDEs.
 
 [⬇️ Download](#-download) • [✨ Features](#-core-features) • [📖 Documentation](docs/FAQ.md) • [🔄 Changelog](CHANGELOG_EN.md) • [💬 Community](https://github.com/l06066hb/MarKing/issues)
 
