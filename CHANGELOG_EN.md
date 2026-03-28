@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.0] - 2026-03-28
+
+### ✨ Features
+
+- **Cross-Platform Domination**: Penetrating the system boundaries! Native, flawless compatibility is now achieved for macOS (both Intel & M-series Apple Silicon) and Linux, bringing an incredibly silky and uniform experience across all major operating systems.
+- **File System Overhaul**: We introduced a heavyweight native right-click floating menu in the sidebar (supporting Copy, Paste, and Cut) along with comprehensive keyboard shortcut mappings, significantly boosting your file organization efficiency.
+- **Maximized UI Flexibility**: Experience the silky-smooth drag-to-resize boundary line between the File Tree and the Editing Area, complete with optimized visual drop-shadow tracking when dragging document icons.
+- **Themes & Visual Polish**: Expanded our dark-mode code preview themes with ultra-high contrast options, and perfected the edge rendering on window borders across all operating systems to ensure premium rounded corners.
+
+### 🐛 Bug Fixes
+
+- **Giant-File Performance Meta-Shift**: We've completely rewritten the document parsing algorithm inside "Lite Mode.
+- **Squashing False Alarms**: Fixed a rare bug where deleting a file would inadvertently trigger a "Missing File" warning popup.
+- **Explorer Logic Enhancement**: Patched an underlying parsing flaw that prevented clicking and opening files/folders that contained "spaces" in their names.
+- **Picture Preview Fix**: Resolved an edge-case visual glitch in specific dark themes where exceptionally tall images failed to zoom correctly upon clicking.
+
+---
+
 ## [1.1.2] - 2026-03-19
 
 ### 🚀 Architecture & Core Evolution
