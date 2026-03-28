@@ -1,0 +1,88 @@
+name: Cross-Platform Release Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    permissions:
+      contents: write 
+    strategy:
+      fail-fast: false
+      matrix: 
+        include:
+          - platform: windows-latest
+            args: ''
+            target: x86_64-pc-windows-msvc
+          - platform: macos-latest
+            # 开启 Mac 混合支持！构建同时兼容 Intel 和 Apple Silicon (M1/M2/M3) 的 Universal DMG
+            args: '--target universal-apple-darwin'
+            target: aarch64-apple-darwin,x86_64-apple-darwin
+          - platform: ubuntu-22.04
+            args: ''
+            target: x86_64-unknown-linux-gnu
+
+    runs-on: ${{ matrix.platform }}
+    
+    steps:
+      - name: Setup SSH For Gitee
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.GITEE_PRIVATE_KEY }}
+
+      - name: Trust Gitee Host
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+
+      # 致命缺陷修正与终极加速：使用浅克隆 (--depth 1) 仅拉取当前版本，不拉取历史提交记录，极大加速 700MB 仓库的拉取效率
+      - name: Clone Gitee Private Repository
+        run: git clone --depth 1 -b ${{ github.ref_name }} ${{ secrets.GITEE_REPO_SSH_URL }} .
+
+      - name: Install dependencies (Ubuntu only)
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+          
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Frontend Dependencies
+        run: pnpm install
+
+      - name: Install Rust and Targets
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          # 动态安装对应平台的底层编译支持 (如 Mac 上的 x86 + arm 双底层支持)
+          targets: ${{ matrix.target }} 
+
+      # 性能优化：为超慢的 Rust 编译添加智能缓存，二次构建时节约约 70% 的跑机时间
+      - name: Rust Cache
+        uses: swatinem/rust-cache@v2
+        with:
+          # 共享工作区，使不同编译参数下的缓存也能得到最大程度的复用
+          shared-key: "marking-build"
+
+      - name: Build and Publish Tauri App
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: v__VERSION__ 
+          releaseName: 'MarKing v__VERSION__'
+          releaseBody: '全平台客户端安装包已编译完成。Mac 用户可直接下载 .dmg 文件（已原生兼容 Intel/M 芯片）。'
+          releaseDraft: true 
+          prerelease: false
+          args: ${{ matrix.args }}
