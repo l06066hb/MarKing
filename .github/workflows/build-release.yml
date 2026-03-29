@@ -71,6 +71,11 @@ jobs:
           # 共享工作区，使不同编译参数下的缓存也能得到最大程度的复用
           shared-key: "marking-build"
 
+      - name: Combine Pandoc for Universal macOS Build
+        if: matrix.platform == 'macos-latest'
+        run: |
+          lipo -create -output src-tauri/binaries/pandoc-universal-apple-darwin src-tauri/binaries/pandoc-aarch64-apple-darwin src-tauri/binaries/pandoc-x86_64-apple-darwin
+
       - name: Build and Publish Tauri App
         uses: tauri-apps/tauri-action@v0
         env:
