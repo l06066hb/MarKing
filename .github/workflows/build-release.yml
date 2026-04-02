@@ -14,16 +14,26 @@ jobs:
       fail-fast: false
       matrix: 
         include:
+          # Windows (x64)
           - platform: windows-latest
-            args: ''
+            args: '--target x86_64-pc-windows-msvc'
             target: x86_64-pc-windows-msvc
+            arch_label: 'x64'
+          # macOS Intel (x64) — 使用 macos-13 保证原生 x86_64 编译（macos-latest 是 ARM）
+          - platform: macos-13
+            args: '--target x86_64-apple-darwin'
+            target: x86_64-apple-darwin
+            arch_label: 'x64'
+          # macOS Apple Silicon (arm64) — 使用 macos-latest (ARM runner)
           - platform: macos-latest
-            # 开启 Mac 混合支持！构建同时兼容 Intel 和 Apple Silicon (M1/M2/M3) 的 Universal DMG
-            args: '--target universal-apple-darwin'
-            target: aarch64-apple-darwin,x86_64-apple-darwin
+            args: '--target aarch64-apple-darwin'
+            target: aarch64-apple-darwin
+            arch_label: 'aarch64'
+          # Linux (x64)
           - platform: ubuntu-22.04
             args: ''
             target: x86_64-unknown-linux-gnu
+            arch_label: 'x64'
 
     runs-on: ${{ matrix.platform }}
     
@@ -39,7 +49,7 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan gitee.com >> ~/.ssh/known_hosts
 
-      # 致命缺陷修正与终极加速：使用浅克隆 (--depth 1) 仅拉取当前版本，不拉取历史提交记录，极大加速 700MB 仓库的拉取效率
+      # 浅克隆 (--depth 1) 仅拉取当前版本，极大加速大仓库的拉取效率
       - name: Clone Gitee Private Repository
         run: git clone --depth 1 -b ${{ github.ref_name }} ${{ secrets.GITEE_REPO_SSH_URL }} .
 
@@ -61,20 +71,31 @@ jobs:
       - name: Install Rust and Targets
         uses: dtolnay/rust-toolchain@stable
         with:
-          # 动态安装对应平台的底层编译支持 (如 Mac 上的 x86 + arm 双底层支持)
           targets: ${{ matrix.target }} 
 
-      # 性能优化：为超慢的 Rust 编译添加智能缓存，二次构建时节约约 70% 的跑机时间
+      # 性能优化：Rust 编译缓存，按 target 区分避免缓存冲突
       - name: Rust Cache
         uses: swatinem/rust-cache@v2
         with:
-          # 共享工作区，使不同编译参数下的缓存也能得到最大程度的复用
-          shared-key: "marking-build"
+          shared-key: "marking-${{ matrix.target }}"
 
-      - name: Combine Pandoc for Universal macOS Build
-        if: matrix.platform == 'macos-latest'
+      # macOS: 仅保留当前架构的 pandoc，删除另一个以减小包体积
+      - name: Prepare Pandoc sidecar (macOS)
+        if: startsWith(matrix.platform, 'macos')
+        shell: bash
         run: |
-          lipo -create -output src-tauri/binaries/pandoc-universal-apple-darwin src-tauri/binaries/pandoc-aarch64-apple-darwin src-tauri/binaries/pandoc-x86_64-apple-darwin
+          echo "Target: ${{ matrix.target }}"
+          KEEP="src-tauri/binaries/pandoc-${{ matrix.target }}"
+          echo "Keeping pandoc: $KEEP"
+          # 删除非当前架构的 macOS pandoc 二进制
+          for f in src-tauri/binaries/pandoc-*-apple-darwin; do
+            if [ "$f" != "$KEEP" ]; then
+              echo "Removing unused pandoc: $f"
+              rm -f "$f"
+            fi
+          done
+          chmod +x "$KEEP"
+          ls -lh src-tauri/binaries/pandoc-*
 
       - name: Build and Publish Tauri App
         uses: tauri-apps/tauri-action@v0
@@ -83,7 +104,18 @@ jobs:
         with:
           tagName: v__VERSION__ 
           releaseName: 'MarKing v__VERSION__'
-          releaseBody: '全平台客户端安装包已编译完成。Mac 用户可直接下载 .dmg 文件（已原生兼容 Intel/M 芯片）。'
+          releaseBody: |
+            全平台客户端安装包已编译完成，请根据您的系统下载对应版本：
+
+            **macOS**
+            - Apple Silicon (M1/M2/M3/M4)：下载 `aarch64.dmg`
+            - Intel 芯片：下载 `x64.dmg`
+
+            **Windows**
+            - 下载 `.exe` 安装包（支持 64 位系统）
+
+            **Linux**
+            - 下载 `.deb` 或 `.AppImage`（支持 x86_64）
           releaseDraft: true 
           prerelease: false
           args: ${{ matrix.args }}
