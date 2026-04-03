@@ -19,8 +19,8 @@ jobs:
             args: '--target x86_64-pc-windows-msvc'
             target: x86_64-pc-windows-msvc
             arch_label: 'x64'
-          # macOS Intel (x64) — 使用 macos-13 保证原生 x86_64 编译（macos-latest 是 ARM）
-          - platform: macos-13
+          # macOS Intel (x64) — 使用 macos-latest (ARM runner) 进行交叉编译，因为 Github Actions 逐渐下线/限制了旧版 macos-13 节点
+          - platform: macos-latest
             args: '--target x86_64-apple-darwin'
             target: x86_64-apple-darwin
             arch_label: 'x64'
