@@ -98,7 +98,7 @@ jobs:
           ls -lh src-tauri/binaries/pandoc-*
 
       - name: Build and Publish Tauri App
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -108,8 +108,9 @@ jobs:
             全平台客户端安装包已编译完成，请根据您的系统下载对应版本：
 
             **macOS**
-            - Apple Silicon (M1/M2/M3/M4)：下载 `aarch64.dmg`
+            - Apple Silicon (M1/M2/M3/M4/M5)：下载 `aarch64.dmg`
             - Intel 芯片：下载 `x64.dmg`
+            - ⚠️ 如果打开时提示「已损坏，无法打开」，请在终端执行：`xattr -cr /Applications/MarKing.app` 然后重新打开即可。
 
             **Windows**
             - 下载 `.exe` 安装包（支持 64 位系统）
