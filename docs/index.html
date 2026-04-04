@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MarKing - 专业的跨平台 Markdown 编辑器，让文档创作更高效、更专业。支持实时预览、智能补全、表格可视化编辑、DOCX/PDF 导出。">
-    <meta name="keywords" content="Markdown编辑器, 文档编辑器, 跨平台编辑器, DOCX导出, PDF导出, 技术文档, 写作工具">
+    <meta name="description" content="MarKing - 专业的跨平台 Markdown 编辑器，为您带来极致高效的文档写作体验。内置实时预览、智能补全、可视化表格与高质量 DOCX/PDF 导出。">
+    <meta name="keywords" content="Markdown编辑器, 文档处理, 跨平台编辑器, DOCX导出, PDF导出, 技术文档开发, 写作工具">
     <meta name="author" content="MarKing">
     <meta name="theme-color" content="#3b82f6">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://l06066hb.github.io/MarKing/">
+    <link rel="canonical" href="https://markingmd.com/">
 
     <!-- 站长工具验证 -->
     <meta name="google-site-verification" content="3QEg1uC_xXJB0t_RLh__ct6Yqu9lhkqu-3tIe4CtVZY" />
@@ -17,22 +17,22 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MarKing - 专业 Markdown 编辑器">
-    <meta property="og:description" content="现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业">
-    <meta property="og:image" content="https://l06066hb.github.io/MarKing/marking-app-icon-512.png">
-    <meta property="og:url" content="https://l06066hb.github.io/MarKing/">
+    <meta property="og:title" content="MarKing - 极速专业的 Markdown 编辑器">
+    <meta property="og:description" content="现代化跨平台 Markdown 创作工具，专为高效和纯粹的内容输出而生">
+    <meta property="og:image" content="https://markingmd.com/marking-app-icon-512.png">
+    <meta property="og:url" content="https://markingmd.com/">
     <meta property="og:site_name" content="MarKing">
     <meta property="og:locale" content="zh_CN">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MarKing - 专业 Markdown 编辑器">
-    <meta name="twitter:description" content="现代化的跨平台 Markdown 编辑器，让文档创作更高效、更专业">
-    <meta name="twitter:image" content="https://l06066hb.github.io/MarKing/marking-app-icon-512.png">
+    <meta name="twitter:title" content="MarKing - 极速专业的 Markdown 编辑器">
+    <meta name="twitter:description" content="现代化跨平台 Markdown 创作工具，专为高效和纯粹的内容输出而生">
+    <meta name="twitter:image" content="https://markingmd.com/marking-app-icon-512.png">
 
-    <title>MarKing - 专业 Markdown 编辑器 | Be the King of Markdown</title>
+    <title>MarKing - 专业的 Markdown 编辑器 | 专注排版与内容创作</title>
 
-    <!-- Preload 关键资源 -->
+    <!-- Preload app icon -->
     <link rel="icon" type="image/png" href="marking-app-icon-128.png">
 
     <style>
@@ -43,98 +43,34 @@
         }
 
         :root {
-            /* 主色调 - 深邃蓝-紫罗兰高级渐变系 */
-            --primary: #4f46e5;
-            /* Indigo 600 */
-            --primary-dark: #3730a3;
-            /* Indigo 800 */
-            --primary-light: #818cf8;
-            /* Indigo 400 */
-            --secondary: #7c3aed;
-            /* Violet 600 */
-            --secondary-dark: #5b21b6;
-            /* Violet 800 */
-            --accent: #06b6d4;
-            --success: #10b981;
-
-            /* 功能卡片主题色 - 高级柔和的莫兰迪科技感搭配 */
-            --card-1-from: #4f46e5;
-            /* Indigo */
-            --card-1-to: #6366f1;
-            --card-2-from: #0ea5e9;
-            /* Sky */
-            --card-2-to: #38bdf8;
-            --card-3-from: #8b5cf6;
-            /* Violet */
-            --card-3-to: #a855f7;
-            --card-4-from: #ec4899;
-            /* Pink */
-            --card-4-to: #f472b6;
-            --card-5-from: #f59e0b;
-            /* Amber */
-            --card-5-to: #fbbf24;
-            --card-6-from: #10b981;
-            /* Emerald */
-            --card-6-to: #34d399;
-
-            /* 新增强调色 */
-            --accent-cyan: #06b6d4;
-            --accent-emerald: #10b981;
-            --accent-amber: #f59e0b;
-            --accent-rose: #f43f5e;
-            --accent-violet: #8b5cf6;
-
-            /* 文本颜色 */
-            --text: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --text-light: #94a3b8;
-
-            /* 背景颜色 */
+            --primary: #000000;
+            --primary-hover: #333333;
             --bg: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
+            --bg-offset: #fafafa;
+            --bg-glass: rgba(255, 255, 255, 0.7);
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border: rgba(0, 0, 0, 0.08);
+            --border-light: rgba(0, 0, 0, 0.04);
+            --shadow-subtle: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-float: 0 12px 32px -4px rgba(0, 0, 0, 0.08), 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+        }
 
-            /* 边框颜色 */
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-
-            /* 玻璃态效果 - 更通透的质感 */
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.4);
-            --glass-strong: rgba(255, 255, 255, 0.85);
-            --glass-medium: rgba(255, 255, 255, 0.7);
-            --glass-light: rgba(255, 255, 255, 0.5);
-            --glass-subtle: rgba(255, 255, 255, 0.2);
-
-            /* 阴影系统 - 双层超柔和弥散阴影 */
-            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-            --shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-            --shadow-md: 0 12px 24px -4px rgba(15, 23, 42, 0.06), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
-            --shadow-lg: 0 20px 40px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
-            --shadow-xl: 0 32px 64px -12px rgba(15, 23, 42, 0.12), 0 16px 32px -8px rgba(15, 23, 42, 0.06);
-
-            /* 彩色阴影 - 更克制的高级感 */
-            --shadow-primary: 0 12px 40px -12px rgba(79, 70, 229, 0.35);
-            --shadow-secondary: 0 12px 40px -12px rgba(124, 58, 237, 0.35);
-            --shadow-cyan: 0 12px 40px -12px rgba(14, 165, 233, 0.35);
-            --shadow-rose: 0 12px 40px -12px rgba(236, 72, 153, 0.35);
-            --shadow-amber: 0 12px 40px -12px rgba(245, 158, 11, 0.35);
-            --shadow-emerald: 0 12px 40px -12px rgba(16, 185, 129, 0.35);
-
-            /* 渐变组合 - 增强版 */
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --gradient-feature: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-cta: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --gradient-cool: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-            --gradient-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-
-            /* 自然弹性缓动 */
-            --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #ffffff;
+                --primary-hover: #cccccc;
+                --bg: #0a0a0a;
+                --bg-offset: #111111;
+                --bg-glass: rgba(10, 10, 10, 0.7);
+                --text-main: #ffffff;
+                --text-muted: #888888;
+                --border: rgba(255, 255, 255, 0.1);
+                --border-light: rgba(255, 255, 255, 0.05);
+            }
         }
 
         html {
@@ -142,71 +78,77 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--gradient-bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        #download {
-            scroll-margin-top: 100px;
+        ::selection {
+            background: var(--text-main);
+            color: var(--bg);
         }
 
-        /* Header */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
         header {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
             z-index: 100;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
         }
 
         nav {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
-
-        .logo:hover {
-            transform: translateY(-1px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            font-size: 1.1rem;
         }
 
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.2s ease;
-        }
-
-        .logo:hover .logo-icon {
-            box-shadow: var(--shadow);
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
         }
 
         .nav-links {
@@ -217,969 +159,242 @@
         }
 
         .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            font-size: 0.9375rem;
-            transition: color 0.2s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.2s ease;
+            color: var(--text-muted);
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--text-main);
         }
 
         .nav-cta {
-            background: var(--primary);
-            color: white !important;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            font-size: 0.875rem;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.2s ease;
-        }
-
-        .nav-cta::after {
-            display: none;
+            background: var(--text-main);
+            color: var(--bg) !important;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            transition: opacity 0.2s;
         }
 
         .nav-cta:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow);
+            opacity: 0.9;
         }
 
-        /* 移动端汉堡菜单 */
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: transparent;
             border: none;
-            color: var(--text);
+            color: var(--text-main);
             cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            transition: all 0.2s ease;
-            position: relative;
         }
 
-        .mobile-menu-btn:hover {
-            background: var(--bg-tertiary);
-        }
-
-        .mobile-menu-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* 菜单图标样式 */
-        .mobile-menu-btn .menu-icon,
-        .mobile-menu-btn .close-icon {
-            transition: all 0.3s ease;
-        }
-
-        /* Hero */
         .hero {
-            background: linear-gradient(180deg, #fafbff 0%, #f0f4ff 40%, #e8f0fe 100%);
-            padding: 8rem 2rem 10rem;
+            padding: 9rem 0 5rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        /* 噪点纹理叠加 - 增加质感 */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.02;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* 流动光斑容器 - 高级弥散光 */
-        .hero-orbs {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .hero-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            /* 更极致的弥散 */
-            opacity: 0.6;
-            will-change: transform;
-        }
-
-        .hero-orb-1 {
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
             width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(79, 70, 229, 0.45) 0%, transparent 60%);
-            top: -30%;
-            left: -10%;
-            animation: orb-float-1 20s ease-in-out infinite;
-        }
-
-        .hero-orb-2 {
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 60%);
-            top: 15%;
-            right: -15%;
-            animation: orb-float-2 22s ease-in-out infinite reverse;
-        }
-
-        .hero-orb-3 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, transparent 60%);
-            bottom: -20%;
-            left: 20%;
-            animation: orb-float-3 18s ease-in-out infinite;
-        }
-
-        .hero-orb-4 {
-            width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 60%);
-            top: 40%;
-            left: 10%;
-            animation: orb-float-4 25s ease-in-out infinite alternate;
-        }
-
-        @keyframes orb-float-1 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(80px, 40px) scale(1.05);
-                /* 更沉稳的呼吸频率 */
-            }
-        }
-
-        @keyframes orb-float-2 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            33% {
-                transform: translate(-100px, 80px) scale(0.85);
-            }
-
-            66% {
-                transform: translate(80px, -80px) scale(1.1);
-            }
-        }
-
-        @keyframes orb-float-3 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(150px, -80px) scale(1.15);
-            }
-        }
-
-        @keyframes orb-float-4 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(-120px, 60px) scale(1.1);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            33% {
-                transform: translate(30px, -30px) rotate(5deg);
-            }
-
-            66% {
-                transform: translate(-20px, 20px) rotate(-5deg);
-            }
-        }
-
-        .hero-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
+            background: radial-gradient(ellipse at top, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.625rem;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            padding: 0.625rem 1.25rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 2.5rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-        }
-
-        .hero-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .badge-icon {
-            width: 16px;
-            height: 16px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1.1);
-            }
+            gap: 0.5rem;
+            background: var(--bg-offset);
+            border: 1px solid var(--border);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
+            font-size: 5rem;
             margin-bottom: 1.5rem;
-            color: var(--text);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .hero-gradient {
-            background: var(--gradient-primary);
+        .hero h1 span {
+            background: linear-gradient(to right, var(--text-main), #888);
             -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            position: relative;
-        }
-
-        .hero-gradient::after {
-            content: attr(data-text);
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: blur(20px);
-            opacity: 0.5;
+            color: transparent;
         }
 
         .hero-subtitle {
-            font-size: 1.375rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-            font-weight: 400;
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 0.875rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s var(--ease-out-expo);
             display: inline-flex;
             align-items: center;
-            gap: 0.625rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 按钮光泽层 */
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.2),
-                    transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        /* 按钮波纹效果 */
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s ease, height 0.5s ease;
-        }
-
-        .btn:active::after {
-            width: 400px;
-            height: 400px;
-        }
-
-        .btn-icon {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s var(--ease-spring);
-        }
-
-        .btn:hover .btn-icon {
-            transform: translateX(3px);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            background-size: 200% auto;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow:
-                var(--shadow-md),
-                0 0 0 0 rgba(124, 58, 237, 0.4),
-                inset 0 1px 1px rgba(255, 255, 255, 0.3);
-            animation: gradient-shift 4s ease infinite, shadow-pulse 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-
-        @keyframes gradient-shift {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        @keyframes shadow-pulse {
-
-            0%,
-            100% {
-                box-shadow:
-                    var(--shadow-md),
-                    0 0 0 0 rgba(124, 58, 237, 0.3),
-                    inset 0 1px 1px rgba(255, 255, 255, 0.3);
-            }
-
-            50% {
-                box-shadow:
-                    var(--shadow-lg),
-                    0 0 0 12px rgba(124, 58, 237, 0),
-                    inset 0 1px 1px rgba(255, 255, 255, 0.3);
-            }
+            background: var(--text-main);
+            color: var(--bg);
+            border: 1px solid transparent;
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow:
-                var(--shadow-xl),
-                0 20px 40px -10px rgba(124, 58, 237, 0.5),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
-            animation: gradient-shift 4s ease infinite;
-            /* Keep background flowing on hover */
-            border-color: rgba(255, 255, 255, 0.4);
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-float);
         }
 
         .btn-secondary {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            color: var(--text);
-            border: 1.5px solid var(--glass-border);
-            box-shadow: var(--shadow-sm);
+            background: var(--bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.95);
-            border-color: rgba(124, 58, 237, 0.3);
-            color: var(--secondary);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md), var(--shadow-secondary);
+            background: var(--bg-offset);
         }
 
-        /* GitHub 统计栏样式 */
-        .github-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 3rem auto 0;
+        .hero-image-wrapper {
+            margin-top: 5rem;
+            position: relative;
+            perspective: 1000px;
         }
 
-        .stat-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            cursor: default;
+        .hero-image-inner {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
         }
 
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            background: var(--glass-strong);
-        }
-
-        .stat-icon {
-            width: 40px;
-            height: 40px;
-            color: var(--primary);
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover .stat-icon {
-            transform: scale(1.1);
-            color: var(--secondary);
-        }
-
-        .stat-content {
-            flex: 1;
-        }
-
-        .stat-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-            .github-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .stat-card {
-                padding: 1.25rem;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Features */
-        .features {
-            max-width: 1280px;
-            margin: 8rem auto 6rem;
-            padding: 0 2rem;
+        .hero-image-inner img {
+            width: 100%;
+            display: block;
+            border-radius: calc(var(--radius-lg) - 1px);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--bg-tertiary);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            margin-bottom: 4rem;
         }
 
         .section-title {
             font-size: 3rem;
-            font-weight: 800;
             margin-bottom: 1.25rem;
-            color: var(--text);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         }
 
         .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
+            font-size: 1.15rem;
             max-width: 640px;
             margin: 0 auto;
-            line-height: 1.8;
-            font-weight: 400;
+            color: var(--text-muted);
         }
 
-        .feature-grid {
+        .features {
+            padding: 6rem 0;
+        }
+
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
         }
 
-        .feature-card {
-            background: white;
+        .bento-item {
+            background: var(--bg-offset);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
             padding: 2.5rem;
-            border-radius: 1.25rem;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
         }
 
-        /* 渐变边框效果 */
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        .bento-item:hover {
+            border-color: rgba(120, 120, 120, 0.3);
+            box-shadow: var(--shadow-subtle);
         }
 
-        /* 渐变边框动画 */
-        .feature-card::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradient-primary);
-            border-radius: inherit;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.4s ease;
-            animation: gradient-rotate 3s linear infinite paused;
-        }
-
-        @keyframes gradient-rotate {
-            0% {
-                filter: hue-rotate(0deg);
-            }
-
-            100% {
-                filter: hue-rotate(360deg);
-            }
-        }
-
-        /* 3D 悬停效果 */
-        .feature-card:hover {
-            transform: translateY(-12px) rotateX(2deg);
-            box-shadow: var(--shadow-xl);
-            border-color: transparent;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover::after {
-            opacity: 0.15;
-            animation-play-state: running;
-        }
-
-        /* 光晕跟随效果 */
-        .feature-card {
-            --mouse-x: 50%;
-            --mouse-y: 50%;
-        }
-
-        .feature-card:hover {
-            background:
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y),
-                    rgba(59, 130, 246, 0.05) 0%,
-                    transparent 50%),
-                white;
-        }
-
-        .feature-icon {
-            width: 3.5rem;
-            height: 3.5rem;
-            background: var(--gradient-primary);
-            border-radius: 1rem;
+        .bento-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
         }
 
-        /* 图标光晕效果 */
-        .feature-icon::before {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            background: var(--gradient-primary);
-            border-radius: inherit;
-            opacity: 0;
-            filter: blur(20px);
-            transition: opacity 0.4s ease;
+        .bento-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--text-main);
         }
 
-        .feature-card:hover .feature-icon {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: var(--shadow-lg);
+        .bento-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
         }
 
-        .feature-card:hover .feature-icon::before {
-            opacity: 0.4;
+        .bento-item p {
+            font-size: 0.95rem;
         }
 
-        .feature-icon svg {
-            width: 1.75rem;
-            height: 1.75rem;
-            color: white;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .bento-wide {
+            grid-column: span 8;
         }
 
-        .feature-card:hover .feature-icon svg {
-            transform: scale(1.1);
+        .bento-square {
+            grid-column: span 4;
         }
 
-        .feature-card h3 {
-            font-size: 1.375rem;
-            font-weight: 700;
-            margin-bottom: 0.875rem;
-            color: var(--text);
-            letter-spacing: -0.01em;
-            line-height: 1.3;
-            transition: color 0.3s ease;
+        .bento-half {
+            grid-column: span 6;
         }
 
-        .feature-card:hover h3 {
-            color: var(--primary);
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.75;
-            font-size: 0.9375rem;
-            font-weight: 400;
-        }
-
-        /* 功能卡片差异化配色 - 每张卡片独特主题 */
-        .feature-card:nth-child(1) .feature-icon {
-            background: linear-gradient(135deg, var(--card-1-from), var(--card-1-to));
-        }
-
-        .feature-card:nth-child(1):hover {
-            box-shadow: var(--shadow-lg), var(--shadow-primary);
-        }
-
-        .feature-card:nth-child(1)::before {
-            background: linear-gradient(135deg, var(--card-1-from), var(--card-1-to));
-        }
-
-        .feature-card:nth-child(1):hover h3 {
-            color: var(--card-1-from);
-        }
-
-        .feature-card:nth-child(2) .feature-icon {
-            background: linear-gradient(135deg, var(--card-2-from), var(--card-2-to));
-        }
-
-        .feature-card:nth-child(2):hover {
-            box-shadow: var(--shadow-lg), var(--shadow-cyan);
-        }
-
-        .feature-card:nth-child(2)::before {
-            background: linear-gradient(135deg, var(--card-2-from), var(--card-2-to));
-        }
-
-        .feature-card:nth-child(2):hover h3 {
-            color: var(--card-2-from);
-        }
-
-        .feature-card:nth-child(3) .feature-icon {
-            background: linear-gradient(135deg, var(--card-3-from), var(--card-3-to));
-        }
-
-        .feature-card:nth-child(3):hover {
-            box-shadow: var(--shadow-lg), var(--shadow-secondary);
-        }
-
-        .feature-card:nth-child(3)::before {
-            background: linear-gradient(135deg, var(--card-3-from), var(--card-3-to));
-        }
-
-        .feature-card:nth-child(3):hover h3 {
-            color: var(--card-3-from);
-        }
-
-        .feature-card:nth-child(4) .feature-icon {
-            background: linear-gradient(135deg, var(--card-4-from), var(--card-4-to));
-        }
-
-        .feature-card:nth-child(4):hover {
-            box-shadow: var(--shadow-lg), var(--shadow-rose);
-        }
-
-        .feature-card:nth-child(4)::before {
-            background: linear-gradient(135deg, var(--card-4-from), var(--card-4-to));
-        }
-
-        .feature-card:nth-child(4):hover h3 {
-            color: var(--card-4-from);
-        }
-
-        .feature-card:nth-child(5) .feature-icon {
-            background: linear-gradient(135deg, var(--card-5-from), var(--card-5-to));
-        }
-
-        .feature-card:nth-child(5):hover {
-            box-shadow: var(--shadow-lg), var(--shadow-amber);
-        }
-
-        .feature-card:nth-child(5)::before {
-            background: linear-gradient(135deg, var(--card-5-from), var(--card-5-to));
-        }
-
-        .feature-card:nth-child(5):hover h3 {
-            color: var(--card-5-from);
-        }
-
-        .feature-card:nth-child(6) .feature-icon {
-            background: linear-gradient(135deg, var(--card-6-from), var(--card-6-to));
-        }
-
-        .feature-card:nth-child(6):hover {
-            box-shadow: var(--shadow-lg), var(--shadow-emerald);
-        }
-
-        .feature-card:nth-child(6)::before {
-            background: linear-gradient(135deg, var(--card-6-from), var(--card-6-to));
-        }
-
-        .feature-card:nth-child(6):hover h3 {
-            color: var(--card-6-from);
-        }
-
-        /* 信任标识栏 - 优化版:渐变分隔条设计 */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            margin-top: 4rem;
-            padding: 2.5rem 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(139, 92, 246, 0.03) 100%);
-            border-radius: 1.25rem;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            position: relative;
-        }
-
-        /* 顶部装饰线 */
-        .trust-badges::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
-            opacity: 0.3;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            cursor: default;
-            position: relative;
-        }
-
-        .trust-badge:hover {
-            transform: translateY(-2px);
-        }
-
-        .trust-icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            color: var(--primary);
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .trust-badge:hover .trust-icon {
-            transform: scale(1.1);
-            color: var(--secondary);
-        }
-
-        .trust-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.125rem;
-        }
-
-        .trust-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text);
-            line-height: 1.2;
-        }
-
-        .trust-desc {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            line-height: 1.2;
-        }
-
-        @media (max-width: 768px) {
-            .trust-badges {
-                flex-direction: column;
-                gap: 1.5rem;
-                padding: 2rem 1.5rem;
-            }
-
-            .trust-badge {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        /* Use Cases Section - 极致精致版 v4.0 */
         .use-cases {
-            background: linear-gradient(180deg, #ffffff 0%, #fafbff 50%, #ffffff 100%);
             padding: 6rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 背景装饰 */
-        .use-cases::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(60px);
-        }
-
-        .use-cases::after {
-            content: '';
-            position: absolute;
-            bottom: 10%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(60px);
-        }
-
-        .use-cases-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
         }
 
         .use-case-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            gap: 4rem;
             align-items: center;
-            margin-top: 3.5rem;
-            position: relative;
+            margin-top: 6rem;
         }
 
-        .use-case-row:first-of-type {
-            margin-top: 3rem;
-        }
-
-        /* 反向布局 */
         .use-case-row.reverse {
             direction: rtl;
         }
@@ -1188,1296 +403,542 @@
             direction: ltr;
         }
 
-        /* 视觉卡片 - 极致精致 */
-        .use-case-visual {
-            position: relative;
-        }
-
-        .visual-card {
-            background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
-            border-radius: 1.5rem;
-            padding: 2.25rem 1.75rem;
-            box-shadow:
-                0 2px 8px -2px rgba(15, 23, 42, 0.04),
-                0 16px 48px -12px rgba(15, 23, 42, 0.08);
-            /* More diffuse base shadow */
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            /* Spring physics */
-            min-height: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .use-case-row:hover .visual-card {
-            transform: translateY(-8px);
-            /* Higher lift */
-            box-shadow:
-                0 4px 12px -2px rgba(15, 23, 42, 0.05),
-                0 32px 64px -16px rgba(15, 23, 42, 0.12);
-            /* Deep floating shadow */
-            border-color: rgba(79, 70, 229, 0.25);
-        }
-
-        /* 渐变背景装饰 */
-        .visual-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0.04;
-            transition: opacity 0.4s ease;
-            border-radius: inherit;
-        }
-
-        .visual-code::before {
-            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-        }
-
-        .visual-academic::before {
-            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-        }
-
-        .visual-creator::before {
-            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
-        }
-
-        .visual-manager::before {
-            background: linear-gradient(135deg, #06b6d4 0%, #14b8a6 100%);
-        }
-
-        .use-case-row:hover .visual-card::before {
-            opacity: 0.08;
-        }
-
-        /* 极致精致图标 - 带渐变背景 */
-        .visual-icon {
-            width: 72px;
-            height: 72px;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-            border-radius: 1.125rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow:
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                0 8px 24px -8px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .use-case-img {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-subtle);
             overflow: hidden;
         }
 
-        /* 图标渐变背景 - 每个场景独特配色 */
-        .visual-code .visual-icon {
-            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
-        }
-
-        .visual-academic .visual-icon {
-            background: linear-gradient(135deg, #ede9fe 0%, #f3e8ff 100%);
-        }
-
-        .visual-creator .visual-icon {
-            background: linear-gradient(135deg, #fce7f3 0%, #fae8ff 100%);
-        }
-
-        .visual-manager .visual-icon {
-            background: linear-gradient(135deg, #cffafe 0%, #ccfbf1 100%);
-        }
-
-        .visual-icon svg {
-            width: 36px;
-            height: 36px;
-            stroke-width: 1.5;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 1;
-        }
-
-        .visual-code .visual-icon svg {
-            color: #3b82f6;
-        }
-
-        .visual-academic .visual-icon svg {
-            color: #8b5cf6;
-        }
-
-        .visual-creator .visual-icon svg {
-            color: #ec4899;
-        }
-
-        .visual-manager .visual-icon svg {
-            color: #06b6d4;
-        }
-
-        .use-case-row:hover .visual-icon {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow:
-                0 4px 12px rgba(0, 0, 0, 0.06),
-                0 12px 32px -12px rgba(0, 0, 0, 0.12);
-        }
-
-        .use-case-row:hover .visual-icon svg {
-            transform: rotate(-5deg);
-        }
-
-        /* 精美装饰元素 - 更紧凑精致 */
-        .visual-decoration {
-            position: relative;
-            z-index: 1;
+        .use-case-img img {
             width: 100%;
-            max-width: 220px;
-        }
-
-        /* 代码行 - 闪光动画 */
-        .code-line {
-            height: 7px;
-            background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 50%, #e2e8f0 100%);
-            border-radius: 3.5px;
-            margin-bottom: 7px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .code-line::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.35), transparent);
-            animation: shimmer 2.5s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        .code-line.short {
-            width: 55%;
-        }
-
-        .code-line.medium {
-            width: 75%;
-        }
-
-        /* 公式 - 更优雅明显 */
-        .formula-line {
-            font-size: 1.375rem;
-            font-weight: 600;
-            color: #8b5cf6;
-            text-align: center;
-            margin: 0.625rem 0;
-            opacity: 0.45;
-            font-family: 'Georgia', serif;
-            letter-spacing: 0.02em;
-        }
-
-        /* 数据标签 */
-        .data-label {
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #06b6d4;
-            margin-top: 0.5rem;
-            opacity: 0.5;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* 文档页面 - 更真实细节 */
-        .doc-page {
-            width: 100%;
-            height: 130px;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .doc-page::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            height: 4px;
-            background: linear-gradient(90deg, #ec4899 0%, #f472b6 100%);
-            border-radius: 2px;
-        }
-
-        .doc-page::after {
-            content: '';
-            position: absolute;
-            top: 24px;
-            left: 10px;
-            right: 35%;
-            height: 2.5px;
-            background: #e2e8f0;
-            border-radius: 2px;
-        }
-
-        .doc-page.small {
-            height: 95px;
-            width: 65%;
-            margin-left: auto;
-        }
-
-        /* 图表 - 渐变动态效果 */
-        .chart-bar {
-            width: 44px;
-            background: linear-gradient(180deg, #06b6d4 0%, #14b8a6 100%);
-            border-radius: 6px 6px 0 0;
-            display: inline-block;
-            margin: 0 5px;
-            opacity: 0.28;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .chart-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 35%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent);
-            border-radius: 6px 6px 0 0;
-        }
-
-        .use-case-row:hover .chart-bar {
-            opacity: 0.55;
-            transform: translateY(-6px);
-        }
-
-        .use-case-row:hover .chart-bar:nth-child(1) {
-            transition-delay: 0.05s;
-        }
-
-        .use-case-row:hover .chart-bar:nth-child(2) {
-            transition-delay: 0.1s;
-        }
-
-        .use-case-row:hover .chart-bar:nth-child(3) {
-            transition-delay: 0.15s;
-        }
-
-        /* 内容区域 - 紧凑精致 */
-        .use-case-content {
-            position: relative;
+            display: block;
+            border-radius: var(--radius-md);
         }
 
         .use-case-content h3 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .use-case-desc {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
-        .use-case-features {
+        .check-list {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.875rem;
+            gap: 1rem;
         }
 
-        .use-case-features li {
+        .check-list li {
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 0.9375rem;
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
-        .use-case-features li:hover {
-            color: var(--text);
-            transform: translateX(3px);
-        }
-
-        .check-icon {
+        .check-list svg {
             width: 20px;
             height: 20px;
+            color: var(--text-main);
             flex-shrink: 0;
-            color: var(--primary);
-            stroke-width: 2.5;
-            margin-top: 1px;
         }
 
-        /* 响应式 */
-        @media (max-width: 1024px) {
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .bento-wide,
+            .bento-square,
+            .bento-half {
+                grid-column: span 12;
+            }
+
             .use-case-row {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
             }
 
             .use-case-row.reverse {
                 direction: ltr;
             }
 
-            .visual-card {
-                min-height: 210px;
-                padding: 2rem 1.5rem;
+            .nav-links {
+                display: none;
             }
 
-            .visual-icon {
-                width: 68px;
-                height: 68px;
-            }
-
-            .visual-icon svg {
-                width: 34px;
-                height: 34px;
-            }
-
-            .visual-decoration {
-                max-width: 200px;
+            .mobile-menu-btn {
+                display: block;
             }
         }
 
-        @media (max-width: 768px) {
-            .use-cases {
-                padding: 4rem 0;
-            }
-
-            .use-case-row {
-                margin-top: 3rem;
-                gap: 2rem;
-            }
-
-            .use-case-content h3 {
-                font-size: 1.5rem;
-            }
-
-            .use-case-desc {
-                font-size: 0.9375rem;
-            }
-
-            .visual-card {
-                min-height: 190px;
-                padding: 1.75rem 1.25rem;
-            }
-
-            .visual-icon {
-                width: 60px;
-                height: 60px;
-            }
-
-            .visual-icon svg {
-                width: 30px;
-                height: 30px;
-            }
-
-            .visual-decoration {
-                max-width: 170px;
-            }
-
-            .code-line {
-                height: 6px;
-                margin-bottom: 6px;
-            }
-
-            .doc-page {
-                height: 100px;
-            }
-
-            .doc-page.small {
-                height: 70px;
-            }
-
-            .chart-bar {
-                width: 36px;
-                margin: 0 4px;
-            }
-
-            .formula-line {
-                font-size: 1.125rem;
-            }
-        }
-
-
-        /* 响应式设计 */
-        @media (max-width: 1024px) {
-            .use-case-list {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .use-cases {
-                margin: 6rem auto;
-            }
-
-            .use-case-item {
-                padding: 2rem 1.5rem;
-            }
-
-            .use-case-icon-wrapper {
-                width: 64px;
-                height: 64px;
-            }
-
-            .use-case-icon {
-                width: 32px;
-                height: 32px;
-            }
-
-            .use-case-content h3 {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Screenshots */
+        /* Part 2: Bottom Sections CSS */
         .screenshots {
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, #e8f0fe 50%, var(--bg-secondary) 100%);
-            padding: 6rem 2rem 8rem;
-            position: relative;
-            overflow: hidden;
+            padding: 6rem 0;
         }
 
-        /* 截图区域装饰背景 */
-        .screenshots::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            left: -20%;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(60px);
-        }
-
-        .screenshots::after {
-            content: '';
-            position: absolute;
-            bottom: 10%;
-            right: -10%;
-            width: 50%;
-            height: 50%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(60px);
-        }
-
-        .screenshot-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* 轮播组件样式 - 设备框架效果 */
         .screenshot-carousel {
             position: relative;
             overflow: hidden;
-            border-radius: 1.25rem;
-            background: linear-gradient(180deg, #1e1e1e 0%, #2d2d2d 100%);
-            box-shadow:
-                0 50px 100px -20px rgba(0, 0, 0, 0.3),
-                0 30px 60px -30px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-float);
             margin-top: 3rem;
-            padding-top: 2.5rem;
-        }
-
-        /* 设备框架顶部装饰 */
-        .screenshot-carousel::before {
-            content: '';
-            position: absolute;
-            top: 0.875rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.5rem;
-            width: 80px;
-            height: 12px;
-            background:
-                radial-gradient(circle at 12px 6px, #ff5f57 5px, transparent 5px),
-                radial-gradient(circle at 40px 6px, #febc2e 5px, transparent 5px),
-                radial-gradient(circle at 68px 6px, #28c840 5px, transparent 5px);
+            background: var(--bg-offset);
         }
 
         .carousel-track {
             display: flex;
-            transition: transform 0.7s var(--ease-out-expo);
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .screenshot-item {
             min-width: 100%;
-            position: relative;
-            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 1.5rem 1.5rem 8rem 1.5rem;
+            max-width: 100%;
+            width: 100%;
+            flex: 0 0 100%;
+            padding: 3rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            box-sizing: border-box;
         }
 
         .screenshot-item img {
-            width: 100%;
-            height: auto;
+            max-width: 100%;
+            max-height: 600px;
+            width: auto;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-light);
+            margin: 0 auto;
             display: block;
-            border-radius: 0.5rem;
-            box-shadow:
-                0 20px 60px -15px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(0, 0, 0, 0.05);
         }
 
-        /* 截图说明文字 */
         .screenshot-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 2rem 3rem;
+            margin-top: 2.5rem;
             text-align: center;
-            border-top: 1px solid var(--border-light);
         }
 
         .screenshot-caption h4 {
             font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text);
+            font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--text-main);
         }
 
-        .screenshot-caption p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        /* 轮播控制按钮 */
         .carousel-controls {
-            position: absolute;
-            bottom: 6rem;
-            /* 调整到说明文字上方 */
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            z-index: 10;
-        }
-
-        .carousel-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--glass-strong);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            color: var(--text);
-            font-size: 1.25rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow);
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg);
+        }
+
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-offset);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
         }
 
         .carousel-btn:hover {
-            background: white;
-            transform: scale(1.1);
-            box-shadow: var(--shadow-md);
+            background: var(--text-main);
+            color: var(--bg);
         }
 
-        .carousel-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* 指示器圆点 */
         .carousel-dots {
             display: flex;
             gap: 0.5rem;
         }
 
         .carousel-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.2);
+            background: var(--border);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
 
         .carousel-dot.active {
-            background: var(--primary);
-            width: 32px;
-            border-radius: 5px;
+            background: var(--text-main);
+            transform: scale(1.2);
         }
 
-        .carousel-dot:hover {
-            background: var(--primary);
-            opacity: 0.7;
-        }
-
-        /* 占位符样式（保留用于无截图时显示）*/
-        .screenshot-placeholder {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 5rem 3rem;
-            text-align: center;
-            border: 2px dashed var(--border);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-
-        .screenshot-placeholder:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        .screenshot-placeholder-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: var(--bg-tertiary);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .screenshot-placeholder-icon svg {
-            width: 40px;
-            height: 40px;
-            color: var(--text-muted);
-        }
-
-        .screenshot-placeholder h3 {
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .screenshot-placeholder p {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-        }
-
-
-
-        /* Download */
         .download {
-            max-width: 1280px;
-            margin: 5rem auto 6rem;
-            /* Tightened gap */
-            padding: 0 2rem;
-            position: relative;
-            z-index: 10;
+            padding: 6rem 0;
         }
 
         .platform-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            /* Wider gap */
-            margin-top: 4rem;
-            /* More breathing room after header */
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
         .platform-card {
-            background: white;
-            padding: 3rem 2.5rem;
-            border-radius: 1.25rem;
-            border: 1px solid var(--border-light);
+            background: var(--bg-offset);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            transition: all 0.2s;
             position: relative;
-            overflow: hidden;
         }
 
-        .platform-card.platform-coming-soon {
-            opacity: 0.7;
-            cursor: default;
+        .platform-card:hover:not(.platform-coming-soon) {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+            border-color: rgba(120, 120, 120, 0.3);
+        }
+
+        .platform-coming-soon {
+            opacity: 0.6;
         }
 
         .coming-soon-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 1rem;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
             font-size: 0.75rem;
-            font-weight: 600;
-            z-index: 2;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .platform-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .platform-card:hover {
-            border-color: transparent;
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .platform-card.platform-coming-soon:hover {
-            transform: none;
-            box-shadow: none;
-            border-color: var(--border-light);
-        }
-
-        .platform-card:hover::before {
-            opacity: 0.03;
+            font-weight: 500;
+            color: var(--text-muted);
         }
 
         .platform-icon {
-            width: 80px;
-            height: 80px;
+            width: 48px;
+            height: 48px;
             margin: 0 auto 1.5rem;
-            background: var(--bg-tertiary);
-            border-radius: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .platform-card:hover .platform-icon {
-            background: var(--gradient-primary);
-            transform: scale(1.1);
-        }
-
-        .platform-icon svg {
-            width: 40px;
-            height: 40px;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
-
-        .platform-card:hover .platform-icon svg {
-            color: white;
+            color: var(--text-main);
         }
 
         .platform-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
+            color: var(--text-main);
         }
 
         .platform-version {
+            font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
-            font-size: 0.875rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .platform-card .btn {
-            position: relative;
-            z-index: 1;
-        }
-
-        .download-note {
-            text-align: center;
-            margin-top: 3.5rem;
-            padding: 2rem;
-            background: var(--bg-tertiary);
-            border-radius: 1rem;
-        }
-
-        .download-note p {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-            margin: 0;
-        }
-
-
-
-        /* Sponsor */
         .sponsor {
-            background: var(--bg-secondary);
-            padding: 10rem 2rem;
-            /* Substantially increased padding */
-            position: relative;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-light);
         }
 
-        .sponsor-container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        /* 赞助用途说明样式 */
         .sponsor-purposes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            /* Wider gap */
-            margin-bottom: 4rem;
-            /* More breathing room */
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .purpose-card {
-            background: white;
-            padding: 2rem 1.5rem;
-            border-radius: 1rem;
-            border: 1px solid var(--border-light);
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
             text-align: center;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .purpose-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
         }
 
         .purpose-icon {
-            width: 48px;
-            height: 48px;
-            color: var(--primary);
+            width: 24px;
+            height: 24px;
             margin: 0 auto 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .purpose-card:hover .purpose-icon {
-            transform: scale(1.1);
-            color: var(--secondary);
+            color: var(--text-main);
         }
 
         .purpose-card h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
-            color: var(--text);
+            color: var(--text-main);
         }
 
         .purpose-card p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
         .sponsor-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .sponsor-card {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 1.25rem;
-            border: 1px solid var(--border-light);
+            background: var(--bg-offset);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
             text-align: center;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sponsor-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.2s;
+            display: block;
         }
 
         .sponsor-card:hover {
-            border-color: transparent;
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .sponsor-card:hover::before {
-            opacity: 0.03;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+            border-color: rgba(120, 120, 120, 0.3);
         }
 
         .sponsor-icon {
-            width: 80px;
-            height: 80px;
+            width: 48px;
+            height: 48px;
             margin: 0 auto 1.5rem;
-            border-radius: 1.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
+            border-radius: 12px;
             color: white;
         }
 
-        .sponsor-card:hover .sponsor-icon {
-            transform: scale(1.1) rotate(-5deg);
-            box-shadow: var(--shadow-md);
-        }
-
         .sponsor-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .sponsor-card p {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
+            color: var(--text-main);
         }
 
         .sponsor-note {
             text-align: center;
-            margin-top: 3.5rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 1rem;
-            border: 1px solid var(--border-light);
-        }
-
-        .sponsor-note p {
+            margin-top: 3rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-size: 0.9375rem;
-            margin: 0;
         }
 
-        /* Footer */
         footer {
-            background: var(--text);
-            color: white;
-            padding: 5rem 2rem 2.5rem;
-        }
-
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
+            padding: 5rem 0 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-offset);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3.5rem;
-            margin-bottom: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
         .footer-section h4 {
-            font-size: 1.125rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
         }
 
         .footer-links {
             list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.875rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            display: inline-block;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: white;
-            transform: translateX(4px);
+            color: var(--text-main);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Utility overrides */
+        .section-badge {
+            display: inline-block;
+            background: var(--bg-offset);
+            border: 1px solid var(--border);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-glass);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            z-index: 99;
+            box-shadow: var(--shadow-float);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            background: var(--text-main);
+            color: var(--bg);
+        }
+
+
+        /* Download Modal */
+        .download-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg-glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .download-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .download-modal-content {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 480px;
+            box-shadow: var(--shadow-float);
+            padding: 2.5rem 2rem;
+            transform: scale(0.96) translateY(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .download-modal-overlay.active .download-modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .download-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-modal-close:hover {
+            background: var(--bg-offset);
+            color: var(--text-main);
+        }
+
+        .modal-header {
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
         }
 
-        .footer-bottom p {
-            margin: 0.5rem 0;
-            font-size: 0.9375rem;
+        .modal-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 5rem 1.5rem 6rem;
-            }
-
-            .hero h1 {
-                font-size: 2.75rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.125rem;
-            }
-
-            .section-title {
-                font-size: 2.25rem;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: var(--shadow-lg);
-                z-index: 99;
-                gap: 0;
-                opacity: 0;
-                transform: translateY(-10px);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-
-            .nav-links.active {
-                display: flex;
-                animation: slideDown 0.3s ease forwards;
-            }
-
-            @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .nav-links li {
-                width: 100%;
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-
-            .nav-links.active li {
-                animation: slideInLeft 0.3s ease forwards;
-            }
-
-            /* 为每个菜单项添加延迟，创建交错效果 */
-            .nav-links.active li:nth-child(1) {
-                animation-delay: 0.05s;
-            }
-
-            .nav-links.active li:nth-child(2) {
-                animation-delay: 0.1s;
-            }
-
-            .nav-links.active li:nth-child(3) {
-                animation-delay: 0.15s;
-            }
-
-            .nav-links.active li:nth-child(4) {
-                animation-delay: 0.2s;
-            }
-
-            .nav-links.active li:nth-child(5) {
-                animation-delay: 0.25s;
-            }
-
-            .nav-links.active li:nth-child(6) {
-                animation-delay: 0.3s;
-            }
-
-            @keyframes slideInLeft {
-                from {
-                    opacity: 0;
-                    transform: translateX(-20px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1rem;
-                border-radius: 0.5rem;
-                transition: all 0.2s ease;
-            }
-
-            .nav-links a:hover {
-                background: var(--bg-tertiary);
-                transform: translateX(4px);
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .feature-grid,
-            .platform-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sponsor-purposes {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .features,
-            .download {
-                margin: 5rem auto;
-            }
-
-            .screenshots {
-                padding: 5rem 1.5rem;
-            }
-
-            /* 移动端轮播控制优化 */
-            .carousel-controls {
-                bottom: 1rem;
-            }
-
-            .carousel-btn {
-                width: 40px;
-                height: 40px;
-            }
-
-            .carousel-dots {
-                gap: 0.375rem;
-            }
-
-            .carousel-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .carousel-dot.active {
-                width: 24px;
-            }
-
-            /* 移动端卡片优化 */
-            .feature-card,
-            .platform-card {
-                padding: 2rem 1.5rem;
-            }
-
-            /* 返回顶部按钮移动端位置 */
-            .back-to-top {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 44px;
-                height: 44px;
-            }
+        .modal-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-                padding: 0.875rem 1.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            /* 截图说明文字移动端优化 */
-            .screenshot-caption {
-                bottom: 1rem;
-                left: 1rem;
-                right: 1rem;
-                padding: 1rem;
-            }
-
-            .screenshot-caption h4 {
-                font-size: 1rem;
-            }
-
-            .screenshot-caption p {
-                font-size: 0.875rem;
-            }
-
-
+        .modal-tabs {
+            display: flex;
+            background: var(--bg-offset);
+            padding: 0.3rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-light);
         }
 
-        /* 平板端优化 */
-        @media (min-width: 769px) and (max-width: 1024px) {
-
-            .feature-grid,
-            .platform-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .modal-tab {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
+        .modal-tab.active {
+            background: var(--bg);
+            color: var(--text-main);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .modal-panels {
+            margin-bottom: 1.5rem;
+            min-height: 200px;
+        }
+
+        .modal-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(5px);
             }
 
             to {
@@ -2486,153 +947,139 @@
             }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        .download-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        /* 性能优化：使用 will-change 提示浏览器 */
-        .feature-card,
-        .platform-card,
-        .sponsor-card {
-            will-change: transform;
-        }
-
-        .feature-card:hover,
-        .platform-card:hover,
-        .sponsor-card:hover {
-            will-change: transform, box-shadow;
-        }
-
-        /* 图片懒加载优化 */
-        img[loading="lazy"] {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        img[loading="lazy"].loaded {
-            opacity: 1;
-        }
-
-        /* 减少动画偏好设置支持 */
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .scroll-progress,
-            .back-to-top {
-                transition: none;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* 滚动进度指示器 */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform-origin: left;
-            z-index: 1000;
-            transition: transform 0.1s ease;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-        }
-
-        /* 返回顶部按钮 */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.2s;
             cursor: pointer;
+            background: var(--bg-offset);
+        }
+
+        .download-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+            background: var(--bg);
+        }
+
+        .dl-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .dl-name {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .dl-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .dl-action {
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-lg);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--border-light);
+            color: var(--text-main);
+            transition: all 0.2s;
+            flex-shrink: 0;
         }
 
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
+        .download-item:hover .dl-action {
+            background: var(--text-main);
+            color: var(--bg);
         }
 
-        .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
+        .modal-footer {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
         }
 
-        .back-to-top:active {
-            transform: translateY(-2px);
+        .view-all-releases {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        /* Smooth scrolling */
-
-        /* Selection */
-        ::selection {
-            background: var(--primary);
-            color: white;
+        .view-all-releases:hover {
+            color: var(--text-main);
         }
 
-        ::-moz-selection {
-            background: var(--primary);
-            color: white;
+        .dl-tag {
+            font-size: 0.65rem;
+            padding: 0.1rem 0.4rem;
+            background: var(--border);
+            color: var(--text-main);
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
-        /* 键盘导航焦点样式 */
-        *:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
+        .dl-tag.recommended {
+            background: var(--text-main);
+            color: var(--bg);
         }
 
-        /* 为交互元素添加更明显的焦点样式 */
-        a:focus,
-        button:focus,
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        .dl-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: var(--text-muted);
         }
 
-        /* 卡片元素的焦点样式 */
-        .feature-card:focus,
-        .platform-card:focus,
-        .sponsor-card:focus,
-        .use-case-row:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 4px;
+        .dl-spinner {
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+            width: 24px;
+            height: 24px;
         }
 
-        /* 移除默认焦点样式但保留键盘导航可见性 */
-        *:focus:not(:focus-visible) {
-            outline: none;
-            box-shadow: none;
+        .dl-error {
+            text-align: center;
+            padding: 2rem 0;
+            color: #ef4444;
+            font-size: 0.9rem;
         }
 
-        *:focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        .dl-retry {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            margin-top: 1rem;
+            cursor: pointer;
+            color: var(--text-main);
+            flex-shrink: 0;
+        }
+
+        .dl-retry:hover {
+            background: var(--bg-offset);
         }
     </style>
 </head>
@@ -2643,14 +1090,14 @@
 
     <!-- Header -->
     <header id="header" role="banner">
-        <nav role="navigation" aria-label="主导航">
+        <nav class="container" role="navigation" aria-label="主导航">
             <a href="#" class="logo" aria-label="MarKing 首页">
                 <img src="marking-app-icon-128.png" alt="MarKing Logo" class="logo-icon">
                 <span>MarKing</span>
             </a>
             <ul class="nav-links" id="navLinks" role="navigation">
                 <li><a href="#features">功能特性</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                <li><a href="https://github.com/l06066hb/MarKing/blob/main/release-docs/CHANGELOG_EN.md" target="_blank"
                         rel="noopener noreferrer">更新日志</a></li>
                 <li><a href="./index-en.html" class="lang-switch" aria-label="切换到英文">English</a></li>
                 <li><a href="https://github.com/l06066hb/MarKing/issues" class="nav-cta">问题反馈</a></li>
@@ -2662,14 +1109,14 @@
                         </svg>
                     </a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false"
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false"
                 aria-controls="navLinks">
-                <!-- Menu 图标 (Heroicons - Bars3) -->
+                <!-- Menu Icon (Heroicons - Bars3) -->
                 <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-                <!-- Close 图标 (Heroicons - XMark) -->
+                <!-- Close Icon (Heroicons - XMark) -->
                 <svg class="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     style="display: none;" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -2679,389 +1126,156 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" role="main" aria-labelledby="hero-title">
-        <!-- 流动光斑背景 -->
-        <div class="hero-orbs" aria-hidden="true">
-            <div class="hero-orb hero-orb-1"></div>
-            <div class="hero-orb hero-orb-2"></div>
-            <div class="hero-orb hero-orb-3"></div>
-            <div class="hero-orb hero-orb-4"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-badge" role="status" aria-label="版本信息">
-                <span class="badge-icon" aria-hidden="true"></span>
-                <span>v1.1.2 现已全新发布</span>
-            </div>
-            <h1 id="hero-title">
-                <span class="hero-gradient">MarKing</span><br>
-                专业 Markdown 编辑器
-            </h1>
-            <p class="hero-subtitle">
-                现代化的跨平台文档创作工具,让技术写作更高效、更专业。<br>
-                支持实时预览、智能补全、表格可视化编辑、专业文档导出。
-            </p>
-            <div class="cta-buttons" role="group" aria-label="主要操作">
-                <a href="#download" class="btn btn-primary" aria-label="立即下载 MarKing">
-                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>立即下载</span>
-                </a>
-                <a href="#features" class="btn btn-secondary" aria-label="了解功能特性">
-                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                    <span>了解功能</span>
-                </a>
-            </div>
 
-            <!-- GitHub 统计栏 - 暂时隐藏,等数据积累后再展示 -->
-            <!-- 
-            <div class="github-stats" role="region" aria-label="GitHub 统计数据">
-                <div class="stat-card">
-                    <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                    </svg>
-                    <div class="stat-content">
-                        <div class="stat-value" id="github-stars">-</div>
-                        <div class="stat-label">GitHub Stars</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <svg class="stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                    </svg>
-                    <div class="stat-content">
-                        <div class="stat-value" id="total-downloads">-</div>
-                        <div class="stat-label">总下载量</div>
-                    </div>
-                </div>
+    <section class="hero container" role="main" aria-labelledby="hero-title">
+        <div class="hero-badge" role="status" aria-label="Version Info">
+            ✨ <span>v1.2.0 现已全新发布</span>
+        </div>
+        <h1 id="hero-title"><span>MarKing</span><br>专业 Markdown 编辑器</h1>
+        <p class="hero-subtitle">现代化的跨平台文档创作工具，让技术写作更高效、更专业。<br>支持实时预览、智能补全、表格可视化编辑、专业文档导出。</p>
+        <div class="cta-buttons" role="group">
+            <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
+                <span>立即下载</span>
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </button>
+            <a href="#features" class="btn btn-secondary">
+                <span>了解功能</span>
+            </a>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="hero-image-inner">
+                <img src="marking-markdown-editor-main-interface.png?v=1.2" alt="专业 Markdown 编辑器">
             </div>
-            -->
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features" aria-labelledby="features-title">
+
+    <section id="features" class="features container" aria-labelledby="features-title">
         <div class="section-header">
-            <span class="section-badge">为什么选择 MarKing</span>
             <h2 id="features-title" class="section-title">专业文档创作的完整解决方案</h2>
-            <p class="section-subtitle">
-                强大功能 × 极致体验 × 安全可靠，让文档创作更高效、更专业
-            </p>
+            <p class="section-subtitle">强大功能 × 极致体验 × 安全可靠，让文档创作更高效、更专业</p>
         </div>
-        <div class="feature-grid" role="list">
-            <!-- 第一行 -->
-            <article class="feature-card" role="listitem" tabindex="0">
-                <div class="feature-icon" aria-hidden="true">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bento-grid">
+            <div class="bento-item bento-wide">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                </div>
+                    </svg></div>
                 <h3>原生级专业编辑器</h3>
-                <p>Monaco核心强劲驱动。融入精致毛玻璃与物理级微交互的极简工具栏，超 70+ 代码片段，尽享行云流水的写作快感。</p>
-            </article>
-            <article class="feature-card" role="listitem" tabindex="0">
-                <div class="feature-icon" aria-hidden="true">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <h3>可视化表格与图表</h3>
-                <p>像 Excel 一样拖拽编辑表格。全新引入现代化的浮动快捷工具栏 (Inline Toolbar)，交互更加聚焦优雅。搭配 Mermaid 助手，无缝编排复杂图表代码。</p>
-            </article>
-            <article class="feature-card" role="listitem" tabindex="0">
-                <div class="feature-icon" aria-hidden="true">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <h3>专业导出</h3>
-                <p>DOCX 模板系统，PDF 高质量输出，HTML 静态页面，满足学术、技术、商业需求</p>
-            </article>
-
-            <!-- 第二行 -->
-            <article class="feature-card" role="listitem" tabindex="0">
-                <div class="feature-icon" aria-hidden="true">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                </div>
-                <h3>桌面原生级美学</h3>
-                <p>12px 完美无边框过渡，全方位高密度极简排版，搭配精心调配的 18 套深色/浅色预置主题，带来极致沉浸体验。</p>
-            </article>
-            <article class="feature-card" role="listitem" tabindex="0">
-                <div class="feature-icon" aria-hidden="true">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                    </svg>
-                </div>
-                <h3>智能管理</h3>
-                <p>多库支持，全局搜索，自动保存，版本快照。全新升级的智能备份系统，支持灵活的备份范围选择，让数据更安全可控</p>
-            </article>
-            <article class="feature-card" role="listitem" tabindex="0">
-                <div class="feature-icon" aria-hidden="true">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <p>Monaco核心强劲驱动。融入精致毛玻璃与物理级微交互的极简工具栏，超级 70+ 代码片段，尽享行云流水的写作快感。</p>
+            </div>
+            <div class="bento-item bento-square">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-                <h3>极致性能体验</h3>
-                <p>基于全新 Tauri 2.0 核心架构全面跨代重构。内存占用更低，启动与渲染速度迈入新纪元。超大文件与高密度长文依然丝滑如初。</p>
-            </article>
-        </div>
-
-        <!-- 信任标识栏 -->
-        <div class="trust-badges" role="list">
-            <div class="trust-badge" role="listitem">
-                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                </svg>
-                <div class="trust-text">
-                    <span class="trust-title">开箱即用</span>
-                    <span class="trust-desc">零配置，下载即用</span>
-                </div>
+                    </svg></div>
+                <h3>极速轻量模式</h3>
+                <p>专为纯粹阅读和轻量修改打造。默认应用直接秒开，摒弃一切繁杂界面，以极低资源占用瞬间呈现你的文档。</p>
             </div>
-            <div class="trust-badge" role="listitem">
-                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-                <div class="trust-text">
-                    <span class="trust-title">数据安全</span>
-                    <span class="trust-desc">本地存储，完全离线</span>
-                </div>
+            <div class="bento-item bento-square">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg></div>
+                <h3>可视化表格与图表</h3>
+                <p>像 Excel 一样拖拽编辑表格。全新引入现代化的浮动快捷工具栏，交互更加聚焦优雅。搭配 Mermaid 助手，无缝编排复杂图表代码。</p>
             </div>
-            <div class="trust-badge" role="listitem">
-                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
-                <div class="trust-text">
-                    <span class="trust-title">持续更新</span>
-                    <span class="trust-desc">活跃开发，快速响应</span>
-                </div>
+            <div class="bento-item bento-wide">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    </svg></div>
+                <h3>桌面原生级美学</h3>
+                <p>12px 完美无边框过渡，高密度极简排版。搭配精心调配的 18 套深浅色全局主题，与独立的代码块高亮主题引擎，带来极致沉浸体验。</p>
+            </div>
+            <div class="bento-item bento-half">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg></div>
+                <h3>专业导出</h3>
+                <p>DOCX 模板系统，PDF 高质量输出，HTML 静态页面，满足学术、技术、商业需求。</p>
+            </div>
+            <div class="bento-item bento-half">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                    </svg></div>
+                <h3>智能管理</h3>
+                <p>多库支持，全局搜索，自动保存，版本快照。全新升级的智能备份系统，支持灵活的备份范围选择，让数据更安全。</p>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section - 交替式布局 -->
-    <section class="use-cases" aria-labelledby="use-cases-title">
-        <div class="use-cases-container">
-            <div class="section-header">
-                <span class="section-badge">使用场景</span>
-                <h2 id="use-cases-title" class="section-title">适合各类创作者</h2>
-                <p class="section-subtitle">
-                    无论你是开发者、学生、创作者还是产品经理，MarKing 都能满足你的需求
-                </p>
-            </div>
+    <!-- Use Cases Section - Alternating Layout -->
 
-            <!-- 开发者 - 左图右文 -->
-            <article class="use-case-row" role="listitem">
-                <div class="use-case-visual">
-                    <div class="visual-card visual-code">
-                        <div class="visual-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                            </svg>
-                        </div>
-                        <div class="visual-decoration">
-                            <div class="code-line"></div>
-                            <div class="code-line short"></div>
-                            <div class="code-line"></div>
-                            <div class="code-line medium"></div>
-                            <div class="code-line short"></div>
-                            <div class="code-line"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="use-case-content">
-                    <h3>开发者</h3>
-                    <p class="use-case-desc">专为技术文档和代码管理设计</p>
-                    <ul class="use-case-features">
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>技术文档编写：API 文档、架构设计、开发日志</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>代码片段管理：支持 100+ 编程语言语法高亮</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>项目 README：快速生成专业的项目说明文档</span>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-
-            <!-- 学生 & 研究者 - 右图左文 -->
-            <article class="use-case-row reverse" role="listitem">
-                <div class="use-case-visual">
-                    <div class="visual-card visual-academic">
-                        <div class="visual-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                            </svg>
-                        </div>
-                        <div class="visual-decoration">
-                            <div class="formula-line">∫ f(x)dx</div>
-                            <div class="formula-line">Σ x²</div>
-                            <div class="formula-line">√(a² + b²)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="use-case-content">
-                    <h3>学生 & 研究者</h3>
-                    <p class="use-case-desc">学术写作和研究笔记的理想工具</p>
-                    <ul class="use-case-features">
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>学术论文：支持公式编辑，导出符合期刊要求的 DOCX</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>课程笔记：实时预览，表格可视化编辑</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>毕业设计：完整的文档管理和版本控制</span>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-
-            <!-- 内容创作者 - 左图右文 -->
-            <article class="use-case-row" role="listitem">
-                <div class="use-case-visual">
-                    <div class="visual-card visual-creator">
-                        <div class="visual-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                            </svg>
-                        </div>
-                        <div class="visual-decoration">
-                            <div class="doc-page"></div>
-                            <div class="doc-page small"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="use-case-content">
-                    <h3>内容创作者</h3>
-                    <p class="use-case-desc">博客、教程、电子书创作的最佳伙伴</p>
-                    <ul class="use-case-features">
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>博客文章：Markdown 写作，一键导出 HTML</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>电子书创作：章节管理，多格式导出</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>教程制作：代码高亮，截图插入，专业排版</span>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-
-            <!-- 产品 & 项目经理 - 右图左文 -->
-            <article class="use-case-row reverse" role="listitem">
-                <div class="use-case-visual">
-                    <div class="visual-card visual-manager">
-                        <div class="visual-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
-                            </svg>
-                        </div>
-                        <div class="visual-decoration">
-                            <div
-                                style="display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 100px;">
-                                <div class="chart-bar" style="height: 55%;"></div>
-                                <div class="chart-bar" style="height: 75%;"></div>
-                                <div class="chart-bar" style="height: 40%;"></div>
-                                <div class="chart-bar" style="height: 85%;"></div>
-                                <div class="chart-bar" style="height: 50%;"></div>
-                            </div>
-                            <div class="data-label">数据可视化</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="use-case-content">
-                    <h3>产品 & 项目经理</h3>
-                    <p class="use-case-desc">需求文档和项目管理的高效解决方案</p>
-                    <ul class="use-case-features">
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>需求文档：表格编辑，流程图支持</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>会议纪要：快速记录，自动保存</span>
-                        </li>
-                        <li>
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>项目报告：专业模板，高质量 PDF 输出</span>
-                        </li>
-                    </ul>
-                </div>
-            </article>
+    <section class="use-cases container" aria-labelledby="use-cases-title">
+        <div class="section-header">
+            <h2 id="use-cases-title" class="section-title">适合各类创作者</h2>
+            <p class="section-subtitle">无论你是开发者、学生、创作者还是产品经理，MarKing 都能满足你的需求。</p>
         </div>
+
+        <article class="use-case-row">
+            <div class="use-case-img">
+                <img src="marking-editor-features-preview-completion.png?v=1" alt="Developer">
+            </div>
+            <div class="use-case-content">
+                <h3>开发者</h3>
+                <p class="use-case-desc">专为技术文档和代码管理设计</p>
+                <ul class="check-list">
+                    <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg><span>技术文档编写：API 文档、架构设计、开发日志</span></li>
+                    <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg><span>代码片段管理：支持 100+ 编程语言语法高亮</span></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="use-case-row reverse">
+            <div class="use-case-img">
+                <img src="marking-export-docx-pdf-feature.png?v=1" alt="Student & Researcher">
+            </div>
+            <div class="use-case-content">
+                <h3>学生 & 研究者</h3>
+                <p class="use-case-desc">论文写作与知识整理的最佳工具</p>
+                <ul class="check-list">
+                    <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg><span>论文排版：支持复杂数学公式，严格的 DOCX 模板导出</span></li>
+                    <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg><span>课堂笔记：实时预览，所见即所得的表格处理</span></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="use-case-row">
+            <div class="use-case-img">
+                <img src="marking-mermaid-diagram-assistant.png?v=1" alt="Content Creator">
+            </div>
+            <div class="use-case-content">
+                <h3>内容创作者</h3>
+                <span>博客与电子书编写的最佳伴侣</span>
+                <ul class="check-list">
+                    <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg><span>博客文章：Markdown 写作，一键导出 HTML</span></li>
+                    <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg><span>电子书创作：章节管理，多格式导出</span></li>
+                </ul>
+            </div>
+        </article>
     </section>
 
     <!-- Screenshots Section -->
-    <section class="screenshots" aria-labelledby="screenshots-title">
+    <section class="screenshots container" aria-labelledby="screenshots-title">
         <div class="screenshot-container">
             <div class="section-header">
                 <span class="section-badge">界面预览</span>
@@ -3074,71 +1288,93 @@
             <!-- 截图轮播组件 -->
             <div class="screenshot-carousel" role="region" aria-label="产品截图轮播" aria-live="polite">
                 <div class="carousel-track" id="carouselTrack">
-                    <!-- 截图1：主界面 -->
+                    <!-- Screenshot 1: Lightweight Mode -->
                     <div class="screenshot-item active">
-                        <img src="marking-markdown-editor-main-interface.png?v=1" alt="MarKing 主界面 - 专业的 Markdown 编辑环境">
+                        <img src="marking-lightweight-mode.png?v=1" alt="轻量模式 - 秒开阅读">
+                        <div class="screenshot-caption">
+                            <h4>极速轻量阅读模式</h4>
+                            <p>作为默认应用秒开 MD 文件，摒弃一切干扰，专注文档阅读与轻量编辑</p>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot 2: Main Interface -->
+                    <div class="screenshot-item">
+                        <img src="marking-markdown-editor-main-interface.png?v=1"
+                            alt="MarKing Main Interface - Professional Markdown Editing Environment">
                         <div class="screenshot-caption">
                             <h4>专业编辑环境</h4>
                             <p>Monaco 编辑器 + 实时预览，双栏布局，高效创作</p>
                         </div>
                     </div>
 
-                    <!-- 截图2：编辑器特写 -->
+                    <!-- Screenshot 2: Editor Close-up -->
                     <div class="screenshot-item">
-                        <img src="marking-editor-features-preview-completion.png?v=1" alt="MarKing 编辑器特写 - 智能补全和代码片段">
+                        <img src="marking-editor-features-preview-completion.png?v=1"
+                            alt="MarKing Editor Close-up - Smart Completion and Code Snippets">
                         <div class="screenshot-caption">
                             <h4>强大的编辑功能</h4>
                             <p>70+ 代码片段，智能补全，一键格式化</p>
                         </div>
                     </div>
 
-                    <!-- 截图3：表格编辑 -->
+                    <!-- Screenshot 3: Table Editor -->
                     <div class="screenshot-item">
-                        <img src="marking-visual-table-editor.png?v=1" alt="MarKing 表格编辑器 - 可视化编辑 Markdown 表格">
+                        <img src="marking-visual-table-editor.png?v=1"
+                            alt="MarKing Table Editor - Visual Markdown Table Editing">
                         <div class="screenshot-caption">
                             <h4>表格编辑器</h4>
                             <p>可视化编辑 Markdown 表格，支持拖拽和快速填充</p>
                         </div>
                     </div>
 
-                    <!-- 截图4：导出功能 -->
+                    <!-- Screenshot 4: Export Features -->
                     <div class="screenshot-item">
-                        <img src="marking-export-docx-pdf-feature.png?v=1" alt="MarKing 导出功能 - 多格式专业文档导出">
+                        <img src="marking-export-docx-pdf-feature.png?v=1"
+                            alt="MarKing Export Features - Multi-format Professional Document Export">
                         <div class="screenshot-caption">
                             <h4>多格式导出</h4>
                             <p>专业模板系统,高质量 DOCX/PDF 输出</p>
                         </div>
                     </div>
 
-                    <!-- 截图5：Mermaid 图表编写助手 -->
+                    <!-- Screenshot 5: Mermaid Diagram Assistant -->
                     <div class="screenshot-item">
-                        <img src="marking-mermaid-diagram-assistant.png?v=1" alt="Mermaid 图表编写助手">
+                        <img src="marking-mermaid-diagram-assistant.png?v=1" alt="Mermaid Diagram Assistant">
                         <div class="screenshot-caption">
                             <h4>Mermaid 图表助手</h4>
                             <p>辅助编写图表代码,提供语法提示和常用模板</p>
                         </div>
                     </div>
 
-                    <!-- 截图6：智能备份系统 -->
+                    <!-- Screenshot 6: Smart Backup System -->
                     <div class="screenshot-item">
-                        <img src="marking-smart-backup-system.png?v=1" alt="智能备份系统">
+                        <img src="marking-smart-backup-system.png?v=1" alt="Smart Backup System">
                         <div class="screenshot-caption">
                             <h4>智能备份系统</h4>
                             <p>全新升级的备份系统,让数据更安全可控</p>
                         </div>
                     </div>
 
-                    <!-- 截图7：多库管理 -->
+                    <!-- Screenshot 7: Multi-vault Management -->
                     <div class="screenshot-item">
-                        <img src="marking-multi-vault-management.png?v=1" alt="多库管理">
+                        <img src="marking-multi-vault-management.png?v=1" alt="Multi-vault Management">
                         <div class="screenshot-caption">
                             <h4>多库管理</h4>
                             <p>独立管理不同项目,数据隔离更安全</p>
                         </div>
                     </div>
+
+                    <!-- Screenshot 8: Code Theme Settings -->
+                    <div class="screenshot-item">
+                        <img src="marking-code-theme-settings.png?v=1" alt="Code Theme Settings">
+                        <div class="screenshot-caption">
+                            <h4>代码高亮主题引擎</h4>
+                            <p>独立的代码块高亮选项，随心搭配多套发烧友级经典配色</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- 轮播控制 -->
                 <div class="carousel-controls">
                     <button class="carousel-btn" id="prevBtn" aria-label="上一张">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -3153,6 +1389,8 @@
                         <span class="carousel-dot" data-index="4"></span>
                         <span class="carousel-dot" data-index="5"></span>
                         <span class="carousel-dot" data-index="6"></span>
+                        <span class="carousel-dot" data-index="7"></span>
+                        <span class="carousel-dot" data-index="8"></span>
                     </div>
                     <button class="carousel-btn" id="nextBtn" aria-label="下一张">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -3168,7 +1406,7 @@
     <section id="themes" class="theme-showcase" aria-labelledby="themes-title">
         <style>
             .theme-showcase {
-                background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+                background: linear-gradient(180deg, var(--bg) 0%, var(--bg-offset) 100%);
                 padding-bottom: 8rem;
                 position: relative;
             }
@@ -3187,7 +1425,7 @@
                 overflow: hidden;
                 box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
                 transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-                background: var(--bg-tertiary);
+                background: var(--bg);
                 border: 1px solid var(--border-light);
                 cursor: default;
                 aspect-ratio: 16/10;
@@ -3294,54 +1532,54 @@
                 }
             }
         </style>
-        <div class="theme-container" style="max-width: 1280px; margin: 0 auto; padding: 2rem 2rem 2rem;">
+        <div class="theme-container container">
             <div class="section-header" style="max-width: 860px; margin: 0 auto 5rem;">
                 <span class="section-badge"
-                    style="background: rgba(99, 102, 241, 0.08); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.2); box-shadow: 0 4px 16px -4px rgba(99, 102, 241, 0.2);">桌面原生美学</span>
+                    style="background: rgba(99, 102, 241, 0.08); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.2); box-shadow: 0 4px 16px -4px rgba(99, 102, 241, 0.2);">桌面原生级美学</span>
                 <h2 id="themes-title" class="section-title"
-                    style="font-size: 2.75rem; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--text) 30%, var(--text-muted) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                    18 款精妙主题，质感一触即发</h2>
-                <p class="section-subtitle" style="max-width: 720px;">
-                    告别千篇一律的沉闷界面。从极简纯粹到赛博朋克，每一款主题都经过像素级调配，<br>配合底层的微拟物毛玻璃与光影特效，为你打造真正的视网膜级沉浸式创作体验。
+                    style="font-size: 2.75rem; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                    18 套极具质感的精美主题</h2>
+                <p class="section-subtitle" style="max-width: 800px;">
+                    告别千篇一律的界面。从极简纯净到极客赛博，每一套主题都经过像素级调校。<br>结合底层的毛玻璃材质与光影特效，为您带来视网膜级别的沉浸式写作体验。
                 </p>
             </div>
 
             <div class="theme-gallery">
-                <!-- Row 1: 主打经典 -->
+                <!-- Row 1: Classic Main Themes -->
                 <div class="theme-item t-large" tabindex="0">
                     <img src="marking-theme-eye-care.png" alt="护眼柔光主题" class="theme-img">
                     <div class="theme-overlay">
-                        <h4 class="theme-title">护眼柔光 (Eye Care)</h4>
+                        <h4 class="theme-title">护眼柔光</h4>
                         <p class="theme-desc">温和舒适的低饱和暖色基调，专注于持久护眼的沉浸式写作体验。</p>
                     </div>
                 </div>
                 <div class="theme-item t-small" tabindex="0">
                     <img src="marking-theme-rose-pink.png" alt="玫瑰粉红主题" class="theme-img">
                     <div class="theme-overlay">
-                        <h4 class="theme-title">玫瑰粉红 (Rose Pink)</h4>
+                        <h4 class="theme-title">玫瑰粉红</h4>
                         <p class="theme-desc">柔和优雅的粉调质感，带来温馨又充满灵感的创作氛围。</p>
                     </div>
                 </div>
 
-                <!-- Row 2: 色彩与个性 -->
+                <!-- Row 2: Colorful & Personality -->
                 <div class="theme-item t-small" tabindex="0">
                     <img src="marking-theme-ocean-blue.png" alt="静谧深海主题" class="theme-img">
                     <div class="theme-overlay">
-                        <h4 class="theme-title">静谧深海 (Ocean Blue)</h4>
+                        <h4 class="theme-title">静谧深海</h4>
                         <p class="theme-desc">充满理性的深海蓝调，完美契合专业且严谨的技术文档编写。</p>
                     </div>
                 </div>
                 <div class="theme-item t-small" tabindex="0">
                     <img src="marking-theme-sepia-yellow.png" alt="复古旧纸主题" class="theme-img">
                     <div class="theme-overlay">
-                        <h4 class="theme-title">复古旧纸 (Sepia Yellow)</h4>
+                        <h4 class="theme-title">复古旧纸</h4>
                         <p class="theme-desc">如泛黄旧卷般的文艺暖色，给予创作最温柔的情感慰藉。</p>
                     </div>
                 </div>
                 <div class="theme-item t-small" tabindex="0">
                     <img src="marking-theme-neon-cyber.png" alt="霓虹赛博主题" class="theme-img">
                     <div class="theme-overlay">
-                        <h4 class="theme-title">霓虹赛博 (Neon Cyber)</h4>
+                        <h4 class="theme-title">霓虹赛博</h4>
                         <p class="theme-desc">高对比度的赛博朋克紫红霓虹，爆发绝对的视觉张力。</p>
                     </div>
                 </div>
@@ -3354,14 +1592,14 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    支持随系统自动切换深色/浅色模式，白天夜晚均有完美表现
+                    支持随系统自动切换深色/浅色模式，白天夜晚均有完美表现。
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="download" aria-labelledby="download-title">
+    <section id="download" class="download container" aria-labelledby="download-title">
         <div class="section-header">
             <span class="section-badge">立即下载</span>
             <h2 id="download-title" class="section-title">支持所有主流平台</h2>
@@ -3369,7 +1607,7 @@
                 选择适合你的平台，开始高效的文档创作之旅
             </p>
         </div>
-        <div class="platform-grid" role="list">
+        <div class="platform-grid">
             <div class="platform-card">
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
@@ -3378,13 +1616,13 @@
                     </svg>
                 </div>
                 <h3>Windows</h3>
-                <p class="platform-version">v1.1.2 | Windows 10+</p>
-                <a href="https://github.com/l06066hb/MarKing/releases/latest" class="btn btn-primary">
+                <p class="platform-version">v1.2.0 | Windows 10+</p>
+                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('win')">
                     下载安装器
-                </a>
+                </button>
             </div>
-            <div class="platform-card platform-coming-soon">
-                <div class="coming-soon-badge">即将推出</div>
+            <div class="platform-card">
+
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -3392,13 +1630,11 @@
                     </svg>
                 </div>
                 <h3>macOS</h3>
-                <p class="platform-version">macOS 10.15+</p>
-                <button class="btn btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
-                    即将推出
-                </button>
+                <p class="platform-version">v1.2.0 | macOS 10.15+</p>
+                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">下载安装包</button>
             </div>
-            <div class="platform-card platform-coming-soon">
-                <div class="coming-soon-badge">即将推出</div>
+            <div class="platform-card">
+
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -3406,68 +1642,25 @@
                     </svg>
                 </div>
                 <h3>Linux</h3>
-                <p class="platform-version">主流发行版</p>
-                <button class="btn btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
-                    即将推出
-                </button>
+                <p class="platform-version">v1.2.0 | 主流发行版</p>
+                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('linux')">下载安装包</button>
             </div>
         </div>
     </section>
 
     <!-- Sponsor Section -->
-    <section class="sponsor">
+    <section id="sponsor" class="sponsor container">
         <div class="sponsor-container">
             <div class="section-header">
                 <span class="section-badge">支持项目</span>
                 <h2 class="section-title">💖 支持 MarKing 持续发展</h2>
                 <p class="section-subtitle">
-                    如果 MarKing 为你的工作带来了价值，<br>
-                    请考虑赞助支持项目的持续开发和维护：
+                    MarKing 致力于为您提供极致的创作体验，<br>
+                    如果您觉得它为您的工作带来了巨大价值，欢迎请作者喝杯咖啡，支持后续功能的开发与迭代。
                 </p>
             </div>
-
-            <!-- 赞助用途说明 -->
-            <div class="sponsor-purposes">
-                <div class="purpose-card">
-                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                    </svg>
-                    <h4>持续开发</h4>
-                    <p>新功能开发和性能优化</p>
-                </div>
-                <div class="purpose-card">
-                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 002.248-2.354M12 12.75a2.25 2.25 0 01-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 00-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 01.4-2.253M12 8.25a2.25 2.25 0 00-2.248 2.146M12 8.25a2.25 2.25 0 012.248 2.146M8.683 5a6.032 6.032 0 01-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0115.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 00-.575-1.752M4.921 6a24.048 24.048 0 00-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 01-5.223 1.082" />
-                    </svg>
-                    <h4>Bug 修复</h4>
-                    <p>快速响应和问题解决</p>
-                </div>
-                <div class="purpose-card">
-                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                    </svg>
-                    <h4>文档完善</h4>
-                    <p>详细的使用指南和教程</p>
-                </div>
-                <div class="purpose-card">
-                    <svg class="purpose-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008z" />
-                    </svg>
-                    <h4>服务器维护</h4>
-                    <p>稳定的下载和更新服务</p>
-                </div>
-            </div>
-
-            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1rem;">
-                你的每一份支持，都将直接用于让 MarKing 变得更好。
-            </p>
-
-            <div class="sponsor-grid">
-                <a href="https://afdian.com/a/l06066hb" target="_blank" class="sponsor-card">
+            <div class="sponsor-grid" style="max-width: 600px; margin: 0 auto;">
+                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -3494,12 +1687,12 @@
                         </svg>
                     </div>
                     <h3>GitHub Sponsors</h3>
-                    <p>开发者推荐<br>与 GitHub 集成</p>
+                    <p>For Developers<br>Integrated with GitHub</p>
                 </a> -->
             </div>
             <div class="sponsor-note">
                 <p>
-                    💡 所有赞助将用于项目开发和维护 • 感谢每一位支持者
+                    💡 所有赞助将直接用于项目的长期发展维护 • 感谢每一位支持者
                 </p>
             </div>
         </div>
@@ -3507,7 +1700,7 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
+        <div class="footer-content container" style="max-width:1100px; margin:0 auto; padding:0;">
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4>产品</h4>
@@ -3558,12 +1751,12 @@
     </button>
 
     <script>
-        // ========== GitHub 统计数据获取 ==========
+        // ========== GitHub Stats Data Fetching ==========
         async function fetchGitHubStats() {
             const CACHE_KEY = 'github_stats_cache';
-            const CACHE_DURATION = 5 * 60 * 1000; // 5 分钟
+            const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
-            // 检查缓存
+            // Check cache
             const cached = sessionStorage.getItem(CACHE_KEY);
             if (cached) {
                 try {
@@ -3573,26 +1766,26 @@
                         return;
                     }
                 } catch (e) {
-                    // 缓存解析失败，继续获取新数据
+                    // Cache parsing failed, continue to fetch new data
                 }
             }
 
             try {
-                // 获取仓库信息(Stars)
+                // Fetch repository info (Stars)
                 const repoResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing');
                 if (!repoResponse.ok) {
                     throw new Error(`HTTP ${repoResponse.status}`);
                 }
                 const repoData = await repoResponse.json();
 
-                // 获取发布版本（下载量）
+                // Fetch releases (Downloads)
                 const releasesResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing/releases');
                 if (!releasesResponse.ok) {
                     throw new Error(`HTTP ${releasesResponse.status}`);
                 }
                 const releases = await releasesResponse.json();
 
-                // 计算总下载量
+                // Calculate total downloads
                 let totalDownloads = 0;
                 releases.forEach(release => {
                     if (release.assets) {
@@ -3607,7 +1800,7 @@
                     downloads: totalDownloads
                 };
 
-                // 缓存数据
+                // Cache data
                 sessionStorage.setItem(CACHE_KEY, JSON.stringify({
                     data,
                     timestamp: Date.now()
@@ -3616,7 +1809,7 @@
                 updateStatsUI(data);
             } catch (error) {
                 console.error('Failed to fetch GitHub stats:', error);
-                // 降级处理：显示占位符
+                // Fallback: display placeholder
                 const starsElement = document.getElementById('github-stars');
                 const downloadsElement = document.getElementById('total-downloads');
                 if (starsElement) starsElement.textContent = '-';
@@ -3624,7 +1817,7 @@
             }
         }
 
-        // 更新统计数据 UI
+        // Update stats UI
         function updateStatsUI(data) {
             const starsElement = document.getElementById('github-stars');
             const downloadsElement = document.getElementById('total-downloads');
@@ -3638,10 +1831,10 @@
             }
         }
 
-        // 页面加载时获取数据
+        // Fetch data on page load
         window.addEventListener('load', fetchGitHubStats);
 
-        // ========== 移动端菜单切换 ==========
+        // ========== Mobile Menu Toggle ==========
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         const menuIcon = mobileMenuBtn?.querySelector('.menu-icon');
@@ -3652,10 +1845,10 @@
                 const isActive = navLinks.classList.toggle('active');
                 mobileMenuBtn.setAttribute('aria-expanded', isActive);
 
-                // 更新 aria-label 以反映当前状态
-                mobileMenuBtn.setAttribute('aria-label', isActive ? '关闭导航菜单' : '打开导航菜单');
+                // Update aria-label to reflect current state
+                mobileMenuBtn.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
 
-                // 切换图标显示
+                // Toggle icon display
                 if (isActive) {
                     menuIcon.style.display = 'none';
                     closeIcon.style.display = 'block';
@@ -3665,23 +1858,23 @@
                 }
             });
 
-            // 点击菜单项后关闭菜单
+            // Close menu after clicking menu item
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.setAttribute('aria-label', '打开导航菜单');
+                    mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
                     menuIcon.style.display = 'block';
                     closeIcon.style.display = 'none';
                 });
             });
 
-            // 点击外部关闭菜单
+            // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
                     navLinks.classList.remove('active');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.setAttribute('aria-label', '打开导航菜单');
+                    mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
                     menuIcon.style.display = 'block';
                     closeIcon.style.display = 'none';
                 }
@@ -3893,28 +2086,72 @@
         });
     </script>
 
-    <!-- 智能下载系统配置 -->
+
+    <!-- Global Download Modal -->
+    <div id="downloadModal" class="download-modal-overlay">
+        <div class="download-modal-content">
+            <button class="download-modal-close" aria-label="关闭弹窗" id="closeDownloadModal">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="modal-header">
+                <h3>下载 MarKing</h3>
+                <p>请选择适合您系统架构的安装包。</p>
+            </div>
+
+            <div class="modal-tabs">
+                <button class="modal-tab" data-platform="win">Windows</button>
+                <button class="modal-tab" data-platform="mac">macOS</button>
+                <button class="modal-tab" data-platform="linux">Linux</button>
+            </div>
+
+            <div class="modal-panels">
+                <!-- Windows Panel -->
+                <div class="modal-panel" id="panel-win">
+                    <div class="download-list" id="list-win">
+                        <div class="dl-loading">
+                            <svg class="dl-spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span>正在为您拉取最新版本...</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- macOS Panel -->
+                <div class="modal-panel" id="panel-mac">
+                    <div class="download-list" id="list-mac"></div>
+                </div>
+                <!-- Linux Panel -->
+                <div class="modal-panel" id="panel-linux">
+                    <div class="download-list" id="list-linux"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" class="view-all-releases">在 GitHub 获取所有版本的发布文件 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Download System Configuration -->
     <script>
-        // 配置下载系统（使用自定义域名解决中国大陆访问问题）
+        // Configure download system (using custom domain for China access)
         window.MARKING_DOWNLOAD_CONFIG = {
             apiEndpoint: 'https://api.markingmd.com',
             githubOwner: 'l06066hb',
             githubRepo: 'MarKing',
-            debug: true,  // 开启调试模式
+            debug: true,  // Enable debug mode
             downloadButtonSelector: '.platform-card .btn-primary',
             statsContainerSelector: '.github-stats',
             enableToast: true
         };
 
-        console.log('[MarKing] 下载系统配置:', window.MARKING_DOWNLOAD_CONFIG);
+        console.log('[MarKing] Download system configuration:', window.MARKING_DOWNLOAD_CONFIG);
     </script>
 
-    <!-- 智能下载系统 -->
-    <script src="js/download-manager.js"></script>
-    <script src="js/download-ui.js"></script>
-    <script src="js/download-init.js"></script>
-    <script src="js/download-ui.js"></script>
-    <script src="js/download-init.js"></script>
+    <!-- Smart Download System -->
     <script src="js/download-manager.js"></script>
     <script src="js/download-ui.js"></script>
     <script src="js/download-init.js"></script>

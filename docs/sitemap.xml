@@ -10,6 +10,10 @@
       <image:caption>MarKing Logo</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://markingmd.com/marking-lightweight-mode-en.png?v=1</image:loc>
+      <image:caption>MarKing Lightweight Mode - Instant Open and Read</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://markingmd.com/marking-markdown-editor-main-interface-en.png?v=1</image:loc>
       <image:caption>MarKing Main Interface - Professional Markdown Editing Environment</image:caption>
     </image:image>
@@ -36,6 +40,10 @@
     <image:image>
       <image:loc>https://markingmd.com/marking-multi-vault-management-en.png?v=1</image:loc>
       <image:caption>MarKing Multi-vault Management - Independent Project Management</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-code-theme-settings-en.png?v=1</image:loc>
+      <image:caption>MarKing Code Theme Settings - Independent Code Highlighting</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
@@ -74,6 +82,10 @@
       <image:caption>MarKing Logo</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://markingmd.com/marking-lightweight-mode.png?v=1</image:loc>
+      <image:caption>MarKing 极速轻量阅读模式 - 秒开 MD 文件</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://markingmd.com/marking-markdown-editor-main-interface.png?v=1</image:loc>
       <image:caption>MarKing 主界面 - 专业的 Markdown 编辑环境</image:caption>
     </image:image>
@@ -100,6 +112,10 @@
     <image:image>
       <image:loc>https://markingmd.com/marking-multi-vault-management.png?v=1</image:loc>
       <image:caption>MarKing 多库管理 - 独立管理不同项目</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-code-theme-settings.png?v=1</image:loc>
+      <image:caption>MarKing 代码高亮主题 - 独立的代码块配色选项</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care.png</image:loc>
