@@ -1,298 +1,118 @@
-# MarKing - Professional Markdown Editor
-
 <div align="center">
+
+# MarKing
+
+**A Clean, Fast, Cross-Platform Markdown Editor**
 
 English | [简体中文](./README.md)
 
+<br>
+
+![MarKing-v1.2.0](https://img.shields.io/badge/MarKing-v1.2.0-2563eb?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
+
+[![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
+[![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
+
+<br>
+
+MarKing is a desktop Markdown editor dedicated to native performance and stability. The system currently focuses on a local-first philosophy with extremely fast response times, providing a smooth editing experience while laying a solid foundation for our upcoming multi-device synchronization features.
+
+<br>
+
+<img src="docs/marking-markdown-editor-main-interface-en.png" alt="MarKing Main Interface" width="800">
+
 </div>
 
-<div align="center">
-
-![MarKing Logo](https://img.shields.io/badge/MarKing-v1.2.0-blue?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
-
-[![GitHub release](https://img.shields.io/github/v/release/l06066hb/MarKing?style=flat-square)](https://github.com/l06066hb/MarKing/releases)
-[![GitHub downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square)](https://github.com/l06066hb/MarKing/releases)
-[![GitHub stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square)](https://github.com/l06066hb/MarKing/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/l06066hb/MarKing?style=flat-square)](https://github.com/l06066hb/MarKing/issues)
-
-**Be the King of Markdown**
- 
-**A modern, high-performance, and cross-platform Markdown editor designed for native desktop experiences.**
- 
-Featuring an inline table editor and highly customizable formatting engines for DOCX and PDF exports, MarKing seamlessly connects technical writing with professional business delivery. Built on a lightweight architecture, it provides a stable and fluid environment for high-density reading and writing.
-
-[⬇️ Download](#-download) • [✨ Features](#-core-features) • [📖 Documentation](docs/FAQ.md) • [🔄 Changelog](CHANGELOG_EN.md) • [💬 Community](https://github.com/l06066hb/MarKing/issues)
- 
-</div>
- 
 ---
- 
-## 📸 Application Preview
- 
-![MarKing Main Interface](docs/marking-markdown-editor-main-interface-en.png)
- 
+
+## Download & Installation
+
+Provide an out-of-the-box desktop client.
+
+**Windows** (64-bit only)
+- [Download EXE & MSI Installers](https://github.com/l06066hb/MarKing/releases/latest) - Supports system environment variable and context-menu integration
+
+**macOS** (Supports Apple Silicon & Intel)
+- [Download DMG Installer](https://github.com/l06066hb/MarKing/releases/latest) - Natively optimized for the M-series architecture
+
+**Linux**
+- [Download AppImage / Deb / RPM / Tar.gz](https://github.com/l06066hb/MarKing/releases/latest) - Provides varieties of zero-dependency execution builds
+
+> **Note**: Please navigate to the `Assets` section on the Release page to get the latest installation package for your platform.
+
 ---
- 
-## 📥 Download
- 
-> 💡 **System Requirements**: Windows 10 (64-bit) or higher
- 
-### Windows
- 
-Experience a native editing environment that integrates seamlessly into the OS framework.
 
-- 📦 **[Download Windows Stable Release (MSI & EXE) ➔](https://github.com/l06066hb/MarKing/releases/latest)** 
-  - Provides `MSI Installer` (Supports silent install & enterprise-wide deployment)
-  - Provides `Setup.exe Wizard` (Full environment integration with context menu registration)
- 
-> 💡 *Note: Expand the "Assets" dropdown on the Release page to find the installer for your architecture.*
- 
-### macOS
- 
-Natively supported architecture ensuring optimal performance across the Apple ecosystem.
-
-- 📦 **[Download macOS Stable Release (DMG & APP) ➔](https://github.com/l06066hb/MarKing/releases/latest)**
-  - Backwards-compatible with Intel architecture
-  - Native support for Apple Silicon (M1/M2/M3) chips maximizing energy-efficiency
- 
-### Linux
- 
-A lightweight, zero-configuration environment ready for mainstream Linux distributions.
-
-- **[Download Linux Stable Release (AppImage/Deb) ➔](https://github.com/l06066hb/MarKing/releases/latest)**
- 
----
- 
 ## Core Features
- 
-### Native Desktop Integration
- 
-- **Borderless Design** - Implements a 12px system-level corner radius to eliminate redundant browser borders, ensuring a native software appearance aligned with modern OS guidelines.
-- **18 Built-in Color Palettes** - Offers an array of meticulously designed dark and light themes ranging from academic classics to high-contrast dark modes.
-- **Compact UI Typography** - Reduces padding across components and views to optimize readability density, rivaling the immersive workspace of professional IDEs like VS Code.
-- **Subtle Micro-interactions** - Employs understated, monochromatic transparency transitions rather than jarring feedback, ensuring every click feels crisp and professional.
- 
-### Professional Editing Engine
- 
-- **High-Performance Parsing** - Our O(N) single-pass state machine parsing algorithm drastically accelerates load times and scrolling frame rates for massive documents (100MB+).
-- **Synchronized Preview** - A side-by-side rendering mode backed by a debounced, highly precise bidirectional scroll tracking system.
-- **One-Click Code Formatter** - Complete suite of internal formatting rules to instantly reorganize spacing around headings, lists, and embedded elements.
 
-- **Contextual Auto-Completion** - Over 70 core snippet templates are built-in, enabling rapid muscle-memory expansions for common Markdown syntaxes.
-  *Intelligent Authoring Experience:*
-  ![Omni-scenario Smart Completion](docs/marking-editor-features-preview-completion-en.png)
+### 1. Two Modes for Performance
 
-- **Mermaid & Full-Stack Render Support** - Integrated syntax helpers for flowcharts, sequence diagrams, Gantt charts, and KaTeX-based mathematical formulas.
-  *Advanced Diagram Rendering in Action:*
-  ![Mermaid Diagram Rendering](docs/marking-mermaid-diagram-assistant-en.png)
- 
-### Modern Productivity Workflows
- 
-- **Visual Table System** - Reduces the cognitive load of drafting Markdown tables.
-  - Activation: Hovering over any table automatically invokes the floating toolbar.
-  - Data Binding: Real-time, bidirectional sync with the underlying Markdown source code.
-  - Features: Alignment toggles, row/column insertion, and smooth navigational hotkeys.
+*   **Lightweight Mode**
+    Tailored for read-only browsing and light modifications. Since it strips away extra components like sidebars, double-clicking an MD file opens it instantly with an ultra-low memory footprint.
+    <img src="docs/marking-lightweight-mode-en.png" alt="Lightweight Mode" width="800">
 
-  *Visual Table Editor in action:*
-  ![Visual Table Editor](docs/marking-visual-table-editor-en.png)
- 
-- **Desktop-class File Management** - Streamlining your local repository workflow.
-  - **Native Context Menus**: Full right-click support for cutting, copying, and pasting files or directories.
-  - **Dynamic Layout Boundaries**: Drag the vertical split-pane to adjust sidebar width smoothly, catering to different monitor proportions.
-  - **Full Keyboard Navigation**: Broad keyboard shortcuts have been mapped for sidebar focus and interactions.
- 
-- **Smart Purity Paste** - Clearing the clutter during copy-paste operations.
-  - Image Serialization: Pressing `Ctrl+V` seamlessly saves screenshot data to a local folder and converts it into a valid Markdown link.
-  - File Import: Paste image files directly from your system clipboard to embed them automatically.
-  - Clean Text Mode: Strips away bloated HTML tags from clipboard contents to retain pure text and standard Markdown attributes.
- 
-- **Auto List Continuation** - Optimizing formatting closure.
-  - Emits auto-numbered extensions for ordered lists, unordered markers, and task lists after striking Enter.
-  - Intelligently recalls prior indentation depths and automatically exits the list block upon an empty return.
+*   **Fully-Featured Editor**
+    The underlying editor is based on a customized Monaco Core engine, supporting smooth scrolling even for massive plain-text files with over 100,000 words. It comes built-in with over 70 popular Markdown smart snippets and suggestions.
+    <img src="docs/marking-editor-features-preview-completion-en.png" alt="Smart Completion" width="800">
 
-### Powerful Export
+### 2. Fluid and Intuitive Interaction
 
-- **DOCX Professional Templates** `(Beta Testing - Coming Soon)` - 10+ configuration options
-  - 3 carefully designed preset templates (Technical, Business, General)
-  - Unlimited custom templates
-  - Complete cover, table of contents, header/footer support
-  - Fine control of fonts, spacing, and styles
+*   **Visual Table Editor**
+    Hovering over a Markdown table invokes a floating editor, completely solving the pain of aligning text characters. It natively supports Excel-like row/column drag sorting, cell injection, and alignment options.
+    <img src="docs/marking-visual-table-editor-en.png" alt="Visual Tables" width="800">
 
-  *Professional PDF & DOCX Export:*
-  ![Export Features](docs/marking-export-docx-pdf-feature-en.png)
+*   **Mermaid Diagram & Formula Support**
+    Built-in professional diagram and rendering support. Whether composing flowcharts, architectures, or mathematical formulas (KaTeX), the assistant provides real-time syntax checking and visualization.
+    <img src="docs/marking-mermaid-diagram-assistant-en.png" alt="Mermaid assistant" width="800">
 
-- **High-quality PDF Output** - Based on Pandoc engine
-- **HTML Static Pages** - Complete style preservation, browser-ready
+*   **Dual-Domain Themes & Code Highlighting**
+    12px borderless interface design. Alongside global light and dark themes, the engine features an independent code block theme settings module loaded with classic developer color schemes (e.g., Dracula, Nord, Tokyo Night).
+    <img src="docs/marking-code-theme-settings-en.png" alt="Code Theme Settings" width="800">
 
-### Beautiful & Easy to Use
+### 3. Safe & Reliable Local Data Management
 
-- **18 Exquisite Themes** - From minimalist eye-care to cyberpunk, perfectly matching your desktop vibes
-  - Classic Midnight, Cool Black, Sepia Yellow, Eye Care, GitHub Style, Dracula Night
-  - Indigo Purple, Ocean Blue, Forest Green, Rose Pink, Sunset Orange, Monochrome
-  - Neon Cyber, Coral Reef, Lavender Dream, Warm Autumn, Cool Winter, Soft Midnight
-  
-- **Light/Dark Mode** - Global theme switching, eye-friendly
-- **Modern UI** - Material Design style, smooth animations
-- **Elegant Scrollbars** - Refined interaction experience
+*   **Multi-Vault Management**
+    Deploy completely independent, physically isolated local document vaults within the application. You can keep your work logs and personal learning notes strictly separated, guaranteeing zero global search interference.
+    <img src="docs/marking-multi-vault-management-en.png" alt="Multi Vaults" width="800">
 
-### Smart Management
+*   **Auto-Save & History Snapshots**
+    Prevents unsaved data loss from system crashes or misoperations. The core engine silently auto-saves within 2 seconds while providing a "History Snapshot Recovery" feature that traces and archives all major modification milestones.
+    <img src="docs/marking-smart-backup-system-en.png" alt="Smart Backup" width="800">
 
-- **Multi-vault Sandbox Architecture** - Establish stringent physical logic isolations between your personal, academic, and professional projects. Ensures root directory autonomy across independent vaults.
-  
-  *Centralized Workspace Management:*
-  ![Multi-vault Sandbox](docs/marking-multi-vault-management-en.png)
+*   **Clipboard Image Local Storage**
+    Deep support for clipboard operations: Paste a screenshot in the editor using `Ctrl+V`, and the software will automatically save the picture to a local attachment directory, converting it precisely into relative markdown image references.
 
-- **Enterprise-Grade Local Security Paradigm** - Rejecting the cloud, we return absolute data sovereignty back to the creator.
-  - **Debounced Active State Backup**: Employs a silent 2-second background drop-to-disk logic mapped alongside a 10-step retroactive "Time-machine" snapshot memory. You are physically immune to data loss out of accidents or power outages.
-  - **Cold Storage Archive Deployment**: Contains a robust, offline-first backup utility capable of compressing and vaulting all application assets into a secure offline payload in a single click.
+### 4. Complete Document Exportation
 
-  *Dedicated Disaster Recovery Hub:*
-  ![Advanced Smart Backup Dashboard](docs/marking-smart-backup-system-en.png)
+*   **Industrial Standard Rendering**
+    Export visually rich PDF documents with integrated table of contents bookmarks, or output your document layout as a standalone offline HTML page for easy sharing.
 
-- **Millisecond Global Search Engine** - Powered under the hood by a multi-threaded Rust concurrency runtime. Full-text indexing and retrieval execute instantaneously regardless of archiving scale.
-- **Centralized Multimedia Asset Pooling** - Drag and drop heavy file types seamlessly into the editor. The underlying layer autonomously redirects, localizes, and distributes multi-media payloads into the localized asset directory structure, permanently defeating broken image links.
-
-### International Support
-
-- **Complete Bilingual Interface** - Chinese/English one-click switching, covers all modules
-- **Type-safe Translation** - TypeScript type checking ensures accuracy
-- **Real-time Switching** - Instant language change, smooth experience
+*   **DOCX Template Engine** (Beta)
+    Bypassing the usual layout headaches when transferring MD to Word. The editor features several built-in preset layout templates, enabling it to automatically output standardized delivery reports featuring proper cover pages and automatic table of contents. Support for importing custom templates is planned for future updates.
+    <img src="docs/marking-export-docx-pdf-feature-en.png" alt="Export Features" width="800">
 
 ---
 
-## Use Cases
+## Documentation & Help
 
-| Scenario | Application |
-|----------|-------------|
-| **Technical Documentation** | API docs, development manuals, tech blogs |
-| **Academic Writing** | Papers, reports, notes (supports KaTeX formulas) |
-| **Project Management** | Requirements docs, design docs, meeting minutes |
-| **Knowledge Management** | Personal notes, knowledge base, learning materials |
-| **Content Creation** | Blog articles, tutorials, e-books |
+If you need help resolving usage issues, please consult the official documents and support resources bundled below:
+
+*   [Usage Guide & FAQ](docs/FAQ.md)
+Changelog & Version History](CHANGELOG_EN.md)
+*   [Security Policy & Bug Reporting](SECURITY.md)
 
 ---
 
-## Quick Start
+## Supporter & Sustainable Development
 
-### 1. Install Application
-Download the installer for your platform and follow the wizard
+Sustaining the development of a pure, strictly localized, non-tracking, and completely ad-free cross-platform application is challenging. If you recognize the software's existing quality and eagerly await the integration of a true multi-device synchronization framework, please consider becoming an early sponsor:
 
-### 2. Create Document
-Click the `+` button in toolbar or press `Ctrl+N`
+*   **Global Support Channel**: [Ko-fi Support](https://ko-fi.com/l06066hb) (Visa / PayPal)
+*   **Domestic Support Channel**: [Afdian Platform](https://afdian.com/a/l06066hb) (WeChat / Alipay)
 
-### 3. Start Editing
-- Type Markdown in left editor
-- View real-time preview on right
-- Use code snippets for quick content insertion
-
-### 4. Export Document
-Click "Export" button in toolbar, choose format (DOCX/PDF/HTML)
-
-> 📚 **More Tips**: See [FAQ](docs/FAQ.md) and [Troubleshooting](docs/TROUBLESHOOTING.md)
+> If this tool has practically elevated your writing productivity, simply lighting a precious **Star** at the very top of our page serves as the purest form of encouragement to independent developers.
 
 ---
 
-## Why Choose MarKing?
-
-### Excellent Performance
-- Startup time < 0.5 seconds
-- Installer size ~40MB (includes complete Pandoc)
-- Runtime memory ~30-40MB
-
-### Great Experience
-- Modern interface design
-- Smooth interactive animations
-- Complete keyboard shortcut support (press `?` to view all)
-
-### Data Security
-- Local storage, protect privacy
-- Auto-save, prevent loss
-- Version snapshots, restore anytime
-- Data backup, peace of mind
-- Complete logging for troubleshooting
-
----
-
-## Common Shortcuts
-
-| Operation | Windows/Linux | macOS |
-|-----------|---------------|-------|
-| New Document | `Ctrl+N` | `Cmd+N` |
-| Save Document | `Ctrl+S` | `Cmd+S` |
-| Global Search | `Ctrl+F` | `Cmd+F` |
-| Format Document | `Shift+Alt+F` | `Shift+Option+F` |
-| Table Editor | `Ctrl+Shift+T` | `Cmd+Shift+T` |
-| Shortcut Help | `?` | `?` |
-
-> Complete shortcut list: Press `?` in app
-
----
-
-## 📄 Copyright
-
-Copyright © 2024-2026 MarKing. All rights reserved.
-
-This software is proprietary and protected by copyright law and international treaties. Unauthorized copying, modification, distribution, or reverse engineering is prohibited.
-
-See [LICENSE](LICENSE) file for details.
-
-### Disclaimer
-
-MarKing is the name of this software. Unauthorized use for commercial purposes or implying official endorsement is prohibited.
-
----
-
-## Related Links
-
-- 📥 [Download](https://github.com/l06066hb/MarKing/releases) - Get the latest version
-- 🌐 [Official Website](https://markingmd.com) - Online experience and documentation
-- 📝 [Changelog](CHANGELOG.md) - View version history
-- 📚 [FAQ](docs/FAQ.md) - Usage tips and Q&A
-- 🔧 [Troubleshooting](docs/TROUBLESHOOTING.md) - Solve common issues
-
----
-
-## Get Help
-
-We provide multiple support channels to help you solve problems:
-
-- 🐛 **Issue Reporting** - [GitHub Issues](https://github.com/l06066hb/MarKing/issues)
-  - Bug Report: [Submit Bug](https://github.com/l06066hb/MarKing/issues/new?template=bug_report.md)
-  - Feature Request: [Submit Suggestion](https://github.com/l06066hb/MarKing/issues/new?template=feature_request.md)
-  
-- 💬 **Discussion** - [GitHub Discussions](https://github.com/l06066hb/MarKing/discussions)
-  - Usage questions
-  - Experience sharing
-  
-- 🔒 **Security Issues** - See [SECURITY.md](SECURITY.md)
-
-- 📖 **Documentation**
-  - [FAQ](docs/FAQ.md)
-  - [Troubleshooting Guide](docs/TROUBLESHOOTING.md)
-
----
-
-## Sustaining the Project & Backers
-
-If you resonate with MarKing's product philosophy and wish to see it maintain its ad-free, pure text-editing experience alongside continuous R&D, consider becoming a Backer!
-
-Your direct support serves as the foundational pillar—funding infrastructure costs, code signing certificates, and the development of our core engine.
-
-- 🌍 **[Ko-fi ➔](https://ko-fi.com/l06066hb)** - Global Backers (Visa/PayPal supported)
-- ⚡ **[Afdian.net ➔](https://afdian.com/a/l06066hb)** - Domestic/CN Backers (WeChat/Alipay supported)
-
-> 💡 *Surviving as an independent desktop tool is a massive challenge. We deeply appreciate every contribution! If you find this project valuable, please consider giving us a ⭐️ Star at the top right—it's the greatest encouragement for an indie developer.*
-
----
-
-<div align="center">
-
-**Be the King of Markdown!**
-
-MarKing v1.2.0 | Making Document Creation More Efficient
-
-[⬆️ Back to Top](#marking---professional-markdown-editor)
-
-</div>
+*Copyright © 2025-2026 MarKing. All rights reserved.*
