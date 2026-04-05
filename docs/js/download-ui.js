@@ -145,8 +145,9 @@ class DownloadUI {
             const repo = this.dm.config.githubRepo || 'MarKing';
             
             // 1. 并发请求：获取完整的 GitHub Release 资产列表 和 CF 路由检测
+            const detectedPlatform = this.dm.platform || 'windows';
             const repoUrl = `https://api.github.com/repos/${owner}/${repo}/releases/latest`;
-            const cfUrl = `${this.dm.config.apiEndpoint}/api/download?platform=windows`;
+            const cfUrl = `${this.dm.config.apiEndpoint}/api/download?platform=${detectedPlatform}`;
 
             const [releaseRes, cfRes] = await Promise.allSettled([
                 fetch(repoUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } }),
