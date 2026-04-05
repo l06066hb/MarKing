@@ -449,6 +449,10 @@
         }
 
         @media (max-width: 900px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
             .hero {
                 padding: 6rem 0 3rem;
             }
@@ -460,6 +464,10 @@
             .hero-subtitle {
                 font-size: 1.1rem;
                 margin-bottom: 2rem;
+            }
+
+            .hero-image-wrapper {
+                margin-top: 3rem;
             }
 
             .cta-buttons {
@@ -480,15 +488,40 @@
                 line-height: 1.4;
             }
 
+            .features, .use-cases, .screenshots, .download, .sponsor {
+                padding: 3rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .bento-item {
+                padding: 1.5rem;
+            }
+
             .bento-wide,
             .bento-square,
             .bento-half {
                 grid-column: span 12;
             }
 
+            .bento-grid {
+                gap: 1rem;
+            }
+
             .use-case-row {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .use-case-content h3 {
+                font-size: 1.5rem;
             }
 
             .use-case-row.reverse {
@@ -505,7 +538,7 @@
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(12px);
                 flex-direction: column;
-                padding: 2rem;
+                padding: 1rem 1.25rem 2rem;
                 gap: 1.5rem;
                 border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-float);
@@ -520,16 +553,25 @@
             }
 
             .screenshot-item {
-                padding: 1rem;
+                padding: 1.5rem 0.5rem;
+            }
+
+            footer {
+                padding: 3rem 0 1.5rem;
             }
 
             .footer-grid {
                 gap: 1.5rem;
+                margin-bottom: 2rem;
             }
 
             .download-modal-content {
                 padding: 1.5rem;
                 width: 95%;
+            }
+
+            .modal-header h3 {
+                font-size: 1.25rem;
             }
         }
 
