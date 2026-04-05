@@ -287,7 +287,7 @@ class DownloadUI {
         } 
         else if (os === 'mac') {
             if (asset.name.includes('aarch64')) {
-                title = this.isEn ? 'Apple Silicon (M1/M2/M3)' : 'Apple Silicon 芯片版 (M1/M2/M3)';
+                title = this.isEn ? 'Apple Silicon (M-Series)' : 'Apple Silicon 芯片版 (M系列)';
                 desc = this.isEn ? 'Optimized for Apple ARM chips' : '原生支持 Apple M 系芯片设备（性能最佳）';
                 recommended = true;
             } else if (asset.name.includes('x64') || asset.name.includes('amd64')) {
