@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://markingmd.com/index-en.html</loc>
-    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
+    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -46,6 +46,18 @@
       <image:caption>MarKing Code Theme Settings - Independent Code Highlighting</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://markingmd.com/marking-mathlive-formula-editor-en.png?v=1</image:loc>
+      <image:caption>MarKing MathLive Formula Editor - Visual Math Editing with Virtual Keyboard</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-excalidraw-whiteboard-en.png?v=1</image:loc>
+      <image:caption>MarKing Excalidraw Whiteboard - Freeform Hand-drawn Diagrams</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-docx-export-v2-template-en.png?v=1</image:loc>
+      <image:caption>MarKing DOCX Export v2.0 - Template-Based Professional Document Generation</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
       <image:caption>MarKing Eye Care Theme</image:caption>
     </image:image>
@@ -74,7 +86,7 @@
   </url>
   <url>
     <loc>https://markingmd.com/index.html</loc>
-    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
+    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -118,6 +130,18 @@
       <image:caption>MarKing 代码高亮主题 - 独立的代码块配色选项</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://markingmd.com/marking-mathlive-formula-editor.png?v=1</image:loc>
+      <image:caption>MarKing MathLive 公式编辑器 - 可视化数学公式编辑与虚拟键盘</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-excalidraw-whiteboard.png?v=1</image:loc>
+      <image:caption>MarKing Excalidraw 手绘白板 - 自由绘制流程图与示意图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-docx-export-v2-template.png?v=1</image:loc>
+      <image:caption>MarKing DOCX 导出 v2.0 - 模板化专业文档生成</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care.png</image:loc>
       <image:caption>MarKing 护眼柔光主题</image:caption>
     </image:image>
@@ -140,13 +164,13 @@
   </url>
   <url>
     <loc>https://markingmd.com/structured-data-en.html</loc>
-    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
+    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://markingmd.com/structured-data-zh.html</loc>
-    <lastmod>2026-03-06T00:00:00.000Z</lastmod>
+    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

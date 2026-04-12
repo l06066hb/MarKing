@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.2.1] - 2026-04-12
+
+### ✨ Features
+
+- **MathLive Formula Editor**: Integrated visual math formula editing with WYSIWYG support for inline and block equations, a virtual math keyboard, and offline MathML export — no manual LaTeX required.
+- **Excalidraw Whiteboard**: Embed freeform hand-drawn flowcharts, architecture sketches, and diagrams directly within your documents.
+- **DOCX Export v2.0**: Completely redesigned template-based export architecture with live layout preview and fine-grained typography controls for professional Word document generation.
+- **Smart URL Paste**: Automatically fetches page titles when pasting URLs, instantly generating properly formatted Markdown links.
+- **Preview Border Control**: Added a toggle for decorative theme borders on images and videos in the preview area.
+
+### 🐛 Bug Fixes
+
+- Fixed images not being correctly embedded during PDF/HTML export.
+- Fixed external image links failing to render in the preview area.
+- Fixed inaccurate prompts and data residue when purging missing files in the Data Integrity Center.
+- Completed missing i18n text across editor components for full bilingual coverage.
+- Improved state persistence and resource cleanup during application shutdown.
+
+### 📋 Compliance
+
+- Added `THIRD-PARTY-NOTICES.md` with a complete inventory of all third-party open-source components and their licenses.
+- Bundled Pandoc GPL v2 full license text (`PANDOC-LICENSE.txt`) alongside the application binary.
+
+---
+
 ## [1.2.0] - 2026-03-28
 
 ### ✨ Features
