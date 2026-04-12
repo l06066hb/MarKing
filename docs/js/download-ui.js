@@ -144,23 +144,56 @@ class DownloadUI {
             const owner = this.dm.config.githubOwner || 'l06066hb';
             const repo = this.dm.config.githubRepo || 'MarKing';
             
-            // 1. 并发请求：获取完整的 GitHub Release 资产列表 和 CF 路由检测
+            // 1. 并发请求：从 CF Worker 获取 Release 数据 + CF 路由检测
+            //    CF Worker 代理 GitHub API，国内用户不受 GitHub 连通性影响
             const detectedPlatform = this.dm.platform || 'windows';
-            const repoUrl = `https://api.github.com/repos/${owner}/${repo}/releases/latest`;
+            const cfReleasesUrl = `${this.dm.config.apiEndpoint}/api/releases?limit=1`;
             const cfUrl = `${this.dm.config.apiEndpoint}/api/download?platform=${detectedPlatform}`;
 
-            const [releaseRes, cfRes] = await Promise.allSettled([
-                fetch(repoUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } }),
+            const [cfReleasesRes, cfRes] = await Promise.allSettled([
+                fetch(cfReleasesUrl, { headers: { 'Accept': 'application/json' } }),
                 fetch(cfUrl, { headers: { 'Accept': 'application/json' }, cache: 'no-store' })
             ]);
 
-            if (releaseRes.status !== 'fulfilled' || !releaseRes.value.ok) {
-                throw new Error('Github API 请求失败');
-            }
-            const releaseData = await releaseRes.value.json();
+            let releaseData = null;
 
-            // 2. 探测 Cloudflare 路由状态并提取 Proxy 前缀
-            let proxyPrefix = '';
+            // 2. 优先使用 CF Worker 返回的 Release 数据
+            if (cfReleasesRes.status === 'fulfilled' && cfReleasesRes.value.ok) {
+                try {
+                    const cfData = await cfReleasesRes.value.json();
+                    if (cfData.releases && cfData.releases.length > 0) {
+                        const latest = cfData.releases[0];
+                        // 将 CF 格式映射为 GitHub 兼容格式
+                        releaseData = {
+                            assets: latest.assets.map(a => ({
+                                name: a.name,
+                                browser_download_url: a.url,
+                                size: a.size_bytes,
+                                download_count: a.download_count
+                            }))
+                        };
+                        this.dm.log('从 CF Worker 获取 Release 数据成功');
+                    }
+                } catch (e) {
+                    this.dm.log('解析 CF Release 数据失败', e);
+                }
+            }
+
+            // 3. CF Worker 失败时，降级到 GitHub API 直连
+            if (!releaseData) {
+                this.dm.log('CF Worker 未返回有效数据，降级到 GitHub API');
+                const repoUrl = `https://api.github.com/repos/${owner}/${repo}/releases/latest`;
+                const releaseRes = await fetch(repoUrl, {
+                    headers: { 'Accept': 'application/vnd.github.v3+json' }
+                });
+                if (!releaseRes.ok) {
+                    throw new Error('Release 数据获取失败（CF Worker 和 GitHub API 均不可用）');
+                }
+                releaseData = await releaseRes.json();
+            }
+
+            // 4. 探测 Cloudflare 路由状态并提取代理策略
+            let proxyMode = 'direct'; // 'direct' | 'worker' | 'ghproxy'
             let isProxyEnabled = false;
 
             if (cfRes.status === 'fulfilled' && cfRes.value.ok) {
@@ -168,14 +201,20 @@ class DownloadUI {
                     const cfData = await cfRes.value.json();
                     if (cfData.proxy || (cfData._debug && cfData._debug.should_use_proxy)) {
                         isProxyEnabled = true;
-                        const cfUrlVal = cfData.url || '';
-                        const ghIdx = cfUrlVal.indexOf('https://github.com');
-                        if (ghIdx > 0) {
-                            // 典型代理：提取类似 "https://mirror.ghproxy.com/" 的前缀
-                            proxyPrefix = cfUrlVal.substring(0, ghIdx);
-                        } else if (!cfUrlVal.includes('github.com')) {
-                            // 备选逻辑：如果 CF 完全重写了域名，我们默认使用常用的国内开源代理保证联通
-                            proxyPrefix = 'https://mirror.ghproxy.com/';
+                        // 检测 CF Worker 代理模式
+                        if (cfData.proxy_mode === 'worker_direct') {
+                            // CF Worker 直接代理（推荐：无广告、速度快、有统计）
+                            proxyMode = 'worker';
+                        } else {
+                            const cfUrlVal = cfData.url || '';
+                            const ghIdx = cfUrlVal.indexOf('https://github.com');
+                            if (ghIdx > 0) {
+                                // 第三方镜像前缀（如 ghproxy）
+                                proxyMode = 'ghproxy';
+                            } else {
+                                // 默认走 CF Worker 代理
+                                proxyMode = 'worker';
+                            }
                         }
                     }
                 } catch (e) {
@@ -183,21 +222,27 @@ class DownloadUI {
                 }
             }
 
-            // Fallback: 如果网络环境看起来较差或处在特殊网络下，且 CF 没有返回代理信息，可以强行设置偏好镜像
+            // Fallback: 手动偏好镜像
             const savedMirror = this.dm.loadMirrorPreference();
-            if (savedMirror === 'ghproxy' && !proxyPrefix) {
-                proxyPrefix = 'https://mirror.ghproxy.com/';
+            if (savedMirror === 'ghproxy' && !isProxyEnabled) {
+                proxyMode = 'ghproxy';
                 isProxyEnabled = true;
             }
 
-            this.dm.log(`智能路由检测完毕 - 代理状态: ${isProxyEnabled}, 前缀: ${proxyPrefix || '直连'}`);
+            this.dm.log(`智能路由检测完毕 - 代理状态: ${isProxyEnabled}, 模式: ${proxyMode}`);
 
-            // 3. 将代理前缀应用到所有下载资源
+            // 5. 根据代理模式改写下载链接
+            const cfApiEndpoint = this.dm.config.apiEndpoint;
             const assets = releaseData.assets.map(asset => {
                 asset.original_url = asset.browser_download_url;
-                if (isProxyEnabled && proxyPrefix) {
-                    // 如果已经是完整的 https://github.com/ 前缀，直接拼接
-                    asset.browser_download_url = proxyPrefix + asset.browser_download_url;
+                if (isProxyEnabled) {
+                    if (proxyMode === 'worker') {
+                        // 使用 CF Worker /api/proxy 代理（国内最优，且有下载统计）
+                        asset.browser_download_url = `${cfApiEndpoint}/api/proxy?url=${encodeURIComponent(asset.browser_download_url)}`;
+                    } else if (proxyMode === 'ghproxy') {
+                        // 使用第三方 ghproxy 镜像
+                        asset.browser_download_url = 'https://mirror.ghproxy.com/' + asset.browser_download_url;
+                    }
                 }
                 return asset;
             });
