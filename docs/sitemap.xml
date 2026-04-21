@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://markingmd.com/index-en.html</loc>
-    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
+    <lastmod>2026-04-21T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -58,6 +58,18 @@
       <image:caption>MarKing DOCX Export v2.0 - Template-Based Professional Document Generation</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://markingmd.com/marking-command-palette-en.png?v=1</image:loc>
+      <image:caption>MarKing Command Palette - Fuzzy Search to Reach Any Feature Instantly</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-focus-mode-en.png?v=1</image:loc>
+      <image:caption>MarKing Focus Mode - Typewriter Scrolling for Immersive Writing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-knowledge-graph-en.png?v=1</image:loc>
+      <image:caption>MarKing Knowledge Graph - Interactive Force-Directed Graph of Your Knowledge Network</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
       <image:caption>MarKing Eye Care Theme</image:caption>
     </image:image>
@@ -86,7 +98,7 @@
   </url>
   <url>
     <loc>https://markingmd.com/index.html</loc>
-    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
+    <lastmod>2026-04-21T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -140,6 +152,18 @@
     <image:image>
       <image:loc>https://markingmd.com/marking-docx-export-v2-template.png?v=1</image:loc>
       <image:caption>MarKing DOCX 导出 v2.0 - 模板化专业文档生成</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-command-palette.png?v=1</image:loc>
+      <image:caption>MarKing 命令面板 - 模糊搜索快速触达任意功能</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-focus-mode.png?v=1</image:loc>
+      <image:caption>MarKing 专注模式 - 打字机滚动沉浸式写作</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-knowledge-graph.png?v=1</image:loc>
+      <image:caption>MarKing 知识图谱 - 交互式力导向图可视化知识网络</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care.png</image:loc>
