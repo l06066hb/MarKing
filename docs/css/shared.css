@@ -265,13 +265,13 @@ nav { width: 100%; display: flex; justify-content: space-between; align-items: c
 .hero-image-wrapper {
   margin-top: 5rem;
   position: relative;
-  perspective: 1000px;
+  /* 移除 perspective: 3D 上下文会把子元素栅格化为 GPU 纹理导致图像降质 */
 }
 
 .hero-image-inner {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  overflow: hidden;
+  /* 移除 overflow: hidden: 图片自己已设 border-radius，父容器裁切只会触发 GPU 合成降质 */
   box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
@@ -394,7 +394,7 @@ nav { width: 100%; display: flex; justify-content: space-between; align-items: c
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-subtle);
-  overflow: hidden;
+  /* 移除 overflow: hidden: img 已有相同圆角，父容器裁切会触发 GPU 合成层降质 */
 }
 
 .use-case-img img { width: 100%; display: block; border-radius: var(--radius-md); }
@@ -517,13 +517,14 @@ nav { width: 100%; display: flex; justify-content: space-between; align-items: c
 .theme-item {
   position: relative;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: hidden; /* 保留：悬停时 .theme-img 有 scale(1.05) 需裁切 */
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--bg);
   border: 1px solid var(--border-light);
   cursor: default;
-  aspect-ratio: 16 / 10;
+  /* 精确匹配截图实际比例 1921/1116，避免裁切+重采样 */
+  aspect-ratio: 1921 / 1116;
 }
 
 .theme-item.tall { aspect-ratio: auto; height: 100%; }
@@ -993,7 +994,7 @@ footer {
     line-height: 1.4;
   }
 
-  .features, .use-cases, .screenshots, .download, .sponsor { padding: 3rem 0; }
+  .features, .use-cases, .screenshots, .download, .sponsor, .showcase { padding: 3rem 0; }
 
   .section-header { margin-bottom: 2.5rem; }
   .section-title { font-size: 2rem; }
@@ -1034,6 +1035,10 @@ footer {
 
   .theme-showcase { padding-bottom: 4rem; }
   .theme-gallery { gap: 1rem; }
+  .theme-section-header { margin: 0 auto 3rem; }
+  .theme-section-title { font-size: 2rem; }
+  .theme-section-subtitle { font-size: 0.95rem; }
+  .theme-auto-switch p { font-size: 0.875rem; }
 }
 
 /* === Responsive: Small Mobile (≤640px) === */
@@ -1059,4 +1064,271 @@ footer {
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
 
   .sponsor-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Showcase — Tabbed Feature Gallery
+   ============================================================ */
+.showcase {
+  padding: 6rem 0 4rem;
+}
+
+.showcase-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.showcase-tab {
+  padding: 0.625rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.showcase-tab:hover {
+  color: var(--text-main);
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.showcase-tab.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px -3px rgba(59, 130, 246, 0.4);
+}
+
+.showcase-panels {
+  position: relative;
+  min-height: 320px;
+}
+
+.showcase-panel {
+  display: none;
+  animation: showcaseFadeIn 0.35s ease;
+}
+
+.showcase-panel.active {
+  display: block;
+}
+
+@keyframes showcaseFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.showcase-card {
+  border-radius: 1rem;
+  /* 关键：移除 overflow: hidden。它会强制浏览器把整个卡片栅格化为 GPU 纹理，
+     导致图片以 1x 纹理被放大显示而发虚。改为给子元素单独设置圆角。 */
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary);
+}
+
+.showcase-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* 精确匹配截图原始比例 1921/1116，避免裁切造成的重采样 */
+  aspect-ratio: 1921 / 1116;
+  object-fit: cover;
+  object-position: top center;
+  cursor: zoom-in;
+  /* 只给图片自己圆角，避免父容器 overflow:hidden 触发 GPU 合成层降质 */
+  border-top-left-radius: calc(1rem - 1px);
+  border-top-right-radius: calc(1rem - 1px);
+  /* 不设置 image-rendering / transform，让浏览器使用默认高质量双三次下采样 */
+}
+
+.showcase-card-caption {
+  padding: 1.25rem 1.5rem;
+}
+
+.showcase-card-caption h4 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.375rem;
+}
+
+.showcase-card-caption p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Theme Section — migrated inline styles */
+.theme-section-header {
+  max-width: 860px;
+  margin: 0 auto 5rem;
+}
+
+.theme-section-badge {
+  background: rgba(99, 102, 241, 0.08);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 16px -4px rgba(99, 102, 241, 0.2);
+}
+
+.theme-section-title {
+  font-size: 2.75rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-section-subtitle {
+  max-width: 800px;
+}
+
+.theme-auto-switch {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.theme-auto-switch p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Showcase responsive */
+@media (max-width: 768px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .showcase-tabs {
+    gap: 0.375rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    padding: 0 0.5rem 0.5rem;
+  }
+  .showcase-tabs::-webkit-scrollbar { display: none; }
+  .showcase-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+  .showcase-card-caption {
+    padding: 1rem 1.25rem;
+  }
+  .showcase-card-caption h4 {
+    font-size: 0.9375rem;
+  }
+  .showcase-card-caption p {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .showcase-panels {
+    min-height: 0;
+  }
+}
+
+/* === Image Lightbox === */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  cursor: zoom-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-overlay img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4);
+  transform: scale(0.92);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.lightbox-overlay.active img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-hint {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  pointer-events: none;
+  transition: opacity 0.3s;
 }

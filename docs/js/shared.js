@@ -140,7 +140,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.bento-item, .platform-card, .sponsor-card, .use-case-row').forEach(el => {
+    document.querySelectorAll('.bento-item, .platform-card, .sponsor-card, .showcase-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -216,6 +216,88 @@ window.addEventListener('load', () => {
     }, { passive: true });
 
     startAutoPlay();
+})();
+
+// ========== Showcase Tabbed Gallery ==========
+(function () {
+    const tabs = document.querySelectorAll('.showcase-tab');
+    const panels = document.querySelectorAll('.showcase-panel');
+    if (!tabs.length || !panels.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+
+            panels.forEach(p => p.classList.remove('active'));
+            const activePanel = document.querySelector(`.showcase-panel[data-panel="${target}"]`);
+            if (activePanel) activePanel.classList.add('active');
+        });
+    });
+})();
+
+// ========== Image Lightbox for Showcase ==========
+(function () {
+    // Create lightbox DOM once
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Image preview');
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'lightbox-close';
+    closeBtn.setAttribute('aria-label', 'Close preview');
+    closeBtn.innerHTML = '<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+
+    const img = document.createElement('img');
+    img.alt = '';
+
+    const hint = document.createElement('span');
+    hint.className = 'lightbox-hint';
+
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(img);
+    overlay.appendChild(hint);
+    document.body.appendChild(overlay);
+
+    // Detect language
+    const isEN = document.documentElement.lang === 'en';
+    hint.textContent = isEN ? 'Click anywhere or press Esc to close' : '点击任意位置或按 Esc 关闭';
+
+    function openLightbox(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Attach to all showcase card images
+    document.querySelectorAll('.showcase-card img').forEach(cardImg => {
+        cardImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Use full-resolution image (remove aspect-ratio crop)
+            openLightbox(cardImg.src, cardImg.alt);
+        });
+    });
+
+    // Close handlers
+    overlay.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
+    });
 })();
 
 // ========== Bento Card Glow Follow Effect ==========

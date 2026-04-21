@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.3.0] - 2026-04-20
+
+### ✨ Features
+
+- **Bi-directional Links & Knowledge Graph**: Full `[[WikiLink]]` backlink system paired with an interactive knowledge graph featuring force-directed layout, zoom & pan, node highlighting, and focus-based navigation. Handles 10K+ nodes smoothly, with graph export (PNG/SVG), immersive fullscreen, node filtering, and link-density analysis.
+- **Command Palette**: `Ctrl+Shift+P` to summon a global search-and-execute panel for all editor commands and shortcuts.
+- **Quick Switcher**: `Ctrl+P` for instant fuzzy file-name search with millisecond-level navigation to any document.
+- **Breadcrumb Navigation**: A real-time directory path breadcrumb above the editor, with clickable segments for quick folder traversal.
+- **Focus Mode**: One-click immersive writing environment featuring Typewriter Mode (current line always centered) and Highlight Mode (dims non-active paragraphs) for distraction-free authoring.
+- **Callout Blocks**: Renders `> [!NOTE]`, `> [!WARNING]` and other admonition types in real-time, compatible with both GitHub Alerts and Obsidian Callout syntax.
+- **Tray Close Strategy**: On window close, presents a choice between quitting entirely or minimizing to tray, with a "Remember my choice" option for future sessions.
+
+### 🎨 Themes & UI
+
+- **Paper-Series Dual Themes**: Added washi-paper and sepia-yellow presets inspired by East-Asian aesthetics, with a full-scope theme audit and UI refinements.
+- **Global Theme Consistency**: Vault Manager, Vault Switcher, Lightweight Mode, and more fully adapt to the active theme — no more hardcoded backgrounds.
+- **macOS Compatibility**: Fixed styling issues on older Safari / WebKit versions.
+- **File Tree Hover Cards**: Hover over any file to see size, modification date, word count, and more at a glance.
+- **Sidebar Tree Layout**: Refined file-tree indentation and template entry placement for clearer visual hierarchy.
+- **Command Palette & Switcher Styling**: Unified frosted-glass popover aesthetics and keyboard-driven navigation.
+- **Splash Screen & Transition Polish**: Improved loading skeleton and fade-in transitions on first launch.
+- **About Page Logo Refresh**: Updated app icon rendering on the About dialog.
+- **Update Dialog Layout**: Pinned download / install actions to a fixed footer — no more scrolling past changelogs to install.
+
+### 🐛 Bug Fixes
+
+- Fixed macOS double-click titlebar failing to toggle fullscreen.
+- Fixed text copy in the preview area not working.
+- Fixed first-run tips failing to persist, causing repeated pop-ups.
+- Fixed Data Integrity Center showing false alerts after importing a vault in Lightweight Mode.
+- Fixed inability to select subdirectories when importing a vault in Lightweight Mode.
+- Fixed file content desync between Lightweight Mode and the main editor after saving.
+- Fixed horizontal rule `---` inadvertently affecting subsequent content rendering.
+- Fixed drag-and-drop anomalies in the visual table editor.
+
+---
+
 ## [1.2.1] - 2026-04-12
 
 ### ✨ Features
