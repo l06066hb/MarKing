@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.3.0](https://img.shields.io/badge/MarKing-v1.3.0-2563eb?style=for-the-badge)
+![MarKing-v1.3.1](https://img.shields.io/badge/MarKing-v1.3.1-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -23,6 +23,8 @@ English | [简体中文](./README.md)
 
 MarKing is a desktop Markdown editor built for native performance and rock-solid stability.  
 **Local-first, zero tracking, ad-free** — your words belong to you, and only you.
+
+> **v1.3.1 highlights**: Tag & category system overhaul · Custom shortcuts · Auto-start at login · Help Center redesign · App-wide polish
 
 <br>
 

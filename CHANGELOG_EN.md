@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.3.1] - 2026-04-25
+
+### ✨ Features
+
+- **Tag & Category System Overhaul**: A new Info Bar above the editor replaces the old properties dialog, paired with a popover Picker and `Alt+T` / `Alt+C` shortcuts for instant tagging. YAML frontmatter and inline `#tag` syntax now sync bi-directionally, with smart Monaco autocomplete (sorted by usage frequency).
+- **Custom Shortcuts**: Every built-in shortcut can now be remapped with a single keystroke — applies and persists immediately. Shortcuts displayed in the Help Center, menus, and documentation automatically reflect your customization.
+- **Auto-Start at Login**: New "Launch on system startup" toggle in Settings, with native Windows / macOS / Linux support.
+- **Help Center Redesign**: Streamlined to 5 compact tabs (Feature Overview / FAQ / Shortcuts / Snippets / About), with cross-tab search and hit-count badges to find any answer in 30 seconds.
+- **Refreshed App Icons**: Master icon and all platform-specific assets (Windows / macOS / Linux / Android) fully redesigned for greater clarity and craftsmanship.
+
+### ⚡ Performance & Experience
+
+- **Editor Scroll Sync Rewrite**: Switched to piecewise linear interpolation under the hood, eliminating Y-axis jumps, quantization jitter, and sub-pixel wobble during cross-block scrolling.
+- **Theme Preload Guard**: Synchronously preloads the active theme on startup, completely eliminating cold-start theme flicker.
+- **Quieter Toast Notifications**: Following the "Silent success, loud failure" principle — removed "in progress..." toasts for high-frequency operations like document formatting, and shortened success-toast duration.
+
+### 🎨 Themes & UI
+
+- **Light Theme Contrast Fixes**: Buttons and icons in paper-series themes (washi-paper / paper-white) no longer suffer from "white-on-white" syndrome — 10+ dialogs migrated to theme-aware adaptive colors.
+- **Modernized Category/Tag Creation Dialog**: Linear-style single-row palette with live preview, replacing the heavy gradient blocks.
+- **Snapshot Manager Theme Adaptation**: All hardcoded colors replaced with theme tokens, fixing visual breakage in light themes.
+- **Dracula Night Theme Refresh**: Repositioned as a low-saturation black-purple professional workbench — purpose-built for long deep-work sessions.
+- **Modern Brand Wordmark**: Switched from serif to a contemporary sans-serif stack (Inter / system-ui) with stable cross-platform fallbacks.
+
+### 🐛 Bug Fixes
+
+- Fixed app-wide i18n placeholder issue where `{{var}}` was rendered literally (e.g., `{1}`, `{name}` showing in the UI) instead of being interpolated.
+- Fixed knowledge graph (global / document) still showing stale data after switching vaults.
+- Fixed table cells being stretched by long URLs, which would compress short-content columns into vertical single characters.
+- Fixed intermittent failures of the `?` and `F1` Help shortcuts.
+- Fixed redundant double-toast notifications when formatting documents.
+- Corrected 7 FAQ entries that did not match actual product behavior (DOCX templates, file import, categories vs. tags, search, snippet count, etc.).
+
+---
+
 ## [1.3.0] - 2026-04-20
 
 ### ✨ Features
