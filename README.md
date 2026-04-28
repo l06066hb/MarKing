@@ -10,21 +10,21 @@
 
 <br>
 
-![MarKing-v1.3.1](https://img.shields.io/badge/MarKing-v1.3.1-2563eb?style=for-the-badge)
+![MarKing-v1.3.2](https://img.shields.io/badge/MarKing-v1.3.2-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`剪贴板快捷捕获` · `附件管理器` · `文档属性面板` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
 MarKing 是一款追求原生性能与极致稳定性的桌面端 Markdown 编辑器。  
 **本地优先、零追踪、无广告** — 你的文字只属于你自己。
 
-> **v1.3.1 亮点**：标签与分类系统重构 · 自定义快捷键 · 开机自启动 · 帮助中心重构 · 全应用体验雕琢
+> **v1.3.2 亮点**：剪贴板快捷捕获 · 文档属性面板 · 附件管理器升级 · 全栈安全加固 · 预览渲染优化
 
 <br>
 

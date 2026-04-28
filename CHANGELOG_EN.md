@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.3.2] - 2026-04-28
+
+### ✨ Features
+
+- **Clipboard Quick Capture**: A new clipboard-capture toggle in the status bar; when enabled, a lightweight popup window appears whenever the clipboard changes. Automatically identifies the content type (Markdown / code / error logs / config files / etc.) and lets you save it as a new note in one click — without ever switching back to the main window. 
+- **Document Properties Panel**: Right-click any file in the tree or use a shortcut to open a properties panel showing title, path, word count, reading time, backlinks, created/modified timestamps and more — all in a single view. The status bar offers click-to-jump access.
+- **Attachment Manager Upgrade**: Scans every image, audio, video, and attachment across your Vault and groups them into "Referenced / Unreferenced / Broken references". Full toolbox: search, sort, filter, individual delete, bulk cleanup, open-in-folder, and clear stale references.
+- **Tray & Status Bar Personalization**: New settings for "Tray click behavior" and "Status bar content" let you tailor quick panels to your habits.
+- **Smart Copy Detection**: Copied content is now classified as Markdown / code / link / error log / etc., enabling smarter handling on the next paste.
+
+### 🐛 Bug Fixes
+
+- Fixed a brief "partial blank" hiccup in preview when editing 10K+ word documents; ordinary-sized notes now render in a single frame.
+- Fixed F2 rename shortcut occasionally acting on items other than the currently focused one.
+- Fixed PDF export failing when Microsoft Edge wasn't on the system PATH — common install locations are now auto-detected.
+- Fixed Focus Mode state going inconsistent after switching between Vaults.
+
+---
+
 ## [1.3.1] - 2026-04-25
 
 ### ✨ Features
