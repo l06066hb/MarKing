@@ -43,15 +43,59 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.GITEE_PRIVATE_KEY }}
 
-      - name: Trust Gitee Host
+      # 跨境拉取大仓库（src-tauri/binaries/pandoc-* 多平台二进制 + release-docs 历史
+      # 工作区可达数百 MB）容易触发：
+      #   fetch-pack: unexpected disconnect while reading sideband packet
+      #   fatal: early EOF / fatal: fetch-pack: invalid index-pack output
+      # 根因：GitHub Actions runner（海外）→ Gitee（境内）长连接被中间网络设备断流。
+      # 缓解：增大 git buffer + 取消传输压缩 + SSH KeepAlive + 失败重试。
+      - name: Configure Git & SSH for cross-border large repo
         shell: bash
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+          # 静默 stderr 避免 fingerprint 噪声进日志（known_hosts 内容不敏感）
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts 2>/dev/null
+          # git 传输 buffer 默认 1MB，对大 pack 必撑爆 → 1GB
+          git config --global http.postBuffer 1048576000
+          # 取消传输压缩：服务端 CPU 等待时间过长易触发中间设备断流
+          git config --global core.compression 0
+          # SSH KeepAlive：每 30s 心跳，防 idle timeout
+          cat >> ~/.ssh/config << 'EOF'
+          Host gitee.com
+            ServerAliveInterval 30
+            ServerAliveCountMax 10
+            TCPKeepAlive yes
+          EOF
+          chmod 600 ~/.ssh/config
 
-      # 浅克隆 (--depth 1) 仅拉取当前版本，极大加速大仓库的拉取效率
-      - name: Clone Gitee Private Repository
-        run: git clone --depth 1 -b ${{ github.ref_name }} ${{ secrets.GITEE_REPO_SSH_URL }} .
+      # 浅克隆 (--depth 1 --no-tags --single-branch) + 5 次重试 + 指数退避。
+      # secret 通过 env 传递避免命令行展开（GitHub Actions 已自动 mask，env 是双保险）。
+      - name: Clone Gitee Private Repository (with retry)
+        shell: bash
+        env:
+          GITEE_URL: ${{ secrets.GITEE_REPO_SSH_URL }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set +e
+          for attempt in 1 2 3 4 5; do
+            echo "::group::Clone attempt $attempt"
+            if git clone --depth 1 --no-tags --single-branch \
+                -b "$REF_NAME" "$GITEE_URL" .; then
+              echo "Clone succeeded on attempt $attempt"
+              echo "::endgroup::"
+              exit 0
+            fi
+            echo "::endgroup::"
+            echo "Attempt $attempt failed, cleaning workspace..."
+            shopt -s dotglob nullglob
+            rm -rf ./* || true
+            shopt -u dotglob nullglob
+            # 指数退避：10s, 20s, 30s, 40s
+            sleep $((attempt * 10))
+          done
+          # 不暴露 URL/repo 名，只指示运维方向
+          echo "::error::All 5 clone attempts failed - check Gitee SSH key and network connectivity"
+          exit 1
 
       - name: Install dependencies (Ubuntu only)
         if: matrix.platform == 'ubuntu-22.04'
