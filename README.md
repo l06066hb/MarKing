@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.3.2](https://img.shields.io/badge/MarKing-v1.3.2-2563eb?style=for-the-badge)
+![MarKing-v1.3.3](https://img.shields.io/badge/MarKing-v1.3.3-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款追求原生性能与极致稳定性的桌面端 Markdown 编辑器。  
 **本地优先、零追踪、无广告** — 你的文字只属于你自己。
 
-> **v1.3.2 亮点**：剪贴板快捷捕获 · 文档属性面板 · 附件管理器升级 · 全栈安全加固 · 预览渲染优化
+> **v1.3.3 稳定性修复**：修复 v1.3.2 反馈的编辑器显示与输入体验问题，文档打开速度回归原有水平。所有 v1.3.2 用户建议升级。
 
 <br>
 
