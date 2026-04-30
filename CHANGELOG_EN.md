@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.3] - 2026-04-30
+
+> 🚑 v1.3.3 is a stability hotfix addressing a few editor experience issues reported on v1.3.2. **All v1.3.2 features are preserved.** All v1.3.2 users are encouraged to upgrade.
+
+### 🐛 Bug Fixes
+
+- Fixed an occasional character-overlap issue when switching documents — editor text rendering is back to normal.
+- Improved input stability for macOS IME (Chinese / Japanese / etc.) — fixed sporadic character ghosting during typing.
+- Fixed text selection in the editor — selection events were registering (a highlight indicator appeared on the right scrollbar) but the selection overlay itself wasn't visible. Selection now works as expected.
+- Restored document open speed — back to the fast load experience users had on v1.3.1.
+
+### 📝 Notes
+
+No new features in this release. v1.3.3 focuses solely on resolving the editor regressions introduced in v1.3.2. If you upgraded to v1.3.2 and ran into any of the issues above, upgrading to v1.3.3 is strongly recommended.
+
+---
+
 ## [1.3.2] - 2026-04-28
 
 ### ✨ Features

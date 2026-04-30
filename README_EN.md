@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.3.2](https://img.shields.io/badge/MarKing-v1.3.2-2563eb?style=for-the-badge)
+![MarKing-v1.3.3](https://img.shields.io/badge/MarKing-v1.3.3-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor built for native performance and rock-solid stability.  
 **Local-first, zero tracking, ad-free** — your words belong to you, and only you.
 
-> **v1.3.2 highlights**: Clipboard Quick Capture · Document Properties Panel · Attachment Manager upgrade · Full-stack security hardening · Preview rendering polish
+> **v1.3.3 — Stability Hotfix**: Resolves editor display and input issues reported on v1.3.2; document open speed restored to the previous baseline. Recommended for all v1.3.2 users.
 
 <br>
 
