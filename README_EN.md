@@ -4,27 +4,27 @@
 
 # MarKing
 
-**Local-first · Zero tracking · Cross-platform — A Markdown editor for serious writers**
+**Local-first · Zero tracking · Cross-platform — A Markdown editor for sustained writing**
 
 English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.3.3](https://img.shields.io/badge/MarKing-v1.3.3-2563eb?style=for-the-badge)
+![MarKing-v1.4.0](https://img.shields.io/badge/MarKing-v1.4.0-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`Clipboard Quick Capture` · `Attachment Manager` · `Document Properties` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`Web URL Import` · `Vault Overview` · `Scroll Sync Stability` · `Clipboard Quick Capture` · `Attachment Manager` · `Document Properties` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
-MarKing is a desktop Markdown editor built for native performance and rock-solid stability.  
-**Local-first, zero tracking, ad-free** — your words belong to you, and only you.
+MarKing is a desktop Markdown editor focused on native performance and stability.  
+**Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.3.3 — Stability Hotfix**: Resolves editor display and input issues reported on v1.3.2; document open speed restored to the previous baseline. Recommended for all v1.3.2 users.
+> **v1.4.0 — Web URL Import · Vault Overview · Scroll Sync Stability**: Paste any URL to save the page as a high-fidelity Markdown note, no browser extension required; a new Vault Overview panel surfaces note count, total words, categories, tags and recent edits at a glance; in long documents, asynchronous loading of Mermaid, Excalidraw and images no longer causes the preview to jump while scrolling.
 
 <br>
 

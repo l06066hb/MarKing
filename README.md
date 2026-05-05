@@ -4,27 +4,27 @@
 
 # MarKing
 
-**本地优先 · 零追踪 · 跨平台 — 为严肃写作者打造的 Markdown 编辑器**
+**本地优先 · 零追踪 · 跨平台 — 面向长期写作的 Markdown 编辑器**
 
 [English](./README_EN.md) | 简体中文
 
 <br>
 
-![MarKing-v1.3.3](https://img.shields.io/badge/MarKing-v1.3.3-2563eb?style=for-the-badge)
+![MarKing-v1.4.0](https://img.shields.io/badge/MarKing-v1.4.0-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`剪贴板快捷捕获` · `附件管理器` · `文档属性面板` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`网页 URL 导入` · `知识库概览` · `滚动同步增强` · `剪贴板快捷捕获` · `附件管理器` · `文档属性面板` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
-MarKing 是一款追求原生性能与极致稳定性的桌面端 Markdown 编辑器。  
-**本地优先、零追踪、无广告** — 你的文字只属于你自己。
+MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
+**本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.3.3 稳定性修复**：修复 v1.3.2 反馈的编辑器显示与输入体验问题，文档打开速度回归原有水平。所有 v1.3.2 用户建议升级。
+> **v1.4.0 — 网页 URL 导入 · 知识库概览 · 滚动同步增强**：粘贴 URL 即可将网页保存为高保真 Markdown 笔记，无需浏览器扩展；新增知识库概览面板，集中呈现笔记数、字数、分类、标签与近期编辑；大文档场景下，Mermaid / Excalidraw / 图片的异步加载不再引起滚动跳动。
 
 <br>
 

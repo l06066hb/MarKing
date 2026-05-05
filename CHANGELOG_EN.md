@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.4.0] - 2026-05-05
+
+> v1.4.0 introduces Web URL Import and the Vault Overview, hardens scroll-sync stability for large documents, and refines the overall Markdown writing toolchain.
+
+### ✨ Features
+
+#### Web URL Import
+
+- **Save any web page directly as a Markdown note**: Open the command palette and search "Import", or right-click a folder in the file tree and choose "Import from URL to here". Paste a URL to generate the note. No browser extension required.
+- **High-fidelity conversion**: Preserves code block languages, table alignment, task lists, strikethrough, highlights, super/subscripts and hard line breaks; intra-page relative links are rewritten to absolute URLs.
+- **Automatic source metadata**: Title, source URL and clipping timestamp are written into frontmatter, with an `imported` tag attached; common ad-tracking parameters are stripped automatically.
+- **Clipboard auto-fill**: When the import dialog opens, a valid URL on the clipboard is pre-filled into the input.
+- **Clear error messages**: Login walls, restricted access, oversized pages, non-HTML content and request timeouts are each surfaced with a dedicated bilingual message.
+- **Baseline security**: Requests targeting private or reserved network ranges are rejected; per-page size, per-image size and request duration are capped to keep the application stable in the face of unusual URLs.
+
+#### Vault Overview
+
+- **Overview panel**: A consolidated view of total notes, total words, category and tag distribution, favorites, items needing attention and recent edits — designed to give a quick read on the state of the knowledge base.
+- **Folder hover stats**: Hovering any folder in the file tree reveals its file count and last-updated time.
+
+### ⚡ Performance & Experience
+
+- **Scroll-sync stability**: In long documents containing Mermaid diagrams, Excalidraw boards or images, the preview no longer jumps during async render; the mapping is silently refreshed once content settles.
+- **Large-document scrolling**: The scroll-sync path no longer triggers extra layout passes, keeping documents with many embedded diagrams responsive.
+- **Modular Markdown formatter**: The `Shift+Alt+F` formatter has been split into independently toggleable rules (trailing whitespace, collapse blank lines, full-width spaces, indentation, final newline). Code blocks, math blocks and frontmatter are protected from modification.
+- **Quick Switcher ranking**: `Ctrl+P` file switching now ranks results by exact, prefix, substring matches combined with recent-use frequency for more accurate hits.
+
+### 🐛 Bug Fixes
+
+- **Files missing from search in large vaults**: Fixed an issue where, in vaults exceeding a certain file count, some files could not be matched by global search.
+- **Search results flickering during background saves**: Fixed result-list jitter caused by background saves re-triggering search.
+- **Repeated-character search highlighting**: Highlights for queries with repeated characters (e.g. `aa`) no longer skip occurrences.
+- **Quick switcher dropping results**: Fixed a case where rapid consecutive keystrokes could lose partial matches.
+- **Word counting**: Corrected counting at boundaries involving emoji, CJK punctuation and grapheme clusters.
+- **YAML frontmatter handling**: Hardened delimiter detection, tag add/remove and strip/restore consistency.
+
+---
+
 ## [1.3.3] - 2026-04-30
 
 > 🚑 v1.3.3 is a stability hotfix addressing a few editor experience issues reported on v1.3.2. **All v1.3.2 features are preserved.** All v1.3.2 users are encouraged to upgrade.
