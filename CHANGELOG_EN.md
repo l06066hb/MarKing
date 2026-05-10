@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.4.1] - 2026-05-10
+
+> v1.4.1 extends the writing toolchain (Paste as Markdown, Document Templates) and adds typography and interface density controls.
+
+### ✨ Features
+
+- **Paste as Markdown** (`Ctrl+Shift+V`): turn rich text from web pages, Notion or WeChat MP into clean Markdown. Recognizes 10+ common sources; if the clipboard is already Markdown, content is pasted verbatim with no double-escaping. The default `Ctrl+V` flow is untouched.
+- **Document Templates**: 6 built-in templates (Blank / Diary / Meeting / Reading / Tech Doc / Weekly Report) with `{{date}}` / `{{cursor}}` and other variables; drop your own under `.marking/templates/`.
+- **Typography**: new "Appearance → Typography" pane — independent font size (5 levels) and font family for editor and preview; 20+ preset fonts including **LXGW WenKai**. Exports use their own font configuration.
+- **Interface Density**: "Appearance → Interface Density" — compact / standard / comfortable; the default ("standard") matches v1.4.0 visually.
+- **Hide Dotfile Folders**: on by default — `.obsidian/` / `.git/` / `.vscode/` and other metadata directories are hidden when opening third-party note vaults; MarKing's internal directories stay hidden either way.
+
+### 🔧 Polish
+
+- Recent Edits on Vault Overview: up to 2 real-color tag chips + "+N" overflow badge per row, hover for the full list.
+- Template preview "Final Output" now performs real markdown rendering plus a frontmatter chip group.
+
+### 🐛 Bug Fixes
+
+- Fixed "Words this week" staying at zero on first save of a newly created document.
+- Fixed stats not updating and the Data Integrity Center misreporting "missing" after deleting documents.
+- Fixed YAML frontmatter `null` / `boolean` / `number` fields being coerced to strings on save/read round-trip — types are now preserved end-to-end, restoring compatibility with tools like Obsidian Dataview and Notion API.
+
+---
+
 ## [1.4.0] - 2026-05-05
 
 > v1.4.0 introduces Web URL Import and the Vault Overview, hardens scroll-sync stability for large documents, and refines the overall Markdown writing toolchain.
