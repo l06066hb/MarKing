@@ -170,9 +170,12 @@ jobs:
           set -euo pipefail
 
           # 1. 定位 Tauri 生成的 AppImage
-          APPIMAGE=$(find target/release/bundle/appimage -name "*.AppImage" -type f | head -1)
+          APPIMAGE=$(find src-tauri/target target -name "*.AppImage" -type f 2>/dev/null | head -1 || true)
           if [ -z "$APPIMAGE" ]; then
             echo "::warning::No AppImage found, skipping FUSE3 repackage"
+            echo "--- Debug: bundle dir contents ---"
+            find src-tauri/target -type d -name "bundle" 2>/dev/null || true
+            find target -type d -name "bundle" 2>/dev/null || true
             exit 0
           fi
           BASENAME=$(basename "$APPIMAGE")
