@@ -112,10 +112,12 @@ jobs:
           targets: ${{ matrix.target }} 
 
       # 性能优化：Rust 编译缓存，按 target 区分避免缓存冲突
+      # shared-key 后缀加 v2 强制使现有受污染缓存失效（首次 push 后可去掉）。
       - name: Rust Cache
         uses: swatinem/rust-cache@v2
         with:
-          shared-key: "marking-${{ matrix.target }}"
+          shared-key: "marking-${{ matrix.target }}-v2"
+          cache-bin: false
 
       # macOS: 仅保留当前架构的 pandoc，删除另一个以减小包体积
       - name: Prepare Pandoc sidecar (macOS)
