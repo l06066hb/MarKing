@@ -43,12 +43,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.GITEE_PRIVATE_KEY }}
 
-      # 跨境拉取大仓库（src-tauri/binaries/pandoc-* 多平台二进制 + release-docs 历史
-      # 工作区可达数百 MB）容易触发：
-      #   fetch-pack: unexpected disconnect while reading sideband packet
-      #   fatal: early EOF / fatal: fetch-pack: invalid index-pack output
-      # 根因：GitHub Actions runner（海外）→ Gitee（境内）长连接被中间网络设备断流。
-      # 缓解：增大 git buffer + 取消传输压缩 + SSH KeepAlive + 失败重试。
       - name: Configure Git & SSH for cross-border large repo
         shell: bash
         run: |
@@ -165,3 +159,43 @@ jobs:
           releaseDraft: true 
           prerelease: false
           args: ${{ matrix.args }}
+
+      
+      - name: Repackage AppImage with FUSE3 runtime (Linux only)
+        if: matrix.platform == 'ubuntu-22.04'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # 1. 定位 Tauri 生成的 AppImage
+          APPIMAGE=$(find target/release/bundle/appimage -name "*.AppImage" -type f | head -1)
+          if [ -z "$APPIMAGE" ]; then
+            echo "::warning::No AppImage found, skipping FUSE3 repackage"
+            exit 0
+          fi
+          BASENAME=$(basename "$APPIMAGE")
+          echo "Original AppImage: $APPIMAGE"
+
+          # 2. 提取（--appimage-extract 不需要 FUSE，CI 环境安全）
+          chmod +x "$APPIMAGE"
+          "$APPIMAGE" --appimage-extract
+
+          # 3. 下载支持 --runtime-fuse3 的 appimagetool
+          wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" \
+            -O appimagetool
+          chmod +x appimagetool
+
+          # 4. 用 FUSE3 runtime 重新打包
+          #    APPIMAGE_EXTRACT_AND_RUN=1 让 appimagetool 自身也无需 FUSE 即可运行
+          APPIMAGE_EXTRACT_AND_RUN=1 ./appimagetool --runtime-fuse3 squashfs-root "$BASENAME"
+          echo "Repackaged with FUSE3 runtime: $(ls -lh "$BASENAME" | awk '{print $5}')"
+
+          # 5. 上传到 draft release（--clobber 替换 tauri-action 上传的 FUSE2 版本）
+          RELEASE_TAG="v$(jq -r '.version' src-tauri/tauri.conf.json)"
+          echo "Uploading to release: $RELEASE_TAG"
+          gh release upload "$RELEASE_TAG" "$BASENAME" --clobber --repo "${{ github.repository }}"
+
+          # 6. 清理
+          rm -rf squashfs-root appimagetool
