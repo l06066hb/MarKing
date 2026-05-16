@@ -196,15 +196,41 @@ jobs:
             -O runtime-fuse3
           chmod +x appimagetool runtime-fuse3
 
-          # 4. 用新 runtime 重新打包
+          # 4. 注入 WebKit 渲染兜底环境变量到 AppRun
+          #    解决 Tauri v2 + WebKitGTK 4.1 + Linux 硬件加速合成层挂起白屏问题
+          #    （v1.4.2 用户报告：Ubuntu 上启动后卡 splash，关闭硬件加速即正常）
+          #    DMABUF renderer：在部分 GPU/驱动组合下导致 webview 不绘制
+          #    Compositing mode：合成层在某些 GTK 主题/Wayland 配置下挂起
+          #    用户可通过 `WEBKIT_DISABLE_COMPOSITING_MODE=0 ./MarKing.AppImage` 反向开启
+          APPRUN="squashfs-root/AppRun"
+          if [ -f "$APPRUN" ] && head -1 "$APPRUN" | grep -q '^#!.*sh'; then
+            echo "Injecting WebKit fallback env vars into AppRun"
+            # 用 head + printf + tail 拼接新 AppRun，避免 sed 多行语法被 YAML parser 误解析
+            {
+              head -1 "$APPRUN"
+              printf '%s\n' \
+                '# WebKit rendering fallbacks (injected by CI for Linux compositor compat)' \
+                '[ -z "${WEBKIT_DISABLE_COMPOSITING_MODE:-}" ] && export WEBKIT_DISABLE_COMPOSITING_MODE=1' \
+                '[ -z "${WEBKIT_DISABLE_DMABUF_RENDERER:-}" ] && export WEBKIT_DISABLE_DMABUF_RENDERER=1'
+              tail -n +2 "$APPRUN"
+            } > "$APPRUN.new"
+            mv "$APPRUN.new" "$APPRUN"
+            chmod +x "$APPRUN"
+            echo "--- AppRun head after injection ---"
+            head -8 "$APPRUN"
+          else
+            echo "::warning::AppRun not found or not a shell script, skipping WebKit env injection"
+          fi
+
+          # 5. 用新 runtime 重新打包
           #    APPIMAGE_EXTRACT_AND_RUN=1 让 appimagetool 自身也无需 FUSE 即可运行
           APPIMAGE_EXTRACT_AND_RUN=1 ./appimagetool --runtime-file runtime-fuse3 squashfs-root "$BASENAME"
           echo "Repackaged with FUSE3-compatible runtime: $(ls -lh "$BASENAME" | awk '{print $5}')"
 
-          # 5. 上传到 draft release（--clobber 替换 tauri-action 上传的 FUSE2 版本）
+          # 6. 上传到 draft release（--clobber 替换 tauri-action 上传的 FUSE2 版本）
           RELEASE_TAG="v$(jq -r '.version' src-tauri/tauri.conf.json)"
           echo "Uploading to release: $RELEASE_TAG"
           gh release upload "$RELEASE_TAG" "$BASENAME" --clobber --repo "${{ github.repository }}"
 
-          # 6. 清理
+          # 7. 清理
           rm -rf squashfs-root appimagetool
