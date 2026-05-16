@@ -187,39 +187,26 @@ jobs:
           chmod +x "$APPIMAGE"
           "$APPIMAGE" --appimage-extract
 
-          # 3. 下载 appimagetool 和新版 type2-runtime
-          #    appimagetool 没有 --runtime-fuse3 选项，需通过 --runtime-file 指向
-          #    type2-runtime 仓库提供的预编译 runtime 二进制。
+          # 3. 下载 appimagetool 和 type2-runtime（FUSE2/FUSE3 双兼容）
           wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" \
             -O appimagetool
           wget -q "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" \
             -O runtime-fuse3
           chmod +x appimagetool runtime-fuse3
 
-          # 4. 注入 WebKit 渲染兜底环境变量到 AppRun
-          #    解决 Tauri v2 + WebKitGTK 4.1 + Linux 硬件加速合成层挂起白屏问题
-          #    （v1.4.2 用户报告：Ubuntu 上启动后卡 splash，关闭硬件加速即正常）
-          #    DMABUF renderer：在部分 GPU/驱动组合下导致 webview 不绘制
-          #    Compositing mode：合成层在某些 GTK 主题/Wayland 配置下挂起
-          #    用户可通过 `WEBKIT_DISABLE_COMPOSITING_MODE=0 ./MarKing.AppImage` 反向开启
-          APPRUN="squashfs-root/AppRun"
-          if [ -f "$APPRUN" ] && head -1 "$APPRUN" | grep -q '^#!.*sh'; then
-            echo "Injecting WebKit fallback env vars into AppRun"
-            # 用 head + printf + tail 拼接新 AppRun，避免 sed 多行语法被 YAML parser 误解析
-            {
-              head -1 "$APPRUN"
-              printf '%s\n' \
-                '# WebKit rendering fallbacks (injected by CI for Linux compositor compat)' \
-                '[ -z "${WEBKIT_DISABLE_COMPOSITING_MODE:-}" ] && export WEBKIT_DISABLE_COMPOSITING_MODE=1' \
-                '[ -z "${WEBKIT_DISABLE_DMABUF_RENDERER:-}" ] && export WEBKIT_DISABLE_DMABUF_RENDERER=1'
-              tail -n +2 "$APPRUN"
-            } > "$APPRUN.new"
-            mv "$APPRUN.new" "$APPRUN"
-            chmod +x "$APPRUN"
-            echo "--- AppRun head after injection ---"
-            head -8 "$APPRUN"
+          # 4. 剔除 bundle 的动态库，强制走系统库
+          # 与 deb / rpm 行为对齐，避免 bundle 库与目标系统 ABI 不一致引发的
+          # 渲染异常。要求系统已装 libwebkit2gtk-4.1（Ubuntu 22.04+ 默认）。
+          echo "Stripping bundled libraries to use system versions"
+          LIB_DIR="squashfs-root/usr/lib"
+          if [ -d "$LIB_DIR" ]; then
+            BEFORE_COUNT=$(find "$LIB_DIR" -maxdepth 1 -name '*.so*' -type f 2>/dev/null | wc -l)
+            BEFORE_SIZE=$(du -sh "$LIB_DIR" 2>/dev/null | cut -f1)
+            rm -f "$LIB_DIR"/*.so*
+            AFTER_SIZE=$(du -sh "$LIB_DIR" 2>/dev/null | cut -f1)
+            echo "Removed $BEFORE_COUNT bundled libraries (size: $BEFORE_SIZE -> $AFTER_SIZE)"
           else
-            echo "::warning::AppRun not found or not a shell script, skipping WebKit env injection"
+            echo "::warning::$LIB_DIR not found, skipping library strip"
           fi
 
           # 5. 用新 runtime 重新打包
