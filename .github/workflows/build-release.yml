@@ -187,19 +187,19 @@ jobs:
           chmod +x "$APPIMAGE"
           "$APPIMAGE" --appimage-extract
 
-          # 3. 下载 appimagetool 和独立的 FUSE3 runtime
+          # 3. 下载 appimagetool 和新版 type2-runtime
           #    appimagetool 没有 --runtime-fuse3 选项，需通过 --runtime-file 指向
-          #    type2-runtime 仓库提供的预编译 FUSE3 runtime 二进制。
+          #    type2-runtime 仓库提供的预编译 runtime 二进制。
           wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" \
             -O appimagetool
-          wget -q "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-fuse3-x86_64" \
+          wget -q "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" \
             -O runtime-fuse3
           chmod +x appimagetool runtime-fuse3
 
-          # 4. 用 FUSE3 runtime 重新打包
+          # 4. 用新 runtime 重新打包
           #    APPIMAGE_EXTRACT_AND_RUN=1 让 appimagetool 自身也无需 FUSE 即可运行
           APPIMAGE_EXTRACT_AND_RUN=1 ./appimagetool --runtime-file runtime-fuse3 squashfs-root "$BASENAME"
-          echo "Repackaged with FUSE3 runtime: $(ls -lh "$BASENAME" | awk '{print $5}')"
+          echo "Repackaged with FUSE3-compatible runtime: $(ls -lh "$BASENAME" | awk '{print $5}')"
 
           # 5. 上传到 draft release（--clobber 替换 tauri-action 上传的 FUSE2 版本）
           RELEASE_TAG="v$(jq -r '.version' src-tauri/tauri.conf.json)"
