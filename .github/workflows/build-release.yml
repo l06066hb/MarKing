@@ -209,15 +209,39 @@ jobs:
             echo "::warning::$LIB_DIR not found, skipping library strip"
           fi
 
-          # 5. 用新 runtime 重新打包
+          # 5. 注入 WebKitGTK 兼容启动器
+          # 新版 WebKitGTK (Ubuntu 24.04+/Wayland/部分 GPU 驱动) 的 compositing
+          # 与 DMABUF 渲染路径会导致 AppImage 卡在 loading 或界面无响应。
+          # 用 wrapper 脚本替换默认 AppRun，启动前注入兼容开关，
+          # 同时允许用户通过外部环境变量覆盖（值为 0 即可关闭）。
+          APP_BIN=$(find squashfs-root/usr/bin -maxdepth 1 -type f -executable | head -1)
+          if [ -n "$APP_BIN" ]; then
+            BIN_NAME=$(basename "$APP_BIN")
+            echo "Injecting WebKit-compat AppRun wrapper for: $BIN_NAME"
+            rm -f squashfs-root/AppRun
+            {
+              echo '#!/bin/bash'
+              echo 'HERE="$(dirname "$(readlink -f "${0}")")"'
+              echo 'export WEBKIT_DISABLE_COMPOSITING_MODE="${WEBKIT_DISABLE_COMPOSITING_MODE:-1}"'
+              echo 'export WEBKIT_DISABLE_DMABUF_RENDERER="${WEBKIT_DISABLE_DMABUF_RENDERER:-1}"'
+              echo "exec \"\$HERE/usr/bin/${BIN_NAME}\" \"\$@\""
+            } > squashfs-root/AppRun
+            chmod +x squashfs-root/AppRun
+            echo "--- AppRun content ---"
+            cat squashfs-root/AppRun
+          else
+            echo "::warning::No executable found in usr/bin, keeping default AppRun"
+          fi
+
+          # 6. 用新 runtime 重新打包
           #    APPIMAGE_EXTRACT_AND_RUN=1 让 appimagetool 自身也无需 FUSE 即可运行
           APPIMAGE_EXTRACT_AND_RUN=1 ./appimagetool --runtime-file runtime-fuse3 squashfs-root "$BASENAME"
           echo "Repackaged with FUSE3-compatible runtime: $(ls -lh "$BASENAME" | awk '{print $5}')"
 
-          # 6. 上传到 draft release（--clobber 替换 tauri-action 上传的 FUSE2 版本）
+          # 7. 上传到 draft release（--clobber 替换 tauri-action 上传的 FUSE2 版本）
           RELEASE_TAG="v$(jq -r '.version' src-tauri/tauri.conf.json)"
           echo "Uploading to release: $RELEASE_TAG"
           gh release upload "$RELEASE_TAG" "$BASENAME" --clobber --repo "${{ github.repository }}"
 
-          # 7. 清理
+          # 8. 清理
           rm -rf squashfs-root appimagetool
