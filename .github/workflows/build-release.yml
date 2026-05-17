@@ -47,15 +47,21 @@ jobs:
         shell: bash
         run: |
           mkdir -p ~/.ssh
-          # 静默 stderr 避免 fingerprint 噪声进日志（known_hosts 内容不敏感）
-          ssh-keyscan gitee.com >> ~/.ssh/known_hosts 2>/dev/null
+          # ssh-keyscan 偶发被 Gitee 限速/拒连导致非零退出，set -e 下会直接挂掉整步；
+          # 这里允许失败，后续靠 StrictHostKeyChecking=accept-new 兜底首次连接自动信任。
+          # stderr 故意不重定向，方便在 CI 日志里直接定位 ssh-keyscan 失败原因。
+          echo "--- ssh-keyscan gitee.com ---"
+          ssh-keyscan -T 10 gitee.com >> ~/.ssh/known_hosts || \
+            echo "::warning::ssh-keyscan failed; relying on accept-new fallback"
           # git 传输 buffer 默认 1MB，对大 pack 必撑爆 → 1GB
           git config --global http.postBuffer 1048576000
           # 取消传输压缩：服务端 CPU 等待时间过长易触发中间设备断流
           git config --global core.compression 0
-          # SSH KeepAlive：每 30s 心跳，防 idle timeout
+          # SSH KeepAlive：每 30s 心跳，防 idle timeout；
+          # accept-new 在 known_hosts 缺失时首次连接自动信任并写回，后续仍校验。
           cat >> ~/.ssh/config << 'EOF'
           Host gitee.com
+            StrictHostKeyChecking accept-new
             ServerAliveInterval 30
             ServerAliveCountMax 10
             TCPKeepAlive yes
