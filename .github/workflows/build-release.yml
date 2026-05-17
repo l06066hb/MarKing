@@ -47,11 +47,24 @@ jobs:
         shell: bash
         run: |
           mkdir -p ~/.ssh
+
+          # === 临时网络诊断（定位完即可删除）===
+          echo "--- DNS resolve ---"
+          getent hosts gitee.com 2>&1 || nslookup gitee.com 2>&1 || echo "DNS lookup failed"
+          echo "--- TCP 22 connectivity ---"
+          # 用 bash 内建 /dev/tcp 探测端口，3s 超时
+          timeout 5 bash -c 'cat < /dev/tcp/gitee.com/22' </dev/null 2>&1 | head -1 \
+            && echo "TCP/22 OK" || echo "TCP/22 BLOCKED or TIMEOUT"
+          echo "--- TCP 443 connectivity ---"
+          curl -sS -m 5 -o /dev/null -w "HTTPS HTTP status: %{http_code}\n" https://gitee.com/ 2>&1 \
+            || echo "HTTPS to gitee.com failed"
+          echo "--- end diagnostics ---"
+
           # ssh-keyscan 偶发被 Gitee 限速/拒连导致非零退出，set -e 下会直接挂掉整步；
           # 这里允许失败，后续靠 StrictHostKeyChecking=accept-new 兜底首次连接自动信任。
           # stderr 故意不重定向，方便在 CI 日志里直接定位 ssh-keyscan 失败原因。
           echo "--- ssh-keyscan gitee.com ---"
-          ssh-keyscan -T 10 gitee.com >> ~/.ssh/known_hosts || \
+          ssh-keyscan -v -T 10 gitee.com >> ~/.ssh/known_hosts || \
             echo "::warning::ssh-keyscan failed; relying on accept-new fallback"
           # git 传输 buffer 默认 1MB，对大 pack 必撑爆 → 1GB
           git config --global http.postBuffer 1048576000
