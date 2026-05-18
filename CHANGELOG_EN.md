@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.4.2] - 2026-05-18
+
+> v1.4.2 is a stability and cross-platform experience release: expanded Mermaid diagram coverage, plus fixes for macOS IME input, editor interaction and Linux installation/runtime issues.
+
+### ✨ Features
+
+- **Expanded Mermaid diagram support**: Upgraded to Mermaid 11 and added 8 new diagram types — Architecture, Block, Wardley, Timeline, Quadrant, XY Chart, Sankey and C4. Insert them via the editor's "Diagrams" dropdown or snippet prefixes such as `mermaidarch`. The floating Mermaid assistant now correctly identifies `architecture-beta` / `C4Context` and other new code blocks and surfaces matching tools and hints.
+
+### ⚡ Improvements
+
+- **macOS IME (Chinese / Japanese input)**: Resolved occasional character ghosting while typing in the editor — input is now stable across compositions.
+- **Editor visual polish (split mode)**: Wrapped long paragraphs no longer touch the right divider; the editor leaves a deliberate visual gutter between text and the splitter.
+
+### 🐛 Bug Fixes
+
+- **`/` and `?` are usable inside the editor again**: These keys were previously intercepted by global shortcuts while typing in a document. They now only trigger shortcuts outside the editor.
+- **DOCX export strips frontmatter**: Aligned with HTML / PDF export — exported documents no longer carry `tags:` / `status:` etc. at the top.
+- **C4 and new Architecture diagram export**: Fixed rendering failures where `C4Context` and similar Mermaid 11 diagrams reverted to source code in PDF / DOCX / HTML exports.
+- **Wide-image sizing in DOCX export**: Fixed cases where some Pandoc versions ignored percentage widths and let oversized diagrams overflow the page.
+
+### 🐧 Linux Install & Startup
+
+- **deb / AppImage failing to launch after install**: Corrected the deb dependency names for the modern WebKitGTK ABI; the AppImage now ships with a FUSE3-compatible runtime, so Ubuntu 22.04+ users no longer need to install `libfuse2` manually.
+- **White screen / loading hang / unresponsive UI on newer distributions**: On environments such as Ubuntu 24.04 + Wayland, the AppImage now enables WebKitGTK compatibility flags out of the box.
+  - The system must have `libwebkit2gtk-4.1-0` installed (default on Ubuntu 22.04+ / Fedora 38+ / Arch).
+
+### 🛡️ Security & Maintenance
+
+- **Core dependency upgrades**: Mermaid 11; tightened transitive dependencies including `lodash-es`; resolved several upstream CVE advisories.
+
+---
+
 ## [1.4.1] - 2026-05-10
 
 > v1.4.1 extends the writing toolchain (Paste as Markdown, Document Templates) and adds typography and interface density controls.
