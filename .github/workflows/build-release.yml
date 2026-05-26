@@ -139,22 +139,24 @@ jobs:
           cache-bin: false
 
       # macOS: 仅保留当前架构的 pandoc，删除另一个以减小包体积
+      # 注意：v1.4.3 起 sidecar basename 加 marking- 前缀（避免 Linux deb 与系统 pandoc 包冲突），
+      # 文件名格式为 marking-pandoc-<target-triple>。
       - name: Prepare Pandoc sidecar (macOS)
         if: startsWith(matrix.platform, 'macos')
         shell: bash
         run: |
           echo "Target: ${{ matrix.target }}"
-          KEEP="src-tauri/binaries/pandoc-${{ matrix.target }}"
+          KEEP="src-tauri/binaries/marking-pandoc-${{ matrix.target }}"
           echo "Keeping pandoc: $KEEP"
           # 删除非当前架构的 macOS pandoc 二进制
-          for f in src-tauri/binaries/pandoc-*-apple-darwin; do
+          for f in src-tauri/binaries/marking-pandoc-*-apple-darwin; do
             if [ "$f" != "$KEEP" ]; then
               echo "Removing unused pandoc: $f"
               rm -f "$f"
             fi
           done
           chmod +x "$KEEP"
-          ls -lh src-tauri/binaries/pandoc-*
+          ls -lh src-tauri/binaries/marking-pandoc-*
 
       - name: Build and Publish Tauri App
         uses: tauri-apps/tauri-action@v0
