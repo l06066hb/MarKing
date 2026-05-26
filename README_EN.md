@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.4.2](https://img.shields.io/badge/MarKing-v1.4.2-2563eb?style=for-the-badge)
+![MarKing-v1.4.3](https://img.shields.io/badge/MarKing-v1.4.3-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.4.2 — Expanded Mermaid 11 diagrams · Cross-platform stability**: Upgraded to Mermaid 11 with 8 new diagram types (Architecture / Wardley / Timeline / Quadrant / XY / Sankey / C4, etc.); fixes for macOS IME ghosting, `/` and `?` being intercepted inside the editor, DOCX frontmatter leakage and C4 export failures; resolves Linux `deb` / AppImage failing to launch and white-screen issues on newer distributions (Ubuntu 24.04 / Wayland), now working out of the box.
+> **v1.4.3 — Smart completion for math & code · Polished details**: Type `\` inside math for instant LaTeX suggestions; new code blocks auto-suggest the language. Title-bar breadcrumbs collapse responsively; the file tree gains "Collapse All" and "Reveal Current File". Plus a batch of polish fixes, including the long-standing Linux .deb / system pandoc conflict.
 
 <br>
 

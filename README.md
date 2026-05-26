@@ -10,21 +10,21 @@
 
 <br>
 
-![MarKing-v1.4.2](https://img.shields.io/badge/MarKing-v1.4.2-2563eb?style=for-the-badge)
+![MarKing-v1.4.3](https://img.shields.io/badge/MarKing-v1.4.3-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.4.2 — Mermaid 11 图表扩展 · 跨平台体验稳定性**：升级至 Mermaid 11，新增 8 种图表（架构图 / Wardley / 时间线 / 象限图 / XY / 桑基 / C4 等）；修复 macOS 中文输入法重影、`/` 与 `?` 在编辑器内被快捷键拦截、DOCX 导出 frontmatter 残留与 C4 图表导出失败等问题；解决 Linux deb / AppImage 在新版发行版（Ubuntu 24.04 / Wayland）上无法启动与白屏的问题，开箱即用。
+> **v1.4.3 — 数学与代码补全 · 体验细节打磨**：公式内输入 `\` 自动提示 LaTeX 命令，代码块自动提示语言名；标题栏路径响应式收纳；文件树新增「折叠所有 / 定位当前文件」；同步修复 Linux deb 与系统 pandoc 路径冲突等多项细节问题。
 
 <br>
 

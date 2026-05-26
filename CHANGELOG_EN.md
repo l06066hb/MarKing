@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.4.3] - 2026-05-26
+
+> Smart completion for math and code, responsive navigation, and a batch of polish fixes.
+
+### ✨ Features
+
+- **Smart math completion**: Type `\` inside `$...$` / `$$...$$` to surface common LaTeX commands — Greek letters, fractions, integrals, matrices, arrows, and more. Triggers only inside math context. Toggle in *Settings → Editor → Smart Input*.
+- **Code fence language completion**: After typing ```` ``` ```` on a new line, suggest common languages (Python / TypeScript / Rust / Go / Mermaid / YAML, etc.) with shorthand expansion (`py` → `python`, `yml` → `yaml`). Toggle in *Settings → Editor → Smart Input*.
+- **Responsive breadcrumb**: The path breadcrumb collapses middle segments based on available width; an overflow `…` reveals the full ancestor chain and sibling navigation via dropdown.
+
+### ⚡ Improvements
+
+- **File tree adds "Collapse All" and "Reveal Current File"**: Keyboard shortcuts `Alt+Shift+C` / `Alt+Shift+L`, remappable from *Settings → Keyboard Shortcuts*.
+- **Math block hover toolbar simplified**: Reduced to a single "Edit" entry; preview styling follows the editor theme.
+
+### 🐛 Bug Fixes
+
+- **Linux .deb conflicts with system `pandoc`**: Resolved on distributions where `pandoc` is already installed (e.g. Kubuntu 24.04 / Debian).
+- **Browser default context menu in the desktop app**: Suppressed in blank areas, preview panel, and other regions; custom context menus unaffected.
+- **Drop overlay residual after opening a dragged `.md`**: Fixed the blue overlay not clearing once the drop completes.
+- **Breadcrumb overlap and dropdown clipping on narrow windows**: Fixed path-vs-toolbar overlap and dropdowns clipped by parent containers.
+- **Breadcrumb dropdown unresponsive on directories**: When a folder has no direct `.md` children, it now opens the nearest nested `.md`.
+
+---
+
 ## [1.4.2] - 2026-05-18
 
 > v1.4.2 is a stability and cross-platform experience release: expanded Mermaid diagram coverage, plus fixes for macOS IME input, editor interaction and Linux installation/runtime issues.
