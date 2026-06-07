@@ -39,7 +39,7 @@ jobs:
     
     steps:
       - name: Setup SSH For Gitee
-        uses: webfactory/ssh-agent@v0.8.0
+        uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e  # v0.8.0
         with:
           ssh-private-key: ${{ secrets.GITEE_PRIVATE_KEY }}
 
@@ -117,23 +117,23 @@ jobs:
           sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
           
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
         with:
           node-version: 20
           cache: 'npm'
 
       - name: Install Frontend Dependencies
-        run: npm install
+        run: npm ci --registry=https://registry.npmjs.org
 
       - name: Install Rust and Targets
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8  # stable
         with:
           targets: ${{ matrix.target }} 
 
       # 性能优化：Rust 编译缓存，按 target 区分避免缓存冲突
       # shared-key 后缀加 v2 强制使现有受污染缓存失效（首次 push 后可去掉）。
       - name: Rust Cache
-        uses: swatinem/rust-cache@v2
+        uses: swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32  # v2
         with:
           shared-key: "marking-${{ matrix.target }}-v2"
           cache-bin: false
@@ -159,7 +159,7 @@ jobs:
           ls -lh src-tauri/binaries/marking-pandoc-*
 
       - name: Build and Publish Tauri App
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@84b9d35b5fc46c1e45415bdb6144030364f7ebc5  # v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_OPTIONS: '--max-old-space-size=4096'
@@ -208,11 +208,20 @@ jobs:
           chmod +x "$APPIMAGE"
           "$APPIMAGE" --appimage-extract
 
-          # 3. 下载 appimagetool 和 type2-runtime（FUSE2/FUSE3 双兼容）
-          wget -q "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" \
+          # 3. 下载 appimagetool 和 type2-runtime（钉死 release tag + sha256 校验）
+          # v1.4.4 · 从 continuous 滚动构建改为固定 release tag，防止供应链篡改
+          APPIMAGETOOL_SHA256="ed4ce84f0d9caff66f50bcca6ff6f35aae54ce8135408b3fa33abfc3cb384eb0"  # 1.9.1
+          RUNTIME_SHA256="2fca8b443c92510f1483a883f60061ad09b46b978b2631c807cd873a47ec260d"      # 20251108
+
+          wget -q "https://github.com/AppImage/appimagetool/releases/download/1.9.1/appimagetool-x86_64.AppImage" \
             -O appimagetool
-          wget -q "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" \
+          wget -q "https://github.com/AppImage/type2-runtime/releases/download/20251108/runtime-x86_64" \
             -O runtime-fuse3
+
+          echo "Verifying sha256 checksums..."
+          echo "${APPIMAGETOOL_SHA256}  appimagetool" | sha256sum -c -
+          echo "${RUNTIME_SHA256}  runtime-fuse3" | sha256sum -c -
+
           chmod +x appimagetool runtime-fuse3
 
           # 4. 剔除 bundle 的动态库，强制走系统库
