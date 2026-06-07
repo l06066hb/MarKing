@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.4.3](https://img.shields.io/badge/MarKing-v1.4.3-2563eb?style=for-the-badge)
+![MarKing-v1.4.4](https://img.shields.io/badge/MarKing-v1.4.4-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.4.3 — Smart completion for math & code · Polished details**: Type `\` inside math for instant LaTeX suggestions; new code blocks auto-suggest the language. Title-bar breadcrumbs collapse responsively; the file tree gains "Collapse All" and "Reveal Current File". Plus a batch of polish fixes, including the long-standing Linux .deb / system pandoc conflict.
+> **v1.4.4 — Window state persistence · Mermaid rendering upgrade**: The app now remembers your window size, position and maximized state across sessions with zero flicker; Mermaid diagrams render at native resolution with zoom & pan in fullscreen; plus fixes for formula truncation and template name conflicts.
 
 <br>
 

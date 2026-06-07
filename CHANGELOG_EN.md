@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.4.4] - 2026-06-07
+
+> Window state persistence across sessions, Mermaid rendering upgrade, and multiple experience fixes.
+
+### ✨ Features
+
+- **Window state persistence**: The app now remembers your main window size, position and maximized state across sessions, restoring seamlessly on next launch with zero flicker.
+- **Mermaid rendering upgrade**: Preview mode renders diagrams at native resolution for crisp text and icons; fullscreen mode adds Ctrl+scroll zoom (0.25x–4x), mouse drag panning and one-click zoom reset.
+
+### 🐛 Bug Fixes
+
+- **Window restore flicker**: Fixed brief flicker when restoring from tray, and full-screen flash when launching minimized-to-tray after a maximized exit.
+- **Long formula truncation**: Fixed inline and block formulas being clipped in preview and export.
+- **Template name conflict**: Renaming a template now warns if the new name is already taken; old files and references are cleaned up automatically after a rename.
+
+### ⚡ Improvements
+
+- **UI consistency**: Dialog colors and button interactions now adapt uniformly to the active theme for consistent appearance in both light and dark modes.
+- **Security dependency upgrades**: Updated core dependencies, patching multiple upstream vulnerabilities.
+
+---
+
 ## [1.4.3] - 2026-05-26
 
 > Smart completion for math and code, responsive navigation, and a batch of polish fixes.

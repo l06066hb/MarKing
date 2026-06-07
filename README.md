@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.4.3](https://img.shields.io/badge/MarKing-v1.4.3-2563eb?style=for-the-badge)
+![MarKing-v1.4.4](https://img.shields.io/badge/MarKing-v1.4.4-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.4.3 — 数学与代码补全 · 体验细节打磨**：公式内输入 `\` 自动提示 LaTeX 命令，代码块自动提示语言名；标题栏路径响应式收纳；文件树新增「折叠所有 / 定位当前文件」；同步修复 Linux deb 与系统 pandoc 路径冲突等多项细节问题。
+> **v1.4.4 — 窗口状态记忆 · Mermaid 渲染升级**：应用启动后自动恢复上次窗口大小、位置与最大化状态，零闪烁体验；Mermaid 图表预览清晰度大幅提升，全屏模式支持缩放与拖拽；修复公式截断与模板重名等多项问题。
 
 <br>
 
