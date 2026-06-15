@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.4.4](https://img.shields.io/badge/MarKing-v1.4.4-2563eb?style=for-the-badge)
+![MarKing-v1.4.5](https://img.shields.io/badge/MarKing-v1.4.5-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.4.4 — Window state persistence · Mermaid rendering upgrade**: The app now remembers your window size, position and maximized state across sessions with zero flicker; Mermaid diagrams render at native resolution with zoom & pan in fullscreen; plus fixes for formula truncation and template name conflicts.
+> **v1.4.5 — LaTeX cross-references · Card view · Outline three-column layout**: New LaTeX `\label`/`\eqref`/`\ref` cross-referencing with auto-numbering and click-to-jump; card-style file browsing with drag-and-drop import, keyboard navigation and multi-select; outline panel right-side independent three-column layout; configurable preview line-height; Linux clipboard compatibility fix; comprehensive link navigation optimization.
 
 <br>
 
@@ -99,6 +99,9 @@ Out-of-the-box desktop clients, natively compiled for every platform — no extr
 
     <img src="docs/marking-mathlive-formula-editor-en.png" alt="MarKing MathLive Formula Editor - Visual Math Editing" width="800">
 
+*   **LaTeX Cross-References** `NEW`  
+    Support `\label{name}`, `\eqref{name}`, `\ref{name}` syntax for automatic equation numbering and cross-referencing. Block formulas with `\label` are auto-numbered; `\eqref` links are clickable for instant navigation; user `\tag{}` overrides auto-numbering; duplicate labels get independent numbering per formula.
+
 *   **Excalidraw Whiteboard** `NEW`  
     Embed freeform hand-drawn flowcharts, architecture sketches, and diagrams directly within your documents. A hand-drawn aesthetic that brings technical documentation to life.
 
@@ -125,6 +128,12 @@ Out-of-the-box desktop clients, natively compiled for every platform — no extr
     Physically isolate different document vaults within the app. Personal journals and work documents remain completely independent with zero search interference.
 
     <img src="docs/marking-multi-vault-management-en.png" alt="MarKing Multi-Vault Management" width="800">
+
+*   **Card-Style File Browsing** `NEW`  
+    Brand-new card view with tree/card mode toggle, compact/standard/relaxed density options, breadcrumb navigation and quick folder jump. Full keyboard navigation (arrow keys/Enter/Backspace) and multi-select (Shift+arrow/Ctrl+click/Ctrl+A).
+
+*   **Outline Panel Three-Column Layout** `NEW`  
+    Outline panel now supports a right-side independent panel layout mode with draggable width and auto-saved preferences. Defaults to traditional sidebar tab mode for backward compatibility.
 
 *   **Auto-Save & History Snapshots**  
     2-second silent auto-save + historical snapshot rollback, preventing data loss from accidental edits or power failures.

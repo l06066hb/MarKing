@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.4.5] - 2026-06-15
+
+> LaTeX cross-references, new card view, outline panel three-column layout, preview line-height config, Linux clipboard fix, and link navigation optimization.
+
+### ✨ Features
+
+- **LaTeX Cross-References**: Mark block formulas with `\label{name}` for automatic numbering; reference them with `\eqref{name}` or `\ref{name}` — click to jump to the target formula. Override auto-numbering with manual `\tag{}`; references update automatically when numbers change.
+- **Card-Style File Browsing**: Brand-new card view with tree/card mode toggle; compact/standard/relaxed density options; breadcrumb navigation and quick folder jump; drag-and-drop .md files into specific folders; keyboard navigation (arrow keys/Enter/Backspace); multi-select (Shift+arrow/Ctrl+click/Ctrl+A).
+- **Outline Panel Three-Column Layout**: New right-side independent panel layout mode for the outline, with draggable width and auto-saved preferences. Defaults to traditional sidebar tab mode; switch in Appearance → Outline Panel Layout.
+- **Preview Line-Height Config**: New preview area line-height setting, adjustable from 1.0 to 2.2 in 0.1 steps. Available in Appearance → Typography.
+
+### 🐛 Bug Fixes
+
+- **Virtual keyboard covering formula**: Fixed MathLive virtual keyboard obscuring the formula editor. The editing area now moves up automatically so formulas stay visible.
+- **Block formula paste format loss**: Fixed `$$...$$` multi-line formulas being downgraded to inline `$...$` when pasted.
+- **Linux clipboard issues**: Fixed copy/paste not working properly on Linux by adding a cross-platform clipboard compatibility module.
+- **Link navigation errors**: Fixed relative and absolute path resolution causing internal links to fail; added anchor jump support; blocked unsafe protocol links.
+- **Duplicate label formulas missing numbers**: Fixed formulas with the same label not getting numbers after the first occurrence.
+- **`\tag*{}` not recognized**: Fixed starred `\tag*{}` not being recognized as manual numbering.
+
+### ⚡ Improvements
+
+- **Virtual keyboard theme**: Keyboard background uses frosted glass effect, automatically adapting to light/dark mode.
+- **Editor close cleanup**: Virtual keyboard is now automatically hidden when closing the formula editor.
+- **File management optimization**: Auto-refresh document metadata on window focus; recycle bin filename decoding compatibility; fixed context menu flicker; unified path normalization and Unicode handling.
+- **Lightweight mode font sync**: Preview area and editor font styles in lightweight mode now stay consistent with main window settings.
+
+---
+
 ## [1.4.4] - 2026-06-07
 
 > Window state persistence across sessions, Mermaid rendering upgrade, and multiple experience fixes.
