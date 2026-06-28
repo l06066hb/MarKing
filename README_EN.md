@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.4.5](https://img.shields.io/badge/MarKing-v1.4.5-2563eb?style=for-the-badge)
+![MarKing-v1.4.6](https://img.shields.io/badge/MarKing-v1.4.6-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.4.5 — LaTeX cross-references · Card view · Outline three-column layout**: New LaTeX `\label`/`\eqref`/`\ref` cross-referencing with auto-numbering and click-to-jump; card-style file browsing with drag-and-drop import, keyboard navigation and multi-select; outline panel right-side independent three-column layout; configurable preview line-height; Linux clipboard compatibility fix; comprehensive link navigation optimization.
+> **v1.4.6 — Attachment storage modes · Migration tool · Outline independent close**: New attachment storage modes (centralized, custom, same-as-doc) with automatic migration on switch (flatten + auto-rename); outline panel independent close; LiteMode navigation back; editor layout fix.
 
 <br>
 

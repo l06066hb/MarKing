@@ -41,6 +41,9 @@
     <!-- 滚动进度指示器 -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- Cursor glow follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- Header -->
     <header id="header" role="banner">
         <nav class="container" role="navigation" aria-label="主导航">
@@ -81,30 +84,104 @@
     <!-- Hero Section -->
 
     <section class="hero container" role="main" aria-labelledby="hero-title">
+        <!-- Cinematic aurora background -->
+        <div class="hero-aurora" aria-hidden="true"></div>
+        <div class="hero-aurora-orb" aria-hidden="true"></div>
+        <!-- Floating particles -->
+        <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+        <!-- Film grain + vignette overlays -->
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
+
         <div class="hero-badge" role="status" aria-label="Version Info">
             <span>v1.4.5 — 公式交叉引用 · 卡片视图 · 大纲三栏布局</span>
         </div>
         <h1 id="hero-title"><span>MarKing</span><br>专业 Markdown 编辑器</h1>
         <p class="hero-subtitle">本地优先 · 零追踪 · 跨平台<br>面向长期写作的现代化文档创作工具</p>
         <div class="cta-buttons" role="group">
-            <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
-                <span>免费下载</span>
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
-                    </path>
-                </svg>
-            </button>
-            <a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>GitHub Star</span>
-            </a>
+            <span class="magnetic" id="magneticDownload">
+                <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
+                    <span>免费下载</span>
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                        </path>
+                    </svg>
+                </button>
+            </span>
+            <span class="magnetic" id="magneticGithub">
+                <a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span>GitHub Star</span>
+                </a>
+            </span>
         </div>
+
+        <!-- Animated stats -->
+        <div class="hero-stats-row" role="group" aria-label="项目数据">
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="20" data-suffix="+">0</div>
+                <div class="hero-stat-label">精心打磨主题</div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="70" data-suffix="+">0</div>
+                <div class="hero-stat-label">智能代码片段</div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="3" data-suffix=" 平台">0</div>
+                <div class="hero-stat-label">全平台支持</div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="100" data-suffix="%">0</div>
+                <div class="hero-stat-label">本地优先 · 零追踪</div>
+            </div>
+        </div>
+
         <div class="hero-image-wrapper">
-            <div class="hero-image-inner">
+            <div class="hero-image-inner" id="heroImage">
                 <img src="marking-markdown-editor-main-interface.png?v=1.2" alt="专业 Markdown 编辑器" decoding="async" fetchpriority="high">
             </div>
         </div>
     </section>
+
+    <!-- Marquee feature strip -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+            <div class="marquee-set" id="marqueeSet">
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>本地优先 · 零追踪</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>极速轻量模式</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>MathLive 公式</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>LaTeX 交叉引用</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>Excalidraw 白板</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M20 17l2-1v-2.5"/></svg>Mermaid 11 图表</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>知识图谱</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>WikiLink 双链</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>命令面板</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>专注模式</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>DOCX/PDF/HTML 导出</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>可视化表格</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>20+ 主题</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>智能备份</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>网页 URL 导入</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>文档模板系统</span>
+                <span class="marquee-dot"></span>
+            </div>
+        </div>
+    </div>
 
     <!-- Features Section -->
 
@@ -114,7 +191,7 @@
             <p class="section-subtitle">强大功能 × 极致体验 × 安全可靠，让文档创作更高效、更专业</p>
         </div>
         <div class="bento-grid">
-            <div class="bento-item bento-wide">
+            <div class="bento-item bento-wide tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -122,7 +199,7 @@
                 <h3>原生级专业编辑器</h3>
                 <p>精致毛玻璃与物理级微交互的极简工具栏，70+ 智能代码片段与上下文补全，十万字长文流畅滚动，尽享行云流水的写作快感。</p>
             </div>
-            <div class="bento-item bento-square">
+            <div class="bento-item bento-square tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -130,23 +207,23 @@
                 <h3>极速轻量模式</h3>
                 <p>专为纯粹阅读和轻量修改打造。默认应用直接秒开，摒弃一切繁杂界面，以极低资源占用瞬间呈现你的文档。</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg></div>
-                <h3>公式可视化编辑与交叉引用 <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>公式可视化编辑与交叉引用</h3>
                 <p>MathLive 驱动的可视化公式编辑器，虚拟键盘让复杂数学公式输入直观高效。支持 \label/\eqref/\ref 交叉引用，公式自动编号，点击一键跳转。</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                     </svg></div>
-                <h3>Excalidraw 白板 <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>Excalidraw 白板</h3>
                 <p>内嵌手绘风格白板，自由绘制流程图、架构图、思维导图，让文档表达更加生动直观。</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -154,34 +231,36 @@
                 <h3>可视化表格与图表</h3>
                 <p>像 Excel 一样拖拽编辑表格。全新引入现代化的浮动快捷工具栏，交互更加聚焦优雅。搭配 Mermaid 助手，无缝编排复杂图表代码。</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg></div>
-                <h3>知识图谱 <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>知识图谱</h3>
                 <p>自动解析双向链接与文档引用关系，以交互式力导向图可视化你的知识网络。</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg></div>
-                <h3>命令面板 <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>命令面板</h3>
                 <p>Ctrl+Shift+P 一键唤出，模糊搜索快速触达任意功能，键盘流用户的效率利器。</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg></div>
-                <h3>专注模式 <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>专注模式</h3>
                 <p>一键隐藏所有面板与干扰元素，打字机滚动让视线始终聚焦当前段落，沉浸创作。</p>
             </div>
         </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Feature Showcase — Tabbed Gallery -->
     <section id="showcase" class="showcase container" aria-labelledby="showcase-title">
@@ -202,35 +281,35 @@
             <!-- Panel 1: 编辑体验 -->
             <div class="showcase-panel active" id="panel-editing" data-panel="editing" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-markdown-editor-main-interface.png?v=1" alt="专业编辑环境" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>专业编辑环境</h4>
                             <p>双栏实时预览，100+ 语法高亮，十万字长文流畅滚动</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-editor-features-preview-completion.png?v=1" alt="智能补全" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>智能补全与片段</h4>
                             <p>70+ 代码片段，上下文感知补全，一键格式化</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-lightweight-mode.png?v=1" alt="轻量模式" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>极速轻量模式</h4>
                             <p>作为默认应用秒开文件，极低资源占用，专注阅读</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-command-palette.png?v=1" alt="命令面板" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>命令面板</h4>
                             <p>Ctrl+Shift+P 一键唤出，模糊搜索快速触达任意功能</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-focus-mode.png?v=1" alt="专注模式" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>专注模式</h4>
@@ -243,28 +322,28 @@
             <!-- Panel 2: 创作工具 -->
             <div class="showcase-panel" id="panel-creation" data-panel="creation" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-mathlive-formula-editor.png?v=1" alt="公式编辑器" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>可视化公式编辑与交叉引用</h4>
                             <p>MathLive 驱动，虚拟键盘直觉输入；\label/\eqref 交叉引用，自动编号一键跳转</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-excalidraw-whiteboard.png?v=1" alt="Excalidraw 白板" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Excalidraw 白板</h4>
                             <p>嵌入式手绘风格白板，流程图、架构图信手拈来</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-visual-table-editor.png?v=1" alt="表格编辑器" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>可视化表格编辑</h4>
                             <p>像 Excel 一样拖拽编辑，浮动工具栏聚焦优雅</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-mermaid-diagram-assistant.png?v=1" alt="Mermaid 图表" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Mermaid 图表助手</h4>
@@ -277,14 +356,14 @@
             <!-- Panel 3: 专业导出 -->
             <div class="showcase-panel" id="panel-export" data-panel="export" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-docx-export-v2-template.png?v=1" alt="DOCX 模板系统" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>DOCX 导出 v2.0</h4>
                             <p>全新模板系统，自定义样式与实时预览，一键生成专业文档</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-export-docx-pdf-feature.png?v=1" alt="多格式导出" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>多格式高质量输出</h4>
@@ -297,28 +376,28 @@
             <!-- Panel 4: 管理与安全 -->
             <div class="showcase-panel" id="panel-management" data-panel="management" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-multi-vault-management.png?v=1" alt="多库管理" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>多库管理</h4>
                             <p>独立管理不同项目，数据隔离更安全</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-smart-backup-system.png?v=1" alt="智能备份" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>智能备份系统</h4>
                             <p>全新升级的备份系统，灵活备份范围，数据更安全可控</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-code-theme-settings.png?v=1" alt="代码主题" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>代码高亮主题引擎</h4>
                             <p>独立代码块高亮选项，多套发烧友级经典配色</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
+                    <div class="showcase-card tilt-card">
                         <img src="marking-knowledge-graph.png?v=1" alt="知识图谱" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>知识图谱</h4>
@@ -329,6 +408,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Theme Showcase Section -->
     <section id="themes" class="theme-showcase" aria-labelledby="themes-title">
@@ -394,6 +475,8 @@
         </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- Download Section -->
     <section id="download" class="download container" aria-labelledby="download-title">
         <div class="section-header">
@@ -404,7 +487,7 @@
             </p>
         </div>
         <div class="platform-grid">
-            <div class="platform-card">
+            <div class="platform-card tilt-card">
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -417,7 +500,7 @@
                     下载安装器
                 </button>
             </div>
-            <div class="platform-card">
+            <div class="platform-card tilt-card">
 
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
@@ -429,7 +512,7 @@
                 <p class="platform-version">v1.4.5 | macOS 10.15+</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">下载安装包</button>
             </div>
-            <div class="platform-card">
+            <div class="platform-card tilt-card">
 
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
@@ -456,7 +539,7 @@
                 </p>
             </div>
             <div class="sponsor-grid" style="max-width: 600px; margin: 0 auto;">
-                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card">
+                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card tilt-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -466,7 +549,7 @@
                     <h3>爱发电</h3>
                     <p>国内用户推荐<br>支持微信/支付宝</p>
                 </a>
-                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card">
+                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card tilt-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.6] - 2026-06-28
+
+> Attachment storage modes, migration tool, outline panel independent close, LiteMode navigation back, editor layout fix.
+
+### ✨ Features
+
+- **Attachment Storage Modes**: Three storage modes — centralized (`.marking/assets/`), custom directory, and same-as-doc (optional subfolder). Switch in Settings → Attachments; supports automatic Obsidian config detection.
+- **Attachment Migration Tool**: Automatically prompts to migrate existing attachments when switching storage modes. Files are flattened to the target directory root, with auto-renaming for conflicts (`_1`, `_2`); only migrates attachments actually referenced in documents; automatically updates all Markdown reference paths; optional old file deletion (enabled by default, auto-retained on migration errors).
+- **Outline Panel Independent Close**: The outline panel now has its own close button, allowing it to be closed independently without affecting other panels.
+- **LiteMode Navigation Back**: Lightweight mode supports quick backward navigation between documents; fixed internal link resolution.
+
+### 🐛 Bug Fixes
+
+- **Editor layout on window resize**: Fixed editor area not responding correctly when the window is resized.
+
+---
+
 ## [1.4.5] - 2026-06-15
 
 > LaTeX cross-references, new card view, outline panel three-column layout, preview line-height config, Linux clipboard fix, and link navigation optimization.

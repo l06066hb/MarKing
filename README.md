@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.4.5](https://img.shields.io/badge/MarKing-v1.4.5-2563eb?style=for-the-badge)
+![MarKing-v1.4.6](https://img.shields.io/badge/MarKing-v1.4.6-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.4.5 — 公式交叉引用 · 卡片视图 · 大纲三栏布局**：全新 LaTeX 公式 `\label`/`\eqref`/`\ref` 交叉引用，自动编号与点击跳转；卡片式文件浏览视图，支持拖拽导入、键盘导航与多选操作；大纲面板右侧独立三栏布局；预览区行高可配置；Linux 剪贴板兼容修复；链接跳转逻辑全面优化。
+> **v1.4.6 — 附件存储模式切换 · 迁移工具 · 大纲独立关闭**：新增附件集中存储、自定义路径和文档同级三种存储模式，切换时自动迁移附件并更新引用（扁平化 + 自动重命名）；大纲面板独立关闭；LiteMode 文档导航后退；编辑器布局修复。
 
 <br>
 

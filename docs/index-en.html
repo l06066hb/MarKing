@@ -45,6 +45,9 @@
     <!-- 滚动进度指示器 -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- Cursor glow follower -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- Header -->
     <header id="header" role="banner">
         <nav class="container" role="navigation" aria-label="Main navigation">
@@ -85,30 +88,104 @@
     <!-- Hero Section -->
 
     <section class="hero container" role="main" aria-labelledby="hero-title">
+        <!-- Cinematic aurora background -->
+        <div class="hero-aurora" aria-hidden="true"></div>
+        <div class="hero-aurora-orb" aria-hidden="true"></div>
+        <!-- Floating particles -->
+        <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+        <!-- Film grain + vignette overlays -->
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
+
         <div class="hero-badge" role="status" aria-label="Version Info">
             <span>v1.4.5 — LaTeX Cross-References · Card View · Outline Three-Column Layout</span>
         </div>
         <h1 id="hero-title"><span>MarKing</span><br>Professional Markdown Editor</h1>
         <p class="hero-subtitle">Local-first · Zero Tracking · Cross-platform<br>A modern document creation tool built for sustained writing</p>
         <div class="cta-buttons" role="group">
-            <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
-                <span>Free Download</span>
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
-                    </path>
-                </svg>
-            </button>
-            <a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>GitHub Star</span>
-            </a>
+            <span class="magnetic" id="magneticDownload">
+                <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
+                    <span>Free Download</span>
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                        </path>
+                    </svg>
+                </button>
+            </span>
+            <span class="magnetic" id="magneticGithub">
+                <a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span>GitHub Star</span>
+                </a>
+            </span>
         </div>
+
+        <!-- Animated stats -->
+        <div class="hero-stats-row" role="group" aria-label="Project stats">
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="20" data-suffix="+">0</div>
+                <div class="hero-stat-label">Polished Themes</div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="70" data-suffix="+">0</div>
+                <div class="hero-stat-label">Smart Snippets</div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="3" data-suffix=" Platforms">0</div>
+                <div class="hero-stat-label">Cross-platform</div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="hero-stat-num" data-count="100" data-suffix="%">0</div>
+                <div class="hero-stat-label">Local-first · Zero Tracking</div>
+            </div>
+        </div>
+
         <div class="hero-image-wrapper">
-            <div class="hero-image-inner">
+            <div class="hero-image-inner" id="heroImage">
                 <img src="marking-markdown-editor-main-interface-en.png?v=1.2" alt="Professional Markdown Editor" decoding="async" fetchpriority="high">
             </div>
         </div>
     </section>
+
+    <!-- Marquee feature strip -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+            <div class="marquee-set" id="marqueeSet">
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>Local-first · Zero Tracking</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Ultra-Lightweight</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>MathLive Formulas</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>LaTeX Cross-References</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>Excalidraw</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M20 17l2-1v-2.5"/></svg>Mermaid 11 Diagrams</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Knowledge Graph</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>WikiLink Backlinks</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Command Palette</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>Focus Mode</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>DOCX/PDF/HTML Export</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>Visual Tables</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>20+ Themes</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Smart Backup</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Web URL Import</span>
+                <span class="marquee-dot"></span>
+                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>Document Templates</span>
+                <span class="marquee-dot"></span>
+            </div>
+        </div>
+    </div>
 
     <!-- Features Section -->
 
@@ -118,7 +195,7 @@
             <p class="section-subtitle">Powerful Features × Ultimate Experience × Secure and Reliable</p>
         </div>
         <div class="bento-grid">
-            <div class="bento-item bento-wide">
+            <div class="bento-item bento-wide tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -126,7 +203,7 @@
                 <h3>Native-grade Professional Editor</h3>
                 <p>A minimalist toolbar with exquisite glassmorphism and physical-level micro-interactions, 70+ smart code snippets with context-aware completion, smooth scrolling for 100K+ word documents.</p>
             </div>
-            <div class="bento-item bento-square">
+            <div class="bento-item bento-square tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -135,23 +212,23 @@
                 <p>Frictionless startup for Markdown reading. Instantly opens files with a minimal memory footprint, hiding
                     all distractions to deliver a pristine viewing and quick-edit experience.</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg></div>
-                <h3>Visual Formula Editor & Cross-Refs <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>Visual Formula Editor & Cross-Refs</h3>
                 <p>MathLive-powered visual formula editor with virtual keyboard for intuitive math input. Supports \label/\eqref/\ref cross-references with auto-numbering and click-to-jump.</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                     </svg></div>
-                <h3>Excalidraw Whiteboard <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>Excalidraw Whiteboard</h3>
                 <p>Embedded hand-drawn style whiteboard for flowcharts, architecture diagrams, and mind maps — making documents more vivid.</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -161,34 +238,36 @@
                     and elegant interactions. Paired seamlessly with a Mermaid assistant to orchestrate complex
                     diagrams.</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg></div>
-                <h3>Knowledge Graph <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>Knowledge Graph</h3>
                 <p>Automatically parses bi-directional links and document references, visualizing your knowledge network with an interactive force-directed graph.</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg></div>
-                <h3>Command Palette <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>Command Palette</h3>
                 <p>Ctrl+Shift+P to invoke, fuzzy search to reach any feature instantly — a productivity powerhouse for keyboard-first users.</p>
             </div>
-            <div class="bento-item bento-third">
+            <div class="bento-item bento-third tilt-card">
                 <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg></div>
-                <h3>Focus Mode <span class="feature-tag feature-tag-new">NEW</span></h3>
+                <h3>Focus Mode</h3>
                 <p>Hide all panels and distractions with one click, typewriter scrolling keeps your sight on the current paragraph for immersive writing.</p>
             </div>
         </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Feature Showcase — Tabbed Gallery -->
     <section id="showcase" class="showcase container" aria-labelledby="showcase-title">
@@ -209,36 +288,36 @@
             <!-- Panel 1: Editing -->
             <div class="showcase-panel active" id="panel-editing" data-panel="editing" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
-                        <img src="marking-markdown-editor-main-interface-en.png?v=1" alt="Professional Editing Environment" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-markdown-editor-main-interface-en.png?v=1" alt="Professional Editing Environment" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Professional Editing Environment</h4>
                             <p>Dual-pane live preview, 100+ syntax highlights, smooth scrolling for 100K+ words</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-editor-features-preview-completion-en.png?v=1" alt="Smart Completion" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-editor-features-preview-completion-en.png?v=1" alt="Smart Completion" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Smart Completion & Snippets</h4>
                             <p>70+ code snippets, context-aware completion, one-click formatting</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-lightweight-mode-en.png?v=1" alt="Lightweight Mode" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-lightweight-mode-en.png?v=1" alt="Lightweight Mode" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Ultra-Lightweight Mode</h4>
                             <p>Opens files instantly as default app, minimal resource usage, focused reading</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-command-palette-en.png?v=1" alt="Command Palette" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-command-palette-en.png?v=1" alt="Command Palette" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Command Palette</h4>
                             <p>Ctrl+Shift+P to invoke, fuzzy search to reach any feature instantly</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-focus-mode-en.png?v=1" alt="Focus Mode" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-focus-mode-en.png?v=1" alt="Focus Mode" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Focus Mode</h4>
                             <p>Hide distractions with one click, typewriter scrolling for immersive writing</p>
@@ -250,29 +329,29 @@
             <!-- Panel 2: Creation Tools -->
             <div class="showcase-panel" id="panel-creation" data-panel="creation" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
-                        <img src="marking-mathlive-formula-editor-en.png?v=1" alt="Formula Editor" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-mathlive-formula-editor-en.png?v=1" alt="Formula Editor" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Visual Formula Editing & Cross-Refs</h4>
                             <p>MathLive-powered, virtual keyboard for intuitive input; \label/\eqref cross-references with auto-numbering and click-to-jump</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-excalidraw-whiteboard-en.png?v=1" alt="Excalidraw Whiteboard" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-excalidraw-whiteboard-en.png?v=1" alt="Excalidraw Whiteboard" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Excalidraw Whiteboard</h4>
                             <p>Embedded hand-drawn whiteboard for flowcharts, architecture diagrams, and more</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-visual-table-editor-en.png?v=1" alt="Table Editor" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-visual-table-editor-en.png?v=1" alt="Table Editor" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Visual Table Editing</h4>
                             <p>Drag-and-drop editing like Excel, elegant floating toolbar</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-mermaid-diagram-assistant-en.png?v=1" alt="Mermaid Diagrams" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-mermaid-diagram-assistant-en.png?v=1" alt="Mermaid Diagrams" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Mermaid Diagram Assistant</h4>
                             <p>Assists in writing flowcharts, sequence diagrams, Gantt charts, and more</p>
@@ -284,15 +363,15 @@
             <!-- Panel 3: Professional Export -->
             <div class="showcase-panel" id="panel-export" data-panel="export" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
-                        <img src="marking-docx-export-v2-template-en.png?v=1" alt="DOCX Template System" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-docx-export-v2-template-en.png?v=1" alt="DOCX Template System" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>DOCX Export v2.0</h4>
                             <p>Brand-new template system with custom styles and live preview, one-click professional documents</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-export-docx-pdf-feature-en.png?v=1" alt="Multi-format Export" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-export-docx-pdf-feature-en.png?v=1" alt="Multi-format Export" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Multi-format High-quality Output</h4>
                             <p>DOCX / PDF / HTML export meeting academic and business standards</p>
@@ -304,29 +383,29 @@
             <!-- Panel 4: Management & Security -->
             <div class="showcase-panel" id="panel-management" data-panel="management" role="tabpanel">
                 <div class="showcase-grid">
-                    <div class="showcase-card">
-                        <img src="marking-multi-vault-management-en.png?v=1" alt="Multi-vault Management" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-multi-vault-management-en.png?v=1" alt="Multi-vault Management" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Multi-vault Management</h4>
                             <p>Independently manage different projects with isolated data</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-smart-backup-system-en.png?v=1" alt="Smart Backup" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-smart-backup-system-en.png?v=1" alt="Smart Backup" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Smart Backup System</h4>
                             <p>Upgraded backup system with flexible scope selection for safer data</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-code-theme-settings-en.png?v=1" alt="Code Themes" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-code-theme-settings-en.png?v=1" alt="Code Themes" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Code Highlighting Engine</h4>
                             <p>Independent code block highlighting with multiple classic developer color schemes</p>
                         </div>
                     </div>
-                    <div class="showcase-card">
-                        <img src="marking-knowledge-graph-en.png?v=1" alt="Knowledge Graph" loading="lazy">
+                    <div class="showcase-card tilt-card">
+                        <img src="marking-knowledge-graph-en.png?v=1" alt="Knowledge Graph" loading="lazy" decoding="async">
                         <div class="showcase-card-caption">
                             <h4>Knowledge Graph</h4>
                             <p>Auto-parses bi-directional links, interactive force-directed graph for knowledge visualization</p>
@@ -336,6 +415,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Theme Showcase Section -->
     <section id="themes" class="theme-showcase" aria-labelledby="themes-title">
@@ -398,17 +479,19 @@
         </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- Download Section -->
     <section id="download" class="download container" aria-labelledby="download-title">
         <div class="section-header">
             <span class="section-badge">Download Now</span>
-            <h2 class="section-title">All Major Platforms Supported</h2>
+            <h2 id="download-title" class="section-title">All Major Platforms Supported</h2>
             <p class="section-subtitle">
                 Choose your platform and start your efficient document creation journey
             </p>
         </div>
         <div class="platform-grid">
-            <div class="platform-card">
+            <div class="platform-card tilt-card">
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -421,7 +504,7 @@
                     Download Installer
                 </button>
             </div>
-            <div class="platform-card">
+            <div class="platform-card tilt-card">
 
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
@@ -433,7 +516,7 @@
                 <p class="platform-version">v1.4.5 | macOS 10.15+</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">Download</button>
             </div>
-            <div class="platform-card">
+            <div class="platform-card tilt-card">
 
                 <div class="platform-icon">
                     <svg fill="currentColor" viewBox="0 0 24 24">
@@ -461,7 +544,7 @@
                 </p>
             </div>
             <div class="sponsor-grid" style="max-width: 600px; margin: 0 auto;">
-                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card">
+                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card tilt-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -471,7 +554,7 @@
                     <h3>Afdian</h3>
                     <p>For Chinese Users<br>WeChat/Alipay Supported</p>
                 </a>
-                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card">
+                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card tilt-card">
                     <div class="sponsor-icon" style="background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
