@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.4.6](https://img.shields.io/badge/MarKing-v1.4.6-2563eb?style=for-the-badge)
+![MarKing-v1.4.7](https://img.shields.io/badge/MarKing-v1.4.7-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.4.6 — Attachment storage modes · Migration tool · Outline independent close**: New attachment storage modes (centralized, custom, same-as-doc) with automatic migration on switch (flatten + auto-rename); outline panel independent close; LiteMode navigation back; editor layout fix.
+> **v1.4.7 — Import plugin system · File type icons · SVG image fix**: New plugin-based import architecture supporting Pandoc, PDF extraction, and MinerU cloud/local engines; file tree shows type-specific icons, non-Markdown files open with system default app; unified `.md`/`.markdown` recognition; fixed SVG image Lightbox cache loading; fixed binary file tooltip preview garbled text.
 
 <br>
 

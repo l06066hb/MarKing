@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.4.7] - 2026-07-12
+
+> Import plugin system, file type icons, system default app for non-Markdown files, SVG image fix, tooltip binary file preview fix.
+
+### ✨ Features
+
+- **Import Plugin System**: New plugin-based import architecture supporting three engines — Pandoc (Word/HTML/EPUB etc.), PDF extraction, and MinerU cloud/local. New plugin settings panel (Settings → Import) for plugin status, API key configuration, and format preference auto-matching. Shortcut `Ctrl+Shift+L` to quickly open the import dialog.
+- **File Type Icons**: File tree, card view, and hover tooltips now show type-specific icons — Markdown files use a dedicated note icon, while images, code, JSON, spreadsheets, archives, audio, and video each have their own icon. Colors follow the theme system.
+- **System Default App for Non-Markdown Files**: Clicking non-Markdown files (PDF, HTML, Excel, images, etc.) in the file tree now opens them with the system default application.
+- **Unified Markdown Extension Recognition**: Now consistently recognizes both `.md` and `.markdown` extensions, fixing issues where `.markdown` files were missed in trash restore, file duplication, and drag-drop metadata operations.
+
+### 🐛 Bug Fixes
+
+- **SVG Image Lightbox Cache Loading**: Fixed cached SVG images not displaying when opened in fullscreen preview.
+- **Tooltip Binary File Preview Garbled Text**: Fixed Excel, PDF, and image files showing garbled text in hover tooltips by attempting to read binary content as text. Now only text-based files trigger content preview.
+
+---
+
 ## [1.4.6] - 2026-06-28
 
 > Attachment storage modes, migration tool, outline panel independent close, LiteMode navigation back, editor layout fix.

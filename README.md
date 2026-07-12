@@ -10,21 +10,21 @@
 
 <br>
 
-![MarKing-v1.4.6](https://img.shields.io/badge/MarKing-v1.4.6-2563eb?style=for-the-badge)
+![MarKing-v1.4.7](https://img.shields.io/badge/MarKing-v1.4.7-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.4.6 — 附件存储模式切换 · 迁移工具 · 大纲独立关闭**：新增附件集中存储、自定义路径和文档同级三种存储模式，切换时自动迁移附件并更新引用（扁平化 + 自动重命名）；大纲面板独立关闭；LiteMode 文档导航后退；编辑器布局修复。
+> **v1.4.7 — 文档导入插件系统 · 文件类型图标 · SVG 图片修复**：全新插件化导入架构，支持 Pandoc、PDF 快速提取、MinerU 云端/本地多引擎；文件树按类型显示专属图标，非 Markdown 文件点击用系统默认程序打开；统一 `.md`/`.markdown` 扩展名识别；修复 SVG 图片 Lightbox 缓存加载异常；修复二进制文件 Tooltip 预览乱码。
 
 <br>
 
