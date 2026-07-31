@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.5.0] - 2026-07-31
+
+> AI-assisted writing, MCP Server, task system, network drive performance, export fixes.
+
+### ✨ Features
+
+- **AI Formatting**: One-click AI optimization for document formatting and structure with per-change diff preview. Shortcut `Ctrl+Alt+F`.
+- **Inline AI**: Select text to invoke AI for continuation, polishing, translation, or summarization with real-time streaming output.
+- **AI Writing Flow**: Select multiple notes to auto-generate a combined article (Compose), or extract outlines from existing notes (Outline). Supports multi-round interactive editing with drafts saved to your vault.
+- **AI Service Management**: 18+ built-in provider templates (OpenAI, Anthropic, DeepSeek, Tongyi Qianwen, Zhipu, Moonshot, etc.), API keys encrypted at rest, one-click connection verification and model list fetching, supports custom compatible APIs.
+- **MCP Server**: Built-in standard protocol server — Claude Desktop, Cursor, Cline and other AI clients can directly read and write your vault: file management, full-text search, metadata operations, and task management.
+- **Task System**: Automatically recognizes todo markers in documents, unified sidebar view and management, checking a task writes back to the document.
+- **Daily Note Shortcut**: `Ctrl+Alt+D` to quickly create or open today's daily note. Supports custom directory and date format.
+- **Base64 Image Auto-fold**: Ultra-long base64 image lines auto-fold into placeholders to keep the editor responsive.
+
+### 🐛 Bug Fixes
+
+- **Network Drive Freezing**: Thoroughly resolved UI freezing caused by file scanning on SMB/NFS network drives.
+- **Word Export Line Break Loss**: Fixed Pandoc DOCX export dropping text and table line breaks.
+- **Export Images Not Showing**: Fixed relative-path images not displaying in exported HTML/PDF.
+- **App Icon Blurry**: Fixed macOS Dock icon appearing too small and Windows taskbar icon being blurry.
+- **Sidebar New Button Text Wrapping**: Fixed button text wrapping at default sidebar width.
+
+---
+
 ## [1.4.7] - 2026-07-12
 
 > Import plugin system, file type icons, system default app for non-Markdown files, SVG image fix, tooltip binary file preview fix.

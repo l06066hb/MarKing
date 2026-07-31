@@ -10,21 +10,21 @@
 
 <br>
 
-![MarKing-v1.4.7](https://img.shields.io/badge/MarKing-v1.4.7-2563eb?style=for-the-badge)
+![MarKing-v1.5.0](https://img.shields.io/badge/MarKing-v1.5.0-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`AI 排版` · `行内 AI` · `AI 写作流` · `MCP Server` · `任务系统` · `公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.4.7 — 文档导入插件系统 · 文件类型图标 · SVG 图片修复**：全新插件化导入架构，支持 Pandoc、PDF 快速提取、MinerU 云端/本地多引擎；文件树按类型显示专属图标，非 Markdown 文件点击用系统默认程序打开；统一 `.md`/`.markdown` 扩展名识别；修复 SVG 图片 Lightbox 缓存加载异常；修复二进制文件 Tooltip 预览乱码。
+> **v1.5.0 — AI 辅助写作 · MCP Server · 任务系统 · 网络盘优化**：全新 AI 辅助写作体系——AI 排版、行内 AI、AI 写作流；内置 MCP Server 让 Claude Desktop / Cursor / Cline 直接读写笔记库；任务系统自动同步待办事项；修复网络盘卡死、导出异常等多项问题。
 
 <br>
 
@@ -143,7 +143,27 @@ MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性�
 *   **剪贴板图片本地转存**  
     `Ctrl+V` 粘贴截图即自动保存至本地附件目录，并转为正确的相对引用链接。
 
-### 5. 专业文档导出
+### 5. AI 辅助写作与生态互联 `NEW`
+
+*   **AI 排版**  
+    一键调用 AI 优化文档排版与结构，逐项 Diff 预览，接受或拒绝每一处修改。快捷键 `Ctrl+Alt+F`。
+
+*   **行内 AI**  
+    选中文本即可呼出 AI 工具栏，支持续写、润色、翻译、总结，流式实时输出。
+
+*   **AI 写作流**  
+    选择多篇笔记自动生成综合文章（Compose），或从已有笔记提取大纲（Outline），支持多轮交互修改，草稿可保存到笔记库。
+
+*   **AI 服务管理**  
+    内置 18+ 家 AI 服务商模板，API Key 加密存储，一键验证连接、拉取模型列表，支持自定义兼容 API。
+
+*   **MCP Server**  
+    内置标准协议服务端，Claude Desktop、Cursor、Cline 等 AI 客户端可直接读写笔记库。
+
+*   **任务系统**  
+    自动识别文档中的待办标记，侧边栏统一查看和管理，勾选即回写文档。
+
+### 6. 专业文档导出
 
 *   **DOCX 模板化导出引擎 v2.0** `NEW`  
     全新模板化配置架构，支持实时排版预览、精细字体与间距控制。内置多套专业排版模板，一键生成含封面页、目录、页眉页脚的正式汇报文档。

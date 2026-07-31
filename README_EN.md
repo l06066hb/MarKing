@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.4.7](https://img.shields.io/badge/MarKing-v1.4.7-2563eb?style=for-the-badge)
+![MarKing-v1.5.0](https://img.shields.io/badge/MarKing-v1.5.0-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Task System` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.4.7 — Import plugin system · File type icons · SVG image fix**: New plugin-based import architecture supporting Pandoc, PDF extraction, and MinerU cloud/local engines; file tree shows type-specific icons, non-Markdown files open with system default app; unified `.md`/`.markdown` recognition; fixed SVG image Lightbox cache loading; fixed binary file tooltip preview garbled text.
+> **v1.5.0 — AI-assisted writing · MCP Server · Task system · Network drive optimization**: A complete AI writing suite — AI formatting, inline AI, AI writing flow; built-in MCP Server lets Claude Desktop / Cursor / Cline read and write your vault directly; task system auto-syncs todos; fixes for network drive freezing, export issues, and more.
 
 <br>
 
@@ -143,7 +143,27 @@ Out-of-the-box desktop clients, natively compiled for every platform — no extr
 *   **Clipboard Image Storage**  
     `Ctrl+V` to paste screenshots — images are automatically saved to a local attachment directory with correct relative markdown references.
 
-### 5. Professional Document Export
+### 5. AI-Assisted Writing & Ecosystem Integration `NEW`
+
+*   **AI Formatting**  
+    One-click AI optimization for document formatting and structure with per-change diff preview. Shortcut `Ctrl+Alt+F`.
+
+*   **Inline AI**  
+    Select text to invoke the AI toolbar for continuation, polishing, translation, or summarization with real-time streaming output.
+
+*   **AI Writing Flow**  
+    Select multiple notes to auto-generate a combined article (Compose), or extract outlines from existing notes (Outline). Supports multi-round interactive editing with drafts saved to your vault.
+
+*   **AI Service Management**  
+    18+ built-in provider templates, API keys encrypted at rest, one-click connection verification and model list fetching, supports custom compatible APIs.
+
+*   **MCP Server**  
+    Built-in standard protocol server — Claude Desktop, Cursor, Cline and other AI clients can directly read and write your vault.
+
+*   **Task System**  
+    Automatically recognizes todo markers in documents, unified sidebar view and management, checking a task writes back to the document.
+
+### 6. Professional Document Export
 
 *   **DOCX Template Engine v2.0** `NEW`  
     Brand-new template-based export architecture with live layout preview, fine-grained font and spacing controls. Ships with multiple professional templates for one-click generation of formal reports with cover pages, TOC, and headers/footers.
