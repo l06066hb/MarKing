@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.5.0](https://img.shields.io/badge/MarKing-v1.5.0-2563eb?style=for-the-badge)
+![MarKing-v1.5.1](https://img.shields.io/badge/MarKing-v1.5.1-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.5.0 — AI-assisted writing · MCP Server · Task system · Network drive optimization**: A complete AI writing suite — AI formatting, inline AI, AI writing flow; built-in MCP Server lets Claude Desktop / Cursor / Cline read and write your vault directly; task system auto-syncs todos; fixes for network drive freezing, export issues, and more.
+> **v1.5.1 — AI Writing Flow Polish · Task Priority & Due Dates · Independent Print Style**: AI writing flow (Compose/Outline/Inline AI) gets a UX polish pass with context menu Inline AI entry; task system adds priority and due date markers; print style can be configured independently from app theme; fixes for backup restore, Diff alignment, light-mode contrast, and more.
 
 <br>
 

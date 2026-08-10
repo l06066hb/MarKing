@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.5.0](https://img.shields.io/badge/MarKing-v1.5.0-2563eb?style=for-the-badge)
+![MarKing-v1.5.1](https://img.shields.io/badge/MarKing-v1.5.1-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.5.0 — AI 辅助写作 · MCP Server · 任务系统 · 网络盘优化**：全新 AI 辅助写作体系——AI 排版、行内 AI、AI 写作流；内置 MCP Server 让 Claude Desktop / Cursor / Cline 直接读写笔记库；任务系统自动同步待办事项；修复网络盘卡死、导出异常等多项问题。
+> **v1.5.1 — AI 写作流体验升级 · 任务优先级与截止日期 · 打印样式独立设置**：AI 写作流（Compose/Outline/Inline AI）完成体验打磨，右键菜单可直接调用行内 AI；任务系统支持优先级与截止日期标记；打印样式可独立于应用主题配置；修复备份恢复、Diff 对比、浅色模式对比度等多项问题。
 
 <br>
 

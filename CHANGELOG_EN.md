@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.5.1] - 2026-08-10
+
+> AI writing flow polish, task priority & due dates, independent print style, context menu Inline AI, stability and accessibility fixes.
+
+### ✨ Features
+
+- **Task Priority & Due Dates** — Tasks support priority markers (High/Medium/Low) and due dates. Sidebar supports priority filtering, overdue highlighting, and localized date display.
+- **Independent Print Style** — Print style (light/dark/follow theme) can be configured independently from the app theme, solving dark-theme ink waste when printing.
+- **Context Menu Inline AI** — Right-click in the editor to access Inline AI directly — select text and invoke continue, polish, translate, or summarize.
+- **AI Writing Flow Upgrade** — Unified brand visuals, shortcut hints, enhanced token usage display, improved provider onboarding, and source document annotations.
+- **Multi-Platform Icon Optimization** — Improved app icon display across platforms.
+
+### 🐛 Bug Fixes
+
+- **Settings Not Applying After Backup Restore** — App now automatically reloads after restore; settings take effect immediately without manual restart.
+- **Compose Refine Discards Edits** — Fixed user edits being discarded during refine, and edits silently lost when switching view modes.
+- **Diff Split Row Alignment** — Fixed row misalignment in Diff split mode; Diff button now shows after edits.
+- **AI Writing Flow Stability** — Fixed multiple race conditions, memory leaks, and unabort requests on hook unmount.
+- **Light Mode Contrast** — Secondary text contrast improved to meet WCAG AA standards.
+- **Update Dialog** — Added focus trap and install failure toast notification.
+- **Windows Draft Save Path** — Fixed path separator concatenation error on Windows.
+- **i18n & Accessibility** — Completed missing translations, improved Esc key semantics, corrected cross-platform shortcut display.
+
+### ♻️ Improvements
+
+- AI writing flow architecture refactor, lightweight Inline AI experience, display details benchmarked against industry-leading products.
+- Unified global typography and preview spacing rules.
+- Update dialog, delete confirmation dialog, and print option cards aligned with unified design system.
+
+---
+
 ## [1.5.0] - 2026-07-31
 
 > AI-assisted writing, MCP Server, task system, network drive performance, export fixes.
