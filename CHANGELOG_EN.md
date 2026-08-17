@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.5.2] - 2026-08-14
+
+> Core editor capabilities gap-fill: global find & replace, heading folding, global hotkey quick capture, spell check, cursor position memory.
+
+### ✨ Features
+
+- **Global Find & Replace** — Ctrl+Shift+H opens the global replace panel with regex support. Snapshots are auto-created before "Replace All" for rollback.
+- **Markdown Heading Folding** — H1-H6 headings can be folded/expanded. Command palette supports "fold to level N" for efficient long-document navigation.
+- **Global Hotkey Quick Capture** — System-wide hotkey (Ctrl+Alt+M) summons a mini popup to capture ideas instantly, auto-saved to Inbox.
+- **English Spell Check** — Misspelled words show red squiggly underlines with right-click correction suggestions. Code blocks and links are excluded.
+- **Cursor Position Memory** — Switching files and back restores the cursor to its last position. Up to 50 files remembered (LRU eviction).
+- **HTML Browser Preview** — Right-click an HTML file to preview it in the system default browser.
+
+### 🐛 Bug Fixes
+
+- **macOS Dock Icon Restore** — Fixed clicking the Dock icon not restoring the hidden window in tray mode.
+- **i18n Interpolation Syntax** — Unified i18n interpolation to single-brace syntax.
+- **Empty Shortcut Display** — Unbound shortcuts now show "Unbound" instead of blank.
+
+---
+
 ## [1.5.1] - 2026-08-10
 
 > AI writing flow polish, task priority & due dates, independent print style, context menu Inline AI, stability and accessibility fixes.
