@@ -133,7 +133,7 @@ jobs:
       # 性能优化：Rust 编译缓存，按 target 区分避免缓存冲突
       # shared-key 后缀加 v2 强制使现有受污染缓存失效（首次 push 后可去掉）。
       - name: Rust Cache
-        uses: swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32  # v2
+        uses: swatinem/rust-cache@f0d9c3887740aee45f6153b24b3a6b815192ec16  # v2
         with:
           shared-key: "marking-${{ matrix.target }}-v2"
           cache-bin: false
