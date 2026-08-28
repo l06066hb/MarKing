@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.5.2](https://img.shields.io/badge/MarKing-v1.5.2-2563eb?style=for-the-badge)
+![MarKing-v1.5.3](https://img.shields.io/badge/MarKing-v1.5.3-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.5.2 — Core Editor Capabilities Gap-Fill**: Added global find & replace (Ctrl+Shift+H), Markdown heading folding, global hotkey quick capture (Ctrl+Alt+M), English spell check, and cursor position memory; fixed macOS Dock icon restore in tray mode and more.
+> **v1.5.3 — Vault Migration + Polish**: Added one-click vault migration to a new location, 8-second undo for deleted files, command palette memory for frequently used commands, and refined empty-state illustrations; fixed Mermaid fullscreen zoom, code highlight false match, preview checkboxes, Linux Chinese character spacing, export images missing, word count, and more.
 
 <br>
 

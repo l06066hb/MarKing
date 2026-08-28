@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.5.3] - 2026-08-28
+
+> Vault migration, interaction polish, empty-state illustrations, editor fixes.
+
+### ✨ Features
+
+- **Vault Migration** — Move any vault to a new location from the Vault Manager, with cross-drive support and real-time progress. Setting a "default location" guides you to create new vaults there.
+- **Delete Undo** — A undo prompt appears for 8 seconds after deleting a file — one click to restore, no need to dig through the recycle bin.
+- **Command Palette Memory** — The command palette remembers your recently used commands and pins them to the top for quick access.
+- **Crash Page Localization** — The app crash page now displays in Chinese on Chinese systems.
+- **Empty-State Illustrations** — Refined illustrations added to empty states (no results, empty folder, no tasks, no history), with theme-color responsiveness and automatic dark-mode adaptation.
+
+### 🐛 Bug Fixes
+
+- **Mermaid Fullscreen Zoom** — Fixed content overflow being unscrollable after zooming, large diagrams freezing the UI, zoom reset overrun, and flowchart node text not displaying.
+- **Code Highlight False Match** — Fixed `==` inside code blocks being mistakenly parsed as highlight syntax, swallowing C/C++ code content.
+- **Preview Checkbox** — Fixed checkboxes in preview mode not responding to uncheck actions.
+- **Linux Chinese Spacing** — Fixed uneven character spacing for Chinese text on Linux.
+- **Export Images Missing** — Fixed images in hidden directories not appearing in PDF/HTML exports.
+- **Word Count Accuracy** — Improved word count algorithm for more accurate results.
+- **Toast Duration** — Fixed error/warning toasts disappearing too quickly.
+- **Windows Path Display** — Fixed mixed path separators in displayed paths.
+
+### ♻️ Improvements
+
+- Vault Manager interface adapted for dark mode.
+
+---
+
 ## [1.5.2] - 2026-08-14
 
 > Core editor capabilities gap-fill: global find & replace, heading folding, global hotkey quick capture, spell check, cursor position memory.
