@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.5.4] - 2026-09-04
+
+> Immersive writing mode, HTML file support, comprehensive visual polish.
+
+### ✨ Features
+
+- **Immersive Mode** — Three levels of distraction-free writing to help you enter a flow state. Light mode hides the sidebar; Standard mode also hides toolbars; Deep mode hides everything but the editor. In Deep mode, move your mouse to the top or bottom of the screen to temporarily reveal the title bar and status bar. Press `Ctrl+Shift+Enter` to toggle, or press `Esc` twice to exit. Optional settings to link Focus Mode (typewriter + paragraph focus) and auto-fullscreen.
+- **HTML File Support** — You can now open, edit, and preview HTML files directly in your vault. The editor provides HTML syntax highlighting, and the preview area safely renders web content with automatic loading of external stylesheets and relative-path assets. Drag-and-drop import and new HTML file creation are supported.
+- **Export Shortcut** — Press `Ctrl+Shift+E` to quickly open the export dialog without navigating through menus.
+- **Floating Layout Switcher** — The edit / split / preview layout buttons are now floating for easier access, with improved content alignment in split mode.
+
+### 🐛 Bug Fixes
+
+- **MCP Backlink Loss** — Fixed backlinks to a file not working after writing to it via MCP (AI clients like Claude Desktop). Broken links to newly created files are also auto-repaired.
+- **MCP Windows Path** — Fixed MCP file operations failing on certain Windows path formats.
+- **Single `~` False Strikethrough** — Fixed a single tilde in content being mistakenly rendered as strikethrough syntax.
+- **External Images Not Loading** — Fixed images from certain hosts (e.g., WeChat) not displaying in preview due to hotlink protection.
+- **Drag-Import to Wrong Folder** — Fixed files being dropped into the wrong folder when dragging into the file tree on high-resolution displays.
+- **CSV Import Preview** — Improved CSV file parsing and preview rendering.
+- **macOS Tray Icon** — Adapted tray icon to macOS menu bar conventions for better dark-mode appearance.
+- **Shortcut Conflict** — Resolved `Ctrl+Shift+E` conflict between the sidebar Files tab and the export function.
+
+### ♻️ Improvements
+
+- **Visual Polish** — Removed excessive decorative effects: overly heavy image borders and shadows, gradient dividers, button scale animations, and unnecessary blurs. The interface now has a cleaner, more professional feel.
+- **Dark Mode Consistency** — Significantly improved color consistency in dark mode, fixing numerous background and text color mismatches.
+- **Title Bar Simplified** — Removed the brand text area from the title bar to free up space for file paths.
+- **Table Hover Effect** — Table row hover now uses a theme-color highlight instead of the previous gray-white effect.
+- **Editor Line Numbers** — Line number colors now automatically adapt to the selected theme.
+
+---
+
 ## [1.5.3] - 2026-08-28
 
 > Vault migration, interaction polish, empty-state illustrations, editor fixes.

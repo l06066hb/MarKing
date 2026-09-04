@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.5.3](https://img.shields.io/badge/MarKing-v1.5.3-2563eb?style=for-the-badge)
+![MarKing-v1.5.4](https://img.shields.io/badge/MarKing-v1.5.4-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Task System` · `Global Find & Replace` · `Heading Folding` · `Global Hotkey Quick Capture` · `Spell Check` · `Cursor Position Memory` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Task System` · `Immersive Mode` · `HTML File Support` · `Global Find & Replace` · `Heading Folding` · `Global Hotkey Quick Capture` · `Spell Check` · `Cursor Position Memory` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.5.3 — Vault Migration + Polish**: Added one-click vault migration to a new location, 8-second undo for deleted files, command palette memory for frequently used commands, and refined empty-state illustrations; fixed Mermaid fullscreen zoom, code highlight false match, preview checkboxes, Linux Chinese character spacing, export images missing, word count, and more.
+> **v1.5.4 — Immersive Writing + HTML File Support**: Added three-level immersive writing mode to hide UI elements and enter a distraction-free flow state; HTML files can now be edited and previewed directly in your vault; added export shortcut Ctrl+Shift+E. Fixed MCP backlink loss, single `~` falsely rendered as strikethrough, external images blocked by hotlink protection, and drag-import landing in wrong folder. Comprehensive visual polish with significantly improved dark mode consistency.
 
 <br>
 
