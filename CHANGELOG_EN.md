@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.5] - 2026-09-09
+
+> Shortcuts panel crash fix + find/replace paste + macOS clipboard + cross-platform print fixes.
+
+### 🐛 Bug Fixes
+
+- **Shortcuts Panel Crash** — Fixed a crash when clicking "Help → Shortcuts".
+- **Find/Replace Panel Paste** — Fixed text being inserted into the editor body instead of the find/replace input when pressing Ctrl+V inside the panel. Also fixed the find panel tooltip being obscured by the toolbar.
+- **macOS Image Paste System Dialog** — Fixed a system Paste confirmation dialog appearing when pasting screenshots on macOS.
+- **Cross-Platform Print** — Fixed Ctrl+P printing the app shell instead of the document on Windows, and print being unresponsive on macOS. Unified Ctrl+P handling across platforms.
+
+---
+
 ## [1.5.4] - 2026-09-04
 
 > Immersive writing mode, HTML file support, comprehensive visual polish.

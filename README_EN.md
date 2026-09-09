@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.5.4](https://img.shields.io/badge/MarKing-v1.5.4-2563eb?style=for-the-badge)
+![MarKing-v1.5.5](https://img.shields.io/badge/MarKing-v1.5.5-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.5.4 — Immersive Writing + HTML File Support**: Added three-level immersive writing mode to hide UI elements and enter a distraction-free flow state; HTML files can now be edited and previewed directly in your vault; added export shortcut Ctrl+Shift+E. Fixed MCP backlink loss, single `~` falsely rendered as strikethrough, external images blocked by hotlink protection, and drag-import landing in wrong folder. Comprehensive visual polish with significantly improved dark mode consistency.
+> **v1.5.5 — Bug Fix Patch**: Fixed shortcuts panel crash, find/replace paste issue, macOS image paste system dialog, and cross-platform print problems.
 
 <br>
 

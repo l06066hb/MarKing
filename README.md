@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.5.4](https://img.shields.io/badge/MarKing-v1.5.4-2563eb?style=for-the-badge)
+![MarKing-v1.5.5](https://img.shields.io/badge/MarKing-v1.5.5-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.5.4 — 沉浸写作 + HTML 文件支持**：新增三级沉浸写作模式，一键隐藏界面进入心流；支持在笔记库中直接编辑和预览 HTML 文件；新增导出快捷键 Ctrl+Shift+E。修复 MCP 双链丢失、单个波浪号误显示删除线、外部图片防盗链不显示、拖拽导入落入错误文件夹等问题。界面视觉全面打磨，暗色模式一致性显著提升。
+> **v1.5.5 — 多项 Bug 修复补丁**：修复快捷键面板崩溃、查找/替换面板粘贴错位、macOS 粘贴图片弹系统控件、跨平台打印问题。
 
 <br>
 
