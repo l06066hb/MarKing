@@ -10,21 +10,21 @@
 
 <br>
 
-![MarKing-v1.5.5](https://img.shields.io/badge/MarKing-v1.5.5-2563eb?style=for-the-badge)
+![MarKing-v1.6.0](https://img.shields.io/badge/MarKing-v1.6.0-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`AI 排版` · `行内 AI` · `AI 写作流` · `MCP Server` · `任务系统` · `沉浸模式` · `HTML 文件支持` · `全局查找替换` · `标题折叠` · `全局热键快速捕获` · `拼写检查` · `光标位置记忆` · `公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`AI 排版` · `行内 AI` · `AI 写作流` · `MCP Server` · `Git 同步` · `文档对比` · `任务系统` · `沉浸模式` · `HTML 文件支持` · `全局查找替换` · `标题折叠` · `全局热键快速捕获` · `拼写检查` · `光标位置记忆` · `公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.5.5 — 多项 Bug 修复补丁**：修复快捷键面板崩溃、查找/替换面板粘贴错位、macOS 粘贴图片弹系统控件、跨平台打印问题。
+> **v1.6.0 — Git 同步正式落地**：同步引擎（自动同步 / 冲突解决 / 版本历史 / 凭据加密）、库配置白名单与本地备份恢复、文档对比与文件历史、`Ctrl+滚轮` 文档缩放、表格编辑重构、中西文自动空格。
 
 <br>
 

@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.5.5](https://img.shields.io/badge/MarKing-v1.5.5-2563eb?style=for-the-badge)
+![MarKing-v1.6.0](https://img.shields.io/badge/MarKing-v1.6.0-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Task System` · `Immersive Mode` · `HTML File Support` · `Global Find & Replace` · `Heading Folding` · `Global Hotkey Quick Capture` · `Spell Check` · `Cursor Position Memory` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Git Sync` · `Document Compare` · `Task System` · `Immersive Mode` · `HTML File Support` · `Global Find & Replace` · `Heading Folding` · `Global Hotkey Quick Capture` · `Spell Check` · `Cursor Position Memory` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.5.5 — Bug Fix Patch**: Fixed shortcuts panel crash, find/replace paste issue, macOS image paste system dialog, and cross-platform print problems.
+> **v1.6.0 — Git Sync Arrives**: Sync engine (auto-sync / conflict resolution / version history / encrypted credentials), vault config whitelist & local backup/restore, document compare & file history, `Ctrl+Wheel` document zoom, table editor rework, CJK auto-spacing.
 
 <br>
 

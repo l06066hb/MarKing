@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.6.0] - 2026-09-30
+
+> Git sync arrives, vault config sync & local backup/restore, document compare & file history, document zoom, table editor rework, and CJK auto-spacing.
+
+### ✨ Features
+
+- **Git Sync** — Sync your vault to a remote repository via Git. The sidebar shows live sync status, and saving auto-commits and pushes. On conflicts, compare each file's differences and choose which version to keep — nothing is lost. Browse per-commit changes, switch branches, or pause anytime. Credentials are stored encrypted; disabling sync keeps your local history intact.
+- **Vault Config Sync** — Optionally sync vault-level settings (attachment directory, folder templates). API keys and access credentials are never synced or included in backups; the local database and snapshots stay out of sync but are preserved in your backups.
+- **Document Compare** — Right-click a file → "Compare Document" to view side-by-side differences against a snapshot or another document. For the file you're editing, the comparison includes unsaved changes.
+- **File History** — For vaults containing a Git repository (once synced, even if sync is now off), right-click → "View File History" to browse commits, preview any previous version, and restore it with one click.
+- **Document Zoom** — `Ctrl+Wheel` to zoom, `Ctrl+±` / `Ctrl+0` to adjust and reset. Click the percentage in the status bar for a slider; set a global default in Settings. Display-only — your content is never modified.
+- **Table Editor Upgrade** — Visual table editing is now triggered manually instead of popping up automatically. Cells support real line breaks; the panel adapts to content width with maximize/restore and `Esc` to close.
+- **CJK Auto-Spacing** — Preview automatically inserts visual spacing between CJK and Latin/digit characters for more professional typography. Wide tables wrap instead of scrolling horizontally. Optional in Settings.
+
+### 🐛 Bug Fixes
+
+- **Extra Spaces After Saving Tables** — Fixed the table editor padding cells with spaces and rewriting your original format on save. CJK-width alignment, escaped characters, and list-indented tables are now preserved as written.
+- **Backup Restore Path Safety** — Each path inside a backup archive is now validated during restore, preventing malicious archives from writing files outside the vault.
+
+### ♻️ Improvements
+
+- **LiteMode Visual Unification** — Quick external file viewing now fully uses the theme color system, with better dark-mode consistency.
+
+---
+
 ## [1.5.5] - 2026-09-09
 
 > Shortcuts panel crash fix + find/replace paste + macOS clipboard + cross-platform print fixes.
