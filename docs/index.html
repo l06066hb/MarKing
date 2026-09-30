@@ -94,7 +94,7 @@
         <div class="hero-vignette" aria-hidden="true"></div>
 
         <div class="hero-badge" role="status" aria-label="Version Info">
-            <span>v1.5.5 — 多项 Bug 修复补丁</span>
+            <span>v1.6.0 — Git 同步正式落地</span>
         </div>
         <h1 id="hero-title"><span>MarKing</span><br>专业 Markdown 编辑器</h1>
         <p class="hero-subtitle">本地优先 · 零追踪 · 跨平台<br>面向长期写作的现代化文档创作工具</p>
@@ -284,6 +284,22 @@
                     </svg></div>
                 <h3>MCP Server</h3>
                 <p>内置标准协议服务端，Claude Desktop、Cursor、Cline 等 AI 客户端可直接读写笔记库——文件管理、全文搜索、元数据操作、任务管理全部打通。</p>
+            </div>
+            <div class="bento-item bento-half tilt-card">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg></div>
+                <h3>Git 同步与本地备份</h3>
+                <p>笔记库通过 Git 同步到私有远端仓库，保存即自动提交推送；冲突时逐文件对比取舍，内容不丢失；凭据加密存储，敏感配置永不入库。本地备份一键打包，随时完整恢复。</p>
+            </div>
+            <div class="bento-item bento-half tilt-card">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg></div>
+                <h3>文档对比与文件历史</h3>
+                <p>当前文档与历史快照或任意文档并排比对差异；浏览文件的每次提交改动，预览任意旧版本，一键恢复到工作区。</p>
             </div>
         </div>
     </section>
@@ -523,7 +539,7 @@
                     </svg>
                 </div>
                 <h3>Windows</h3>
-                <p class="platform-version">v1.5.5 | Windows 10+</p>
+                <p class="platform-version">v1.6.0 | Windows 10+</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('win')">
                     下载安装器
                 </button>
@@ -537,7 +553,7 @@
                     </svg>
                 </div>
                 <h3>macOS</h3>
-                <p class="platform-version">v1.5.5 | macOS 10.15+</p>
+                <p class="platform-version">v1.6.0 | macOS 10.15+</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">下载安装包</button>
             </div>
             <div class="platform-card tilt-card">
@@ -549,7 +565,7 @@
                     </svg>
                 </div>
                 <h3>Linux</h3>
-                <p class="platform-version">v1.5.5 | 主流发行版</p>
+                <p class="platform-version">v1.6.0 | 主流发行版</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('linux')">下载安装包</button>
             </div>
         </div>
@@ -706,6 +722,7 @@
             </div>
 
             <div class="modal-footer">
+                <a id="checksum-link" target="_blank" class="view-all-releases" style="display:none; margin-right:18px;" href="#">校验文件 SHA256SUMS.txt</a>
                 <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" class="view-all-releases">在 GitHub 获取所有版本的发布文件 →</a>
             </div>
         </div>

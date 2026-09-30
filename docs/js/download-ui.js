@@ -312,6 +312,14 @@ class DownloadUI {
         document.getElementById('list-win').innerHTML = winAssets.map(a => this.createItemHTML(a)).join('');
         document.getElementById('list-mac').innerHTML = macAssets.map(a => this.createItemHTML(a)).join('');
         document.getElementById('list-linux').innerHTML = linuxAssets.map(a => this.createItemHTML(a)).join('');
+
+        // 校验文件链接：release 含 SHA256SUMS.txt 时点亮页脚入口
+        const sumAsset = assets.find(a => /sha256sums\.txt$/i.test(a.name));
+        const sumLink = document.getElementById('checksum-link');
+        if (sumAsset && sumLink) {
+            sumLink.href = sumAsset.browser_download_url;
+            sumLink.style.display = '';
+        }
     }
 
     formatAsset(asset, os) {
@@ -349,8 +357,13 @@ class DownloadUI {
                 desc = this.isEn ? 'Runs everywhere, no install required' : '无需安装即可运行的绿色包（推荐）';
                 recommended = true;
             } else if (asset.name.includes('deb')) {
-                title = this.isEn ? 'Debian/Ubuntu (.deb)' : 'Debian/Ubuntu (.deb)';
-                desc = this.isEn ? 'For Debian-based distributions' : 'Debian/Ubuntu 系安装包';
+                if (asset.name.includes('arm64') || asset.name.includes('aarch64')) {
+                    title = this.isEn ? 'Debian/Ubuntu ARM64 (.deb)' : 'Debian/Ubuntu ARM64 (.deb)';
+                    desc = this.isEn ? 'For ARM64 devices (ARM servers, Raspberry Pi, etc.)' : 'ARM64 设备安装包（ARM 服务器、树莓派等）';
+                } else {
+                    title = this.isEn ? 'Debian/Ubuntu x64 (.deb)' : 'Debian/Ubuntu x64 (.deb)';
+                    desc = this.isEn ? 'For Debian-based distributions' : 'Debian/Ubuntu 系安装包（x86_64）';
+                }
             } else if (asset.name.includes('rpm')) {
                 title = this.isEn ? 'Red Hat/Fedora (.rpm)' : 'Red Hat/Fedora (.rpm)';
                 desc = this.isEn ? 'For RPM-based distributions' : 'CentOS/Fedora 系安装包';

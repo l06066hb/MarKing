@@ -98,7 +98,7 @@
         <div class="hero-vignette" aria-hidden="true"></div>
 
         <div class="hero-badge" role="status" aria-label="Version Info">
-            <span>v1.5.5 — Bug Fix Patch</span>
+            <span>v1.6.0 — Git Sync & Backup</span>
         </div>
         <h1 id="hero-title"><span>MarKing</span><br>Professional Markdown Editor</h1>
         <p class="hero-subtitle">Local-first · Zero Tracking · Cross-platform<br>A modern document creation tool built for sustained writing</p>
@@ -291,6 +291,22 @@
                     </svg></div>
                 <h3>MCP Server</h3>
                 <p>Built-in standard protocol server — Claude Desktop, Cursor, Cline and other AI clients can directly read and write your vault: file management, full-text search, metadata operations, and task management.</p>
+            </div>
+            <div class="bento-item bento-half tilt-card">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg></div>
+                <h3>Git Sync &amp; Local Backup</h3>
+                <p>Sync your vault to a private remote over Git — saves auto-commit and push. Resolve conflicts file-by-file with side-by-side diffs; credentials stay encrypted and sensitive config never leaves the vault. One-click local backups, restorable anytime.</p>
+            </div>
+            <div class="bento-item bento-half tilt-card">
+                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg></div>
+                <h3>Document Diff &amp; File History</h3>
+                <p>Compare the current document with snapshots or any other file side by side. Browse per-commit history, preview any revision, and restore it to the workspace in one click.</p>
             </div>
         </div>
     </section>
@@ -527,7 +543,7 @@
                     </svg>
                 </div>
                 <h3>Windows</h3>
-                <p class="platform-version">v1.5.5 | Windows 10+</p>
+                <p class="platform-version">v1.6.0 | Windows 10+</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('win')">
                     Download Installer
                 </button>
@@ -541,7 +557,7 @@
                     </svg>
                 </div>
                 <h3>macOS</h3>
-                <p class="platform-version">v1.5.5 | macOS 10.15+</p>
+                <p class="platform-version">v1.6.0 | macOS 10.15+</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">Download</button>
             </div>
             <div class="platform-card tilt-card">
@@ -553,7 +569,7 @@
                     </svg>
                 </div>
                 <h3>Linux</h3>
-                <p class="platform-version">v1.5.5 | Major Distributions</p>
+                <p class="platform-version">v1.6.0 | Major Distributions</p>
                 <button class="btn btn-primary" onclick="window.DownloadUI_openModal('linux')">Download</button>
             </div>
         </div>
@@ -711,6 +727,7 @@
             </div>
 
             <div class="modal-footer">
+                <a id="checksum-link" target="_blank" class="view-all-releases" style="display:none; margin-right:18px;" href="#">Checksum file SHA256SUMS.txt</a>
                 <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" class="view-all-releases">View
                     all release files on GitHub →</a>
             </div>
