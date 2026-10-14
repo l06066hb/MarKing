@@ -4,729 +4,991 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MarKing - 专业的跨平台 Markdown 编辑器，为您带来极致高效的文档写作体验。内置实时预览、智能补全、可视化表格与高质量 DOCX/PDF 导出。">
-    <meta name="keywords" content="Markdown编辑器, 文档处理, 跨平台编辑器, DOCX导出, PDF导出, 技术文档开发, 写作工具">
+    <script>
+        (function () {
+            var h = document.documentElement;
+            h.classList.add('js');
+            var ua = navigator.userAgent || '';
+            var os = 'win';
+            if (/iPhone|iPad|iPod|Android/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+                os = 'mobile';
+            } else if (/Mac OS X|Macintosh/i.test(ua)) {
+                os = 'mac';
+            } else if (/Linux/i.test(ua)) {
+                os = 'linux';
+            }
+            h.classList.add('os-' + os);
+            h.setAttribute('data-os', os);
+        })();
+    </script>
+    <title>MarKing — 本地优先的 Markdown 编辑器 | 安静地写，长久地留</title>
+    <meta name="description" content="MarKing 是一款本地优先、零追踪的桌面 Markdown 编辑器：实时分栏预览、公式与 Mermaid 图表、双链与知识图谱、AI 辅助写作、Git 同步，以及 DOCX / PDF 专业导出。支持 Windows、macOS 与 Linux。">
+    <meta name="keywords" content="Markdown编辑器, 本地优先, 写作工具, 双链笔记, 知识图谱, Git同步, AI写作, MCP, DOCX导出, PDF导出, 跨平台">
     <meta name="author" content="MarKing">
-    <meta name="theme-color" content="#3b82f6">
     <meta name="robots" content="index, follow">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#F7F6F2">
     <link rel="canonical" href="https://markingmd.com/">
 
     <!-- 站长工具验证 -->
     <meta name="google-site-verification" content="3QEg1uC_xXJB0t_RLh__ct6Yqu9lhkqu-3tIe4CtVZY" />
     <meta name="baidu-site-verification" content="codeva-oybvH7wAT3" />
 
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="zh-CN" href="https://markingmd.com/">
+    <link rel="alternate" hreflang="en" href="https://markingmd.com/index-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://markingmd.com/">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MarKing - 极速专业的 Markdown 编辑器">
-    <meta property="og:description" content="现代化跨平台 Markdown 创作工具，专为高效和纯粹的内容输出而生">
-    <meta property="og:image" content="https://markingmd.com/marking-app-icon-512.png">
+    <meta property="og:title" content="MarKing — 安静地写，长久地留">
+    <meta property="og:description" content="本地优先、零追踪的桌面 Markdown 编辑器。你的文字，始终是硬盘上的纯文本。">
+    <meta property="og:image" content="https://markingmd.com/marking-focus-mode.png">
+    <meta property="og:image:width" content="1904">
+    <meta property="og:image:height" content="1107">
     <meta property="og:url" content="https://markingmd.com/">
     <meta property="og:site_name" content="MarKing">
     <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MarKing - 极速专业的 Markdown 编辑器">
-    <meta name="twitter:description" content="现代化跨平台 Markdown 创作工具，专为高效和纯粹的内容输出而生">
-    <meta name="twitter:image" content="https://markingmd.com/marking-app-icon-512.png">
+    <meta name="twitter:title" content="MarKing — 安静地写，长久地留">
+    <meta name="twitter:description" content="本地优先、零追踪的桌面 Markdown 编辑器。你的文字，始终是硬盘上的纯文本。">
+    <meta name="twitter:image" content="https://markingmd.com/marking-focus-mode.png">
 
-    <title>MarKing - 专业的 Markdown 编辑器 | 专注排版与内容创作</title>
-
-    <!-- Preload app icon -->
     <link rel="icon" type="image/png" href="marking-app-icon-128.png">
-    <link rel="stylesheet" href="css/shared.css">
+    <link rel="apple-touch-icon" href="marking-app-icon-256.png">
+
+    <!-- Fonts -->
+    <link rel="preload" href="fonts/mk-serif-sc-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="css/shared.css?v=2.0.2">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"MarKing","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10+, macOS 10.15+, Linux","softwareVersion":"1.6.0","description":"本地优先、零追踪的桌面 Markdown 编辑器。","url":"https://markingmd.com/","image":"https://markingmd.com/marking-app-icon-512.png","screenshot":"https://markingmd.com/marking-focus-mode.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"zh-CN"}
+    </script>
 </head>
 
 <body>
-    <!-- 滚动进度指示器 -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <a class="skip-link" href="#main">跳到主要内容</a>
 
-    <!-- Cursor glow follower -->
-    <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- Header -->
-    <header id="header" role="banner">
-        <nav class="container" role="navigation" aria-label="主导航">
-            <a href="#" class="logo" aria-label="MarKing 首页">
-                <img src="marking-app-icon-128.png" alt="MarKing Logo" class="logo-icon">
-                <span>MarKing</span>
+    <header class="site-header">
+        <nav class="nav-bar container" aria-label="主导航">
+            <a class="brand" href="#top" aria-label="MarKing 首页">
+                <img src="marking-app-icon-128.png" alt="" width="28" height="28">
+                <span class="brand-name serif">MarKing</span>
             </a>
-            <ul class="nav-links" id="navLinks" role="navigation">
-                <li><a href="#features">功能特性</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing/blob/main/release-docs/CHANGELOG.md" target="_blank"
-                        rel="noopener noreferrer">更新日志</a></li>
-                <li><a href="./index-en.html" class="lang-switch" aria-label="切换到英文">English</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing/issues" class="nav-cta">问题反馈</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer"
-                        aria-label="访问 GitHub 仓库">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                    </a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false"
-                aria-controls="navLinks">
-                <!-- Menu Icon (Heroicons - Bars3) -->
-                <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <!-- Close Icon (Heroicons - XMark) -->
-                <svg class="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    style="display: none;" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            <div class="nav-links">
+                <a href="#writing">写作</a>
+                <a href="#ai">AI</a>
+                <a href="#privacy">隐私</a>
+                <a href="#themes">主题</a>
+                <a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                    rel="noopener noreferrer">更新日志<svg class="i i-ext" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M7 17L17 7M8 7h9v9" />
+                    </svg></a>
+            </div>
+            <div class="nav-right">
+                <a class="nav-lang" href="./index-en.html" hreflang="en" lang="en">EN</a>
+                <a class="nav-gh" href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg></a>
+                <button type="button" class="btn btn-primary btn-sm" data-download>下载</button>
+                <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="打开菜单">
+                    <svg class="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                    <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18" />
+                    </svg>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-
-    <section class="hero container" role="main" aria-labelledby="hero-title">
-        <!-- Cinematic aurora background -->
-        <div class="hero-aurora" aria-hidden="true"></div>
-        <div class="hero-aurora-orb" aria-hidden="true"></div>
-        <!-- Floating particles -->
-        <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
-        <!-- Film grain + vignette overlays -->
-        <div class="hero-grain" aria-hidden="true"></div>
-        <div class="hero-vignette" aria-hidden="true"></div>
-
-        <div class="hero-badge" role="status" aria-label="Version Info">
-            <span>v1.6.0 — Git 同步正式落地</span>
-        </div>
-        <h1 id="hero-title"><span>MarKing</span><br>专业 Markdown 编辑器</h1>
-        <p class="hero-subtitle">本地优先 · 零追踪 · 跨平台<br>面向长期写作的现代化文档创作工具</p>
-        <div class="cta-buttons" role="group">
-            <span class="magnetic" id="magneticDownload">
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
-                    <span>免费下载</span>
-                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
-                        </path>
-                    </svg>
-                </button>
-            </span>
-            <span class="magnetic" id="magneticGithub">
-                <a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    <span>GitHub Star</span>
-                </a>
-            </span>
-        </div>
-
-        <!-- Animated stats -->
-        <div class="hero-stats-row" role="group" aria-label="项目数据">
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="20" data-suffix="+">0</div>
-                <div class="hero-stat-label">精心打磨主题</div>
-            </div>
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="70" data-suffix="+">0</div>
-                <div class="hero-stat-label">智能代码片段</div>
-            </div>
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="3" data-suffix=" 平台">0</div>
-                <div class="hero-stat-label">全平台支持</div>
-            </div>
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="100" data-suffix="%">0</div>
-                <div class="hero-stat-label">本地优先 · 零追踪</div>
-            </div>
-        </div>
-
-        <div class="hero-image-wrapper">
-            <div class="hero-image-inner" id="heroImage">
-                <img src="marking-markdown-editor-main-interface.png?v=1.2" alt="专业 Markdown 编辑器" decoding="async" fetchpriority="high">
-            </div>
-        </div>
-    </section>
-
-    <!-- Marquee feature strip -->
-    <div class="marquee" aria-hidden="true">
-        <div class="marquee-track" id="marqueeTrack">
-            <div class="marquee-set" id="marqueeSet">
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>本地优先 · 零追踪</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>极速轻量模式</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>MathLive 公式</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>LaTeX 交叉引用</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>Excalidraw 白板</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M20 17l2-1v-2.5"/></svg>Mermaid 11 图表</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>知识图谱</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>WikiLink 双链</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>命令面板</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>专注模式</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>沉浸写作模式</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>DOCX/PDF/HTML 导出</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>可视化表格</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>20+ 主题</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>智能备份</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>网页 URL 导入</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>文档导入插件系统</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>文档模板系统</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.5.8a2 2 0 01-1.656 1H8.5a2 2 0 01-1.656-1l-.5-.8z"/></svg>AI 辅助写作</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>AI 排版优化</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>MCP Server</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>任务系统</span>
-                <span class="marquee-dot"></span>
-            </div>
-        </div>
+    <div class="mobile-sheet" id="mobileMenu" hidden>
+        <a class="m-link" href="#writing">写作</a>
+        <a class="m-link" href="#ai">AI</a>
+        <a class="m-link" href="#privacy">隐私</a>
+        <a class="m-link" href="#themes">主题</a>
+        <a class="m-link" href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+            rel="noopener noreferrer">更新日志<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M8 7h9v9" />
+            </svg></a>
+        <button type="button" class="btn btn-primary btn-block m-download" data-download>下载 MarKing</button>
+        <p class="m-foot"><a href="./index-en.html" hreflang="en" lang="en">English</a><span class="sep">·</span><a
+                href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </div>
 
-    <!-- Features Section -->
+    <main id="main">
 
-    <section id="features" class="features container" aria-labelledby="features-title">
-        <div class="section-header">
-            <h2 id="features-title" class="section-title">专业文档创作的完整解决方案</h2>
-            <p class="section-subtitle">强大功能 × 极致体验 × 安全可靠，让文档创作更高效、更专业</p>
-        </div>
-        <div class="bento-grid">
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.5.8a2 2 0 01-1.656 1H8.5a2 2 0 01-1.656-1l-.5-.8z" />
-                    </svg></div>
-                <h3>AI 辅助写作</h3>
-                <p>一键 AI 排版优化文档结构与格式，逐项 Diff 预览修改。选中文本即可调用 AI 续写、润色、翻译或总结。支持 18+ 家 AI 服务商，多笔记组合生成长文，从大纲到成稿一站式完成。</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg></div>
-                <h3>原生级专业编辑器</h3>
-                <p>精致毛玻璃与物理级微交互的极简工具栏，70+ 智能代码片段与上下文补全，十万字长文流畅滚动，尽享行云流水的写作快感。</p>
-            </div>
-            <div class="bento-item bento-square tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg></div>
-                <h3>极速轻量模式</h3>
-                <p>专为纯粹阅读和轻量修改打造。默认应用直接秒开，摒弃一切繁杂界面，以极低资源占用瞬间呈现你的文档。</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>公式可视化编辑与交叉引用</h3>
-                <p>MathLive 驱动的可视化公式编辑器，虚拟键盘让复杂数学公式输入直观高效。支持 \label/\eqref/\ref 交叉引用，公式自动编号，点击一键跳转。</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                    </svg></div>
-                <h3>Excalidraw 白板</h3>
-                <p>内嵌手绘风格白板，自由绘制流程图、架构图、思维导图，让文档表达更加生动直观。</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>可视化表格与图表</h3>
-                <p>像 Excel 一样拖拽编辑表格。全新引入现代化的浮动快捷工具栏，交互更加聚焦优雅。搭配 Mermaid 助手，无缝编排复杂图表代码。</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg></div>
-                <h3>知识图谱</h3>
-                <p>自动解析双向链接与文档引用关系，以交互式力导向图可视化你的知识网络。</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>命令面板</h3>
-                <p>Ctrl+Shift+P 一键唤出，模糊搜索快速触达任意功能，键盘流用户的效率利器。</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg></div>
-                <h3>专注模式</h3>
-                <p>一键隐藏所有面板与干扰元素，打字机滚动让视线始终聚焦当前段落，沉浸创作。</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>MCP Server</h3>
-                <p>内置标准协议服务端，Claude Desktop、Cursor、Cline 等 AI 客户端可直接读写笔记库——文件管理、全文搜索、元数据操作、任务管理全部打通。</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg></div>
-                <h3>Git 同步与本地备份</h3>
-                <p>笔记库通过 Git 同步到私有远端仓库，保存即自动提交推送；冲突时逐文件对比取舍，内容不丢失；凭据加密存储，敏感配置永不入库。本地备份一键打包，随时完整恢复。</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                    </svg></div>
-                <h3>文档对比与文件历史</h3>
-                <p>当前文档与历史快照或任意文档并排比对差异；浏览文件的每次提交改动，预览任意旧版本，一键恢复到工作区。</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Feature Showcase — Tabbed Gallery -->
-    <section id="showcase" class="showcase container" aria-labelledby="showcase-title">
-        <div class="section-header">
-            <span class="section-badge">深入探索</span>
-            <h2 id="showcase-title" class="section-title">每一项功能，都经过精心打磨</h2>
-            <p class="section-subtitle">点击分类标签，浏览 MarKing 的核心能力</p>
-        </div>
-
-        <div class="showcase-tabs" role="tablist" aria-label="功能分类">
-            <button class="showcase-tab active" role="tab" data-tab="editing" aria-selected="true" aria-controls="panel-editing">编辑体验</button>
-            <button class="showcase-tab" role="tab" data-tab="creation" aria-selected="false" aria-controls="panel-creation">创作工具</button>
-            <button class="showcase-tab" role="tab" data-tab="export" aria-selected="false" aria-controls="panel-export">专业导出</button>
-            <button class="showcase-tab" role="tab" data-tab="management" aria-selected="false" aria-controls="panel-management">管理与安全</button>
-        </div>
-
-        <div class="showcase-panels">
-            <!-- Panel 1: 编辑体验 -->
-            <div class="showcase-panel active" id="panel-editing" data-panel="editing" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-markdown-editor-main-interface.png?v=1" alt="专业编辑环境" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>专业编辑环境</h4>
-                            <p>双栏实时预览，100+ 语法高亮，十万字长文流畅滚动</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-editor-features-preview-completion.png?v=1" alt="智能补全" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>智能补全与片段</h4>
-                            <p>70+ 代码片段，上下文感知补全，一键格式化</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-lightweight-mode.png?v=1" alt="轻量模式" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>极速轻量模式</h4>
-                            <p>作为默认应用秒开文件，极低资源占用，专注阅读</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-command-palette.png?v=1" alt="命令面板" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>命令面板</h4>
-                            <p>Ctrl+Shift+P 一键唤出，模糊搜索快速触达任意功能</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-focus-mode.png?v=1" alt="专注模式" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>专注模式</h4>
-                            <p>一键隐藏干扰，打字机滚动聚焦当前段落，沉浸创作</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 2: 创作工具 -->
-            <div class="showcase-panel" id="panel-creation" data-panel="creation" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-mathlive-formula-editor.png?v=1" alt="公式编辑器" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>可视化公式编辑与交叉引用</h4>
-                            <p>MathLive 驱动，虚拟键盘直觉输入；\label/\eqref 交叉引用，自动编号一键跳转</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-excalidraw-whiteboard.png?v=1" alt="Excalidraw 白板" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Excalidraw 白板</h4>
-                            <p>嵌入式手绘风格白板，流程图、架构图信手拈来</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-visual-table-editor.png?v=1" alt="表格编辑器" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>可视化表格编辑</h4>
-                            <p>像 Excel 一样拖拽编辑，浮动工具栏聚焦优雅</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-mermaid-diagram-assistant.png?v=1" alt="Mermaid 图表" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Mermaid 图表助手</h4>
-                            <p>辅助编写流程图、时序图、甘特图等多种图表</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 4: 专业导出 -->
-            <div class="showcase-panel" id="panel-export" data-panel="export" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-docx-export-v2-template.png?v=1" alt="DOCX 模板系统" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>DOCX 导出 v2.0</h4>
-                            <p>全新模板系统，自定义样式与实时预览，一键生成专业文档</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-export-docx-pdf-feature.png?v=1" alt="多格式导出" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>多格式高质量输出</h4>
-                            <p>DOCX / PDF / HTML 多格式导出，满足学术与商业标准</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 5: 管理与安全 -->
-            <div class="showcase-panel" id="panel-management" data-panel="management" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-multi-vault-management.png?v=1" alt="多库管理" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>多库管理</h4>
-                            <p>独立管理不同项目，数据隔离更安全</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-smart-backup-system.png?v=1" alt="智能备份" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>智能备份系统</h4>
-                            <p>全新升级的备份系统，灵活备份范围，数据更安全可控</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-code-theme-settings.png?v=1" alt="代码主题" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>代码高亮主题引擎</h4>
-                            <p>独立代码块高亮选项，多套发烧友级经典配色</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-knowledge-graph.png?v=1" alt="知识图谱" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>知识图谱</h4>
-                            <p>自动解析双向链接，交互式力导向图可视化知识网络</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Theme Showcase Section -->
-    <section id="themes" class="theme-showcase" aria-labelledby="themes-title">
-        <div class="theme-container container">
-            <div class="section-header theme-section-header">
-                <span class="section-badge theme-section-badge">桌面原生级美学</span>
-                <h2 id="themes-title" class="section-title theme-section-title">20+ 套精心打磨的主题随心切换</h2>
-                <p class="section-subtitle theme-section-subtitle">
-                    告别千篇一律的界面，每一套主题都经过像素级调校。<br>下图仅为精选示例，下载 MarKing 解锁完整主题库，结合毛玻璃材质与光影特效，体验真正的沉浸式创作。
-                </p>
-            </div>
-
-            <div class="theme-gallery">
-                <!-- Row 1: Classic Main Themes -->
-                <div class="theme-item t-large" tabindex="0">
-                    <img src="marking-theme-eye-care.png" alt="护眼柔光主题" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">护眼柔光</h4>
-                        <p class="theme-desc">温和舒适的低饱和暖色基调，专注于持久护眼的沉浸式写作体验。</p>
-                    </div>
-                </div>
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-rose-pink.png" alt="玫瑰粉红主题" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">玫瑰粉红</h4>
-                        <p class="theme-desc">柔和优雅的粉调质感，带来温馨又充满灵感的创作氛围。</p>
-                    </div>
-                </div>
-
-                <!-- Row 2: Colorful & Personality -->
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-ocean-blue.png" alt="静谧深海主题" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">静谧深海</h4>
-                        <p class="theme-desc">充满理性的深海蓝调，完美契合专业且严谨的技术文档编写。</p>
-                    </div>
-                </div>
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-sepia-yellow.png" alt="复古旧纸主题" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">复古旧纸</h4>
-                        <p class="theme-desc">如泛黄旧卷般的文艺暖色，给予创作最温柔的情感慰藉。</p>
-                    </div>
-                </div>
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-neon-cyber.png" alt="霓虹赛博主题" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">霓虹赛博</h4>
-                        <p class="theme-desc">高对比度的赛博朋克紫红霓虹，爆发绝对的视觉张力。</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="theme-auto-switch">
-                <p>
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        <!-- Hero -->
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container">
+                <a class="release-pill hero-rise" style="--i:0"
+                    href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                    rel="noopener noreferrer">
+                    <span class="pill-dot" aria-hidden="true"></span>
+                    <span>v1.6.0 · Git 同步正式上线</span>
+                    <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
-                    支持随系统自动切换深色/浅色模式，白天夜晚均有完美表现。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Download Section -->
-    <section id="download" class="download container" aria-labelledby="download-title">
-        <div class="section-header">
-            <span class="section-badge">立即下载</span>
-            <h2 id="download-title" class="section-title">支持所有主流平台</h2>
-            <p class="section-subtitle">
-                选择适合你的平台，开始高效的文档创作之旅
-            </p>
-        </div>
-        <div class="platform-grid">
-            <div class="platform-card tilt-card">
-                <div class="platform-icon">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
-                    </svg>
-                </div>
-                <h3>Windows</h3>
-                <p class="platform-version">v1.6.0 | Windows 10+</p>
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('win')">
-                    下载安装器
-                </button>
-            </div>
-            <div class="platform-card tilt-card">
-
-                <div class="platform-icon">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                    </svg>
-                </div>
-                <h3>macOS</h3>
-                <p class="platform-version">v1.6.0 | macOS 10.15+</p>
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">下载安装包</button>
-            </div>
-            <div class="platform-card tilt-card">
-
-                <div class="platform-icon">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.84-.415 1.917-.415 2.998 0 1.031.125 2.119.45 3.146.6 1.698 1.81 3.328 3.545 4.467 1.735 1.14 4.005 1.529 6.082 1.529 2.082 0 4.358-.389 6.087-1.529 1.74-1.139 2.945-2.769 3.545-4.467.325-1.027.45-2.115.45-3.146 0-1.081-.137-2.158-.415-2.998-.589-1.771-1.831-3.47-2.715-4.521-.75-1.067-.975-1.928-1.05-3.02-.066-1.491 1.055-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-.48 1.029c3.645.305 2.579 4.216 2.641 5.79.082 1.335.375 2.355 1.215 3.563.915 1.084 2.147 2.794 2.694 4.451.247.748.375 1.749.375 2.665 0 .916-.128 1.917-.375 2.665-.547 1.657-1.779 3.367-2.694 4.451-.84 1.208-1.133 2.228-1.215 3.563-.062 1.574.996 5.485-2.641 5.79-3.645-.305-2.579-4.216-2.641-5.79-.082-1.335-.375-2.355-1.215-3.563-.915-1.084-2.147-2.794-2.694-4.451-.247-.748-.375-1.749-.375-2.665 0-.916.128-1.917.375-2.665.547-1.657 1.779-3.367 2.694-4.451.84-1.208 1.133-2.228 1.215-3.563.062-1.574-.996-5.485 2.641-5.79z" />
-                    </svg>
-                </div>
-                <h3>Linux</h3>
-                <p class="platform-version">v1.6.0 | 主流发行版</p>
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('linux')">下载安装包</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsor Section -->
-    <section id="sponsor" class="sponsor container">
-        <div class="sponsor-container">
-            <div class="section-header">
-                <span class="section-badge">支持项目</span>
-                <h2 class="section-title">支持 MarKing 持续发展</h2>
-                <p class="section-subtitle">
-                    MarKing 致力于为您提供极致的创作体验，<br>
-                    如果您觉得它为您的工作带来了巨大价值，欢迎请作者喝杯咖啡，支持后续功能的开发与迭代。
-                </p>
-            </div>
-            <div class="sponsor-grid" style="max-width: 600px; margin: 0 auto;">
-                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card tilt-card">
-                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                    </div>
-                    <h3>爱发电</h3>
-                    <p>国内用户推荐<br>支持微信/支付宝</p>
                 </a>
-                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card tilt-card">
-                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                        </svg>
+                <h1 class="hero-title hero-rise" id="hero-title" style="--i:1">安静地写，<br>长久地留。<span class="caret"
+                        aria-hidden="true"></span></h1>
+                <div class="hero-row hero-rise" style="--i:2">
+                    <p class="hero-lead">MarKing 是一款本地优先的桌面 Markdown 编辑器。实时预览、公式图表、双链笔记、AI
+                        辅助与专业导出一应俱全——而你的文字，始终是硬盘上的纯文本文件。</p>
+                    <div class="hero-actions">
+                        <div class="hero-cta">
+                            <button type="button" class="btn btn-primary btn-lg" data-download><span data-dl-label
+                                    data-label-win="下载 Windows 版" data-label-mac="下载 macOS 版"
+                                    data-label-linux="下载 Linux 版">免费下载</span><svg class="i i-arrow-down"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+                                </svg></button>
+                            <a class="btn btn-ghost btn-lg" href="#writing">浏览功能</a>
+                        </div>
+                        <p class="hero-meta">v1.6.0 · Windows / macOS / Linux · 无需注册</p>
                     </div>
-                    <h3>Ko-fi</h3>
-                    <p>国际用户推荐<br>支持信用卡/PayPal</p>
-                </a>
-                <!-- <a href="https://github.com/sponsors/l06066hb" target="_blank" class="sponsor-card">
-                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #24292e 0%, #0d1117 100%);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
+                </div>
+                <figure class="hero-figure hero-rise hero-rise-fig" style="--i:3">
+                    <div class="frame">
+                        <img src="marking-focus-mode.png"
+                            alt="MarKing 分栏编辑界面：左侧为 Markdown 源码与段落聚焦，右侧为实时预览" width="1904" height="1107"
+                            fetchpriority="high" data-zoom>
                     </div>
-                    <h3>GitHub Sponsors</h3>
-                    <p>For Developers<br>Integrated with GitHub</p>
-                </a> -->
+                    <figcaption class="figcap"><span class="fig-num">图 1</span>分栏模式：左侧书写
+                        Markdown，右侧即时呈现排版效果。</figcaption>
+                </figure>
+                <div class="principles">
+                    <div class="principle">
+                        <h3 class="principle-title">纯文本，不锁定</h3>
+                        <p>笔记就是硬盘上的 .md 文件，任何编辑器都能打开，没有私有格式。</p>
+                    </div>
+                    <div class="principle">
+                        <h3 class="principle-title">零追踪</h3>
+                        <p>不收集遥测、行为数据与个人信息；没有广告，无需注册。</p>
+                    </div>
+                    <div class="principle">
+                        <h3 class="principle-title">原生性能</h3>
+                        <p>原生编译，冷启动不到 2 秒，十万字长文依旧顺滑。</p>
+                    </div>
+                    <div class="principle">
+                        <h3 class="principle-title">全平台</h3>
+                        <p>Windows、macOS（Apple 芯片与 Intel）与 Linux，同一套体验。</p>
+                    </div>
+                </div>
             </div>
-            <div class="sponsor-note">
-                <p>
-                    所有赞助将直接用于项目的长期发展维护 • 感谢每一位支持者
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content container" style="max-width:1100px; margin:0 auto; padding:0;">
+        <!-- 01 写作 -->
+        <section class="section" id="writing" aria-labelledby="writing-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">01</span><span class="eyebrow-label">写作</span></p>
+                    <h2 class="section-title" id="writing-title">专注于下一句话。</h2>
+                    <p class="section-lead">实时分栏预览、打字机滚动、段落聚焦与三级沉浸模式——界面在你需要时出现，在你落笔时退场。</p>
+                </header>
+
+                <div class="demo" data-demo data-count-mode="cjk" data-unit="字" data-tip-label="提示" data-reveal>
+                    <div class="demo-bar">
+                        <div class="demo-file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h4" />
+                            </svg><span>雨夜随笔.md</span></div>
+                        <div class="demo-modes" aria-hidden="true"><span>编辑</span><span
+                                class="is-active">分栏</span><span>预览</span></div>
+                        <div class="demo-meta"><span data-demo-count>57 字</span><button type="button"
+                                class="demo-replay" data-demo-replay aria-label="重新播放演示" hidden><svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5" />
+                                </svg></button></div>
+                    </div>
+                    <div class="demo-body" aria-hidden="true">
+                        <div class="demo-src" data-demo-src>
+                            <div class="sl"><span class="ln">1</span><span class="sc"><span
+                                        class="tk-m">#</span> <span class="tk-h">雨夜随笔</span></span></div>
+                            <div class="sl"><span class="ln">2</span><span class="sc">&nbsp;</span></div>
+                            <div class="sl"><span class="ln">3</span><span class="sc"><span
+                                        class="tk-q">&gt;</span> <span class="tk-q">[!TIP]</span></span></div>
+                            <div class="sl"><span class="ln">4</span><span class="sc"><span
+                                        class="tk-q">&gt;</span> 好的工具不会限制思维，而是让它自由流淌。</span></div>
+                            <div class="sl"><span class="ln">5</span><span class="sc">&nbsp;</span></div>
+                            <div class="sl"><span class="ln">6</span><span
+                                    class="sc">今晚的雨下得很<span class="tk-p">**</span>安静<span
+                                        class="tk-p">**</span>，适合把<span class="tk-p">==</span>想法<span
+                                        class="tk-p">==</span>写下来。</span></div>
+                            <div class="sl"><span class="ln">7</span><span class="sc"><span
+                                        class="tk-s">- [x] </span>整理本周的读书笔记</span></div>
+                            <div class="sl"><span class="ln">8</span><span class="sc"><span
+                                        class="tk-s">- [ ] </span>给 <span class="tk-m">[[</span>周报<span
+                                        class="tk-m">]]</span> 补一段总结</span></div>
+                        </div>
+                        <div class="demo-preview" data-demo-preview>
+                            <div class="pv-h1">雨夜随笔</div>
+                            <div class="pv-callout">
+                                <div class="pv-callout-title"><svg viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <path
+                                            d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z" />
+                                    </svg><span>提示</span></div>
+                                <p class="pv-p" style="margin:0">好的工具不会限制思维，而是让它自由流淌。</p>
+                            </div>
+                            <p class="pv-p">今晚的雨下得很<strong>安静</strong>，适合把<mark>想法</mark>写下来。</p>
+                            <ul class="pv-tasks">
+                                <li><span class="pv-box is-checked"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M5 12.5l4.5 4.5L19 7.5" />
+                                        </svg></span><span>整理本周的读书笔记</span></li>
+                                <li><span class="pv-box"></span><span>给 <span class="pv-link">周报</span>
+                                        补一段总结</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script type="text/plain" data-demo-doc># 雨夜随笔
+
+> [!TIP]
+> 好的工具不会限制思维，而是让它自由流淌。
+
+今晚的雨下得很**安静**，适合把==想法==写下来。
+
+- [x] 整理本周的读书笔记
+- [ ] 给 [[周报]] 补一段总结</script>
+                </div>
+                <p class="sr-only">演示：在左侧书写 Markdown，右侧即时呈现排版结果。</p>
+
+                <div class="items">
+                    <div class="item" data-reveal style="--i:0">
+                        <div class="item-head">
+                            <h3 class="item-title sans">分栏实时预览</h3>
+                        </div>
+                        <p class="item-text">编辑、分栏、预览三种布局随时切换；滚动同步，长文也不跳动。</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:1">
+                        <div class="item-head">
+                            <h3 class="item-title sans">专注与沉浸</h3><span class="keys"
+                                data-keys="Ctrl+Shift+Enter"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Enter</kbd></span>
+                        </div>
+                        <p class="item-text">打字机滚动与段落聚焦；三级沉浸模式，一键只留文字。</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:2">
+                        <div class="item-head">
+                            <h3 class="item-title sans">命令面板</h3><span class="keys"
+                                data-keys="Ctrl+Shift+P"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd></span>
+                        </div>
+                        <p class="item-text">所有操作，键盘可达；快速切换器毫秒级跳转文档。</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:3">
+                        <div class="item-head">
+                            <h3 class="item-title sans">智能补全</h3><span class="keys"
+                                data-keys="Tab"><kbd>Tab</kbd></span>
+                        </div>
+                        <p class="item-text">70+ 代码片段，LaTeX 命令与代码块语言即时提示。</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:4">
+                        <div class="item-head">
+                            <h3 class="item-title sans">快速捕获</h3><span class="keys"
+                                data-keys="Ctrl+Alt+M"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>M</kbd></span>
+                        </div>
+                        <p class="item-text">系统级热键唤起迷你浮窗，灵感直接存入 Inbox。</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:5">
+                        <div class="item-head">
+                            <h3 class="item-title sans">轻量模式</h3>
+                        </div>
+                        <p class="item-text">双击任意 .md 文件即刻打开，极低资源占用，读完即走。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 表达 -->
+        <section class="section section-sunk" id="expression" aria-labelledby="expression-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">02</span><span class="eyebrow-label">表达</span></p>
+                    <h2 class="section-title" id="expression-title">公式、图表与白板，写进同一篇文档。</h2>
+                    <p class="section-lead">技术写作需要的不只是文字。可视化公式、Mermaid
+                        图表、手绘白板与表格编辑都内置在编辑器里，不必在工具之间来回切换。</p>
+                </header>
+
+                <div class="bento">
+                    <div class="bento-card is-wide" data-reveal style="--i:0">
+                        <h3 class="bento-title">公式</h3>
+                        <p class="bento-text">MathLive 可视化编辑，配合虚拟键盘输入；\label 与 \eqref
+                            自动编号，点击即可跳转。</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:16/9">
+                                <img src="marking-bento-formula.png" alt="MathLive 可视化公式编辑器"
+                                    width="1849" height="1040" loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card is-narrow" data-reveal style="--i:1">
+                        <h3 class="bento-title">图表</h3>
+                        <p class="bento-text">完整支持 Mermaid 11，新增架构图、时间线、桑基图、C4 等 8 种图表。</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:6/5">
+                                <img src="marking-bento-mermaid.png" alt="Mermaid 流程图源码与图表助手"
+                                    width="757" height="631" loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card is-narrow" data-reveal style="--i:2">
+                        <h3 class="bento-title">表格</h3>
+                        <p class="bento-text">像电子表格一样编辑 Markdown 表格，单元格可换行，保存时保留原有格式。</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:6/5">
+                                <img src="marking-bento-table.png" alt="可视化表格编辑器" width="750"
+                                    height="625" loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card is-wide" data-reveal style="--i:3">
+                        <h3 class="bento-title">白板</h3>
+                        <p class="bento-text">内嵌 Excalidraw 手绘白板，流程与架构草图随手画进文档。</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:16/9">
+                                <img src="marking-bento-whiteboard.png" alt="内嵌的 Excalidraw 手绘白板" width="1580"
+                                    height="889" loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="also"><span class="also-label">同样内置</span> — Callout 提示框 · 脚注 · 任务列表 · 代码高亮主题 ·
+                    上下标 · 中西文自动空格 · HTML 文件</p>
+            </div>
+        </section>
+
+        <!-- 03 连接 -->
+        <section class="section" id="connection" aria-labelledby="connection-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">03</span><span class="eyebrow-label">连接</span></p>
+                    <h2 class="section-title" id="connection-title">笔记不再是孤岛。</h2>
+                    <p class="section-lead">用 [[双链]] 连接想法，反向链接与知识图谱让脉络一目了然。网页、Word、PDF，也能一步转成 Markdown
+                        笔记。</p>
+                </header>
+
+                <div class="split">
+                    <figure class="split-main" data-reveal>
+                        <div class="graph-panel">
+                            <div class="graph-head"><span class="graph-title">知识图谱</span><span
+                                    class="graph-meta">18 节点 · 24 连线</span></div>
+                            <div class="graph-canvas">
+                                <svg class="graph" viewBox="0 0 800 550" role="img" aria-label="知识图谱示意">
+                                    <line class="ge" data-a="hub" data-b="a1" x1="387" y1="263" x2="322" y2="215" />
+                                    <line class="ge" data-a="hub" data-b="b1" x1="387" y1="263" x2="496" y2="240" />
+                                    <line class="ge" data-a="hub" data-b="c1" x1="387" y1="263" x2="401" y2="390" />
+                                    <line class="ge" data-a="hub" data-b="d1" x1="387" y1="263" x2="456" y2="158" />
+                                    <line class="ge" data-a="hub" data-b="a2" x1="387" y1="263" x2="233" y2="238" />
+                                    <line class="ge" data-a="a1" data-b="a2" x1="322" y1="215" x2="233" y2="238" />
+                                    <line class="ge" data-a="a1" data-b="a3" x1="322" y1="215" x2="274" y2="311" />
+                                    <line class="ge" data-a="a3" data-b="a4" x1="274" y1="311" x2="180" y2="352" />
+                                    <line class="ge" data-a="a3" data-b="a5" x1="274" y1="311" x2="150" y2="280" />
+                                    <line class="ge" data-a="a2" data-b="a5" x1="233" y1="238" x2="150" y2="280" />
+                                    <line class="ge" data-a="b1" data-b="b2" x1="496" y1="240" x2="587" y2="167" />
+                                    <line class="ge" data-a="b1" data-b="b3" x1="496" y1="240" x2="593" y2="250" />
+                                    <line class="ge" data-a="b1" data-b="b4" x1="496" y1="240" x2="549" y2="332" />
+                                    <line class="ge" data-a="b2" data-b="b3" x1="587" y1="167" x2="593" y2="250" />
+                                    <line class="ge" data-a="b4" data-b="b5" x1="549" y1="332" x2="597" y2="416" />
+                                    <line class="ge" data-a="b1" data-b="a1" x1="496" y1="240" x2="322" y2="215" />
+                                    <line class="ge" data-a="c1" data-b="c2" x1="401" y1="390" x2="343" y2="464" />
+                                    <line class="ge" data-a="c1" data-b="c3" x1="401" y1="390" x2="491" y2="427" />
+                                    <line class="ge" data-a="c1" data-b="c4" x1="401" y1="390" x2="496" y2="497" />
+                                    <line class="ge" data-a="c2" data-b="c5" x1="343" y1="464" x2="260" y2="451" />
+                                    <line class="ge" data-a="c3" data-b="c4" x1="491" y1="427" x2="496" y2="497" />
+                                    <line class="ge" data-a="c1" data-b="a3" x1="401" y1="390" x2="274" y2="311" />
+                                    <line class="ge" data-a="d1" data-b="d2" x1="456" y1="158" x2="372" y2="83" />
+                                    <line class="ge" data-a="d1" data-b="b3" x1="456" y1="158" x2="593" y2="250" />
+                                    <g class="gn" data-id="hub">
+                                        <circle cx="387" cy="263" r="9" fill="var(--ink)" /><text x="404" y="267"
+                                            font-size="13" font-weight="600" fill="var(--ink)">写作计划</text>
+                                    </g>
+                                    <g class="gn" data-id="a1">
+                                        <circle cx="322" cy="215" r="6.5" fill="var(--gold-2)" /><text x="337" y="219"
+                                            font-size="12" fill="var(--ink-2)">雨夜随笔</text>
+                                    </g>
+                                    <g class="gn" data-id="a2">
+                                        <circle cx="233" cy="238" r="5" fill="var(--slate)" /><text x="246" y="242"
+                                            font-size="12" fill="var(--ink-3)">灵感 Inbox</text>
+                                    </g>
+                                    <g class="gn" data-id="a3">
+                                        <circle cx="274" cy="311" r="5" fill="var(--slate)" /><text x="287" y="315"
+                                            font-size="12" fill="var(--ink-3)">日记</text>
+                                    </g>
+                                    <g class="gn" data-id="a4">
+                                        <circle cx="180" cy="352" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="a5">
+                                        <circle cx="150" cy="280" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="b1">
+                                        <circle cx="496" cy="240" r="5" fill="var(--slate)" /><text x="483" y="244"
+                                            font-size="12" fill="var(--ink-3)" text-anchor="end">读书笔记</text>
+                                    </g>
+                                    <g class="gn" data-id="b2">
+                                        <circle cx="587" cy="167" r="6.5" fill="var(--gold-2)" /><text x="602" y="171"
+                                            font-size="12" fill="var(--ink-2)">置身事内</text>
+                                    </g>
+                                    <g class="gn" data-id="b3">
+                                        <circle cx="593" cy="250" r="5" fill="var(--slate)" /><text x="606" y="254"
+                                            font-size="12" fill="var(--ink-3)">术语表</text>
+                                    </g>
+                                    <g class="gn" data-id="b4">
+                                        <circle cx="549" cy="332" r="5" fill="var(--slate)" /><text x="562" y="336"
+                                            font-size="12" fill="var(--ink-3)">参考文献</text>
+                                    </g>
+                                    <g class="gn" data-id="b5">
+                                        <circle cx="597" cy="416" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="c1">
+                                        <circle cx="401" cy="390" r="6.5" fill="var(--gold-2)" /><text x="416" y="394"
+                                            font-size="12" fill="var(--ink-2)">周报</text>
+                                    </g>
+                                    <g class="gn" data-id="c2">
+                                        <circle cx="343" cy="464" r="5" fill="var(--slate)" /><text x="356" y="468"
+                                            font-size="12" fill="var(--ink-3)">会议纪要</text>
+                                    </g>
+                                    <g class="gn" data-id="c3">
+                                        <circle cx="491" cy="427" r="5" fill="var(--slate)" /><text x="504" y="431"
+                                            font-size="12" fill="var(--ink-3)">定价策略</text>
+                                    </g>
+                                    <g class="gn" data-id="c4">
+                                        <circle cx="496" cy="497" r="5" fill="var(--slate)" /><text x="509" y="501"
+                                            font-size="12" fill="var(--ink-3)">Q2 复盘</text>
+                                    </g>
+                                    <g class="gn" data-id="c5">
+                                        <circle cx="260" cy="451" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="d1">
+                                        <circle cx="456" cy="158" r="5" fill="var(--slate)" /><text x="469" y="162"
+                                            font-size="12" fill="var(--ink-3)">Markdown 语法</text>
+                                    </g>
+                                    <g class="gn" data-id="d2">
+                                        <circle cx="372" cy="83" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <figcaption class="figcap"><span class="fig-num">图 2</span>知识图谱：力导向布局，可缩放漫游，导出 PNG /
+                            SVG。</figcaption>
+                    </figure>
+                    <div class="split-side">
+                        <div class="stack">
+                            <div class="item" data-reveal style="--i:0">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">双向链接</h3>
+                                </div>
+                                <p class="item-text">输入 [[ 即可链接任意笔记，反向链接自动汇总。</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:1">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">知识图谱</h3>
+                                </div>
+                                <p class="item-text">万级节点依旧流畅，支持全屏沉浸与图片导出。</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:2">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">导入一切</h3><span class="keys"
+                                        data-keys="Ctrl+Shift+V"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>V</kbd></span>
+                                </div>
+                                <p class="item-text">网页 URL、Word、EPUB、PDF 一键转为 Markdown；富文本粘贴自动转换。</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:3">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">任务系统</h3>
+                                </div>
+                                <p class="item-text">汇总全库待办，支持优先级与截止日期，勾选即回写原文。</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:4">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">模板与日记</h3><span class="keys"
+                                        data-keys="Ctrl+Alt+D"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>D</kbd></span>
+                                </div>
+                                <p class="item-text">6 个内置模板，支持日期等变量；一键打开今日日记。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 AI -->
+        <section class="section" id="ai" aria-labelledby="ai-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">04</span><span class="eyebrow-label">AI</span></p>
+                    <h2 class="section-title" id="ai-title">AI 只是助手，<br>执笔的永远是你。</h2>
+                    <p class="section-lead">接入你信任的模型，在编辑器里完成润色、翻译、排版与成文。每一处修改都以对比呈现，由你逐条决定去留。</p>
+                </header>
+
+                <div class="ai-grid">
+                    <div class="stack">
+                        <div class="item" data-reveal style="--i:0">
+                            <div class="item-head">
+                                <h3 class="item-title sans">AI 排版</h3><span class="keys"
+                                    data-keys="Ctrl+Alt+F"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>F</kbd></span>
+                            </div>
+                            <p class="item-text">一键整理结构与格式，修改逐处以 Diff 呈现，可逐条接受或拒绝。</p>
+                        </div>
+                        <div class="item" data-reveal style="--i:1">
+                            <div class="item-head">
+                                <h3 class="item-title sans">行内 AI</h3>
+                            </div>
+                            <p class="item-text">选中文字即可改写、总结、翻译或扩展，流式输出，随时可停。</p>
+                        </div>
+                        <div class="item" data-reveal style="--i:2">
+                            <div class="item-head">
+                                <h3 class="item-title sans">写作流</h3>
+                            </div>
+                            <p class="item-text">从多篇笔记合成文章或提炼大纲，多轮精修，草稿存回笔记库。</p>
+                        </div>
+                        <div class="item" data-reveal style="--i:3">
+                            <div class="item-head">
+                                <h3 class="item-title sans">你的模型，你的密钥</h3>
+                            </div>
+                            <p class="item-text">内置 18+ 家服务商，兼容自定义
+                                API；密钥加密存于本地，请求直达你选择的服务商。标记 #private 的笔记，AI 排版与写作流会自动跳过。</p>
+                        </div>
+                    </div>
+                    <figure class="ai-card" data-ai-demo role="img" aria-label="行内 AI 示意：选中一句话并翻译为英文" data-reveal
+                        style="--i:1">
+                        <p class="ai-doc">写作最难的不是开头，而是坚持。<span
+                                class="ai-sel">每天写一点，哪怕只有三百字，时间也会替你把它们连成一本书。</span></p>
+                        <div class="ai-bar"><span class="ai-bar-mark">AI</span><span>改写</span><span>总结</span><span
+                                class="is-active">翻译</span><span>扩展</span></div>
+                        <div class="ai-suggest">
+                            <div class="ai-suggest-head"><span><i class="ai-dot"></i>MarKing AI 建议</span><span
+                                    class="ai-suggest-meta">翻译 · English</span></div>
+                            <p class="ai-suggest-text" data-ai-stream>Write a little every day — even just three
+                                hundred words — and time will bind them into a book.</p>
+                            <div class="ai-actions"><span class="ai-btn ai-btn-primary">接受</span><span
+                                    class="ai-btn">拒绝</span><span class="ai-btn ai-btn-text">重新生成</span></div>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="mcp" data-reveal>
+                    <div class="mcp-body">
+                        <p class="eyebrow"><span class="eyebrow-label">MCP Server</span></p>
+                        <h3 class="mcp-title">让 AI 客户端，读懂你的笔记库。</h3>
+                        <p class="mcp-text">Claude Desktop、Cursor、Cline 等 MCP
+                            客户端可通过本地 stdio 检索与读写笔记、管理任务。默认关闭；写入需单独授权，每次写操作都会记入审计日志。</p>
+                        <div class="mcp-facts">
+                            <div><b class="serif mcp-num">21</b><span>个读取工具</span></div>
+                            <div><b class="serif mcp-num">18</b><span>个写入工具</span></div>
+                            <div><b class="serif mcp-num">0</b><span>个网络端口</span></div>
+                        </div>
+                    </div>
+                    <div class="mcp-log" aria-hidden="true">
+                        <div class="mcp-log-head"><span>MCP · stdio</span><span>Claude Desktop</span></div>
+                        <div class="lg-group">
+                            <p class="lg-q"><span class="lg-caret">›</span> 把今天会议的三个结论记到日记里</p>
+                            <p class="lg-tool"><span class="lg-mark">marking</span> · append_daily_note</p>
+                            <p class="lg-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                                </svg>已追加到 日记/<span data-today>2026-10-10</span>.md</p>
+                        </div>
+                        <div class="lg-group">
+                            <p class="lg-q"><span class="lg-caret">›</span> 我去年关于定价的最终结论是什么？</p>
+                            <p class="lg-tool"><span class="lg-mark">marking</span> · search_notes("定价")</p>
+                            <p class="lg-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                                </svg>找到 3 篇相关笔记</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 隐私与同步 -->
+        <section class="section section-dark" id="privacy" aria-labelledby="privacy-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">05</span><span class="eyebrow-label">隐私与同步</span></p>
+                    <h2 class="section-title" id="privacy-title">你的文字，只属于你。</h2>
+                    <p class="section-lead">笔记就是硬盘上的 .md
+                        文件——用任何编辑器都能打开，多年以后依然可读。需要多端同步时，交给你自己的 Git 仓库。</p>
+                </header>
+
+                <div class="vault-cards">
+                    <div class="vault-card" data-reveal style="--i:0">
+                        <div class="vg vg-sync" aria-hidden="true">
+                            <div class="vg-sync-head"><span class="vg-dot"></span><span>已同步</span><span
+                                    class="vg-branch">· main</span></div>
+                            <div class="vg-row"><span class="vg-file">雨夜随笔.md</span><span
+                                    class="vg-time-label">刚刚</span></div>
+                            <div class="vg-row"><span class="vg-file">周报/第 41 周.md</span><span class="vg-time-label">12
+                                    分钟前</span></div>
+                            <div class="vg-row"><span class="vg-file">读书笔记/置身事内.md</span><span
+                                    class="vg-time-label">昨天</span></div>
+                        </div>
+                        <h3>Git 同步</h3>
+                        <p>保存即自动提交并推送到你的 GitHub、GitLab、Gitee 或自建仓库；遇到冲突，逐个文件对比取舍，内容不丢失。</p>
+                    </div>
+                    <div class="vault-card" data-reveal style="--i:1">
+                        <div class="vg vg-diff" aria-hidden="true">
+                            <div class="vg-head">雨夜随笔.md · 对比 10 月 3 日快照</div>
+                            <div class="dl dl-ctx"><span></span><span>7</span><span># 雨夜随笔</span></div>
+                            <div class="dl dl-del"><span>−</span><span>8</span><span>今晚的雨下得很<em>大</em>。</span></div>
+                            <div class="dl dl-add"><span>+</span><span>8</span><span>今晚的雨下得很<em>安静，适合把想法写下来</em>。</span>
+                            </div>
+                        </div>
+                        <h3>对比与历史</h3>
+                        <p>与历史快照或任意文档并排比对；浏览每一次提交，预览任意旧版本，一键恢复。</p>
+                    </div>
+                    <div class="vault-card" data-reveal style="--i:2">
+                        <div class="vg vg-time" aria-hidden="true">
+                            <div class="vg-head">历史快照 · 雨夜随笔.md</div>
+                            <div class="vg-tl">
+                                <div class="vg-tl-line"></div>
+                                <div class="vg-tl-nodes">
+                                    <div class="vg-tl-node"><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">09:12</span></div>
+                                    <div class="vg-tl-node is-sel"><span class="vg-tl-bubble">预览 ·
+                                            恢复</span><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">10:05</span></div>
+                                    <div class="vg-tl-node"><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">10:31</span></div>
+                                    <div class="vg-tl-node is-now"><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">现在</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>快照与备份</h3>
+                        <p>2 秒静默自动保存，历史快照随时回溯；整库一键备份、完整恢复。</p>
+                    </div>
+                </div>
+
+                <dl class="facts" data-reveal>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">0</span><span class="fact-unit">遥测</span></dt>
+                        <dd>不收集使用数据、设备指纹或个人信息。</dd>
+                    </div>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">0</span><span class="fact-unit">账号</span></dt>
+                        <dd>无需注册，打开就能写。</dd>
+                    </div>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">0</span><span class="fact-unit">开放端口</span></dt>
+                        <dd>MCP 仅经由本地 stdio 通信，不监听任何网络端口。</dd>
+                    </div>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">256</span><span class="fact-unit">位 AES 加密</span></dt>
+                        <dd>API 密钥加密存于本地，永不同步，也不进入备份。</dd>
+                    </div>
+                </dl>
+
+                <p class="fineprint">更新检查只发送版本号、系统平台与架构，可在设置中关闭。 <a
+                        href="https://github.com/l06066hb/MarKing/blob/main/PRIVACY.md" target="_blank"
+                        rel="noopener noreferrer">阅读隐私政策 ↗</a></p>
+            </div>
+        </section>
+
+        <!-- 06 出版 -->
+        <section class="section" id="publishing" aria-labelledby="publishing-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">06</span><span class="eyebrow-label">出版</span></p>
+                    <h2 class="section-title" id="publishing-title">从草稿，到可以交付的文档。</h2>
+                    <p class="section-lead">DOCX 排版引擎：封面、目录、页眉页脚随文档一次生成，字体、间距与页面细节逐项可调；PDF
+                        带书签目录，HTML 单文件即可离线分享。</p>
+                </header>
+
+                <div class="split is-reverse">
+                    <div class="split-side">
+                        <div class="spec-row"><span class="spec-key">DOCX</span><span class="spec-val">模板化排版引擎 v2 ·
+                                实时预览 · 精细的字体与间距控制</span></div>
+                        <div class="spec-row"><span class="spec-key">PDF</span><span class="spec-val">书签目录 ·
+                                跟随主题，或切换为专业打印样式</span></div>
+                        <div class="spec-row"><span class="spec-key">HTML</span><span class="spec-val">独立单文件 ·
+                                完整保留排版样式</span></div>
+                        <p class="spec-note"><span class="keys"
+                                data-keys="Ctrl+Shift+E"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>E</kbd></span><span>随时打开导出面板</span>
+                        </p>
+                    </div>
+                    <figure class="split-main" data-reveal>
+                        <div class="frame">
+                            <img src="marking-docx-export-v2-template.png" alt="MarKing DOCX 导出界面：模板化排版与实时预览"
+                                width="1922" height="1117" loading="lazy" decoding="async" data-zoom>
+                        </div>
+                        <figcaption class="figcap"><span class="fig-num">图 3</span>DOCX
+                            导出：模板化排版，实时预览。</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 主题 -->
+        <section class="section section-sunk" id="themes" aria-labelledby="themes-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">07</span><span class="eyebrow-label">主题</span></p>
+                    <h2 class="section-title" id="themes-title">二十种心境，一种专注。</h2>
+                    <p class="section-lead">从素白纸到极客酷黑，20 套精调主题可随系统明暗自动切换；代码块主题、字体字号与界面密度，也都按你的习惯来。</p>
+                </header>
+
+                <div class="themes" data-themes data-reveal>
+                    <figure class="frame themes-stage">
+                        <img class="is-active" src="marking-markdown-editor-main-interface.png" data-theme="paper-white"
+                            alt="MarKing「素白纸」主题界面" width="1904" height="1107" loading="lazy" decoding="async">
+                        <img data-src="marking-theme-sepia-yellow.png" data-theme="sepia-yellow"
+                            alt="MarKing「羊皮纸黄」主题界面" width="1922" height="1117" decoding="async">
+                        <img data-src="marking-theme-eye-care.png" data-theme="eye-care" alt="MarKing「温和护眼」主题界面"
+                            width="1922" height="1117" decoding="async">
+                        <img data-src="marking-theme-rose-pink.png" data-theme="rose-pink" alt="MarKing「玫瑰粉」主题界面"
+                            width="1922" height="1117" decoding="async">
+                        <img data-src="marking-theme-ocean-blue.png" data-theme="ocean-blue" alt="MarKing「海洋蓝」主题界面"
+                            width="1922" height="1117" decoding="async">
+                        <img data-src="marking-theme-classic-midnight.png" data-theme="classic-midnight"
+                            alt="MarKing「经典午夜蓝」主题界面" width="1922" height="1117" decoding="async">
+                        <img data-src="marking-theme-neon-cyber.png" data-theme="neon-cyber" alt="MarKing「赛博霓虹」主题界面"
+                            width="1922" height="1117" decoding="async">
+                        <img data-src="marking-theme-cool-black.png" data-theme="cool-black" alt="MarKing「极客酷黑」主题界面"
+                            width="1922" height="1117" decoding="async">
+                    </figure>
+                    <div class="swatches" role="radiogroup" aria-label="切换主题预览">
+                        <button type="button" class="swatch" role="radio" aria-checked="true" tabindex="0"
+                            data-theme="paper-white" style="--c:#F5F5F5"><span class="swatch-dot"></span><span>素白纸</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="sepia-yellow" style="--c:#A2795A"><span class="swatch-dot"></span><span>羊皮纸黄</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="eye-care" style="--c:#789443"><span class="swatch-dot"></span><span>温和护眼</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="rose-pink" style="--c:#9F455F"><span class="swatch-dot"></span><span>玫瑰粉</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="ocean-blue" style="--c:#326E82"><span class="swatch-dot"></span><span>海洋蓝</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="classic-midnight" style="--c:#263D9D"><span
+                                class="swatch-dot"></span><span>经典午夜蓝</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="neon-cyber" style="--c:#4570AC"><span class="swatch-dot"></span><span>赛博霓虹</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="cool-black" style="--c:#0F141F"><span class="swatch-dot"></span><span>极客酷黑</span></button>
+                    </div>
+                    <p class="themes-note">另有 12 套主题，以及 Dracula、Nord、Tokyo Night 等代码块配色，下载后即可体验。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下载 -->
+        <section class="section section-dark" id="download" aria-labelledby="download-title">
+            <div class="container download-inner">
+                <h2 class="download-title" id="download-title" data-reveal>下一篇，从这里开始。</h2>
+                <p class="download-sub" data-reveal style="--i:1">MarKing v1.6.0 · 免费下载，原生支持 Windows、macOS 与 Linux。</p>
+                <div class="platforms">
+                    <div class="platform" data-platform="win" data-reveal style="--i:0">
+                        <span class="platform-tag">你的系统</span>
+                        <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                            </svg></span>
+                        <h3 class="platform-name">Windows</h3>
+                        <p class="platform-req">Windows 10 及以上 · x64</p>
+                        <p class="platform-pkg">EXE / MSI 安装程序</p>
+                        <button type="button" class="btn btn-light btn-block" data-download="win">下载</button>
+                    </div>
+                    <div class="platform" data-platform="mac" data-reveal style="--i:1">
+                        <span class="platform-tag">你的系统</span>
+                        <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg></span>
+                        <h3 class="platform-name">macOS</h3>
+                        <p class="platform-req">macOS 10.15 及以上</p>
+                        <p class="platform-pkg">Apple 芯片与 Intel · DMG</p>
+                        <button type="button" class="btn btn-light btn-block" data-download="mac">下载</button>
+                    </div>
+                    <div class="platform" data-platform="linux" data-reveal style="--i:2">
+                        <span class="platform-tag">你的系统</span>
+                        <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.84-.415 1.917-.415 2.998 0 1.031.125 2.119.45 3.146.6 1.698 1.81 3.328 3.545 4.467 1.735 1.14 4.005 1.529 6.082 1.529 2.082 0 4.358-.389 6.087-1.529 1.74-1.139 2.945-2.769 3.545-4.467.325-1.027.45-2.115.45-3.146 0-1.081-.137-2.158-.415-2.998-.589-1.771-1.831-3.47-2.715-4.521-.75-1.067-.975-1.928-1.05-3.02-.066-1.491 1.055-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-.48 1.029c3.645.305 2.579 4.216 2.641 5.79.082 1.335.375 2.355 1.215 3.563.915 1.084 2.147 2.794 2.694 4.451.247.748.375 1.749.375 2.665 0 .916-.128 1.917-.375 2.665-.547 1.657-1.779 3.367-2.694 4.451-.84 1.208-1.133 2.228-1.215 3.563-.062 1.574.996 5.485-2.641 5.79-3.645-.305-2.579-4.216-2.641-5.79-.082-1.335-.375-2.355-1.215-3.563-.915-1.084-2.147-2.794-2.694-4.451-.247-.748-.375-1.749-.375-2.665 0-.916.128-1.917.375-2.665.547-1.657 1.779-3.367 2.694-4.451.84-1.208 1.133 2.228 1.215 3.563.062 1.574-.996-5.485 2.641-5.79z" />
+                            </svg></span>
+                        <h3 class="platform-name">Linux</h3>
+                        <p class="platform-req">主流发行版 · x64 / ARM64</p>
+                        <p class="platform-pkg">AppImage / deb / rpm</p>
+                        <button type="button" class="btn btn-light btn-block" data-download="linux">下载</button>
+                    </div>
+                </div>
+                <div class="download-links">
+                    <a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
+                        rel="noopener noreferrer">全部版本与 SHA256 校验<svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                        rel="noopener noreferrer">更新日志<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 支持 -->
+        <section class="section" id="support" aria-labelledby="support-title">
+            <div class="container support-inner">
+                <h2 class="sr-only" id="support-title">支持 MarKing</h2>
+                <p class="eyebrow" data-reveal><span class="eyebrow-label">支持 MarKing</span></p>
+                <p class="support-text" data-reveal style="--i:1">MarKing
+                    是一款独立软件：没有广告，不做追踪，每一个版本都因用户的支持而得以继续打磨。如果它让你的写作更顺手，欢迎请作者喝杯咖啡，或在
+                    GitHub 上点亮一颗星。</p>
+                <div class="support-links" data-reveal style="--i:2">
+                    <a class="support-link" href="https://afdian.com/@l06066hb" target="_blank"
+                        rel="noopener noreferrer"><span class="sl-text"><span class="sl-name">爱发电</span><span
+                                class="sl-sub">微信 / 支付宝</span></span><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                    <a class="support-link" href="https://ko-fi.com/l06066hb" target="_blank"
+                        rel="noopener noreferrer"><span class="sl-text"><span class="sl-name">Ko-fi</span><span
+                                class="sl-sub">信用卡 / PayPal</span></span><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                    <a class="support-link" href="https://github.com/l06066hb/MarKing" target="_blank"
+                        rel="noopener noreferrer"><span class="sl-text"><span class="sl-name">GitHub</span><span
+                                class="sl-sub">点亮 Star</span></span><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>产品</h4>
-                    <ul class="footer-links">
-                        <li><a href="#features">功能特性</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
-                                rel="noopener noreferrer">更新日志</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="marking-app-icon-128.png" alt="" width="28" height="28">
+                    <p class="fb-name serif">MarKing</p>
+                    <p>本地优先的 Markdown 编辑器。</p>
                 </div>
-                <div class="footer-section">
-                    <h4>文档</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing#readme" target="_blank"
-                                rel="noopener noreferrer">使用文档</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <p class="footer-title">产品</p>
+                    <a href="#download">下载</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
+                        rel="noopener noreferrer">更新日志</a>
+                    <a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
+                        rel="noopener noreferrer">发布页面</a>
                 </div>
-                <div class="footer-section">
-                    <h4>支持</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing/issues" target="_blank"
-                                rel="noopener noreferrer">问题反馈</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/LICENSE" target="_blank"
-                                rel="noopener noreferrer">许可证</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/PRIVACY.md" target="_blank"
-                                rel="noopener noreferrer">隐私政策</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/AI-TERMS.md" target="_blank"
-                                rel="noopener noreferrer">AI 使用条款</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <p class="footer-title">资源</p>
+                    <a href="https://github.com/l06066hb/MarKing#readme" target="_blank"
+                        rel="noopener noreferrer">使用文档</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/docs/FAQ.md" target="_blank"
+                        rel="noopener noreferrer">常见问题</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/docs/TROUBLESHOOTING.md" target="_blank"
+                        rel="noopener noreferrer">故障排查</a>
                 </div>
-                <div class="footer-section">
-                    <h4>关于</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing" target="_blank"
-                                rel="noopener noreferrer">GitHub</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
-                                rel="noopener noreferrer">发布页面</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <p class="footer-title">支持</p>
+                    <a href="https://github.com/l06066hb/MarKing/issues" target="_blank"
+                        rel="noopener noreferrer">问题反馈</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/SECURITY.md" target="_blank"
+                        rel="noopener noreferrer">安全政策</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/PRIVACY.md" target="_blank"
+                        rel="noopener noreferrer">隐私政策</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/AI-TERMS.md" target="_blank"
+                        rel="noopener noreferrer">AI 使用条款</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/LICENSE" target="_blank"
+                        rel="noopener noreferrer">许可证</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-title">语言</p>
+                    <a href="./index.html" aria-current="page">简体中文</a>
+                    <a href="./index-en.html" hreflang="en" lang="en">English</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025-2026 MarKing. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.875rem;">Be the King of Markdown 👑</p>
+                <p>© 2025–2026 MarKing. All rights reserved.</p>
+                <p class="tagline serif"><svg class="mk-stripes" viewBox="0 0 16 12" aria-hidden="true">
+                        <rect width="16" height="2.4" rx="1.2" y="0" />
+                        <rect width="16" height="2.4" rx="1.2" y="4.8" />
+                        <rect width="16" height="2.4" rx="1.2" y="9.6" />
+                    </svg>Be the King of Markdown.</p>
             </div>
         </div>
     </footer>
 
-    <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" aria-label="返回顶部">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-    <script src="js/shared.js"></script>
-
-
-    <!-- Global Download Modal -->
+    <!-- 下载弹窗 -->
     <div id="downloadModal" class="download-modal-overlay">
-        <div class="download-modal-content">
-            <button class="download-modal-close" aria-label="关闭弹窗" id="closeDownloadModal">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <div class="download-modal-content" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+            <button type="button" class="download-modal-close" aria-label="关闭弹窗" id="closeDownloadModal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
             <div class="modal-header">
-                <h3>下载 MarKing</h3>
-                <p>请选择适合您系统架构的安装包。</p>
+                <h3 id="downloadModalTitle">下载 MarKing</h3>
+                <p>选择与你的系统架构匹配的安装包。</p>
             </div>
 
             <div class="modal-tabs">
-                <button class="modal-tab" data-platform="win">Windows</button>
-                <button class="modal-tab" data-platform="mac">macOS</button>
-                <button class="modal-tab" data-platform="linux">Linux</button>
+                <button type="button" class="modal-tab" data-platform="win">Windows</button>
+                <button type="button" class="modal-tab" data-platform="mac">macOS</button>
+                <button type="button" class="modal-tab" data-platform="linux">Linux</button>
             </div>
 
             <div class="modal-panels">
-                <!-- Windows Panel -->
                 <div class="modal-panel" id="panel-win">
                     <div class="download-list" id="list-win">
                         <div class="dl-loading">
-                            <svg class="dl-spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="dl-spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
-                            <span>正在为您拉取最新版本...</span>
+                            <span>正在获取最新版本…</span>
                         </div>
                     </div>
                 </div>
-                <!-- macOS Panel -->
                 <div class="modal-panel" id="panel-mac">
                     <div class="download-list" id="list-mac"></div>
                 </div>
-                <!-- Linux Panel -->
                 <div class="modal-panel" id="panel-linux">
                     <div class="download-list" id="list-linux"></div>
                 </div>
             </div>
 
             <div class="modal-footer">
-                <a id="checksum-link" target="_blank" class="view-all-releases" style="display:none; margin-right:18px;" href="#">校验文件 SHA256SUMS.txt</a>
-                <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" class="view-all-releases">在 GitHub 获取所有版本的发布文件 →</a>
+                <a id="checksum-link" target="_blank" rel="noopener noreferrer" class="view-all-releases"
+                    style="display:none; margin-right:18px;" href="#">SHA256 校验文件</a>
+                <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" rel="noopener noreferrer"
+                    class="view-all-releases">在 GitHub 查看全部版本 →</a>
             </div>
         </div>
     </div>
+
+    <script src="js/shared.js?v=2.0.2"></script>
 
     <!-- Smart Download System Configuration -->
     <script>
@@ -739,7 +1001,6 @@
             statsContainerSelector: '.github-stats',
             enableToast: true
         };
-
     </script>
 
     <!-- Smart Download System -->

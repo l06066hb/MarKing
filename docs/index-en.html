@@ -4,735 +4,1062 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            var h = document.documentElement;
+            h.classList.add('js');
+            var ua = navigator.userAgent || '';
+            var os = 'win';
+            if (/iPhone|iPad|iPod|Android/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+                os = 'mobile';
+            } else if (/Mac OS X|Macintosh/i.test(ua)) {
+                os = 'mac';
+            } else if (/Linux/i.test(ua)) {
+                os = 'linux';
+            }
+            h.classList.add('os-' + os);
+            h.setAttribute('data-os', os);
+        })();
+    </script>
+    <title>MarKing — The Local-First Markdown Editor | A quiet place for words that last</title>
     <meta name="description"
-        content="MarKing - Professional cross-platform Markdown editor for efficient and professional document creation. Real-time preview, smart completion, visual table editor, DOCX/PDF export.">
+        content="MarKing is a local-first, zero-tracking Markdown editor for the desktop — live split preview, math and Mermaid diagrams, linked notes with a knowledge graph, AI writing tools, Git sync, and DOCX/PDF export. For Windows, macOS, and Linux.">
     <meta name="keywords"
-        content="Markdown editor, document editor, cross-platform editor, DOCX export, PDF export, technical documentation, writing tool">
+        content="Markdown editor, local-first, writing app, WikiLinks, knowledge graph, Git sync, AI writing, MCP server, DOCX export, PDF export, cross-platform">
     <meta name="author" content="MarKing">
-    <meta name="theme-color" content="#3b82f6">
     <meta name="robots" content="index, follow">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#F7F6F2">
     <link rel="canonical" href="https://markingmd.com/index-en.html">
 
-    <!-- 站长工具验证 -->
+    <!-- Webmaster verification -->
     <meta name="google-site-verification" content="3QEg1uC_xXJB0t_RLh__ct6Yqu9lhkqu-3tIe4CtVZY" />
     <meta name="baidu-site-verification" content="codeva-oybvH7wAT3" />
 
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="zh-CN" href="https://markingmd.com/">
+    <link rel="alternate" hreflang="en" href="https://markingmd.com/index-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://markingmd.com/">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MarKing - Professional Markdown Editor">
+    <meta property="og:title" content="MarKing — A quiet place for words that last">
     <meta property="og:description"
-        content="Modern cross-platform Markdown editor for efficient and professional document creation">
-    <meta property="og:image" content="https://markingmd.com/marking-app-icon-512.png">
+        content="A local-first, zero-tracking Markdown editor. Your words stay plain text, on your own disk.">
+    <meta property="og:image" content="https://markingmd.com/marking-focus-mode-en.png">
+    <meta property="og:image:width" content="1904">
+    <meta property="og:image:height" content="1107">
     <meta property="og:url" content="https://markingmd.com/index-en.html">
     <meta property="og:site_name" content="MarKing">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MarKing - Professional Markdown Editor">
+    <meta name="twitter:title" content="MarKing — A quiet place for words that last">
     <meta name="twitter:description"
-        content="Modern cross-platform Markdown editor for efficient and professional document creation">
-    <meta name="twitter:image" content="https://markingmd.com/marking-app-icon-512.png">
+        content="A local-first, zero-tracking Markdown editor. Your words stay plain text, on your own disk.">
+    <meta name="twitter:image" content="https://markingmd.com/marking-focus-mode-en.png">
 
-    <title>MarKing - Professional Markdown Editor | Be the King of Markdown</title>
-
-    <!-- Preload app icon -->
     <link rel="icon" type="image/png" href="marking-app-icon-128.png">
-    <link rel="stylesheet" href="css/shared.css">
+    <link rel="apple-touch-icon" href="marking-app-icon-256.png">
+
+    <!-- Fonts -->
+    <link rel="preload" href="fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/source-serif-4-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="css/shared.css?v=2.0.2">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"MarKing","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10+, macOS 10.15+, Linux","softwareVersion":"1.6.0","description":"A local-first, zero-tracking Markdown editor for the desktop.","url":"https://markingmd.com/index-en.html","image":"https://markingmd.com/marking-app-icon-512.png","screenshot":"https://markingmd.com/marking-focus-mode-en.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"en"}
+    </script>
 </head>
 
 <body>
-    <!-- 滚动进度指示器 -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Cursor glow follower -->
-    <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- Header -->
-    <header id="header" role="banner">
-        <nav class="container" role="navigation" aria-label="Main navigation">
-            <a href="#" class="logo" aria-label="MarKing Home">
-                <img src="marking-app-icon-128.png" alt="MarKing Logo" class="logo-icon">
-                <span>MarKing</span>
+    <header class="site-header">
+        <nav class="nav-bar container" aria-label="Main navigation">
+            <a class="brand" href="#top" aria-label="MarKing home">
+                <img src="marking-app-icon-128.png" alt="" width="28" height="28">
+                <span class="brand-name serif">MarKing</span>
             </a>
-            <ul class="nav-links" id="navLinks" role="navigation">
-                <li><a href="#features">Features</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing/blob/main/release-docs/CHANGELOG_EN.md" target="_blank"
-                        rel="noopener noreferrer">Changelog</a></li>
-                <li><a href="./index.html" class="lang-switch" aria-label="Switch to Chinese">中文</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing/issues" class="nav-cta">Feedback</a></li>
-                <li><a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer"
-                        aria-label="Visit GitHub Repository">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                    </a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false"
-                aria-controls="navLinks">
-                <!-- Menu Icon (Heroicons - Bars3) -->
-                <svg class="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <!-- Close Icon (Heroicons - XMark) -->
-                <svg class="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    style="display: none;" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            <div class="nav-links">
+                <a href="#writing">Writing</a>
+                <a href="#ai">AI</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#themes">Themes</a>
+                <a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG_EN.md" target="_blank"
+                    rel="noopener noreferrer">Changelog<svg class="i i-ext" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M7 17L17 7M8 7h9v9" />
+                    </svg></a>
+            </div>
+            <div class="nav-right">
+                <a class="nav-lang" href="./index.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+                <a class="nav-gh" href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg></a>
+                <button type="button" class="btn btn-primary btn-sm" data-download>Download</button>
+                <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu"
+                    aria-label="Open menu">
+                    <svg class="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                    <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18" />
+                    </svg>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-
-    <section class="hero container" role="main" aria-labelledby="hero-title">
-        <!-- Cinematic aurora background -->
-        <div class="hero-aurora" aria-hidden="true"></div>
-        <div class="hero-aurora-orb" aria-hidden="true"></div>
-        <!-- Floating particles -->
-        <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
-        <!-- Film grain + vignette overlays -->
-        <div class="hero-grain" aria-hidden="true"></div>
-        <div class="hero-vignette" aria-hidden="true"></div>
-
-        <div class="hero-badge" role="status" aria-label="Version Info">
-            <span>v1.6.0 — Git Sync & Backup</span>
-        </div>
-        <h1 id="hero-title"><span>MarKing</span><br>Professional Markdown Editor</h1>
-        <p class="hero-subtitle">Local-first · Zero Tracking · Cross-platform<br>A modern document creation tool built for sustained writing</p>
-        <div class="cta-buttons" role="group">
-            <span class="magnetic" id="magneticDownload">
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal(null)">
-                    <span>Free Download</span>
-                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
-                        </path>
-                    </svg>
-                </button>
-            </span>
-            <span class="magnetic" id="magneticGithub">
-                <a href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    <span>GitHub Star</span>
-                </a>
-            </span>
-        </div>
-
-        <!-- Animated stats -->
-        <div class="hero-stats-row" role="group" aria-label="Project stats">
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="20" data-suffix="+">0</div>
-                <div class="hero-stat-label">Polished Themes</div>
-            </div>
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="70" data-suffix="+">0</div>
-                <div class="hero-stat-label">Smart Snippets</div>
-            </div>
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="3" data-suffix=" Platforms">0</div>
-                <div class="hero-stat-label">Cross-platform</div>
-            </div>
-            <div class="hero-stat-item">
-                <div class="hero-stat-num" data-count="100" data-suffix="%">0</div>
-                <div class="hero-stat-label">Local-first · Zero Tracking</div>
-            </div>
-        </div>
-
-        <div class="hero-image-wrapper">
-            <div class="hero-image-inner" id="heroImage">
-                <img src="marking-markdown-editor-main-interface-en.png?v=1.2" alt="Professional Markdown Editor" decoding="async" fetchpriority="high">
-            </div>
-        </div>
-    </section>
-
-    <!-- Marquee feature strip -->
-    <div class="marquee" aria-hidden="true">
-        <div class="marquee-track" id="marqueeTrack">
-            <div class="marquee-set" id="marqueeSet">
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>Local-first · Zero Tracking</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Ultra-Lightweight</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>MathLive Formulas</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>LaTeX Cross-References</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>Excalidraw</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M20 17l2-1v-2.5"/></svg>Mermaid 11 Diagrams</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Knowledge Graph</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>WikiLink Backlinks</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Command Palette</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>Focus Mode</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>Immersive Mode</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>DOCX/PDF/HTML Export</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>Visual Tables</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>20+ Themes</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Smart Backup</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>Web URL Import</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6"/></svg>Import Plugin System</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>Document Templates</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.5.8a2 2 0 01-1.656 1H8.5a2 2 0 01-1.656-1l-.5-.8z"/></svg>AI Writing</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>AI Formatting</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>MCP Server</span>
-                <span class="marquee-dot"></span>
-                <span class="marquee-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>Task System</span>
-                <span class="marquee-dot"></span>
-            </div>
-        </div>
+    <div class="mobile-sheet" id="mobileMenu" hidden>
+        <a class="m-link" href="#writing">Writing</a>
+        <a class="m-link" href="#ai">AI</a>
+        <a class="m-link" href="#privacy">Privacy</a>
+        <a class="m-link" href="#themes">Themes</a>
+        <a class="m-link" href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG_EN.md" target="_blank"
+            rel="noopener noreferrer">Changelog<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M8 7h9v9" />
+            </svg></a>
+        <button type="button" class="btn btn-primary btn-block m-download" data-download>Download MarKing</button>
+        <p class="m-foot"><a href="./index.html" hreflang="zh-CN" lang="zh-CN">中文</a><span class="sep">·</span><a
+                href="https://github.com/l06066hb/MarKing" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </div>
 
-    <!-- Features Section -->
+    <main id="main">
 
-    <section id="features" class="features container" aria-labelledby="features-title">
-        <div class="section-header">
-            <h2 id="features-title" class="section-title">A Complete Solution for Document Creation</h2>
-            <p class="section-subtitle">Powerful Features × Ultimate Experience × Secure and Reliable</p>
-        </div>
-        <div class="bento-grid">
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.5.8a2 2 0 01-1.656 1H8.5a2 2 0 01-1.656-1l-.5-.8z" />
-                    </svg></div>
-                <h3>AI-Assisted Writing</h3>
-                <p>One-click AI formatting to optimize document structure with per-change diff preview. Select text to invoke AI for continuation, polishing, translation, or summarization. 18+ built-in AI providers, multi-note composition for long-form writing from outline to final draft.</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg></div>
-                <h3>Native-grade Professional Editor</h3>
-                <p>A minimalist toolbar with exquisite glassmorphism and physical-level micro-interactions, 70+ smart code snippets with context-aware completion, smooth scrolling for 100K+ word documents.</p>
-            </div>
-            <div class="bento-item bento-square tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg></div>
-                <h3>Ultra-Lightweight Mode</h3>
-                <p>Frictionless startup for Markdown reading. Instantly opens files with a minimal memory footprint, hiding
-                    all distractions to deliver a pristine viewing and quick-edit experience.</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>Visual Formula Editor & Cross-Refs</h3>
-                <p>MathLive-powered visual formula editor with virtual keyboard for intuitive math input. Supports \label/\eqref/\ref cross-references with auto-numbering and click-to-jump.</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                    </svg></div>
-                <h3>Excalidraw Whiteboard</h3>
-                <p>Embedded hand-drawn style whiteboard for flowcharts, architecture diagrams, and mind maps — making documents more vivid.</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>Visual Tables & Charts</h3>
-                <p>Drag and edit tables just like Excel. Introducing a modern floating shortcut toolbar for more focused
-                    and elegant interactions. Paired seamlessly with a Mermaid assistant to orchestrate complex
-                    diagrams.</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg></div>
-                <h3>Knowledge Graph</h3>
-                <p>Automatically parses bi-directional links and document references, visualizing your knowledge network with an interactive force-directed graph.</p>
-            </div>
-            <div class="bento-item bento-third tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>Command Palette</h3>
-                <p>Ctrl+Shift+P to invoke, fuzzy search to reach any feature instantly — a productivity powerhouse for keyboard-first users.</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg></div>
-                <h3>Focus Mode</h3>
-                <p>Hide all panels and distractions with one click, typewriter scrolling keeps your sight on the current paragraph for immersive writing.</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg></div>
-                <h3>MCP Server</h3>
-                <p>Built-in standard protocol server — Claude Desktop, Cursor, Cline and other AI clients can directly read and write your vault: file management, full-text search, metadata operations, and task management.</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg></div>
-                <h3>Git Sync &amp; Local Backup</h3>
-                <p>Sync your vault to a private remote over Git — saves auto-commit and push. Resolve conflicts file-by-file with side-by-side diffs; credentials stay encrypted and sensitive config never leaves the vault. One-click local backups, restorable anytime.</p>
-            </div>
-            <div class="bento-item bento-half tilt-card">
-                <div class="bento-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                    </svg></div>
-                <h3>Document Diff &amp; File History</h3>
-                <p>Compare the current document with snapshots or any other file side by side. Browse per-commit history, preview any revision, and restore it to the workspace in one click.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Feature Showcase — Tabbed Gallery -->
-    <section id="showcase" class="showcase container" aria-labelledby="showcase-title">
-        <div class="section-header">
-            <span class="section-badge">Explore</span>
-            <h2 id="showcase-title" class="section-title">Every Feature, Meticulously Crafted</h2>
-            <p class="section-subtitle">Click a category tab to browse MarKing's core capabilities</p>
-        </div>
-
-        <div class="showcase-tabs" role="tablist" aria-label="Feature categories">
-            <button class="showcase-tab active" role="tab" data-tab="editing" aria-selected="true" aria-controls="panel-editing">Editing</button>
-            <button class="showcase-tab" role="tab" data-tab="creation" aria-selected="false" aria-controls="panel-creation">Creation Tools</button>
-            <button class="showcase-tab" role="tab" data-tab="export" aria-selected="false" aria-controls="panel-export">Professional Export</button>
-            <button class="showcase-tab" role="tab" data-tab="management" aria-selected="false" aria-controls="panel-management">Management & Security</button>
-        </div>
-
-        <div class="showcase-panels">
-            <!-- Panel 1: Editing -->
-            <div class="showcase-panel active" id="panel-editing" data-panel="editing" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-markdown-editor-main-interface-en.png?v=1" alt="Professional Editing Environment" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Professional Editing Environment</h4>
-                            <p>Dual-pane live preview, 100+ syntax highlights, smooth scrolling for 100K+ words</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-editor-features-preview-completion-en.png?v=1" alt="Smart Completion" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Smart Completion & Snippets</h4>
-                            <p>70+ code snippets, context-aware completion, one-click formatting</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-lightweight-mode-en.png?v=1" alt="Lightweight Mode" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Ultra-Lightweight Mode</h4>
-                            <p>Opens files instantly as default app, minimal resource usage, focused reading</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-command-palette-en.png?v=1" alt="Command Palette" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Command Palette</h4>
-                            <p>Ctrl+Shift+P to invoke, fuzzy search to reach any feature instantly</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-focus-mode-en.png?v=1" alt="Focus Mode" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Focus Mode</h4>
-                            <p>Hide distractions with one click, typewriter scrolling for immersive writing</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 2: Creation Tools -->
-            <div class="showcase-panel" id="panel-creation" data-panel="creation" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-mathlive-formula-editor-en.png?v=1" alt="Formula Editor" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Visual Formula Editing & Cross-Refs</h4>
-                            <p>MathLive-powered, virtual keyboard for intuitive input; \label/\eqref cross-references with auto-numbering and click-to-jump</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-excalidraw-whiteboard-en.png?v=1" alt="Excalidraw Whiteboard" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Excalidraw Whiteboard</h4>
-                            <p>Embedded hand-drawn whiteboard for flowcharts, architecture diagrams, and more</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-visual-table-editor-en.png?v=1" alt="Table Editor" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Visual Table Editing</h4>
-                            <p>Drag-and-drop editing like Excel, elegant floating toolbar</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-mermaid-diagram-assistant-en.png?v=1" alt="Mermaid Diagrams" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Mermaid Diagram Assistant</h4>
-                            <p>Assists in writing flowcharts, sequence diagrams, Gantt charts, and more</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 4: Professional Export -->
-            <div class="showcase-panel" id="panel-export" data-panel="export" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-docx-export-v2-template-en.png?v=1" alt="DOCX Template System" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>DOCX Export v2.0</h4>
-                            <p>Brand-new template system with custom styles and live preview, one-click professional documents</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-export-docx-pdf-feature-en.png?v=1" alt="Multi-format Export" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Multi-format High-quality Output</h4>
-                            <p>DOCX / PDF / HTML export meeting academic and business standards</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel 5: Management & Security -->
-            <div class="showcase-panel" id="panel-management" data-panel="management" role="tabpanel">
-                <div class="showcase-grid">
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-multi-vault-management-en.png?v=1" alt="Multi-vault Management" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Multi-vault Management</h4>
-                            <p>Independently manage different projects with isolated data</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-smart-backup-system-en.png?v=1" alt="Smart Backup" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Smart Backup System</h4>
-                            <p>Upgraded backup system with flexible scope selection for safer data</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-code-theme-settings-en.png?v=1" alt="Code Themes" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Code Highlighting Engine</h4>
-                            <p>Independent code block highlighting with multiple classic developer color schemes</p>
-                        </div>
-                    </div>
-                    <div class="showcase-card tilt-card">
-                        <img src="marking-knowledge-graph-en.png?v=1" alt="Knowledge Graph" loading="lazy" decoding="async">
-                        <div class="showcase-card-caption">
-                            <h4>Knowledge Graph</h4>
-                            <p>Auto-parses bi-directional links, interactive force-directed graph for knowledge visualization</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Theme Showcase Section -->
-    <section id="themes" class="theme-showcase" aria-labelledby="themes-title">
-        <div class="theme-container container">
-            <div class="section-header theme-section-header">
-                <span class="section-badge theme-section-badge">Desktop Native Aesthetics</span>
-                <h2 id="themes-title" class="section-title theme-section-title">20+ Meticulously Crafted Themes at Your Fingertips</h2>
-                <p class="section-subtitle theme-section-subtitle">Say goodbye to monotonous interfaces. Every theme is pixel-perfected.<br>The previews below are just a glimpse — download MarKing to unlock the full theme library, paired with glassmorphism and lighting effects for a truly immersive writing experience.</p>
-            </div>
-
-            <div class="theme-gallery">
-                <!-- Row 1: Classic Main Themes -->
-                <div class="theme-item t-large" tabindex="0">
-                    <img src="marking-theme-eye-care-en.png" alt="Eye Care Theme" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">Eye Care</h4>
-                        <p class="theme-desc">A mild and comfortable warm tone, designed for a sustainable, eye-friendly writing experience.</p>
-                    </div>
-                </div>
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-rose-pink-en.png" alt="Rose Pink Theme" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">Rose Pink</h4>
-                        <p class="theme-desc">A gentle and elegant pink tone, bringing a cozy and inspiring creative atmosphere.</p>
-                    </div>
-                </div>
-
-                <!-- Row 2: Colorful & Personality -->
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-ocean-blue-en.png" alt="Ocean Blue Theme" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">Ocean Blue</h4>
-                        <p class="theme-desc">A rational deep blue tone, perfectly suited for rigorous professional document creation.</p>
-                    </div>
-                </div>
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-sepia-yellow-en.png" alt="Sepia Yellow Theme" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">Sepia Yellow</h4>
-                        <p class="theme-desc">A vintage warm tone resembling old paper, offering the gentlest comfort for creation.</p>
-                    </div>
-                </div>
-                <div class="theme-item t-small" tabindex="0">
-                    <img src="marking-theme-neon-cyber-en.png" alt="Neon Cyber Theme" class="theme-img">
-                    <div class="theme-overlay">
-                        <h4 class="theme-title">Neon Cyber</h4>
-                        <p class="theme-desc">High-contrast cyberpunk neon, exploding with absolute visual tension.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="theme-auto-switch">
-                <p>
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        <!-- Hero -->
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container">
+                <a class="release-pill hero-rise" style="--i:0"
+                    href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG_EN.md" target="_blank"
+                    rel="noopener noreferrer">
+                    <span class="pill-dot" aria-hidden="true"></span>
+                    <span>v1.6.0 · Git sync is here</span>
+                    <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
-                    Supports automatic switching between system light/dark modes for perfect performance day and night.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- Download Section -->
-    <section id="download" class="download container" aria-labelledby="download-title">
-        <div class="section-header">
-            <span class="section-badge">Download Now</span>
-            <h2 id="download-title" class="section-title">All Major Platforms Supported</h2>
-            <p class="section-subtitle">
-                Choose your platform and start your efficient document creation journey
-            </p>
-        </div>
-        <div class="platform-grid">
-            <div class="platform-card tilt-card">
-                <div class="platform-icon">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
-                    </svg>
-                </div>
-                <h3>Windows</h3>
-                <p class="platform-version">v1.6.0 | Windows 10+</p>
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('win')">
-                    Download Installer
-                </button>
-            </div>
-            <div class="platform-card tilt-card">
-
-                <div class="platform-icon">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                    </svg>
-                </div>
-                <h3>macOS</h3>
-                <p class="platform-version">v1.6.0 | macOS 10.15+</p>
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('mac')">Download</button>
-            </div>
-            <div class="platform-card tilt-card">
-
-                <div class="platform-icon">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.84-.415 1.917-.415 2.998 0 1.031.125 2.119.45 3.146.6 1.698 1.81 3.328 3.545 4.467 1.735 1.14 4.005 1.529 6.082 1.529 2.082 0 4.358-.389 6.087-1.529 1.74-1.139 2.945-2.769 3.545-4.467.325-1.027.45-2.115.45-3.146 0-1.081-.137-2.158-.415-2.998-.589-1.771-1.831-3.47-2.715-4.521-.75-1.067-.975-1.928-1.05-3.02-.066-1.491 1.055-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-.48 1.029c3.645.305 2.579 4.216 2.641 5.79.082 1.335.375 2.355 1.215 3.563.915 1.084 2.147 2.794 2.694 4.451.247.748.375 1.749.375 2.665 0 .916-.128 1.917-.375 2.665-.547 1.657-1.779 3.367-2.694 4.451-.84 1.208-1.133 2.228-1.215 3.563-.062 1.574.996 5.485-2.641 5.79-3.645-.305-2.579-4.216-2.641-5.79-.082-1.335-.375-2.355-1.215-3.563-.915-1.084-2.147-2.794-2.694-4.451-.247-.748-.375-1.749-.375-2.665 0-.916.128-1.917.375-2.665.547-1.657 1.779-3.367 2.694-4.451.84-1.208 1.133-2.228 1.215-3.563.062-1.574-.996-5.485 2.641-5.79z" />
-                    </svg>
-                </div>
-                <h3>Linux</h3>
-                <p class="platform-version">v1.6.0 | Major Distributions</p>
-                <button class="btn btn-primary" onclick="window.DownloadUI_openModal('linux')">Download</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsor Section -->
-    <section id="sponsor" class="sponsor container">
-        <div class="sponsor-container">
-            <div class="section-header">
-                <span class="section-badge">Support Project</span>
-                <h2 class="section-title">Sponsor MarKing</h2>
-                <p class="section-subtitle">
-                    MarKing is dedicated to providing the ultimate creative experience,<br>
-                    If you find it valuable for your work, consider buying the author a coffee to support future
-                    development.
-                </p>
-            </div>
-            <div class="sponsor-grid" style="max-width: 600px; margin: 0 auto;">
-                <a href="https://afdian.com/@l06066hb" target="_blank" class="sponsor-card tilt-card">
-                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #946ce6 0%, #7c3aed 100%);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                    </div>
-                    <h3>Afdian</h3>
-                    <p>For Chinese Users<br>WeChat/Alipay Supported</p>
                 </a>
-                <a href="https://ko-fi.com/l06066hb" target="_blank" class="sponsor-card tilt-card">
-                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                        </svg>
+                <h1 class="hero-title hero-rise" id="hero-title" style="--i:1">A quiet place <br>for words <em>that
+                        last.</em><span class="caret" aria-hidden="true"></span></h1>
+                <div class="hero-row hero-rise" style="--i:2">
+                    <p class="hero-lead">MarKing is a local-first Markdown editor for the desktop. Live preview, math
+                        and diagrams, linked notes, AI assistance, and polished export — while your words remain
+                        plain-text files on your own disk.</p>
+                    <div class="hero-actions">
+                        <div class="hero-cta">
+                            <button type="button" class="btn btn-primary btn-lg" data-download><span data-dl-label
+                                    data-label-win="Download for Windows" data-label-mac="Download for macOS"
+                                    data-label-linux="Download for Linux">Download free</span><svg
+                                    class="i i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+                                </svg></button>
+                            <a class="btn btn-ghost btn-lg" href="#writing">Explore features</a>
+                        </div>
+                        <p class="hero-meta">v1.6.0 · Windows / macOS / Linux · No account needed</p>
                     </div>
-                    <h3>Ko-fi</h3>
-                    <p>For International Users<br>Credit Card/PayPal Supported</p>
-                </a>
-                <!-- <a href="https://github.com/sponsors/l06066hb" target="_blank" class="sponsor-card">
-                    <div class="sponsor-icon" style="background: linear-gradient(135deg, #24292e 0%, #0d1117 100%);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
+                </div>
+                <figure class="hero-figure hero-rise hero-rise-fig" style="--i:3">
+                    <div class="frame">
+                        <img src="marking-focus-mode-en.png"
+                            alt="MarKing split view: Markdown source with paragraph focus on the left, live preview on the right"
+                            width="1904" height="1107" fetchpriority="high" data-zoom>
                     </div>
-                    <h3>GitHub Sponsors</h3>
-                    <p>For Developers<br>Integrated with GitHub</p>
-                </a> -->
+                    <figcaption class="figcap"><span class="fig-num">Fig. 1</span>Split view: write Markdown on the
+                        left, see it typeset on the right.</figcaption>
+                </figure>
+                <div class="principles">
+                    <div class="principle">
+                        <h3 class="principle-title">Plain text, no lock-in</h3>
+                        <p>Your notes are .md files on your own disk. Any editor can open them — no proprietary
+                            format.</p>
+                    </div>
+                    <div class="principle">
+                        <h3 class="principle-title">Zero tracking</h3>
+                        <p>No telemetry, behavioral data, or personal information. No ads, no sign-up.</p>
+                    </div>
+                    <div class="principle">
+                        <h3 class="principle-title">Native speed</h3>
+                        <p>Compiled natively. Cold starts in under two seconds; 100,000-word documents still scroll
+                            smoothly.</p>
+                    </div>
+                    <div class="principle">
+                        <h3 class="principle-title">Every desktop</h3>
+                        <p>Windows, macOS (Apple silicon and Intel), and Linux — one consistent experience.</p>
+                    </div>
+                </div>
             </div>
-            <div class="sponsor-note">
-                <p>
-                    All sponsorships support project development and maintenance. Thank you to every supporter
-                </p>
+        </section>
+
+        <!-- 01 Writing -->
+        <section class="section" id="writing" aria-labelledby="writing-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">01</span><span class="eyebrow-label">Writing</span>
+                    </p>
+                    <h2 class="section-title" id="writing-title">Focus on the next sentence.</h2>
+                    <p class="section-lead">Live split preview, typewriter scrolling, paragraph focus, and three
+                        levels of immersion. The interface shows up when you need it — and steps aside when you write.
+                    </p>
+                </header>
+
+                <div class="demo" data-demo data-count-mode="words" data-unit="words" data-tip-label="Tip" data-reveal>
+                    <div class="demo-bar">
+                        <div class="demo-file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h4" />
+                            </svg><span>Rainy night.md</span></div>
+                        <div class="demo-modes" aria-hidden="true"><span>Edit</span><span
+                                class="is-active">Split</span><span>Preview</span></div>
+                        <div class="demo-meta"><span data-demo-count>41 words</span><button type="button"
+                                class="demo-replay" data-demo-replay aria-label="Replay demo" hidden><svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5" />
+                                </svg></button></div>
+                    </div>
+                    <div class="demo-body" aria-hidden="true">
+                        <div class="demo-src" data-demo-src>
+                            <div class="sl"><span class="ln">1</span><span class="sc"><span
+                                        class="tk-m">#</span> <span class="tk-h">Notes on a rainy
+                                        night</span></span></div>
+                            <div class="sl"><span class="ln">2</span><span class="sc">&nbsp;</span></div>
+                            <div class="sl"><span class="ln">3</span><span class="sc"><span
+                                        class="tk-q">&gt;</span> <span class="tk-q">[!TIP]</span></span></div>
+                            <div class="sl"><span class="ln">4</span><span class="sc"><span
+                                        class="tk-q">&gt;</span> Great tools don't constrain your thinking — they let
+                                    it flow.</span></div>
+                            <div class="sl"><span class="ln">5</span><span class="sc">&nbsp;</span></div>
+                            <div class="sl"><span class="ln">6</span><span class="sc">The rain is <span
+                                        class="tk-p">**</span>quiet<span class="tk-p">**</span> tonight, a good time
+                                    to write <span class="tk-p">==</span>ideas<span class="tk-p">==</span>
+                                    down.</span></div>
+                            <div class="sl"><span class="ln">7</span><span class="sc"><span
+                                        class="tk-s">- [x] </span>Tidy up this week's reading notes</span></div>
+                            <div class="sl"><span class="ln">8</span><span class="sc"><span
+                                        class="tk-s">- [ ] </span>Add a summary to <span
+                                        class="tk-m">[[</span>Weekly Review<span class="tk-m">]]</span></span></div>
+                        </div>
+                        <div class="demo-preview" data-demo-preview>
+                            <div class="pv-h1">Notes on a rainy night</div>
+                            <div class="pv-callout">
+                                <div class="pv-callout-title"><svg viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <path
+                                            d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z" />
+                                    </svg><span>Tip</span></div>
+                                <p class="pv-p" style="margin:0">Great tools don't constrain your thinking — they let
+                                    it flow.</p>
+                            </div>
+                            <p class="pv-p">The rain is <strong>quiet</strong> tonight, a good time to write
+                                <mark>ideas</mark> down.</p>
+                            <ul class="pv-tasks">
+                                <li><span class="pv-box is-checked"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M5 12.5l4.5 4.5L19 7.5" />
+                                        </svg></span><span>Tidy up this week's reading notes</span></li>
+                                <li><span class="pv-box"></span><span>Add a summary to <span class="pv-link">Weekly
+                                            Review</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script type="text/plain" data-demo-doc># Notes on a rainy night
+
+> [!TIP]
+> Great tools don't constrain your thinking — they let it flow.
+
+The rain is **quiet** tonight, a good time to write ==ideas== down.
+
+- [x] Tidy up this week's reading notes
+- [ ] Add a summary to [[Weekly Review]]</script>
+                </div>
+                <p class="sr-only">Demo: Markdown typed on the left renders instantly on the right.</p>
+
+                <div class="items">
+                    <div class="item" data-reveal style="--i:0">
+                        <div class="item-head">
+                            <h3 class="item-title sans">Live split preview</h3>
+                        </div>
+                        <p class="item-text">Switch between edit, split, and preview at any time. Scrolling stays in
+                            sync, even in long documents.</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:1">
+                        <div class="item-head">
+                            <h3 class="item-title sans">Focus &amp; immersion</h3><span class="keys"
+                                data-keys="Ctrl+Shift+Enter"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Enter</kbd></span>
+                        </div>
+                        <p class="item-text">Typewriter scrolling and paragraph focus. Three immersion levels leave
+                            nothing but the text.</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:2">
+                        <div class="item-head">
+                            <h3 class="item-title sans">Command palette</h3><span class="keys"
+                                data-keys="Ctrl+Shift+P"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd></span>
+                        </div>
+                        <p class="item-text">Every action within reach of the keyboard. Jump between documents in
+                            milliseconds.</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:3">
+                        <div class="item-head">
+                            <h3 class="item-title sans">Smart completion</h3><span class="keys"
+                                data-keys="Tab"><kbd>Tab</kbd></span>
+                        </div>
+                        <p class="item-text">70+ snippets, with instant hints for LaTeX commands and code-fence
+                            languages.</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:4">
+                        <div class="item-head">
+                            <h3 class="item-title sans">Quick capture</h3><span class="keys"
+                                data-keys="Ctrl+Alt+M"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>M</kbd></span>
+                        </div>
+                        <p class="item-text">A system-wide hotkey opens a mini window, and ideas land straight in your
+                            Inbox.</p>
+                    </div>
+                    <div class="item" data-reveal style="--i:5">
+                        <div class="item-head">
+                            <h3 class="item-title sans">Lite mode</h3>
+                        </div>
+                        <p class="item-text">Double-click any .md file and it opens instantly, with a minimal
+                            footprint.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- 02 Expression -->
+        <section class="section section-sunk" id="expression" aria-labelledby="expression-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">02</span><span
+                            class="eyebrow-label">Expression</span></p>
+                    <h2 class="section-title" id="expression-title">Equations, diagrams, and sketches — all in one
+                        document.</h2>
+                    <p class="section-lead">Technical writing takes more than words. Visual math, Mermaid diagrams,
+                        hand-drawn whiteboards, and table editing are built right into the editor — no app-switching
+                        required.</p>
+                </header>
+
+                <div class="bento">
+                    <div class="bento-card is-wide" data-reveal style="--i:0">
+                        <h3 class="bento-title">Math</h3>
+                        <p class="bento-text">Edit equations visually with MathLive and a virtual keyboard. \label and
+                            \eqref number them automatically, with click-to-jump references.</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:16/9">
+                                <img src="marking-bento-formula-en.png" alt="MathLive visual equation editor"
+                                    width="1849" height="1040" loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card is-narrow" data-reveal style="--i:1">
+                        <h3 class="bento-title">Diagrams</h3>
+                        <p class="bento-text">Full Mermaid 11 support, including eight new chart types such as
+                            architecture, timeline, Sankey, and C4.</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:6/5">
+                                <img src="marking-bento-mermaid-en.png"
+                                    alt="Mermaid source and the diagram assistant" width="757" height="631"
+                                    loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card is-narrow" data-reveal style="--i:2">
+                        <h3 class="bento-title">Tables</h3>
+                        <p class="bento-text">Edit Markdown tables like a spreadsheet. Cells can hold line breaks, and
+                            your original formatting survives every save.</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:6/5">
+                                <img src="marking-bento-table-en.png" alt="Visual table editor" width="750"
+                                    height="625" loading="lazy" decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card is-wide" data-reveal style="--i:3">
+                        <h3 class="bento-title">Whiteboard</h3>
+                        <p class="bento-text">Embedded Excalidraw for hand-drawn flows and architecture sketches,
+                            right inside your notes.</p>
+                        <div class="crop">
+                            <div class="crop-box" style="--ar:16/9">
+                                <img src="marking-bento-whiteboard-en.png"
+                                    alt="Embedded Excalidraw whiteboard" width="1580" height="889" loading="lazy"
+                                    decoding="async" data-zoom>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="also"><span class="also-label">Also built in</span> — Callouts · Footnotes · Task lists ·
+                    Code themes · Sub- and superscript · CJK auto-spacing · HTML files</p>
+            </div>
+        </section>
+
+        <!-- 03 Connection -->
+        <section class="section" id="connection" aria-labelledby="connection-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">03</span><span
+                            class="eyebrow-label">Connection</span></p>
+                    <h2 class="section-title" id="connection-title">No note is an island.</h2>
+                    <p class="section-lead">Link ideas with [[WikiLinks]]. Backlinks and an interactive knowledge
+                        graph show how everything connects — and web pages, Word files, and PDFs become Markdown notes
+                        in a single step.</p>
+                </header>
+
+                <div class="split">
+                    <figure class="split-main" data-reveal>
+                        <div class="graph-panel">
+                            <div class="graph-head"><span class="graph-title">Knowledge graph</span><span
+                                    class="graph-meta">18 notes · 24 links</span></div>
+                            <div class="graph-canvas">
+                                <svg class="graph" viewBox="0 0 800 550" role="img" aria-label="Knowledge graph illustration">
+                                    <line class="ge" data-a="hub" data-b="a1" x1="387" y1="263" x2="322" y2="215" />
+                                    <line class="ge" data-a="hub" data-b="b1" x1="387" y1="263" x2="496" y2="240" />
+                                    <line class="ge" data-a="hub" data-b="c1" x1="387" y1="263" x2="401" y2="390" />
+                                    <line class="ge" data-a="hub" data-b="d1" x1="387" y1="263" x2="456" y2="158" />
+                                    <line class="ge" data-a="hub" data-b="a2" x1="387" y1="263" x2="233" y2="238" />
+                                    <line class="ge" data-a="a1" data-b="a2" x1="322" y1="215" x2="233" y2="238" />
+                                    <line class="ge" data-a="a1" data-b="a3" x1="322" y1="215" x2="274" y2="311" />
+                                    <line class="ge" data-a="a3" data-b="a4" x1="274" y1="311" x2="180" y2="352" />
+                                    <line class="ge" data-a="a3" data-b="a5" x1="274" y1="311" x2="150" y2="280" />
+                                    <line class="ge" data-a="a2" data-b="a5" x1="233" y1="238" x2="150" y2="280" />
+                                    <line class="ge" data-a="b1" data-b="b2" x1="496" y1="240" x2="587" y2="167" />
+                                    <line class="ge" data-a="b1" data-b="b3" x1="496" y1="240" x2="593" y2="250" />
+                                    <line class="ge" data-a="b1" data-b="b4" x1="496" y1="240" x2="549" y2="332" />
+                                    <line class="ge" data-a="b2" data-b="b3" x1="587" y1="167" x2="593" y2="250" />
+                                    <line class="ge" data-a="b4" data-b="b5" x1="549" y1="332" x2="597" y2="416" />
+                                    <line class="ge" data-a="b1" data-b="a1" x1="496" y1="240" x2="322" y2="215" />
+                                    <line class="ge" data-a="c1" data-b="c2" x1="401" y1="390" x2="343" y2="464" />
+                                    <line class="ge" data-a="c1" data-b="c3" x1="401" y1="390" x2="491" y2="427" />
+                                    <line class="ge" data-a="c1" data-b="c4" x1="401" y1="390" x2="496" y2="497" />
+                                    <line class="ge" data-a="c2" data-b="c5" x1="343" y1="464" x2="260" y2="451" />
+                                    <line class="ge" data-a="c3" data-b="c4" x1="491" y1="427" x2="496" y2="497" />
+                                    <line class="ge" data-a="c1" data-b="a3" x1="401" y1="390" x2="274" y2="311" />
+                                    <line class="ge" data-a="d1" data-b="d2" x1="456" y1="158" x2="372" y2="83" />
+                                    <line class="ge" data-a="d1" data-b="b3" x1="456" y1="158" x2="593" y2="250" />
+                                    <g class="gn" data-id="hub">
+                                        <circle cx="387" cy="263" r="9" fill="var(--ink)" /><text x="404" y="267"
+                                            font-size="13" font-weight="600" fill="var(--ink)">Writing plan</text>
+                                    </g>
+                                    <g class="gn" data-id="a1">
+                                        <circle cx="322" cy="215" r="6.5" fill="var(--gold-2)" /><text x="337" y="219"
+                                            font-size="12" fill="var(--ink-2)">Rainy night</text>
+                                    </g>
+                                    <g class="gn" data-id="a2">
+                                        <circle cx="233" cy="238" r="5" fill="var(--slate)" /><text x="246" y="242"
+                                            font-size="12" fill="var(--ink-3)">Inbox</text>
+                                    </g>
+                                    <g class="gn" data-id="a3">
+                                        <circle cx="274" cy="311" r="5" fill="var(--slate)" /><text x="287" y="315"
+                                            font-size="12" fill="var(--ink-3)">Journal</text>
+                                    </g>
+                                    <g class="gn" data-id="a4">
+                                        <circle cx="180" cy="352" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="a5">
+                                        <circle cx="150" cy="280" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="b1">
+                                        <circle cx="496" cy="240" r="5" fill="var(--slate)" /><text x="483" y="244"
+                                            font-size="12" fill="var(--ink-3)" text-anchor="end">Reading notes</text>
+                                    </g>
+                                    <g class="gn" data-id="b2">
+                                        <circle cx="587" cy="167" r="6.5" fill="var(--gold-2)" /><text x="602" y="171"
+                                            font-size="12" fill="var(--ink-2)">Thinking in Systems</text>
+                                    </g>
+                                    <g class="gn" data-id="b3">
+                                        <circle cx="593" cy="250" r="5" fill="var(--slate)" /><text x="606" y="254"
+                                            font-size="12" fill="var(--ink-3)">Glossary</text>
+                                    </g>
+                                    <g class="gn" data-id="b4">
+                                        <circle cx="549" cy="332" r="5" fill="var(--slate)" /><text x="562" y="336"
+                                            font-size="12" fill="var(--ink-3)">References</text>
+                                    </g>
+                                    <g class="gn" data-id="b5">
+                                        <circle cx="597" cy="416" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="c1">
+                                        <circle cx="401" cy="390" r="6.5" fill="var(--gold-2)" /><text x="416" y="394"
+                                            font-size="12" fill="var(--ink-2)">Weekly review</text>
+                                    </g>
+                                    <g class="gn" data-id="c2">
+                                        <circle cx="343" cy="464" r="5" fill="var(--slate)" /><text x="356" y="468"
+                                            font-size="12" fill="var(--ink-3)">Meeting notes</text>
+                                    </g>
+                                    <g class="gn" data-id="c3">
+                                        <circle cx="491" cy="427" r="5" fill="var(--slate)" /><text x="504" y="431"
+                                            font-size="12" fill="var(--ink-3)">Pricing</text>
+                                    </g>
+                                    <g class="gn" data-id="c4">
+                                        <circle cx="496" cy="497" r="5" fill="var(--slate)" /><text x="509" y="501"
+                                            font-size="12" fill="var(--ink-3)">Q2 retro</text>
+                                    </g>
+                                    <g class="gn" data-id="c5">
+                                        <circle cx="260" cy="451" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                    <g class="gn" data-id="d1">
+                                        <circle cx="456" cy="158" r="5" fill="var(--slate)" /><text x="469" y="162"
+                                            font-size="12" fill="var(--ink-3)">Markdown syntax</text>
+                                    </g>
+                                    <g class="gn" data-id="d2">
+                                        <circle cx="372" cy="83" r="3.5" fill="var(--ink-5)" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <figcaption class="figcap"><span class="fig-num">Fig. 2</span>Knowledge graph: a force-directed
+                            layout you can pan, zoom, and export as PNG or SVG.</figcaption>
+                    </figure>
+                    <div class="split-side">
+                        <div class="stack">
+                            <div class="item" data-reveal style="--i:0">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">WikiLinks</h3>
+                                </div>
+                                <p class="item-text">Type [[ to link any note. Backlinks are gathered for you.</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:1">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">Knowledge graph</h3>
+                                </div>
+                                <p class="item-text">Stays fluid even with ten thousand nodes, with full-screen mode
+                                    and image export.</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:2">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">Bring everything in</h3><span class="keys"
+                                        data-keys="Ctrl+Shift+V"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>V</kbd></span>
+                                </div>
+                                <p class="item-text">Turn web pages, Word, EPUB, and PDF into Markdown in one step.
+                                    Rich text pastes as clean Markdown.</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:3">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">Tasks</h3>
+                                </div>
+                                <p class="item-text">Every to-do across your vault in one place, with priorities and
+                                    due dates. Check one off and the source note updates.</p>
+                            </div>
+                            <div class="item" data-reveal style="--i:4">
+                                <div class="item-head">
+                                    <h3 class="item-title sans">Templates &amp; daily notes</h3><span class="keys"
+                                        data-keys="Ctrl+Alt+D"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>D</kbd></span>
+                                </div>
+                                <p class="item-text">Six built-in templates with date variables; open today's note in
+                                    one keystroke.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 AI -->
+        <section class="section" id="ai" aria-labelledby="ai-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">04</span><span class="eyebrow-label">AI</span></p>
+                    <h2 class="section-title" id="ai-title">AI assists.<br><em>You hold the pen.</em></h2>
+                    <p class="section-lead">Connect the models you trust, then polish, translate, format, and draft
+                        without leaving the editor. Every change arrives as a diff, and you decide what stays.</p>
+                </header>
+
+                <div class="ai-grid">
+                    <div class="stack">
+                        <div class="item" data-reveal style="--i:0">
+                            <div class="item-head">
+                                <h3 class="item-title sans">AI Format</h3><span class="keys"
+                                    data-keys="Ctrl+Alt+F"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>F</kbd></span>
+                            </div>
+                            <p class="item-text">Restructure and clean up a document in one step. Every edit appears
+                                as a diff you can accept or reject.</p>
+                        </div>
+                        <div class="item" data-reveal style="--i:1">
+                            <div class="item-head">
+                                <h3 class="item-title sans">Inline AI</h3>
+                            </div>
+                            <p class="item-text">Select text to rewrite, summarize, translate, or expand it. Output
+                                streams in, and you can stop anytime.</p>
+                        </div>
+                        <div class="item" data-reveal style="--i:2">
+                            <div class="item-head">
+                                <h3 class="item-title sans">Writing Flow</h3>
+                            </div>
+                            <p class="item-text">Compose an article from several notes, or extract an outline. Refine
+                                over multiple rounds and save drafts to your vault.</p>
+                        </div>
+                        <div class="item" data-reveal style="--i:3">
+                            <div class="item-head">
+                                <h3 class="item-title sans">Your models, your keys</h3>
+                            </div>
+                            <p class="item-text">18+ providers built in, plus any compatible API. Keys are encrypted
+                                on your device, and requests go straight to the provider you choose. Notes tagged
+                                #private are skipped by AI Format and Writing Flow.</p>
+                        </div>
+                    </div>
+                    <figure class="ai-card" data-ai-demo role="img"
+                        aria-label="Inline AI illustration: rewriting a selected sentence" data-reveal style="--i:1">
+                        <p class="ai-doc">The hardest part of writing isn't the beginning — it's keeping going.
+                            <span class="ai-sel">Write a little every day, even three hundred words, and time will
+                                bind them into a book.</span></p>
+                        <div class="ai-bar"><span class="ai-bar-mark">AI</span><span
+                                class="is-active">Rewrite</span><span>Summarize</span><span>Translate</span><span>Expand</span>
+                        </div>
+                        <div class="ai-suggest">
+                            <div class="ai-suggest-head"><span><i class="ai-dot"></i>MarKing AI suggestion</span><span
+                                    class="ai-suggest-meta">Rewrite</span></div>
+                            <p class="ai-suggest-text" data-ai-stream>Write a little each day. Three hundred words at
+                                a time, the days become a book.</p>
+                            <div class="ai-actions"><span class="ai-btn ai-btn-primary">Accept</span><span
+                                    class="ai-btn">Reject</span><span class="ai-btn ai-btn-text">Regenerate</span>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="mcp" data-reveal>
+                    <div class="mcp-body">
+                        <p class="eyebrow"><span class="eyebrow-label">MCP Server</span></p>
+                        <h3 class="mcp-title">Let your AI clients read your vault.</h3>
+                        <p class="mcp-text">Claude Desktop, Cursor, Cline, and other MCP clients can search, read, and
+                            write notes and tasks over local stdio. It's off by default, write access needs separate
+                            approval, and every write is recorded in an audit log.</p>
+                        <div class="mcp-facts">
+                            <div><b class="serif mcp-num">21</b><span>read tools</span></div>
+                            <div><b class="serif mcp-num">18</b><span>write tools</span></div>
+                            <div><b class="serif mcp-num">0</b><span>network ports</span></div>
+                        </div>
+                    </div>
+                    <div class="mcp-log" aria-hidden="true">
+                        <div class="mcp-log-head"><span>MCP · stdio</span><span>Claude Desktop</span></div>
+                        <div class="lg-group">
+                            <p class="lg-q"><span class="lg-caret">›</span> Add today's three meeting takeaways to my
+                                journal</p>
+                            <p class="lg-tool"><span class="lg-mark">marking</span> · append_daily_note</p>
+                            <p class="lg-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                                </svg>Appended to Journal/<span data-today>2026-10-10</span>.md</p>
+                        </div>
+                        <div class="lg-group">
+                            <p class="lg-q"><span class="lg-caret">›</span> What did I finally decide about pricing
+                                last year?</p>
+                            <p class="lg-tool"><span class="lg-mark">marking</span> · search_notes("pricing")</p>
+                            <p class="lg-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                                </svg>Found 3 related notes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 Privacy & sync -->
+        <section class="section section-dark" id="privacy" aria-labelledby="privacy-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">05</span><span class="eyebrow-label">Privacy &amp;
+                            sync</span></p>
+                    <h2 class="section-title" id="privacy-title">Your words stay yours.</h2>
+                    <p class="section-lead">Your notes are .md files on your own disk — open them in any editor, and
+                        they'll still be readable years from now. When you need them on another machine, sync to a Git
+                        repository you control.</p>
+                </header>
+
+                <div class="vault-cards">
+                    <div class="vault-card" data-reveal style="--i:0">
+                        <div class="vg vg-sync" aria-hidden="true">
+                            <div class="vg-sync-head"><span class="vg-dot"></span><span>Synced</span><span
+                                    class="vg-branch">· main</span></div>
+                            <div class="vg-row"><span class="vg-file">Rainy night.md</span><span
+                                    class="vg-time-label">just now</span></div>
+                            <div class="vg-row"><span class="vg-file">Weekly/Week 41.md</span><span
+                                    class="vg-time-label">12 min ago</span></div>
+                            <div class="vg-row"><span class="vg-file">Reading/Thinking in Systems.md</span><span
+                                    class="vg-time-label">yesterday</span></div>
+                        </div>
+                        <h3>Git sync</h3>
+                        <p>Every save commits and pushes to your own GitHub, GitLab, Gitee, or self-hosted repository.
+                            On conflict, compare file by file and choose — nothing is lost.</p>
+                    </div>
+                    <div class="vault-card" data-reveal style="--i:1">
+                        <div class="vg vg-diff" aria-hidden="true">
+                            <div class="vg-head">Rainy night.md · vs. Oct 3 snapshot</div>
+                            <div class="dl dl-ctx"><span></span><span>7</span><span># Notes on a rainy night</span>
+                            </div>
+                            <div class="dl dl-del"><span>−</span><span>8</span><span>The rain is
+                                    <em>heavy</em> tonight.</span></div>
+                            <div class="dl dl-add"><span>+</span><span>8</span><span>The rain is
+                                    <em>quiet</em> tonight<em> — a good time to write</em>.</span></div>
+                        </div>
+                        <h3>Compare &amp; history</h3>
+                        <p>Diff against any snapshot or document, side by side. Browse every commit, preview old
+                            versions, and restore in one click.</p>
+                    </div>
+                    <div class="vault-card" data-reveal style="--i:2">
+                        <div class="vg vg-time" aria-hidden="true">
+                            <div class="vg-head">Snapshots · Rainy night.md</div>
+                            <div class="vg-tl">
+                                <div class="vg-tl-line"></div>
+                                <div class="vg-tl-nodes">
+                                    <div class="vg-tl-node"><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">9:12</span></div>
+                                    <div class="vg-tl-node is-sel"><span class="vg-tl-bubble">Preview ·
+                                            Restore</span><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">10:05</span></div>
+                                    <div class="vg-tl-node"><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">10:31</span></div>
+                                    <div class="vg-tl-node is-now"><span class="vg-tl-dot"></span><span
+                                            class="vg-tl-time">Now</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Snapshots &amp; backup</h3>
+                        <p>Silent autosave after two seconds, with history snapshots to roll back to. Back up a whole
+                            vault in one click and restore it completely.</p>
+                    </div>
+                </div>
+
+                <dl class="facts" data-reveal>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">0</span><span class="fact-unit">Telemetry</span></dt>
+                        <dd>No usage data, device fingerprints, or personal information.</dd>
+                    </div>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">0</span><span class="fact-unit">Accounts</span></dt>
+                        <dd>Nothing to sign up for. Open it and write.</dd>
+                    </div>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">0</span><span class="fact-unit">Open ports</span></dt>
+                        <dd>MCP talks over local stdio and never listens on the network.</dd>
+                    </div>
+                    <div class="fact">
+                        <dt><span class="fact-num serif">256</span><span class="fact-unit">Bit AES</span></dt>
+                        <dd>API keys are encrypted on your device, never synced, never backed up.</dd>
+                    </div>
+                </dl>
+
+                <p class="fineprint">Update checks send only the app version, OS, and architecture — and can be turned
+                    off in Settings. <a href="https://github.com/l06066hb/MarKing/blob/main/PRIVACY_EN.md"
+                        target="_blank" rel="noopener noreferrer">Read the privacy policy ↗</a></p>
+            </div>
+        </section>
+
+        <!-- 06 Publishing -->
+        <section class="section" id="publishing" aria-labelledby="publishing-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">06</span><span
+                            class="eyebrow-label">Publishing</span></p>
+                    <h2 class="section-title" id="publishing-title">From draft to deliverable.</h2>
+                    <p class="section-lead">The DOCX engine generates the cover page, table of contents, headers, and
+                        footers in one pass — fonts, spacing, and page details are all tunable. PDFs ship with a
+                        bookmarked outline, and HTML exports travel as a single file.</p>
+                </header>
+
+                <div class="split is-reverse">
+                    <div class="split-side">
+                        <div class="spec-row"><span class="spec-key">DOCX</span><span class="spec-val">Template engine
+                                v2 · Live preview · Fine control over fonts and spacing</span></div>
+                        <div class="spec-row"><span class="spec-key">PDF</span><span class="spec-val">Bookmarked outline
+                                · Follows your theme, or switches to print-ready styling</span></div>
+                        <div class="spec-row"><span class="spec-key">HTML</span><span class="spec-val">One
+                                self-contained file · Full styling preserved</span></div>
+                        <p class="spec-note"><span class="keys"
+                                data-keys="Ctrl+Shift+E"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>E</kbd></span><span>opens
+                                export from anywhere</span>
+                        </p>
+                    </div>
+                    <figure class="split-main" data-reveal>
+                        <div class="frame">
+                            <img src="marking-docx-export-v2-template-en.png"
+                                alt="MarKing DOCX export with templated layouts and live preview" width="1904"
+                                height="1107" loading="lazy" decoding="async" data-zoom>
+                        </div>
+                        <figcaption class="figcap"><span class="fig-num">Fig. 3</span>DOCX export with templated layouts
+                            and live preview.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 Themes -->
+        <section class="section section-sunk" id="themes" aria-labelledby="themes-title">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow"><span class="eyebrow-num">07</span><span class="eyebrow-label">Themes</span></p>
+                    <h2 class="section-title" id="themes-title">Twenty moods. One focus.</h2>
+                    <p class="section-lead">From Paper White to Cool Black, 20 hand-tuned themes follow your system's
+                        light and dark mode. Code block themes, fonts, sizes, and interface density are yours to set,
+                        too.</p>
+                </header>
+
+                <div class="themes" data-themes data-reveal>
+                    <figure class="frame themes-stage">
+                        <img class="is-active" src="marking-markdown-editor-main-interface-en.png"
+                            data-theme="paper-white" alt="MarKing in the Paper White theme" width="1904" height="1107"
+                            loading="lazy" decoding="async">
+                        <img data-src="marking-theme-sepia-yellow-en.png" data-theme="sepia-yellow"
+                            alt="MarKing in the Sepia Yellow theme" width="1904" height="1107" decoding="async">
+                        <img data-src="marking-theme-eye-care-en.png" data-theme="eye-care"
+                            alt="MarKing in the Eye Care theme" width="1904" height="1107" decoding="async">
+                        <img data-src="marking-theme-rose-pink-en.png" data-theme="rose-pink"
+                            alt="MarKing in the Rose Pink theme" width="1904" height="1107" decoding="async">
+                        <img data-src="marking-theme-ocean-blue-en.png" data-theme="ocean-blue"
+                            alt="MarKing in the Ocean Blue theme" width="1904" height="1107" decoding="async">
+                        <img data-src="marking-theme-classic-midnight-en.png" data-theme="classic-midnight"
+                            alt="MarKing in the Classic Midnight theme" width="1904" height="1107" decoding="async">
+                        <img data-src="marking-theme-neon-cyber-en.png" data-theme="neon-cyber"
+                            alt="MarKing in the Neon Cyber theme" width="1904" height="1107" decoding="async">
+                        <img data-src="marking-theme-cool-black-en.png" data-theme="cool-black"
+                            alt="MarKing in the Cool Black theme" width="1904" height="1107" decoding="async">
+                    </figure>
+                    <div class="swatches" role="radiogroup" aria-label="Switch theme preview">
+                        <button type="button" class="swatch" role="radio" aria-checked="true" tabindex="0"
+                            data-theme="paper-white" style="--c:#F5F5F5"><span class="swatch-dot"></span><span>Paper
+                                White</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="sepia-yellow" style="--c:#A2795A"><span class="swatch-dot"></span><span>Sepia
+                                Yellow</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="eye-care" style="--c:#789443"><span class="swatch-dot"></span><span>Eye
+                                Care</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="rose-pink" style="--c:#9F455F"><span class="swatch-dot"></span><span>Rose
+                                Pink</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="ocean-blue" style="--c:#326E82"><span class="swatch-dot"></span><span>Ocean
+                                Blue</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="classic-midnight" style="--c:#263D9D"><span
+                                class="swatch-dot"></span><span>Classic Midnight</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="neon-cyber" style="--c:#4570AC"><span class="swatch-dot"></span><span>Neon
+                                Cyber</span></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" tabindex="-1"
+                            data-theme="cool-black" style="--c:#0F141F"><span class="swatch-dot"></span><span>Cool
+                                Black</span></button>
+                    </div>
+                    <p class="themes-note">Twelve more themes — plus code palettes such as Dracula, Nord, and Tokyo
+                        Night — are waiting in the app.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download -->
+        <section class="section section-dark" id="download" aria-labelledby="download-title">
+            <div class="container download-inner">
+                <h2 class="download-title" id="download-title" data-reveal>Your next piece<br><em>starts
+                        here.</em></h2>
+                <p class="download-sub" data-reveal style="--i:1">MarKing v1.6.0 is free to download, built natively
+                    for Windows, macOS, and Linux.</p>
+                <div class="platforms">
+                    <div class="platform" data-platform="win" data-reveal style="--i:0">
+                        <span class="platform-tag">Your system</span>
+                        <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                            </svg></span>
+                        <h3 class="platform-name">Windows</h3>
+                        <p class="platform-req">Windows 10 or later · x64</p>
+                        <p class="platform-pkg">EXE or MSI installer</p>
+                        <button type="button" class="btn btn-light btn-block" data-download="win">Download</button>
+                    </div>
+                    <div class="platform" data-platform="mac" data-reveal style="--i:1">
+                        <span class="platform-tag">Your system</span>
+                        <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg></span>
+                        <h3 class="platform-name">macOS</h3>
+                        <p class="platform-req">macOS 10.15 or later</p>
+                        <p class="platform-pkg">Apple silicon &amp; Intel · DMG</p>
+                        <button type="button" class="btn btn-light btn-block" data-download="mac">Download</button>
+                    </div>
+                    <div class="platform" data-platform="linux" data-reveal style="--i:2">
+                        <span class="platform-tag">Your system</span>
+                        <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.84-.415 1.917-.415 2.998 0 1.031.125 2.119.45 3.146.6 1.698 1.81 3.328 3.545 4.467 1.735 1.14 4.005 1.529 6.082 1.529 2.082 0 4.358-.389 6.087-1.529 1.74-1.139 2.945-2.769 3.545-4.467.325-1.027.45-2.115.45-3.146 0-1.081-.137-2.158-.415-2.998-.589-1.771-1.831-3.47-2.715-4.521-.75-1.067-.975-1.928-1.05-3.02-.066-1.491 1.055-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-.48 1.029c3.645.305 2.579 4.216 2.641 5.79.082 1.335.375 2.355 1.215 3.563.915 1.084 2.147 2.794 2.694 4.451.247.748.375 1.749.375 2.665 0 .916-.128 1.917-.375 2.665-.547 1.657-1.779 3.367-2.694 4.451-.84 1.208-1.133 2.228-1.215 3.563-.062 1.574.996 5.485-2.641 5.79-3.645-.305-2.579-4.216-2.641-5.79-.082-1.335-.375-2.355-1.215-3.563-.915-1.084-2.147-2.794-2.694-4.451-.247-.748-.375-1.749-.375-2.665 0-.916.128-1.917.375-2.665.547-1.657 1.779-3.367 2.694-4.451.84-1.208 1.133 2.228 1.215 3.563.062 1.574-.996-5.485 2.641-5.79z" />
+                            </svg></span>
+                        <h3 class="platform-name">Linux</h3>
+                        <p class="platform-req">Major distributions · x64 / ARM64</p>
+                        <p class="platform-pkg">AppImage / deb / rpm</p>
+                        <button type="button" class="btn btn-light btn-block" data-download="linux">Download</button>
+                    </div>
+                </div>
+                <div class="download-links">
+                    <a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
+                        rel="noopener noreferrer">All releases &amp; SHA256 checksums<svg viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG_EN.md" target="_blank"
+                        rel="noopener noreferrer">Changelog<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support -->
+        <section class="section" id="support" aria-labelledby="support-title">
+            <div class="container support-inner">
+                <h2 class="sr-only" id="support-title">Support MarKing</h2>
+                <p class="eyebrow" data-reveal><span class="eyebrow-label">Support MarKing</span></p>
+                <p class="support-text" data-reveal style="--i:1">MarKing is independent software — no ads, no
+                    tracking. Every release is made possible by the people who use it. If it makes your writing
+                    better, consider buying the author a coffee, or leaving a star on GitHub.</p>
+                <div class="support-links" data-reveal style="--i:2">
+                    <a class="support-link" href="https://ko-fi.com/l06066hb" target="_blank"
+                        rel="noopener noreferrer"><span class="sl-text"><span class="sl-name">Ko-fi</span><span
+                                class="sl-sub">Card / PayPal</span></span><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                    <a class="support-link" href="https://afdian.com/@l06066hb" target="_blank"
+                        rel="noopener noreferrer"><span class="sl-text"><span class="sl-name">Afdian</span><span
+                                class="sl-sub">WeChat Pay / Alipay</span></span><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                    <a class="support-link" href="https://github.com/l06066hb/MarKing" target="_blank"
+                        rel="noopener noreferrer"><span class="sl-text"><span class="sl-name">GitHub</span><span
+                                class="sl-sub">Leave a star</span></span><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M7 17L17 7M8 7h9v9" />
+                        </svg></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content container" style="max-width:1100px; margin:0 auto; padding:0;">
+    <footer class="site-footer">
+        <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <ul class="footer-links">
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG.md" target="_blank"
-                                rel="noopener noreferrer">Changelog</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="marking-app-icon-128.png" alt="" width="28" height="28">
+                    <p class="fb-name serif">MarKing</p>
+                    <p>The local-first Markdown editor.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Documentation</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing#readme" target="_blank"
-                                rel="noopener noreferrer">User Guide</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <p class="footer-title">Product</p>
+                    <a href="#download">Download</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/CHANGELOG_EN.md" target="_blank"
+                        rel="noopener noreferrer">Changelog</a>
+                    <a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
+                        rel="noopener noreferrer">Releases</a>
                 </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing/issues" target="_blank"
-                                rel="noopener noreferrer">Issue Tracker</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/LICENSE" target="_blank"
-                                rel="noopener noreferrer">License</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/PRIVACY_EN.md" target="_blank"
-                                rel="noopener noreferrer">Privacy Policy</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/blob/main/AI-TERMS_EN.md" target="_blank"
-                                rel="noopener noreferrer">AI Terms</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <p class="footer-title">Resources</p>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/README_EN.md" target="_blank"
+                        rel="noopener noreferrer">Documentation</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/docs/FAQ.md" target="_blank"
+                        rel="noopener noreferrer">FAQ</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/docs/TROUBLESHOOTING.md" target="_blank"
+                        rel="noopener noreferrer">Troubleshooting</a>
                 </div>
-                <div class="footer-section">
-                    <h4>About</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/l06066hb/MarKing" target="_blank"
-                                rel="noopener noreferrer">GitHub</a></li>
-                        <li><a href="https://github.com/l06066hb/MarKing/releases" target="_blank"
-                                rel="noopener noreferrer">Releases</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <p class="footer-title">Support</p>
+                    <a href="https://github.com/l06066hb/MarKing/issues" target="_blank"
+                        rel="noopener noreferrer">Feedback</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/SECURITY.md" target="_blank"
+                        rel="noopener noreferrer">Security</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/PRIVACY_EN.md" target="_blank"
+                        rel="noopener noreferrer">Privacy Policy</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/AI-TERMS_EN.md" target="_blank"
+                        rel="noopener noreferrer">AI Terms</a>
+                    <a href="https://github.com/l06066hb/MarKing/blob/main/LICENSE" target="_blank"
+                        rel="noopener noreferrer">License</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-title">Language</p>
+                    <a href="./index.html" hreflang="zh-CN" lang="zh-CN">简体中文</a>
+                    <a href="./index-en.html" aria-current="page">English</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025-2026 MarKing. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.875rem;">Be the King of Markdown 👑</p>
+                <p>© 2025–2026 MarKing. All rights reserved.</p>
+                <p class="tagline serif"><svg class="mk-stripes" viewBox="0 0 16 12" aria-hidden="true">
+                        <rect width="16" height="2.4" rx="1.2" y="0" />
+                        <rect width="16" height="2.4" rx="1.2" y="4.8" />
+                        <rect width="16" height="2.4" rx="1.2" y="9.6" />
+                    </svg>Be the King of Markdown.</p>
             </div>
         </div>
     </footer>
 
-    <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-    <script src="js/shared.js"></script>
-
-
-    <!-- Global Download Modal -->
+    <!-- Download modal -->
     <div id="downloadModal" class="download-modal-overlay">
-        <div class="download-modal-content">
-            <button class="download-modal-close" aria-label="Close modal" id="closeDownloadModal">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <div class="download-modal-content" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+            <button type="button" class="download-modal-close" aria-label="Close" id="closeDownloadModal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
             <div class="modal-header">
-                <h3>Download MarKing</h3>
-                <p>Select the appropriate package for your system architecture.</p>
+                <h3 id="downloadModalTitle">Download MarKing</h3>
+                <p>Choose the installer that matches your system.</p>
             </div>
 
             <div class="modal-tabs">
-                <button class="modal-tab" data-platform="win">Windows</button>
-                <button class="modal-tab" data-platform="mac">macOS</button>
-                <button class="modal-tab" data-platform="linux">Linux</button>
+                <button type="button" class="modal-tab" data-platform="win">Windows</button>
+                <button type="button" class="modal-tab" data-platform="mac">macOS</button>
+                <button type="button" class="modal-tab" data-platform="linux">Linux</button>
             </div>
 
             <div class="modal-panels">
-                <!-- Windows Panel -->
                 <div class="modal-panel" id="panel-win">
                     <div class="download-list" id="list-win">
                         <div class="dl-loading">
-                            <svg class="dl-spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="dl-spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
-                            <span>Loading latest versions...</span>
+                            <span>Fetching the latest release…</span>
                         </div>
                     </div>
                 </div>
-                <!-- macOS Panel -->
                 <div class="modal-panel" id="panel-mac">
                     <div class="download-list" id="list-mac"></div>
                 </div>
-                <!-- Linux Panel -->
                 <div class="modal-panel" id="panel-linux">
                     <div class="download-list" id="list-linux"></div>
                 </div>
             </div>
 
             <div class="modal-footer">
-                <a id="checksum-link" target="_blank" class="view-all-releases" style="display:none; margin-right:18px;" href="#">Checksum file SHA256SUMS.txt</a>
-                <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" class="view-all-releases">View
-                    all release files on GitHub →</a>
+                <a id="checksum-link" target="_blank" rel="noopener noreferrer" class="view-all-releases"
+                    style="display:none; margin-right:18px;" href="#">SHA256 checksums</a>
+                <a href="https://github.com/l06066hb/MarKing/releases" target="_blank" rel="noopener noreferrer"
+                    class="view-all-releases">All releases on GitHub →</a>
             </div>
         </div>
     </div>
+
+    <script src="js/shared.js?v=2.0.2"></script>
 
     <!-- Smart Download System Configuration -->
     <script>
@@ -745,7 +1072,6 @@
             statsContainerSelector: '.github-stats',
             enableToast: true
         };
-
     </script>
 
     <!-- Smart Download System -->

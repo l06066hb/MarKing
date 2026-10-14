@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://markingmd.com/index-en.html</loc>
-    <lastmod>2026-04-21T00:00:00.000Z</lastmod>
+    <loc>https://markingmd.com/</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
     <image:image>
@@ -10,160 +10,32 @@
       <image:caption>MarKing Logo</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://markingmd.com/marking-lightweight-mode-en.png?v=1</image:loc>
-      <image:caption>MarKing Lightweight Mode - Instant Open and Read</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-markdown-editor-main-interface-en.png?v=1</image:loc>
-      <image:caption>MarKing Main Interface - Professional Markdown Editing Environment</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-editor-features-preview-completion-en.png?v=1</image:loc>
-      <image:caption>MarKing Editor Close-up - Smart Completion and Code Snippets</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-visual-table-editor-en.png?v=1</image:loc>
-      <image:caption>MarKing Table Editor - Visual Markdown Table Editing</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-export-docx-pdf-feature-en.png?v=1</image:loc>
-      <image:caption>MarKing Export Features - Multi-format Professional Document Export</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-mermaid-diagram-assistant-en.png?v=1</image:loc>
-      <image:caption>MarKing Mermaid Diagram Assistant - Assists in Writing Complex Diagrams</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-smart-backup-system-en.png?v=1</image:loc>
-      <image:caption>MarKing Smart Backup System - Flexible Backup Scope Selection</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-multi-vault-management-en.png?v=1</image:loc>
-      <image:caption>MarKing Multi-vault Management - Independent Project Management</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-code-theme-settings-en.png?v=1</image:loc>
-      <image:caption>MarKing Code Theme Settings - Independent Code Highlighting</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-mathlive-formula-editor-en.png?v=1</image:loc>
-      <image:caption>MarKing MathLive Formula Editor - Visual Math Editing with Virtual Keyboard</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-excalidraw-whiteboard-en.png?v=1</image:loc>
-      <image:caption>MarKing Excalidraw Whiteboard - Freeform Hand-drawn Diagrams</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-docx-export-v2-template-en.png?v=1</image:loc>
-      <image:caption>MarKing DOCX Export v2.0 - Template-Based Professional Document Generation</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-command-palette-en.png?v=1</image:loc>
-      <image:caption>MarKing Command Palette - Fuzzy Search to Reach Any Feature Instantly</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-focus-mode-en.png?v=1</image:loc>
-      <image:caption>MarKing Focus Mode - Typewriter Scrolling for Immersive Writing</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-knowledge-graph-en.png?v=1</image:loc>
-      <image:caption>MarKing Knowledge Graph - Interactive Force-Directed Graph of Your Knowledge Network</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
-      <image:caption>MarKing Eye Care Theme</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-theme-rose-pink-en.png</image:loc>
-      <image:caption>MarKing Rose Pink Theme</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-theme-ocean-blue-en.png</image:loc>
-      <image:caption>MarKing Ocean Blue Theme</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-theme-sepia-yellow-en.png</image:loc>
-      <image:caption>MarKing Sepia Yellow Theme</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-theme-neon-cyber-en.png</image:loc>
-      <image:caption>MarKing Neon Cyber Theme</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://markingmd.com/index-redirect.html</loc>
-    <lastmod>2026-02-11T13:05:01.555Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://markingmd.com/index.html</loc>
-    <lastmod>2026-04-21T00:00:00.000Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-app-icon-128.png</image:loc>
-      <image:caption>MarKing Logo</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-lightweight-mode.png?v=1</image:loc>
-      <image:caption>MarKing 极速轻量阅读模式 - 秒开 MD 文件</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-markdown-editor-main-interface.png?v=1</image:loc>
-      <image:caption>MarKing 主界面 - 专业的 Markdown 编辑环境</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-editor-features-preview-completion.png?v=1</image:loc>
-      <image:caption>MarKing 编辑器特写 - 智能补全和代码片段</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-visual-table-editor.png?v=1</image:loc>
-      <image:caption>MarKing 表格编辑器 - 可视化编辑 Markdown 表格</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-export-docx-pdf-feature.png?v=1</image:loc>
-      <image:caption>MarKing 导出功能 - 多格式专业文档导出</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-mermaid-diagram-assistant.png?v=1</image:loc>
-      <image:caption>MarKing Mermaid 图表编写助手 - 辅助编写复杂图表</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-smart-backup-system.png?v=1</image:loc>
-      <image:caption>MarKing 智能备份系统 - 灵活的备份范围选择</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-multi-vault-management.png?v=1</image:loc>
-      <image:caption>MarKing 多库管理 - 独立管理不同项目</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-code-theme-settings.png?v=1</image:loc>
-      <image:caption>MarKing 代码高亮主题 - 独立的代码块配色选项</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-mathlive-formula-editor.png?v=1</image:loc>
-      <image:caption>MarKing MathLive 公式编辑器 - 可视化数学公式编辑与虚拟键盘</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-excalidraw-whiteboard.png?v=1</image:loc>
-      <image:caption>MarKing Excalidraw 手绘白板 - 自由绘制流程图与示意图</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-docx-export-v2-template.png?v=1</image:loc>
-      <image:caption>MarKing DOCX 导出 v2.0 - 模板化专业文档生成</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-command-palette.png?v=1</image:loc>
-      <image:caption>MarKing 命令面板 - 模糊搜索快速触达任意功能</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://markingmd.com/marking-focus-mode.png?v=1</image:loc>
+      <image:loc>https://markingmd.com/marking-focus-mode.png</image:loc>
       <image:caption>MarKing 专注模式 - 打字机滚动沉浸式写作</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://markingmd.com/marking-knowledge-graph.png?v=1</image:loc>
-      <image:caption>MarKing 知识图谱 - 交互式力导向图可视化知识网络</image:caption>
+      <image:loc>https://markingmd.com/marking-markdown-editor-main-interface.png</image:loc>
+      <image:caption>MarKing 主界面 - 分栏编辑与实时预览</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-formula.png</image:loc>
+      <image:caption>MarKing MathLive 公式编辑器</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-mermaid.png</image:loc>
+      <image:caption>MarKing Mermaid 图表助手</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-table.png</image:loc>
+      <image:caption>MarKing 可视化表格编辑器</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-whiteboard.png</image:loc>
+      <image:caption>MarKing Excalidraw 内嵌白板</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-docx-export-v2-template.png</image:loc>
+      <image:caption>MarKing DOCX 导出 - 模板化专业文档生成</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://markingmd.com/marking-theme-eye-care.png</image:loc>
@@ -185,17 +57,79 @@
       <image:loc>https://markingmd.com/marking-theme-neon-cyber.png</image:loc>
       <image:caption>MarKing 霓虹赛博主题</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-classic-midnight.png</image:loc>
+      <image:caption>MarKing 经典午夜主题</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-cool-black.png</image:loc>
+      <image:caption>MarKing 极客酷黑主题</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://markingmd.com/structured-data-en.html</loc>
-    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://markingmd.com/structured-data-zh.html</loc>
-    <lastmod>2026-04-12T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://markingmd.com/index-en.html</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-app-icon-128.png</image:loc>
+      <image:caption>MarKing Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-focus-mode-en.png</image:loc>
+      <image:caption>MarKing Focus Mode - Typewriter Scrolling for Immersive Writing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-markdown-editor-main-interface-en.png</image:loc>
+      <image:caption>MarKing Main Interface - Split Editing with Live Preview</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-formula-en.png</image:loc>
+      <image:caption>MarKing MathLive Formula Editor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-mermaid-en.png</image:loc>
+      <image:caption>MarKing Mermaid Diagram Assistant</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-table-en.png</image:loc>
+      <image:caption>MarKing Visual Table Editor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-bento-whiteboard-en.png</image:loc>
+      <image:caption>MarKing Embedded Excalidraw Whiteboard</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-docx-export-v2-template-en.png</image:loc>
+      <image:caption>MarKing DOCX Export - Template-Based Document Generation</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-eye-care-en.png</image:loc>
+      <image:caption>MarKing Eye Care Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-rose-pink-en.png</image:loc>
+      <image:caption>MarKing Rose Pink Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-ocean-blue-en.png</image:loc>
+      <image:caption>MarKing Ocean Blue Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-sepia-yellow-en.png</image:loc>
+      <image:caption>MarKing Sepia Yellow Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-neon-cyber-en.png</image:loc>
+      <image:caption>MarKing Neon Cyber Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-classic-midnight-en.png</image:loc>
+      <image:caption>MarKing Classic Midnight Theme</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://markingmd.com/marking-theme-cool-black-en.png</image:loc>
+      <image:caption>MarKing Cool Black Theme</image:caption>
+    </image:image>
   </url>
 </urlset>
