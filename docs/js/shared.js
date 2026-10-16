@@ -1,592 +1,659 @@
 /* ============================================================
-   MarKing Landing Page — Shared JavaScript
-   Extracted from index.html / index-en.html
+   MarKing Landing — shared.js v2.0.0
+   「墨与纸」交互模块：下载入口 / 系统适配 / 导航 / 揭示 /
+   打字演示 / 行内 AI / 知识图谱 / 主题切换 / 灯箱 / 日期。
+   零依赖；所有模块对缺失元素静默跳过。
    ============================================================ */
+(function () {
+    'use strict';
 
-// ========== GitHub Stats Data Fetching ==========
-async function fetchGitHubStats() {
-    const CACHE_KEY = 'github_stats_cache';
-    const CACHE_DURATION = 5 * 60 * 1000;
+    var docEl = document.documentElement;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hoverable = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    var OS = docEl.getAttribute('data-os') || 'win';
+    var GITHUB_LATEST = 'https://github.com/l06066hb/MarKing/releases/latest';
 
-    const cached = sessionStorage.getItem(CACHE_KEY);
-    if (cached) {
-        try {
-            const { data, timestamp } = JSON.parse(cached);
-            if (Date.now() - timestamp < CACHE_DURATION) {
-                updateStatsUI(data);
-                return;
-            }
-        } catch (e) { /* continue to fetch */ }
+    function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+    function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+    function rand(min, max) { return Math.floor(min + Math.random() * (max - min + 1)); }
+    function esc(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    try {
-        const repoResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing');
-        if (!repoResponse.ok) throw new Error(`HTTP ${repoResponse.status}`);
-        const repoData = await repoResponse.json();
-
-        const releasesResponse = await fetch('https://api.github.com/repos/l06066hb/MarKing/releases');
-        if (!releasesResponse.ok) throw new Error(`HTTP ${releasesResponse.status}`);
-        const releases = await releasesResponse.json();
-
-        let totalDownloads = 0;
-        releases.forEach(release => {
-            if (release.assets) {
-                release.assets.forEach(asset => {
-                    totalDownloads += asset.download_count || 0;
-                });
-            }
-        });
-
-        const data = { stars: repoData.stargazers_count || 0, downloads: totalDownloads };
-        sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }));
-        updateStatsUI(data);
-    } catch (error) {
-        console.error('Failed to fetch GitHub stats:', error);
-        const starsEl = document.getElementById('github-stars');
-        const downloadsEl = document.getElementById('total-downloads');
-        if (starsEl) starsEl.textContent = '-';
-        if (downloadsEl) downloadsEl.textContent = '-';
-    }
-}
-
-function updateStatsUI(data) {
-    const starsEl = document.getElementById('github-stars');
-    const downloadsEl = document.getElementById('total-downloads');
-    if (starsEl && data.stars !== undefined) starsEl.textContent = data.stars.toLocaleString();
-    if (downloadsEl && data.downloads !== undefined) downloadsEl.textContent = data.downloads.toLocaleString();
-}
-
-window.addEventListener('load', fetchGitHubStats);
-
-// ========== Mobile Menu Toggle ==========
-(function () {
-    const btn = document.getElementById('mobileMenuBtn');
-    const nav = document.getElementById('navLinks');
-    const menuIcon = btn?.querySelector('.menu-icon');
-    const closeIcon = btn?.querySelector('.close-icon');
-    if (!btn || !nav || !menuIcon || !closeIcon) return;
-
-    function closeMenu() {
-        nav.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Open navigation menu');
-        menuIcon.style.display = 'block';
-        closeIcon.style.display = 'none';
-    }
-
-    btn.addEventListener('click', function () {
-        const isActive = nav.classList.toggle('active');
-        btn.setAttribute('aria-expanded', isActive);
-        btn.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
-        menuIcon.style.display = isActive ? 'none' : 'block';
-        closeIcon.style.display = isActive ? 'block' : 'none';
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeMenu));
-    document.addEventListener('click', (e) => {
-        if (!nav.classList.contains('active')) return;
-        if (!btn.contains(e.target) && !nav.contains(e.target)) closeMenu();
-    });
-})();
-
-// ========== Smooth Scroll for Anchor Links ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#' || href.length < 2) return;
-        e.preventDefault();
-        try {
-            const target = document.querySelector(href);
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } catch (err) { /* invalid selector, ignore */ }
-    });
-});
-
-// ========== Scroll Effects (consolidated) ==========
-(function () {
-    const header = document.getElementById('header');
-    const scrollProgress = document.getElementById('scrollProgress');
-    const backToTop = document.getElementById('backToTop');
-
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-            const y = window.pageYOffset;
-
-            // Header scroll state
-            if (header) header.classList.toggle('scrolled', y > 100);
-
-            // Scroll progress bar
-            if (scrollProgress) {
-                const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                scrollProgress.style.transform = `scaleX(${total > 0 ? y / total : 0})`;
-            }
-
-            // Back to top visibility
-            if (backToTop) backToTop.classList.toggle('visible', y > 500);
-            ticking = false;
-        });
-    }, { passive: true });
-
-    if (backToTop) {
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-})();
-
-// ========== Scroll Reveal Animation (Intersection Observer) ==========
-(function () {
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 80);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.bento-item, .platform-card, .sponsor-card, .showcase-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
-    });
-})();
-
-// ========== Logo Preload ==========
-window.addEventListener('load', () => {
-    const logoIcon = document.querySelector('.logo-icon');
-    if (logoIcon) logoIcon.style.opacity = '1';
-});
-
-// ========== Screenshot Carousel (with touch swipe) ==========
-(function () {
-    const track = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dotsContainer = document.getElementById('carouselDots');
-    if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
-
-    const items = track.querySelectorAll('.screenshot-item');
-    const dots = dotsContainer.querySelectorAll('.carousel-dot');
-    let currentIndex = 0;
-    let autoPlayInterval;
-
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        items.forEach((item, i) => item.classList.toggle('active', i === currentIndex));
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-    }
-
-    function nextSlide() { currentIndex = (currentIndex + 1) % items.length; updateCarousel(); }
-    function prevSlide() { currentIndex = (currentIndex - 1 + items.length) % items.length; updateCarousel(); }
-    function goToSlide(i) { currentIndex = i; updateCarousel(); }
-    function startAutoPlay() { autoPlayInterval = setInterval(nextSlide, 5000); }
-    function stopAutoPlay() { clearInterval(autoPlayInterval); }
-    function restartAutoPlay() { stopAutoPlay(); startAutoPlay(); }
-
-    prevBtn.addEventListener('click', () => { prevSlide(); restartAutoPlay(); });
-    nextBtn.addEventListener('click', () => { nextSlide(); restartAutoPlay(); });
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => { goToSlide(i); restartAutoPlay(); });
-    });
-
-    track.addEventListener('mouseenter', stopAutoPlay);
-    track.addEventListener('mouseleave', startAutoPlay);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') { prevSlide(); restartAutoPlay(); }
-        else if (e.key === 'ArrowRight') { nextSlide(); restartAutoPlay(); }
-    });
-
-    // Touch swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const SWIPE_THRESHOLD = 50;
-
-    track.addEventListener('touchstart', (e) => {
-        if (!e.changedTouches.length) return;
-        touchStartX = e.changedTouches[0].screenX;
-        stopAutoPlay();
-    }, { passive: true });
-
-    track.addEventListener('touchend', (e) => {
-        if (!e.changedTouches.length) return;
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > SWIPE_THRESHOLD) {
-            if (diff > 0) nextSlide(); else prevSlide();
-        }
-        startAutoPlay();
-    }, { passive: true });
-
-    startAutoPlay();
-})();
-
-// ========== Showcase Tabbed Gallery ==========
-(function () {
-    const tabs = document.querySelectorAll('.showcase-tab');
-    const panels = document.querySelectorAll('.showcase-panel');
-    if (!tabs.length || !panels.length) return;
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.dataset.tab;
-
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-
-            panels.forEach(p => p.classList.remove('active'));
-            const activePanel = document.querySelector(`.showcase-panel[data-panel="${target}"]`);
-            if (activePanel) activePanel.classList.add('active');
-        });
-    });
-})();
-
-// ========== Image Lightbox for Showcase ==========
-(function () {
-    // Create lightbox DOM once
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox-overlay';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'Image preview');
-
-    const closeBtn = document.createElement('button');
-    closeBtn.className = 'lightbox-close';
-    closeBtn.setAttribute('aria-label', 'Close preview');
-    closeBtn.innerHTML = '<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
-
-    const img = document.createElement('img');
-    img.alt = '';
-
-    const hint = document.createElement('span');
-    hint.className = 'lightbox-hint';
-
-    overlay.appendChild(closeBtn);
-    overlay.appendChild(img);
-    overlay.appendChild(hint);
-    document.body.appendChild(overlay);
-
-    // Detect language
-    const isEN = document.documentElement.lang === 'en';
-    hint.textContent = isEN ? 'Click anywhere or press Esc to close' : '点击任意位置或按 Esc 关闭';
-
-    function openLightbox(src, alt) {
-        img.src = src;
-        img.alt = alt || '';
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Attach to all showcase card images
-    document.querySelectorAll('.showcase-card img').forEach(cardImg => {
-        cardImg.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (!cardImg.src) return;
-            openLightbox(cardImg.src, cardImg.alt);
-        });
-    });
-
-    // Close handlers
-    overlay.addEventListener('click', closeLightbox);
-    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
-    });
-})();
-
-// ========== Bento Card Glow Follow Effect ==========
-document.querySelectorAll('.bento-item').forEach(card => {
-    let rafId = null;
-    card.addEventListener('mousemove', (e) => {
-        if (rafId) return;
-        rafId = requestAnimationFrame(() => {
-            const rect = card.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            card.style.setProperty('--mouse-x', `${x}%`);
-            card.style.setProperty('--mouse-y', `${y}%`);
-            rafId = null;
-        });
-    });
-});
-
-// ========== Enhanced Glow Follow for all interactive cards ==========
-document.querySelectorAll('.showcase-card, .platform-card, .sponsor-card, .theme-item').forEach(card => {
-    let rafId = null;
-    card.addEventListener('mousemove', (e) => {
-        if (rafId) return;
-        rafId = requestAnimationFrame(() => {
-            const rect = card.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            card.style.setProperty('--mouse-x', `${x}%`);
-            card.style.setProperty('--mouse-y', `${y}%`);
-            rafId = null;
-        });
-    });
-});
-
-// ========== 3D Tilt Effect on Cards ==========
-(function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (window.matchMedia('(max-width: 768px)').matches) return; // disable on mobile
-
-    const MAX_TILT = 8; // degrees
-    document.querySelectorAll('.tilt-card').forEach(card => {
-        let rafId = null;
-        card.addEventListener('mousemove', (e) => {
-            if (rafId) return;
-            rafId = requestAnimationFrame(() => {
-                const rect = card.getBoundingClientRect();
-                const cx = rect.left + rect.width / 2;
-                const cy = rect.top + rect.height / 2;
-                const rotateY = ((e.clientX - cx) / (rect.width / 2)) * MAX_TILT;
-                const rotateX = -((e.clientY - cy) / (rect.height / 2)) * MAX_TILT;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
-                rafId = null;
-            });
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
-})();
-
-// ========== Magnetic Buttons ==========
-(function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (window.matchMedia('(max-width: 768px)').matches) return;
-
-    const STRENGTH = 0.35;
-    document.querySelectorAll('.magnetic').forEach(wrapper => {
-        const btn = wrapper.querySelector('.btn');
-        if (!btn) return;
-        let rafId = null;
-        wrapper.addEventListener('mousemove', (e) => {
-            if (rafId) return;
-            rafId = requestAnimationFrame(() => {
-                const rect = wrapper.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                wrapper.style.transform = `translate(${x * STRENGTH}px, ${y * STRENGTH}px)`;
-                btn.style.transform = `translate(${x * STRENGTH * 0.4}px, ${y * STRENGTH * 0.4}px)`;
-                rafId = null;
-            });
-        });
-        wrapper.addEventListener('mouseleave', () => {
-            wrapper.style.transform = '';
-            btn.style.transform = '';
-        });
-    });
-})();
-
-// Hero image now uses a subtle CSS floating animation instead of mouse-follow tilt.
-
-// ========== Animated Number Counters ==========
-(function () {
-    const counters = document.querySelectorAll('.hero-stat-num[data-count]');
-    if (!counters.length) return;
-
-    const animateCount = (el) => {
-        const target = parseInt(el.dataset.count, 10) || 0;
-        const suffix = el.dataset.suffix || '';
-        const duration = 1600;
-        const start = performance.now();
-
-        const tick = (now) => {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            // easeOutExpo
-            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            const value = Math.round(target * eased);
-            el.textContent = value + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCount(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(c => observer.observe(c));
-})();
-
-// ========== Section Reveal on Scroll ==========
-(function () {
-    const sections = document.querySelectorAll('.features, .showcase, .theme-showcase, .download, .sponsor, .section-header');
-    if (!sections.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
-
-    sections.forEach(s => observer.observe(s));
-})();
-
-// ========== Marquee: JS-measured seamless loop ==========
-(function () {
-    const track = document.getElementById('marqueeTrack');
-    const set = document.getElementById('marqueeSet');
-    if (!track || !set) return;
-
-    function initMarquee() {
-        // 清除旧的克隆
-        track.querySelectorAll('.marquee-set').forEach((el, i) => {
-            if (i > 0) el.remove();
-        });
-
-        // 克隆一份，让内容首尾无缝衔接
-        const clone = set.cloneNode(true);
-        clone.removeAttribute('id');
-        track.appendChild(clone);
-
-        // 精确测量一个 set 的宽度
-        const setWidth = Math.round(set.getBoundingClientRect().width);
-        if (setWidth === 0) return; // 内容未渲染，跳过
-        // 按固定速度计算动画时长，约 35 px/s，滚动更从容
-        const duration = Math.max(Math.min(setWidth / 35, 120), 40);
-
-        // 动态注入精确关键帧动画
-        const styleId = 'marquee-dynamic-style';
-        let style = document.getElementById(styleId);
-        if (!style) {
-            style = document.createElement('style');
-            style.id = styleId;
-            document.head.appendChild(style);
-        }
-        style.textContent = `
-            @keyframes marqueeScroll {
-                from { transform: translateX(0); }
-                to   { transform: translateX(-${setWidth}px); }
-            }
-            #${track.id} {
-                animation: marqueeScroll ${duration}s linear infinite;
-            }
-        `;
-    }
-
-    initMarquee();
-    // 字体加载完成后重新测量
-    document.fonts?.ready?.then(initMarquee);
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(initMarquee, 250);
-    }, { passive: true });
-})();
-
-// ========== Hero Floating Particles ==========
-(function () {
-    const container = document.getElementById('heroParticles');
-    if (!container) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (window.matchMedia('(max-width: 480px)').matches) return;
-
-    const COUNT = 14;
-    const frag = document.createDocumentFragment();
-    for (let i = 0; i < COUNT; i++) {
-        const span = document.createElement('span');
-        const size = 2 + Math.random() * 4;
-        span.style.width = `${size}px`;
-        span.style.height = `${size}px`;
-        span.style.left = `${Math.random() * 100}%`;
-        span.style.animationDuration = `${10 + Math.random() * 14}s`;
-        span.style.animationDelay = `${Math.random() * 12}s`;
-        span.style.opacity = `${0.3 + Math.random() * 0.4}`;
-        frag.appendChild(span);
-    }
-    container.appendChild(frag);
-})();
-
-// ========== Cursor Glow Follower ==========
-(function () {
-    const glow = document.getElementById('cursorGlow');
-    if (!glow) return;
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
-    let rafId = null;
-    let active = false;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        if (!active) {
-            active = true;
-            glow.style.opacity = '1';
-            animate();
-        }
-    });
-
-    document.addEventListener('mouseleave', () => {
-        active = false;
-        glow.style.opacity = '0';
-        if (rafId) cancelAnimationFrame(rafId);
-    });
-
-    function animate() {
-        // Smooth lerp follow
-        glowX += (mouseX - glowX) * 0.12;
-        glowY += (mouseY - glowY) * 0.12;
-        glow.style.left = `${glowX}px`;
-        glow.style.top = `${glowY}px`;
-        if (Math.abs(mouseX - glowX) > 0.5 || Math.abs(mouseY - glowY) > 0.5) {
-            rafId = requestAnimationFrame(animate);
+    /* ---------- 1. 下载入口 ---------- */
+
+    function openDownload(platform) {
+        var p = (platform === 'win' || platform === 'mac' || platform === 'linux') ? platform : null;
+        if (typeof window.DownloadUI_openModal === 'function') {
+            window.DownloadUI_openModal(p);
         } else {
-            rafId = null;
+            window.open(GITHUB_LATEST, '_blank', 'noopener');
         }
     }
-})();
 
-// ========== Scroll Parallax for Aurora ==========
-(function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const aurora = document.querySelector('.hero-aurora');
-    const orb = document.querySelector('.hero-aurora-orb');
-    if (!aurora && !orb) return;
+    $$('[data-download]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            openDownload(el.getAttribute('data-download') || null);
+        });
+    });
 
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                const y = window.pageYOffset;
-                if (aurora) aurora.style.transform = `translateY(${y * 0.25}px)`;
-                if (orb) orb.style.transform = `translateX(-50%) translateY(${y * 0.15}px)`;
+    /* ---------- 2. 系统适配 ---------- */
+
+    if (OS === 'win' || OS === 'mac' || OS === 'linux') {
+        $$('[data-dl-label]').forEach(function (el) {
+            var label = el.getAttribute('data-label-' + OS);
+            if (label) el.textContent = label;
+        });
+        $$('.platform[data-platform]').forEach(function (el) {
+            el.classList.toggle('is-current', el.getAttribute('data-platform') === OS);
+        });
+    }
+
+    if (OS === 'mac') {
+        var KEY_MAP = { 'Ctrl': '⌘', 'Shift': '⇧', 'Alt': '⌥' };
+        $$('.keys[data-keys]').forEach(function (el) {
+            var parts = el.getAttribute('data-keys').split('+');
+            el.innerHTML = parts.map(function (k) {
+                return '<kbd>' + esc(KEY_MAP[k.trim()] || k.trim()) + '</kbd>';
+            }).join('');
+        });
+    }
+
+    /* ---------- 3. 导航 ---------- */
+
+    (function initNav() {
+        var header = $('.site-header');
+        if (!header) return;
+        var ticking = false;
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+                header.classList.toggle('is-scrolled', window.scrollY > 4);
                 ticking = false;
             });
-            ticking = true;
         }
-    }, { passive: true });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        var btn = $('.menu-btn');
+        var sheet = $('#mobileMenu');
+        if (!btn || !sheet) return;
+
+        var isEn = /^en/.test(docEl.lang || '');
+        function setOpen(open, restoreFocus) {
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? (isEn ? 'Close menu' : '关闭菜单') : (isEn ? 'Open menu' : '打开菜单'));
+            sheet.hidden = !open;
+            header.classList.toggle('menu-open', open);
+            document.body.classList.toggle('nav-open', open);
+            if (!open && restoreFocus) btn.focus();
+        }
+        btn.addEventListener('click', function () {
+            setOpen(btn.getAttribute('aria-expanded') !== 'true');
+        });
+        sheet.addEventListener('click', function (e) {
+            if (e.target.closest('a')) setOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !sheet.hidden) setOpen(false, true);
+        });
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 880 && !sheet.hidden) setOpen(false);
+        });
+    })();
+
+    /* ---------- 4. 揭示 ---------- */
+
+    (function initReveal() {
+        var items = $$('[data-reveal]');
+        if (!items.length) return;
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+            items.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        var delivered = false;
+        var io = new IntersectionObserver(function (entries) {
+            delivered = true;
+            entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                    en.target.classList.add('is-in');
+                    io.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        items.forEach(function (el) { io.observe(el); });
+        setTimeout(function () {
+            if (delivered) return;
+            io.disconnect();
+            items.forEach(function (el) { el.classList.add('is-in'); });
+        }, 2000);
+    })();
+
+    /* ---------- 5. 打字演示 ---------- */
+
+    (function initDemo() {
+        var demo = $('[data-demo]');
+        if (!demo) return;
+        var srcEl = $('[data-demo-src]', demo);
+        var pvEl = $('[data-demo-preview]', demo);
+        var countEl = $('[data-demo-count]', demo);
+        var replayBtn = $('[data-demo-replay]', demo);
+        var docScript = $('[data-demo-doc]', demo);
+        if (!srcEl || !pvEl || !docScript) return;
+
+        var doc = (docScript.textContent || '').replace(/^\s+|\s+$/g, '');
+        var countMode = demo.getAttribute('data-count-mode') || 'words';
+        var unit = demo.getAttribute('data-unit') || 'words';
+        var tipLabel = demo.getAttribute('data-tip-label') || 'Tip';
+        var CJK_RE = /[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/;
+        var BULB = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></svg>';
+        var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+        /* 源码行着色 */
+        function inlineSrc(text) {
+            var out = '';
+            var i = 0;
+            while (i < text.length) {
+                var two = text.substr(i, 2);
+                if (two === '[[' || two === ']]') {
+                    out += '<span class="tk-m">' + two + '</span>'; i += 2;
+                } else if (two === '**' || two === '==') {
+                    out += '<span class="tk-p">' + two + '</span>'; i += 2;
+                } else {
+                    out += esc(text.charAt(i)); i += 1;
+                }
+            }
+            return out;
+        }
+
+        function colorLine(raw) {
+            var m;
+            if ((m = raw.match(/^#\s+(.*)$/))) {
+                return '<span class="tk-m">#</span> <span class="tk-h">' + inlineSrc(m[1]) + '</span>';
+            }
+            if ((m = raw.match(/^>\s+(\[![A-Z]+\])(.*)$/))) {
+                return '<span class="tk-q">&gt;</span> <span class="tk-q">' + esc(m[1]) + '</span>' + inlineSrc(m[2]);
+            }
+            if ((m = raw.match(/^>\s+(.*)$/))) {
+                return '<span class="tk-q">&gt;</span> ' + inlineSrc(m[1]);
+            }
+            if ((m = raw.match(/^(- \[[ x]\] )(.*)$/))) {
+                return '<span class="tk-s">' + esc(m[1]) + '</span>' + inlineSrc(m[2]);
+            }
+            if ((m = raw.match(/^(- )(.*)$/))) {
+                return '<span class="tk-s">- </span>' + inlineSrc(m[2]);
+            }
+            return inlineSrc(raw);
+        }
+
+        function renderSrc(text, withCaret) {
+            var lines = text.split('\n');
+            var html = '';
+            for (var i = 0; i < lines.length; i++) {
+                var content = colorLine(lines[i]);
+                if (withCaret && i === lines.length - 1) content += '<span class="demo-caret"></span>';
+                html += '<div class="sl"><span class="ln">' + (i + 1) + '</span><span class="sc">' + (content || '&nbsp;') + '</span></div>';
+            }
+            srcEl.innerHTML = html;
+        }
+
+        /* 行内渲染（预览） */
+        function inlinePv(text) {
+            var s = esc(text);
+            s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            s = s.replace(/==([^=]+)==/g, '<mark>$1</mark>');
+            s = s.replace(/\[\[([^\]]+)\]\]/g, '<span class="pv-link">$1</span>');
+            s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+            return s;
+        }
+
+        /* 迷你渲染器 */
+        function renderPv(text) {
+            var lines = text.split('\n');
+            var html = '';
+            var i = 0;
+            while (i < lines.length) {
+                var line = lines[i];
+                var m;
+                if ((m = line.match(/^#\s+(.*)$/))) {
+                    html += '<div class="pv-h1">' + inlinePv(m[1]) + '</div>';
+                } else if (line.match(/^>\s+\[![A-Z]+\]/)) {
+                    var body = [];
+                    var j = i + 1;
+                    while (j < lines.length && (m = lines[j].match(/^>\s+(.*)$/)) && !lines[j].match(/^>\s+\[![A-Z]+\]/)) {
+                        body.push(m[1]); j++;
+                    }
+                    html += '<div class="pv-callout"><div class="pv-callout-title">' + BULB + '<span>' + esc(tipLabel) + '</span></div>' +
+                        body.map(function (b) { return '<p class="pv-p" style="margin:0">' + inlinePv(b) + '</p>'; }).join('') + '</div>';
+                    i = j - 1;
+                } else if ((m = line.match(/^>\s+(.*)$/))) {
+                    html += '<div class="pv-quote">' + inlinePv(m[1]) + '</div>';
+                } else if (line.match(/^- \[[ x]\] /) || line.match(/^- /)) {
+                    var isTask = line.match(/^- \[[ x]\] /);
+                    var tag = isTask ? 'pv-tasks' : 'pv-list';
+                    html += '<ul class="' + tag + '">';
+                    while (i < lines.length && ((isTask && lines[i].match(/^- \[[ x]\] /)) || (!isTask && lines[i].match(/^- /) && !lines[i].match(/^- \[[ x]\] /)))) {
+                        var checked = lines[i].match(/^- \[x\] /);
+                        var txt = lines[i].replace(/^- \[[ x]\] /, '').replace(/^- /, '');
+                        html += '<li><span class="pv-box' + (checked ? ' is-checked' : '') + '">' + (checked ? CHECK : '') + '</span><span>' + inlinePv(txt) + '</span></li>';
+                        i++;
+                    }
+                    html += '</ul>';
+                    continue;
+                } else if (line.trim() === '') {
+                    /* 空行分段 */
+                } else {
+                    html += '<p class="pv-p">' + inlinePv(line) + '</p>';
+                }
+                i++;
+            }
+            pvEl.innerHTML = html;
+        }
+
+        /* 字数统计 */
+        function countText(text) {
+            var clean = text
+                .replace(/\[![A-Z]+\]/g, '')
+                .replace(/[\[\]\*`=>#\-]/g, ' ')
+                .replace(/\s+/g, ' ');
+            if (countMode === 'cjk') {
+                var han = (clean.match(/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/g) || []).length;
+                var words = (clean.replace(/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/g, ' ').match(/[A-Za-z0-9]+/g) || []).length;
+                return han + words + ' ' + unit;
+            }
+            return ((clean.match(/\S+/g) || []).length) + ' ' + unit;
+        }
+
+        /* 步进队列 */
+        function buildSteps(text) {
+            var steps = [];
+            var i = 0;
+            while (i < text.length) {
+                var c = text.charAt(i);
+                var chunk, delay;
+                if (CJK_RE.test(c)) {
+                    chunk = '';
+                    while (i < text.length && CJK_RE.test(text.charAt(i)) && chunk.length < 3) {
+                        chunk += text.charAt(i); i++;
+                    }
+                    delay = rand(110, 210);
+                } else {
+                    chunk = c; i++;
+                    delay = /[\x00-\x7F]/.test(c) ? rand(26, 62) : rand(110, 210);
+                }
+                var extra = 0;
+                if (chunk === '\n') extra = rand(240, 420);
+                else if (/^[，。！？,.!?]$/.test(chunk)) extra = rand(140, 240);
+                steps.push({ chunk: chunk, delay: delay + extra });
+            }
+            return steps;
+        }
+
+        var playing = false;
+        var timer = null;
+
+        function setCount(text) {
+            if (countEl) countEl.textContent = countText(text);
+        }
+
+        function renderFinal() {
+            renderSrc(doc, true);
+            renderPv(doc);
+            setCount(doc);
+        }
+
+        function finish() {
+            demo.classList.remove('is-typing');
+            playing = false;
+            if (replayBtn && !reduceMotion) replayBtn.hidden = false;
+        }
+
+        function play() {
+            if (playing) return;
+            playing = true;
+            demo.classList.add('is-typing');
+            if (replayBtn) replayBtn.hidden = true;
+            var typed = '';
+            var steps = buildSteps(doc);
+            var idx = 0;
+            function step() {
+                if (idx >= steps.length) { finish(); return; }
+                var st = steps[idx];
+                typed += st.chunk;
+                renderSrc(typed, true);
+                renderPv(typed);
+                setCount(typed);
+                srcEl.scrollTop = srcEl.scrollHeight;
+                idx++;
+                timer = setTimeout(step, st.delay);
+            }
+            timer = setTimeout(step, 120);
+        }
+
+        if (reduceMotion) {
+            renderFinal();
+            return;
+        }
+
+        if ('IntersectionObserver' in window) {
+            var delivered = false;
+            var io = new IntersectionObserver(function (entries) {
+                delivered = true;
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) {
+                        io.disconnect();
+                        play();
+                    }
+                });
+            }, { threshold: 0.35 });
+            io.observe(demo);
+            setTimeout(function () {
+                if (!delivered) { io.disconnect(); play(); }
+            }, 2000);
+        } else {
+            play();
+        }
+
+        if (replayBtn) {
+            replayBtn.addEventListener('click', function () {
+                clearTimeout(timer);
+                play();
+            });
+        }
+    })();
+
+    /* ---------- 6. 行内 AI 流式 ---------- */
+
+    (function initAi() {
+        var card = $('[data-ai-demo]');
+        if (!card) return;
+        var stream = $('[data-ai-stream]', card);
+        if (!stream) return;
+
+        function done() { card.classList.add('is-done'); }
+
+        if (reduceMotion) { done(); return; }
+
+        var fullText = stream.textContent;
+        var CJK_RE = /[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\u3000-\u30FF\uFF00-\uFFEF]/;
+
+        function run() {
+            var h = stream.offsetHeight;
+            stream.style.minHeight = h + 'px';
+            stream.textContent = '';
+            var caret = document.createElement('span');
+            caret.className = 'demo-caret';
+            stream.appendChild(caret);
+            var i = 0;
+            (function tick() {
+                if (i >= fullText.length) {
+                    caret.remove();
+                    done();
+                    return;
+                }
+                var c = fullText.charAt(i);
+                stream.insertBefore(document.createTextNode(c), caret);
+                i++;
+                setTimeout(tick, CJK_RE.test(c) ? rand(35, 60) : rand(18, 30));
+            })();
+        }
+
+        if ('IntersectionObserver' in window) {
+            var delivered = false;
+            var io = new IntersectionObserver(function (entries) {
+                delivered = true;
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { io.disconnect(); run(); }
+                });
+            }, { threshold: 0.5 });
+            io.observe(card);
+            setTimeout(function () {
+                if (!delivered) { io.disconnect(); run(); }
+            }, 2000);
+        } else {
+            run();
+        }
+    })();
+
+    /* ---------- 7. 知识图谱悬停 ---------- */
+
+    (function initGraph() {
+        var svg = $('svg.graph');
+        if (!svg || !hoverable) return;
+        var edges = $$('.ge', svg);
+        var nodes = $$('.gn', svg);
+
+        function neighbors(id) {
+            var set = {};
+            edges.forEach(function (e) {
+                var a = e.getAttribute('data-a'), b = e.getAttribute('data-b');
+                if (a === id) { set[b] = true; e.classList.add('is-hot'); }
+                else if (b === id) { set[a] = true; e.classList.add('is-hot'); }
+            });
+            return set;
+        }
+
+        nodes.forEach(function (gn) {
+            gn.addEventListener('mouseenter', function () {
+                var id = gn.getAttribute('data-id');
+                svg.classList.add('is-dim');
+                var hot = neighbors(id);
+                nodes.forEach(function (n) {
+                    n.classList.toggle('is-hot', n.getAttribute('data-id') === id || !!hot[n.getAttribute('data-id')]);
+                });
+            });
+            gn.addEventListener('mouseleave', function () {
+                svg.classList.remove('is-dim');
+                edges.forEach(function (e) { e.classList.remove('is-hot'); });
+                nodes.forEach(function (n) { n.classList.remove('is-hot'); });
+            });
+        });
+    })();
+
+    /* ---------- 8. 主题切换器 ---------- */
+
+    (function initThemes() {
+        var root = $('[data-themes]');
+        if (!root) return;
+        var stage = $('.themes-stage', root);
+        var swatches = $$('.swatch', root);
+        if (!stage || !swatches.length) return;
+
+        function imgFor(key) { return $('img[data-theme="' + key + '"]', stage); }
+        function swatchFor(key) {
+            for (var i = 0; i < swatches.length; i++) {
+                if (swatches[i].getAttribute('data-theme') === key) return swatches[i];
+            }
+            return null;
+        }
+
+        function preload(key) {
+            var img = imgFor(key);
+            if (img && !img.getAttribute('src') && img.getAttribute('data-src')) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+            }
+        }
+
+        function activate(key, focus) {
+            var img = imgFor(key);
+            var sw = swatchFor(key);
+            if (!img || !sw) return;
+            swatches.forEach(function (s) {
+                var on = s === sw;
+                s.setAttribute('aria-checked', on ? 'true' : 'false');
+                s.tabIndex = on ? 0 : -1;
+            });
+            if (focus) sw.focus();
+            function show() {
+                $$('img', stage).forEach(function (im) {
+                    im.classList.toggle('is-active', im === img);
+                });
+            }
+            if (!img.getAttribute('src')) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+                if (img.complete) show();
+                else img.addEventListener('load', show, { once: true });
+            } else {
+                show();
+            }
+        }
+
+        function move(delta, toEnd) {
+            var idx = swatches.findIndex(function (s) { return s.getAttribute('aria-checked') === 'true'; });
+            if (idx < 0) idx = 0;
+            var next = toEnd === 'home' ? 0 : toEnd === 'end' ? swatches.length - 1
+                : (idx + delta + swatches.length) % swatches.length;
+            activate(swatches[next].getAttribute('data-theme'), true);
+        }
+
+        swatches.forEach(function (sw) {
+            sw.addEventListener('click', function () {
+                activate(sw.getAttribute('data-theme'), false);
+            });
+            sw.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+                else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+                else if (e.key === 'Home') { e.preventDefault(); move(0, 'home'); }
+                else if (e.key === 'End') { e.preventDefault(); move(0, 'end'); }
+            });
+            sw.addEventListener('mouseenter', function () { preload(sw.getAttribute('data-theme')); });
+            sw.addEventListener('focus', function () { preload(sw.getAttribute('data-theme')); });
+        });
+
+        /* 进入视口后预取下一张 */
+        if ('IntersectionObserver' in window && 'requestIdleCallback' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (!en.isIntersecting) return;
+                    io.disconnect();
+                    requestIdleCallback(function () {
+                        var cur = swatches.findIndex(function (s) { return s.getAttribute('aria-checked') === 'true'; });
+                        var next = swatches[(cur + 1) % swatches.length];
+                        if (next) preload(next.getAttribute('data-theme'));
+                    });
+                });
+            }, { threshold: 0.2 });
+            io.observe(root);
+        }
+    })();
+
+    /* ---------- 9. 灯箱 ---------- */
+
+    (function initLightbox() {
+        var zoomables = $$('img[data-zoom]');
+        if (!zoomables.length) return;
+
+        var isEn = docEl.lang === 'en';
+        var box = document.createElement('div');
+        box.className = 'lightbox';
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        box.setAttribute('aria-label', isEn ? 'Image preview' : '图片预览');
+        var closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'lightbox-close';
+        closeBtn.setAttribute('aria-label', docEl.lang === 'en' ? 'Close' : '关闭');
+        closeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+        var img = document.createElement('img');
+        img.alt = '';
+        var hint = document.createElement('p');
+        hint.className = 'lightbox-hint';
+        hint.textContent = docEl.lang === 'en' ? 'Click anywhere or press Esc to close' : '点击任意处或按 Esc 关闭';
+        box.appendChild(img);
+        box.appendChild(closeBtn);
+        box.appendChild(hint);
+        document.body.appendChild(box);
+
+        var lastFocus = null;
+
+        function open(src, trigger) {
+            lastFocus = trigger || null;
+            img.src = src;
+            box.classList.add('is-open');
+            document.body.classList.add('nav-open');
+            closeBtn.focus();
+        }
+        function close() {
+            box.classList.remove('is-open');
+            document.body.classList.remove('nav-open');
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+            lastFocus = null;
+        }
+
+        zoomables.forEach(function (z) {
+            z.addEventListener('click', function () {
+                open(z.currentSrc || z.src, z);
+            });
+            z.setAttribute('tabindex', '0');
+            z.setAttribute('role', 'button');
+            z.setAttribute('aria-label', (z.getAttribute('alt') ? z.getAttribute('alt') + ' — ' : '') + (isEn ? 'Enlarge' : '放大查看'));
+            z.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    open(z.currentSrc || z.src, z);
+                }
+            });
+        });
+        closeBtn.addEventListener('click', close);
+        box.addEventListener('click', function (e) {
+            if (e.target !== img) close();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && box.classList.contains('is-open')) close();
+        });
+    })();
+
+    /* ---------- 9.5 下载弹窗焦点管理（不动 download-*.js 契约，外置补丁） ---------- */
+
+    (function initModalA11y() {
+        var overlay = $('#downloadModal');
+        if (!overlay || !('MutationObserver' in window)) return;
+        var lastFocus = null;
+
+        function focusables() {
+            return $$('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])', overlay)
+                .filter(function (el) { return el.offsetParent !== null; });
+        }
+        function onToggle() {
+            if (overlay.classList.contains('active')) {
+                lastFocus = document.activeElement;
+                var list = focusables();
+                if (list.length) list[0].focus();
+            } else {
+                if (lastFocus && lastFocus.focus) lastFocus.focus();
+                lastFocus = null;
+            }
+        }
+        new MutationObserver(onToggle).observe(overlay, { attributes: true, attributeFilter: ['class'] });
+        overlay.addEventListener('keydown', function (e) {
+            if (e.key !== 'Tab') return;
+            var list = focusables();
+            if (!list.length) return;
+            var first = list[0], last = list[list.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        });
+    })();
+
+    /* ---------- 10. 今日日期 ---------- */
+
+    $$('[data-today]').forEach(function (el) {
+        var d = new Date();
+        var p = function (n) { return (n < 10 ? '0' : '') + n; };
+        el.textContent = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+    });
+
+    /* ---------- 11. 屏蔽无效的 GitHub 统计请求 ---------- */
+
+    // download-ui 初始化时会无条件拉取仓库 stars/下载量，写入 #github-stars 等元素；
+    // v2.0 起页面已无这些元素，请求（未鉴权、易触发 403 限流）纯属噪音，这里短路掉。
+    // 本脚本先于 download-init.js 注册 DOMContentLoaded，此补丁必在其 init 之前生效。
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.DownloadUI && window.DownloadUI.prototype) {
+            window.DownloadUI.prototype.loadGitHubStats = function () { return Promise.resolve(); };
+        }
+    });
+
 })();
