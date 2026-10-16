@@ -46,9 +46,20 @@ Once enabled, MarKing initializes a Git repository in your Vault directory and c
 
 **Note**: Do not push notes containing sensitive or confidential information to a remote you do not fully trust. MarKing blocks remote URLs that embed a username with a password/token, so credentials are not written to your local repository config in plain text.
 
-### 3.2 Channels Not Yet Implemented
+### 3.2 WebDAV Channel (currently available)
 
-Syncthing / iCloud / WebDAV / MarKing Hosted Sync are **not implemented yet**. The app labels them honestly as "coming soon" and performs no sync or data transfer for them.
+Once enabled, MarKing syncs your Vault notes over the WebDAV protocol to **a WebDAV server you configure** (e.g., Nutstore, NextCloud, Synology / NAS, or self-hosted):
+
+- Uploaded / downloaded note content is **plain text**. MarKing **does not provide end-to-end encryption**; the server operator, and anyone granted access to that account, can read your notes
+- Transport encryption depends on whether your WebDAV server enables HTTPS (`https://`) — **always use an HTTPS URL**; MarKing does not handle transport-layer encryption
+- Login credentials (server URL / username / password) are stored **encrypted locally only** (AES-256-GCM) and used solely when making requests to your configured WebDAV server — never sent to any other server
+- Access control, retention, and cross-border transfer on the server follow **your agreement with the server operator** and their privacy policy — please review their terms before use
+
+**Note**: Do not sync notes containing sensitive or confidential information to a server you do not fully trust; prefer a server with HTTPS enabled.
+
+### 3.3 Channels Not Yet Implemented
+
+Channels labeled "coming soon" in sync settings are **not implemented** — no sync is performed and no data is sent to any corresponding service.
 
 ## 4. Update Checks
 

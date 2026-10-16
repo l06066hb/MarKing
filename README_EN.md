@@ -10,21 +10,21 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.6.0](https://img.shields.io/badge/MarKing-v1.6.0-2563eb?style=for-the-badge)
+![MarKing-v1.6.1](https://img.shields.io/badge/MarKing-v1.6.1-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Git Sync` · `Document Compare` · `Task System` · `Immersive Mode` · `HTML File Support` · `Global Find & Replace` · `Heading Folding` · `Global Hotkey Quick Capture` · `Spell Check` · `Cursor Position Memory` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
+`AI Formatting` · `Inline AI` · `AI Writing Flow` · `MCP Server` · `Git / WebDAV Sync` · `Document Compare` · `Task System` · `Immersive Mode` · `HTML File Support` · `Global Find & Replace` · `Heading Folding` · `Global Hotkey Quick Capture` · `Spell Check` · `Cursor Position Memory` · `Math Completion` · `Code Fence Completion` · `Responsive Breadcrumb` · `Mermaid 11 Diagrams` · `Paste as Markdown` · `Document Templates` · `Typography` · `Interface Density` · `Web URL Import` · `Import Plugin System` · `Vault Overview` · `WikiLink Backlinks` · `Knowledge Graph` · `Command Palette` · `Focus Mode` · `MathLive Formulas` · `LaTeX Cross-References` · `Excalidraw` · `DOCX/PDF/HTML Export`
 
 <br>
 
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.6.0 — Git Sync Arrives**: Sync engine (auto-sync / conflict resolution / version history / encrypted credentials), vault config whitelist & local backup/restore, document compare & file history, `Ctrl+Wheel` document zoom, table editor rework, CJK auto-spacing.
+> **v1.6.1 — WebDAV Sync Arrives**: A second sync channel beyond Git — sync your vault to Nutstore, NextCloud, or any self-hosted WebDAV service, with sync-plan preview, interval auto-sync, network-backoff retries, and conflicted-copy protection; plus auto link-renaming sync and Excalidraw external-file embeds.
 
 <br>
 
@@ -82,7 +82,7 @@ Out-of-the-box desktop clients, natively compiled for every platform — no extr
     <img src="docs/marking-knowledge-graph-en.png" alt="MarKing Knowledge Graph - Backlink Visualization" width="800">
 
 *   **Command Palette & Quick Switcher** `NEW`  
-    `Ctrl+Shift+P` for a global command search panel; `Ctrl+P` for instant fuzzy file-name navigation. Breadcrumb bar above the editor shows the real-time directory path.
+    `Ctrl+Shift+P` for a global command search panel; `Ctrl+O` for instant fuzzy file-name navigation. Breadcrumb bar above the editor shows the real-time directory path.
 
     <img src="docs/marking-command-palette-en.png" alt="MarKing Command Palette" width="800">
 
@@ -128,6 +128,17 @@ Out-of-the-box desktop clients, natively compiled for every platform — no extr
     Physically isolate different document vaults within the app. Personal journals and work documents remain completely independent with zero search interference.
 
     <img src="docs/marking-multi-vault-management-en.png" alt="MarKing Multi-Vault Management" width="800">
+
+*   **Git / WebDAV Dual-Channel Sync** `NEW`  
+    Sync your vault to a remote Git repository, or to Nutstore / NextCloud / self-hosted WebDAV services: live sync status in the sidebar, auto-sync on save; preview the sync plan before executing, resolve conflicts file-by-file with side-by-side diffs; automatic backoff retries on network failures, and a multi-device sync overview. Credentials encrypted at rest — API keys and secrets are never synced or backed up.
+
+    <img src="docs/marking-git-sync-en.png" alt="MarKing Git Sync Settings" width="800">
+
+*   **Document Compare & File History** `NEW`  
+    Right-click "Document Compare" in the file tree to diff the current doc against a snapshot or another file; for sync-enabled vaults, "File History" browses commit records, previews any old version, and restores with one click.
+
+*   **Document Zoom & Typography Polish** `NEW`  
+    `Ctrl+Wheel` to zoom, `Ctrl+±` / `Ctrl+0` to adjust or reset; preview auto-inserts visual spacing between CJK and Latin/digits, and clamps ultra-wide tables so they wrap instead of scrolling.
 
 *   **Card-Style File Browsing** `NEW`  
     Brand-new card view with tree/card mode toggle, compact/standard/relaxed density options, breadcrumb navigation and quick folder jump. Full keyboard navigation (arrow keys/Enter/Backspace) and multi-select (Shift+arrow/Ctrl+click/Ctrl+A).

@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.6.1] - 2026-10-16
+
+> WebDAV sync arrives: sync your vault to WebDAV services like Nutstore or NextCloud, with sync-plan preview and interval auto-sync — alongside auto link-renaming sync and Excalidraw external-file embeds.
+
+### ✨ Features
+
+- **WebDAV Sync** — Besides Git, you can now sync your vault to WebDAV-compatible services such as Nutstore and NextCloud. Enter the server address and account to enable it, and saving auto-syncs. Review the sync plan (which files will be uploaded / downloaded / deleted) before running it, or set a fixed interval (5 minutes by default) for automatic syncing. Adds, edits, and deletions propagate both ways across devices.
+- **Conflict Protection** — When the same file is edited on both ends, neither side is overwritten: the remote version is saved as a copy (`filename (conflicted copy YYYY-MM-DD).ext`) and appears under "Pending Copies" for you to pick which to keep — nothing is lost.
+- **Reliable on Flaky Networks** — Sync automatically retries with backoff on network drops, timeouts, or server-side rate-limiting (up to 8s, 4 attempts), honoring the server's suggested retry delay. Deterministic errors such as auth failures are not retried. A single failed item doesn't block the rest, and retries never create duplicates.
+- **Sync Activity Log & Multi-Device Overview** — Review the upload / download / conflict details of every sync run; "Multi-Device Sync Status" shows each device's platform and last sync time at a glance.
+- **Plain-HTTP Interception on Public Networks** — Plaintext `http://` sync endpoints on public networks are blocked by default to prevent credential leaks; LAN / self-hosted / Tailscale environments are automatically exempted, with an explicit opt-out switch.
+- **Auto Link-Renaming Sync** — Rename or move a file / folder and MarKing updates every `[[wikilink]]` across the vault automatically (aliases, block / heading refs, embeds, image links, and directory-prefix paths). Preview the change list before applying, undo any time, and pick auto / manual / preview preference — code samples are left untouched.
+- **Excalidraw External-File Embed** — Save a canvas as a standalone `.excalidraw` file and embed it with the Obsidian-compatible `![[file.excalidraw]]` syntax (coexists with the inline base64 mode) — ideal for large canvases and reusing the same canvas across documents.
+
+### ♻️ Improvements
+
+- **Sync Channel Selection** — Choose Git or WebDAV as your sync channel in settings; each channel is configured independently.
+- **Faster File-List Summaries** — The second line of the file list now uses a derived excerpt cache: plain-text summaries are extracted instantly on scan / save (markup and code blocks stripped), so large vaults load faster.
+- **Multi-Device State Merge** — Categories, favorites, tags, and templates merge entity-level over sync; concurrent edits on two devices no longer lose one side.
+
+### 🐛 Fixes
+
+- **Backlinks & Graph Coverage Gap** — Documents arriving via sync, created externally, or never opened previously didn't appear in backlinks or the knowledge graph; they are now indexed vault-wide, and external renames / moves update link targets accordingly.
+- **Mermaid Diagrams Too Small** — Small diagrams used to render at natural size and look tiny, while extra-wide charts were shrunk until illegible with no way to zoom. Small diagrams now scale up to fill the container width (up to 2x), and extra-wide charts render at natural size with horizontal scrolling; double-click a diagram to open the fullscreen viewer, which now fits the viewport on open.
+- **CJK Summary Marker Residue** — Fixed `**` markers leaking into list summaries for adjacent CJK bold text (e.g. 「文字**加粗**文字」).
+- **Sync Reliability Hardening** — Self-healing missing remote directories, remote-deletion safeguards, serialized concurrent syncs, macOS / Windows filename Unicode normalization, and conflicted-copy name-deduplication.
+
+---
+
 ## [1.6.0] - 2026-09-30
 
 > Git sync arrives, vault config sync & local backup/restore, document compare & file history, document zoom, table editor rework, and CJK auto-spacing.

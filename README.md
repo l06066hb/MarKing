@@ -10,21 +10,21 @@
 
 <br>
 
-![MarKing-v1.6.0](https://img.shields.io/badge/MarKing-v1.6.0-2563eb?style=for-the-badge)
+![MarKing-v1.6.1](https://img.shields.io/badge/MarKing-v1.6.1-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
 [![Downloads](https://img.shields.io/github/downloads/l06066hb/MarKing/total?style=flat-square&color=2563eb)](https://github.com/l06066hb/MarKing/releases)
 [![Stars](https://img.shields.io/github/stars/l06066hb/MarKing?style=flat-square&color=eab308)](https://github.com/l06066hb/MarKing/stargazers)
 
-`AI 排版` · `行内 AI` · `AI 写作流` · `MCP Server` · `Git 同步` · `文档对比` · `任务系统` · `沉浸模式` · `HTML 文件支持` · `全局查找替换` · `标题折叠` · `全局热键快速捕获` · `拼写检查` · `光标位置记忆` · `公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
+`AI 排版` · `行内 AI` · `AI 写作流` · `MCP Server` · `Git / WebDAV 同步` · `文档对比` · `任务系统` · `沉浸模式` · `HTML 文件支持` · `全局查找替换` · `标题折叠` · `全局热键快速捕获` · `拼写检查` · `光标位置记忆` · `公式智能补全` · `代码块语言补全` · `响应式面包屑` · `Mermaid 11 图表扩展` · `粘贴为 Markdown` · `文档模板系统` · `字体字号设置` · `界面密度` · `网页 URL 导入` · `文档导入插件系统` · `知识库概览` · `WikiLink 双链` · `知识图谱` · `命令面板` · `专注模式` · `MathLive 公式` · `LaTeX 交叉引用` · `Excalidraw 白板` · `DOCX/PDF/HTML 导出`
 
 <br>
 
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.6.0 — Git 同步正式落地**：同步引擎（自动同步 / 冲突解决 / 版本历史 / 凭据加密）、库配置白名单与本地备份恢复、文档对比与文件历史、`Ctrl+滚轮` 文档缩放、表格编辑重构、中西文自动空格。
+> **v1.6.1 — WebDAV 同步落地**：Git 之外新增第二条同步通道——坚果云 / NextCloud / 自托管 WebDAV 网盘均可作为远端，同步计划预览、定时自动同步、断网退避重试、冲突副本保护全链路可用；同期上线双链自动重命名同步与 Excalidraw 外部文件引用。
 
 <br>
 
@@ -82,7 +82,7 @@ MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性�
     <img src="docs/marking-knowledge-graph.png" alt="MarKing 知识图谱 - 双链可视化" width="800">
 
 *   **命令面板与快捷切换器** `NEW`  
-    `Ctrl+Shift+P` 唤出命令面板搜索一切操作；`Ctrl+P` 快捷切换器毫秒级模糊搜索文件跳转。编辑区顶部面包屑导航实时显示路径层级。
+    `Ctrl+Shift+P` 唤出命令面板搜索一切操作；`Ctrl+O` 快捷切换器毫秒级模糊搜索文件跳转。编辑区顶部面包屑导航实时显示路径层级。
 
     <img src="docs/marking-command-palette.png" alt="MarKing 命令面板" width="800">
 
@@ -128,6 +128,17 @@ MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性�
     在应用内物理隔离不同文档库。个人日记与工作文档完全独立存放，零检索干扰。
 
     <img src="docs/marking-multi-vault-management.png" alt="MarKing 多库管理" width="800">
+
+*   **Git / WebDAV 双通道同步** `NEW`  
+    笔记库可同步到 Git 远端仓库，或坚果云 / NextCloud / 自托管等 WebDAV 网盘：左侧栏实时显示同步状态，保存后自动同步；执行前可预览同步计划，冲突时逐文件对比差异并选择保留版本；断网超时自动退避重试，多设备同步概况一目了然。同步凭据加密存储，API 密钥等敏感内容永不写入同步或备份。
+
+    <img src="docs/marking-git-sync.png" alt="MarKing Git 同步设置" width="800">
+
+*   **文档对比与文件历史** `NEW`  
+    文件树右键「文档对比」，将当前文档与历史快照或另一篇文档并排比对差异；对开启过同步的库，「查看文件历史」可浏览提交记录、预览任意旧版本、一键恢复到工作区。
+
+*   **文档缩放与排版优化** `NEW`  
+    `Ctrl+滚轮` 缩放显示比例，`Ctrl+±` / `Ctrl+0` 调整与重置；预览时中西文、数字之间自动插入视觉空隙，超宽表格自动限宽换行。
 
 *   **卡片式文件浏览** `NEW`  
     全新卡片视图，支持树状/卡片模式切换、紧凑/标准/宽松三种密度、面包屑导航与文件夹快速跳转。键盘导航（方向键/Enter/Backspace）与多选操作（Shift+方向键/Ctrl+点击/Ctrl+A）一应俱全。
