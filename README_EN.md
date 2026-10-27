@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.6.1](https://img.shields.io/badge/MarKing-v1.6.1-2563eb?style=for-the-badge)
+![MarKing-v1.6.2](https://img.shields.io/badge/MarKing-v1.6.2-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.6.1 — WebDAV Sync Arrives**: A second sync channel beyond Git — sync your vault to Nutstore, NextCloud, or any self-hosted WebDAV service, with sync-plan preview, interval auto-sync, network-backoff retries, and conflicted-copy protection; plus auto link-renaming sync and Excalidraw external-file embeds.
+> **v1.6.2 — A Smarter AI Core**: 2026-era models recognized automatically — context length, vision, and reasoning included; collapsible live thinking streams for reasoning models; Groq / MiniMax / OpenCode Go providers plus custom request headers with credential-grade encryption; polished inline-AI preview, plus Mermaid export and Linux / macOS startup fixes.
 
 <br>
 

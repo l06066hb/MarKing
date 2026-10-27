@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.6.2] - 2026-10-27
+
+> A smarter AI core: 2026-era models are recognized automatically, and reasoning models now stream their thinking process in a collapsible view; Groq, MiniMax, and OpenCode Go join the built-in provider list alongside custom request headers; the inline-AI preview gets a thorough polish — plus fixes for Mermaid export and Linux / macOS startup issues.
+
+### ✨ Features
+
+- **New Models, Plug and Play** — GPT-5/6, Claude 4/5, Gemini 4, DeepSeek V4/R1, Qwen3.x, Kimi, GLM-5, Grok 4, MiniMax M2 and other next-gen models are recognized automatically — context length, vision input, and reasoning capability included. No manual configuration needed.
+- **Watch the Thinking** — Reasoning models like DeepSeek R1 and the o-series now show a collapsible "thinking" stream while composing, outlining, or refining; reasoning never leaks into your document.
+- **More Providers** — Groq, MiniMax, and OpenCode Go are built in; each provider supports custom request headers for API gateways, with credential-grade encrypted storage.
+- **Inline-AI Preview Upgraded** — The result card flips above the cursor when space below runs out, pins to the editor edge instead of vanishing on scroll, marks the source range with a theme-aware highlight, and keeps partial output when you cancel mid-stream.
+- **Per-Block Line Wrap** — Beyond the global default, each code block gets a toolbar toggle for wrap / no-wrap — without touching the document source.
+
+### ♻️ Improvements
+
+- **Smarter Reasoning Requests** — Unsupported sampling parameters are stripped automatically and output budget is reserved for thinking, eliminating "thought itself out of words" empty replies; connectivity checks use low reasoning effort for faster feedback.
+- **Large-Document Guard** — When input exceeds the model's context, the output budget shrinks automatically; if it still won't fit you get a readable message instead of a cryptic error.
+- **No More Thinking Timeouts** — The streaming idle limit is relaxed to accommodate long reasoning phases.
+
+### 🐛 Fixes
+
+- **Empty Replies from Reasoning Models** — Fixed thinking tokens exhausting the output budget and returning an empty response.
+- **Outline Generation Appearing Frozen** — Reasoning models left the outline dialog blank for tens of seconds; progress now streams in real time like Compose.
+- **Mermaid Export** — Fixed text drift in exported PNGs and extra-wide diagrams clipped by page width; preview and export now share one rendering pipeline.
+- **Linux Won't Launch** — AppImage no longer crashes on distributions missing system-tray libraries; it degrades gracefully to a tray-less mode.
+- **macOS Black Space After Closing Fullscreen** — Closing a fullscreen window no longer leaves a black desktop space behind.
+- **Occasional Startup Stall** — Tray initialization can no longer block and stall the whole startup sequence.
+
+---
+
 ## [1.6.1] - 2026-10-16
 
 > WebDAV sync arrives: sync your vault to WebDAV services like Nutstore or NextCloud, with sync-plan preview and interval auto-sync — alongside auto link-renaming sync and Excalidraw external-file embeds.
