@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.6.2](https://img.shields.io/badge/MarKing-v1.6.2-2563eb?style=for-the-badge)
+![MarKing-v1.6.3](https://img.shields.io/badge/MarKing-v1.6.3-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.6.2 — AI 能力全面升级**：自动识别 2026 新模型族的上下文、视觉与推理能力；推理模型的思考过程实时可折叠展示；新增 Groq / MiniMax / OpenCode Go 供应商与自定义请求头（凭据级加密）；行内 AI 预览体验打磨，并修复 Mermaid 导出与 Linux / macOS 启动问题。
+> **v1.6.3 — 稳定性修复专版**：修复部分笔记库打开即闪退的问题（含中文长链接行必触发）；索引缓存损坏时自动隔离重建，解除反复崩溃死循环；内置崩溃自动报告与异常日志补全。建议所有 1.6.1 / 1.6.2 用户升级。
 
 <br>
 

@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.6.3] - 2026-10-28
+
+> A stability-focused release: fixes the "instant crash when opening a vault" issue affecting some users since v1.6.1, and ships built-in crash self-diagnostics — should a low-level crash ever happen again, a ready-to-share report pops up automatically. **Recommended update for all 1.6.1 / 1.6.2 users.**
+
+### 🐛 Fixes
+
+- **Vault Crashes on Open** — Fixed an issue where certain vaults quit instantly during startup or vault switching. When a document contained a link on a CJK / emoji line longer than 200 characters, building the backlink index hit a low-level error that terminated the whole app. Such vaults now open and index normally.
+- **Corrupt Index Causing Repeat Crashes** — If a vault's index cache was corrupted or a previous initialization was interrupted, every launch used to crash again. The app now quarantines the suspicious index and rebuilds it automatically — the index is a derived cache, so no notes are ever lost — breaking the "bad vault → crash loop".
+
+### ♻️ Improvements
+
+- **Automatic Crash Reports** — If a low-level crash ever happens again, a diagnostic report is generated and opened in your text editor automatically; copy its contents to report the issue, no log-hunting required.
+- **Broader Error Logging** — Uncaught interface errors are now written to the application log as well, and startup / scan steps leave milestone entries that pinpoint where a problem occurred.
+
+---
+
 ## [1.6.2] - 2026-10-27
 
 > A smarter AI core: 2026-era models are recognized automatically, and reasoning models now stream their thinking process in a collapsible view; Groq, MiniMax, and OpenCode Go join the built-in provider list alongside custom request headers; the inline-AI preview gets a thorough polish — plus fixes for Mermaid export and Linux / macOS startup issues.
