@@ -162,7 +162,9 @@ class DownloadUI {
                 try {
                     const cfData = await cfReleasesRes.value.json();
                     if (cfData.releases && cfData.releases.length > 0) {
-                        const latest = cfData.releases[0];
+                        // 跳过 pre-release：preview 版本发布后会成为 releases[0]，
+                        // 落地页下载必须始终锚定正式版
+                        const latest = cfData.releases.find(r => !r.prerelease) || cfData.releases[0];
                         // 将 CF 格式映射为 GitHub 兼容格式
                         releaseData = {
                             assets: latest.assets.map(a => ({
