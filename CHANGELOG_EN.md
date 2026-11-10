@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.6.4] - 2026-11-10
+
+> The knowledge-management release: wikilinks go block-level — reference an exact paragraph and embed it verbatim in another note; hover cards and anchor-grouped backlinks make the note network genuinely usable. A task kanban, file-tree sorting, and a status-bar outline indicator join in; AI gains automatic context triage and truncation continuation, and the macOS CJK input overlap is fixed.
+
+### ✨ Features
+
+- **Block-Level Wikilinks** — Links can now target paragraphs: `[[note#Heading]]` references a section, `[[note#^blockId]]` an exact block; typing `[[` lists linkable headings and blocks. Ctrl/Cmd-hover previews the target without jumping.
+- **Transclusion** — `![[note#^blockId]]` embeds a block, a whole section, or an entire document inline; embeds stay in sync with the source.
+- **Anchor-Grouped Backlinks** — The backlinks panel can group by anchor: every place citing the same paragraph clusters together, one click to the source line.
+- **Wikilink Export Presentation** — When exporting to DOCX / PDF / HTML, `[[wikilinks]]` offer three presentations: styled text, end-of-document footnotes (real page-bottom footnotes in DOCX), or an appendix section that collects cited content — whole-document links can be collected as excerpts or in full; `![[embeds]]` expand to their real content in exports, and `^block-id` markers never leak into published output.
+- **Lite Preview Wikilinks** — Quick-look mode renders `[[wikilinks]]` and block anchors as well.
+- **Task Kanban** — Task lists render as a three-column board; drag cards to update state, written back to the source markdown. Cancelled column toggleable, done column auto-truncated.
+- **File-Tree Sorting** — A toolbar sort button offers name / modified time × ascending / descending (folders always first); the card view follows the same order. Recently modified files float to the top — no more scrolling.
+- **Section Breadcrumb** — The status bar shows the current heading path (e.g. `Overview › Install › Quick Start`) so you always know where you are in long documents.
+- **Copy Wikilink** — The context menu gains “Copy Wikilink”, copying a ready `[[NoteName]]` reference.
+- **AI for Long Documents** — When input exceeds the model window, referenced notes are shed before truncating your text; cut-off replies automatically continue; reasoning text from more providers no longer leaks into the document.
+
+### ♻️ Improvements
+
+- **Accessibility** — All dropdown menus support arrow-key cycling, Esc-to-close with focus return, and keyboard opening; the current selection is announced correctly to screen readers.
+- **Indent Guides** — Every ancestor level now draws a guide line, making deep folder nesting readable at a glance.
+- **Compact Export Dialog** — Mode pickers are now segmented controls with a contextual one-line description.
+
+### 🐛 Fixes
+
+- **macOS CJK Input Overlap** — Fixed garbled, overlapping wrapped lines when typing Chinese on macOS (#115).
+- **Splash Version Number** — Fixed the version number occasionally missing on the splash screen.
+
+---
+
 ## [1.6.3] - 2026-10-28
 
 > A stability-focused release: fixes the "instant crash when opening a vault" issue affecting some users since v1.6.1, and ships built-in crash self-diagnostics — should a low-level crash ever happen again, a ready-to-share report pops up automatically. **Recommended update for all 1.6.1 / 1.6.2 users.**
