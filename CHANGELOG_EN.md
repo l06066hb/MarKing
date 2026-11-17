@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.6.5] - 2026-11-17
+
+> The multi-document workspace release: document tabs arrive — open several documents side by side; single-click opens a lightweight preview tab that promotes to a permanent tab on edit, double-click, pin, drag, or Ctrl+Alt+Enter. The backlinks panel gains an "Unlinked Mentions" view that converts bare name-drops into `[[wikilinks]]` in one click; Lite quick-view mode can now export documents; search learns `path:`/`tag:`/`-negation` operators, and the outline drags whole sections.
+
+### ✨ Features
+
+- **Document Tabs** — Open several documents at once: single-click opens a lightweight preview tab that stays out of the way; editing, double-clicking the tab, pinning, dragging, or `Ctrl+Alt+Enter` (customizable) promotes it to a permanent tab. Pin tabs, close tabs to the right, reopen closed tabs, arrow-key navigation, and an overflow list are all included; preview tabs can be turned off entirely under Settings → Tabs.
+- **Unlinked Mentions** — A new "Mentions" tab in the backlinks panel finds places in the vault that name the current document without linking to it — convert them to `[[wikilinks]]` per line or all at once.
+- **Lite Mode Export** — The quick-look window for external files gains an export entry: use the title-bar icon or shortcut to export as HTML / PDF / DOCX. Switching back to the main window preserves your scroll position, and the window title now shows the document name.
+- **Search Operators** — Global search accepts `path:folder`, `tag:tag`, and `-exclusion` filters, with inline autocomplete suggesting real folders and tags from your vault.
+- **Outline Drag-Reorder** — Drag a heading between its siblings in the outline panel and the whole section (heading + body + subsections) moves with it — restructuring without cut and paste.
+
+### 🐛 Fixes
+
+- **Background Errors When Opening HTML Files** — Fixed continuous error logging when opening HTML and other non-Markdown files in the editor.
+- **macOS Cold-Launch via File Association** — Fixed cases where double-clicking a .md file to launch the app on macOS failed to open it correctly.
+- **Excalidraw Rendering Error** — Fixed a rendering exception affecting Excalidraw diagrams in some scenarios.
+- **Premature Table Cell Wrapping** — Fixed table cells wrapping early despite ample horizontal space: the cell width cap now scales with the visible container width instead of a fixed value (#119).
+- **Occasional Silent Exit** — Updated the underlying window-runtime libraries, mitigating rare cases where the app could exit after the window was hidden to the tray.
+
+---
+
 ## [1.6.4] - 2026-11-10
 
 > The knowledge-management release: wikilinks go block-level — reference an exact paragraph and embed it verbatim in another note; hover cards and anchor-grouped backlinks make the note network genuinely usable. A task kanban, file-tree sorting, and a status-bar outline indicator join in; AI gains automatic context triage and truncation continuation, and the macOS CJK input overlap is fixed.

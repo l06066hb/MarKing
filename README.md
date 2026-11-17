@@ -10,7 +10,7 @@
 
 <br>
 
-![MarKing-v1.6.4](https://img.shields.io/badge/MarKing-v1.6.4-2563eb?style=for-the-badge)
+![MarKing-v1.6.5](https://img.shields.io/badge/MarKing-v1.6.5-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@
 MarKing 是一款桌面端 Markdown 编辑器，注重原生性能与稳定性。  
 **本地优先、零追踪、无广告** — 文字始终保存在你自己的设备上。
 
-> **v1.6.4 — 知识管理专版**：双链升级至块级——`[[笔记#^块ID]]` 精确引用段落、`![[...]]` 转置嵌入、悬停预览、按锚点聚合反链；新增任务看板、文件树排序、状态栏章节指示；AI 支持超长上下文自动取舍与截断续写；修复 macOS 中文输入错位。
+> **v1.6.5 — 多文档工作台专版**：新增文档标签页——预览页签单击轻量打开，编辑/双击/固定/拖拽即转正，固定/关右/重开/键导全件套；反向链接「未链接提及」一键转双链；Lite 快速查看支持导出；搜索 `path:`/`tag:`/`-` 算子与大纲拖拽整节重排。
 
 <br>
 

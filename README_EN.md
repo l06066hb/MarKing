@@ -10,7 +10,7 @@ English | [简体中文](./README.md)
 
 <br>
 
-![MarKing-v1.6.4](https://img.shields.io/badge/MarKing-v1.6.4-2563eb?style=for-the-badge)
+![MarKing-v1.6.5](https://img.shields.io/badge/MarKing-v1.6.5-2563eb?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-1e293b?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)
 
@@ -24,7 +24,7 @@ English | [简体中文](./README.md)
 MarKing is a desktop Markdown editor focused on native performance and stability.  
 **Local-first, zero tracking, ad-free** — your writing stays on your own device.
 
-> **v1.6.4 — Knowledge Management Release**: wikilinks go block-level — `[[note#^blockId]]` targets exact paragraphs, `![[...]]` embeds them inline, hover previews, anchor-grouped backlinks; a task kanban, file-tree sorting, and a status-bar section breadcrumb join in; AI gains context triage and truncation continuation; the macOS CJK input overlap is fixed.
+> **v1.6.5 — Multi-Document Workspace Release**: document tabs arrive — lightweight preview tabs promote on edit, double-click, pin, or drag, with pinning, close-right, reopen-closed and arrow-key navigation; "Unlinked Mentions" converts bare name-drops into `[[wikilinks]]` in one click; Lite quick-view gains export; search `path:`/`tag:`/`-` operators and outline drag-reorder.
 
 <br>
 
